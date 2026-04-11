@@ -51,7 +51,7 @@ The model is trained on a diverse set of 104 geological structures, categorized 
 To prevent thermal throttling during the intensive 21-pass analysis, all image preprocessing (resizing, normalization) is written in **Native C++ (JNI) utilizing NEON SIMD instructions**, yielding a 5x to 10x speedup over standard Android pipelines with minimal memory overhead.
 
 Inference is powered by **LiteRT Standalone** with a robust 6-level hardware fallback system to ensure maximum compatibility across the fragmented Android ecosystem:
-1. **Dedicated NPU** (e.g., Snapdragon 8 Gen 2+, Google Tensor)
+1. **LiteRT** (e.g., Snapdragon 8 Gen 2+, Google Tensor)
 2. **NNAPI** (Android Hardware Acceleration)
 3. **Modern GPU** (Shader acceleration)
 4. **Modern CPU** (SIMD/Neon vectorization)
