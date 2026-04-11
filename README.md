@@ -128,6 +128,12 @@ Because this SoC shares the exact same underlying ARM instruction set and Hexago
 * **Compute:** Qualcomm Oryon™ CPU (10 Cores, up to 3.4 GHz)
 * **AI Engine:** Qualcomm Hexagon™ NPU (**45 TOPS**)
 * **Memory:** LPDDR5x (8448 MT/s)
+* **OS & Power State:** Windows 11 ARM64 — *Tested plugged-in on 'Best Performance' power plan to ensure maximum clock speeds and prevent thermal throttling.*
+* **Inference Runtime:** LiteRT (TensorFlow Lite) Standalone executing via Qualcomm QNN hardware delegates.
+
+* **Compute:** Qualcomm Oryon™ CPU (10 Cores, up to 3.4 GHz)
+* **AI Engine:** Qualcomm Hexagon™ NPU (**45 TOPS**)
+* **Memory:** LPDDR5x (8448 MT/s)
 
 ### A. Memory Footprint & Initialization (Cold Start)
 Cold start performance measures the initialization time required to load the `.tflite` models into RAM/NPU memory.
