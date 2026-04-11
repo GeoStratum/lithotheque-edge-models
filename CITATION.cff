@@ -1,0 +1,7 @@
+cff-version: 1.2.0
+message: "If you reference our Multi-Scale Tiling methodology, Edge architecture, or Snapdragon benchmarks in your academic research, please cite this repository."
+authors:
+  - name: "GeoStratum"
+title: "Lithotheque Edge AI Architecture: Multi-Scale Tiling and NPU Benchmarks"
+date-released: 2026-04-12
+url: "https://github.com/GeoStratum/lithotheque-edge-models"
