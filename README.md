@@ -39,23 +39,27 @@ The model is trained on a diverse set of 104 geological structures, categorized 
 #### 5. Native Elements, Minerals & Ores
 > Bornite, Calcite, Chromite, Cobalt, Columbite-tantalite, Copper, Feldspar, Fluorite, Gold, Iron ore, Labradorite, Lead, Lithium, Magnetite, Malachite, Mariposite, Mica, Molybdenum, Nickel, Platinum, Pyrite, Quartz, Silica, Silver, Sodalite, Stibnite, Sulfur, Tantalum, Tungsten, Uranium, Vanadium, Zeolite, Zinc.
 
-<pre><code>```mermaid
+```mermaid
 graph TD
-A[Image Brute de la Caméra] -->|C++ NEON JNI| B(Pré-traitement & Normalisation)
-B --> C{Multi-Scale Tiling}
-C -->|1 Passe| D[Contexte Global]
-C -->|4 Passes| E[Grille 2x2: Textures]
-C -->|16 Passes| F[Grille 4x4: Minéraux]
-D --> G{Agrégation Pondérée}
-E --> G
-F --> G
-G --> H[Inférence NPU / GPU / CPU]
-H --> I((Résultat Final: Classe + Confiance))
-
-style A fill:#2d3436,stroke:#fff,color:#fff
-style I fill:#0984e3,stroke:#fff,color:#fff
-style C fill:#d63031,stroke:#fff,color:#fff
-
+    A[Raw Camera Frame] -->|C++ NEON JNI| B(Preprocessing & Normalization)
+    B --> C{Multi-Scale Tiling Engine}
+    
+    C -->|Step 1| F[16 Fine Passes<br>4x4 Grid: Minerals & Micro-details]
+    F -->|Step 2| E[4 Medium Passes<br>2x2 Grid: Regional Textures]
+    E -->|Step 3| D[1 Global Pass<br>1x1: Overall Context]
+    
+    F -.->|Scores| G{Weighted Score Aggregation}
+    E -.->|Scores| G
+    D -.->|Scores| G
+    
+    G --> H[Hardware Fallback Inference<br>NPU / GPU / CPU]
+    H --> I((Final Prediction<br>Class + Confidence))
+    
+    style A fill:#2d3436,stroke:#fff,color:#fff
+    style I fill:#0984e3,stroke:#fff,color:#fff
+    style C fill:#d63031,stroke:#fff,color:#fff
+    style G fill:#e17055,stroke:#fff,color:#fff
+```
 ---
 
 ### B. LocalAiManager (Scale Detection)
