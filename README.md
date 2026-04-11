@@ -21,7 +21,7 @@
 ## 1. Overview
 This repository documents the advanced Edge AI architecture integrated into [GeoStratum Lithotheque](https://www.geostratum.eu/lithotheque). To provide instant, on-device geological classification and scale detection without requiring an internet connection, the application relies on a highly optimized, dual-model ecosystem deployed via **Google Play Asset Delivery (On-Demand)**.
 
-**[Try the Application Live on geostratum.eu/lithotheque](https://www.geostratum.eu/lithotheque)**
+**[Try the Application on Play Store](https://play.google.com/store/apps/details?id=com.lithotheque.app.release)**
 
 ## 2. Dual-Model Ecosystem
 The application utilizes two distinct neural networks, fine-tuned specifically for geological field operations:
