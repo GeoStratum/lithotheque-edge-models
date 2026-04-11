@@ -1,2 +1,81 @@
-# lithotheque-edge-models
-Technical documentation and benchmarks for the 3 Edge AI models (INT4 &amp; INT8) powering the Lithotheque offline application.
+# Lithotheque Edge Models - GeoStratum
+**Technical showcase of the Edge AI architecture powering the Lithotheque offline application.**
+
+![Offline](https://img.shields.io/badge/Inference-100%25_Offline-success)
+![Languages](https://img.shields.io/badge/Supported_Languages-14-blue)
+![Engine](https://img.shields.io/badge/Engine-LiteRT_Standalone-orange)
+
+## 1. Overview
+This repository documents the advanced Edge AI architecture integrated into [GeoStratum Lithotheque](https://www.geostratum.eu/lithotheque). To provide instant, on-device geological classification and scale detection without requiring an internet connection, the application relies on a highly optimized, dual-model ecosystem deployed via **Google Play Asset Delivery (On-Demand)**.
+
+## 2. Dual-Model Ecosystem
+The application utilizes two distinct neural networks, fine-tuned specifically for geological field operations:
+
+### A. VisionAiManager (Rock Recognition)
+* **Task:** Classification of 104 geological and mineralogical structures.
+* **Base Architectures:** `MobileNetV5-300m` for modern devices, and `MobileNetV4-Large` for legacy fallback.
+* **Training Corpus:** Fine-tuned on a proprietary dataset of >14,500 validated images.
+* **Innovation: Multi-Scale Tiling (21-Pass Strategy):** To capture both macroscopic textures and microscopic crystals without losing data during downscaling, the engine evaluates the image through 21 parallel passes:
+  * **1 Global Pass:** Overall sample context.
+  * **4 Medium Passes (2x2 Grid):** Regional texture analysis.
+  * **16 Fine Passes (4x4 Grid):** Micro-detail and mineral extraction.
+  *(Scores are aggregated via weighted average for the final prediction).*
+
+### B. LocalAiManager (Scale Detection)
+* **Task:** Metrology assistant detecting reference objects (coins, geological scales).
+* **Base Architecture:** `MobileNetV4-Small`.
+* **Resolution:** High-res 1024x1024 processing for precise small-object anchoring.
+* **Training Corpus:** Fine-tuned on >1,000 reference images.
+
+## 3. Inference Engine & Hardware Fallback
+To prevent thermal throttling during the intensive 21-pass analysis, all image preprocessing (resizing, normalization) is written in **Native C++ (JNI) utilizing NEON SIMD instructions**, yielding a 5x to 10x speedup over standard Android pipelines with minimal memory overhead.
+
+Inference is powered by **LiteRT Standalone** with a robust 6-level hardware fallback system to ensure maximum compatibility across the fragmented Android ecosystem:
+1. **Dedicated NPU** (e.g., Snapdragon 8 Gen 2+, Google Tensor)
+2. **NNAPI** (Android Hardware Acceleration)
+3. **Modern GPU** (Shader acceleration)
+4. **Modern CPU** (SIMD/Neon vectorization)
+5. **Legacy GPU**
+6. **XNNPACK** (Highly optimized CPU fallback)
+
+## 4. Deployment Strategy (AI Tiers)
+Models are aggressively quantized and delivered dynamically based on the device's hardware profile upon first launch:
+
+| Tier | Hardware Criteria | Quantization | Base Architecture |
+| :--- | :--- | :---: | :--- |
+| **Premium** | RAM > 6GB + Modern NPU | **INT4** | MobileNetV5 (300m) & V4 (Small) |
+| **Standard** | RAM > 6GB | **INT8** | MobileNetV5 (300m) & V4 (Small) |
+| **Legacy** | Older / Entry-level devices | **INT8** | MobileNetV4 (Large) & V4 (Small) |
+
+## 5. Visual Evaluation & Benchmarks
+*(Insert your performance matrices, confusion matrix, or accuracy charts here)*
+
+The application utilizes **Google Play Asset Delivery** to download the appropriate AI Pack based on the device's capabilities. Below is the exact memory footprint for the standalone `.tflite` models across the three deployment tiers.
+
+*Note: Latency and accuracy benchmarks are actively being compiled for the latest INT4/INT8 build.*
+
+| Target Tier | Hardware Profile | Format | Rock Model Size | Scale Model Size | Total Footprint | Avg. Latency (ms) | Top-1 Acc. (%) |
+| :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: |
+| **Premium** | Modern NPU | INT4 | 182.9 MB | 1.67 MB | **~184.6 MB** | *TBD* | *TBD* |
+| **Standard** | Normal NPU | INT8 | 287.6 MB | 2.67 MB | **~290.3 MB** | *TBD* | *TBD* |
+| **Legacy** | GPU/CPU | INT8 | 119.9 MB | 2.67 MB | **~122.6 MB** | *TBD* | *TBD* |
+
+> **Architecture Note:** The **Legacy** pack significantly reduces the `rock_model` footprint (119.9 MB) to prevent Out-Of-Memory (OOM) crashes on older devices, ensuring a stable fallback mechanism without compromising the core metrology functionality (`scale_model`).
+
+## 6. Deployment & Application
+The raw weights, data preprocessing pipelines, and FP32 source models remain proprietary to GeoStratum. The inference engine is exclusively accessible through the consumer application.
+
+👉 **[Download and test the app on GeoStratum](https://www.geostratum.eu/lithotheque)**
+
+## 7. Citation
+If you reference our Multi-Scale Tiling methodology or Edge architecture in your academic research, please cite this repository:
+
+```bibtex
+@misc{lithotheque_edge_2026,
+  author = {GeoStratum},
+  title = {Lithotheque Edge AI Architecture: Multi-Scale Tiling and NPU Benchmarks},
+  year = {2026},
+  publisher = {GitHub},
+  journal = {GitHub repository},
+  howpublished = {\url{[https://github.com/](https://github.com/)[Your-Username]/lithotheque-edge-models}}
+}
