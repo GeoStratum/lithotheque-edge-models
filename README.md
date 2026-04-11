@@ -1,9 +1,9 @@
 # Lithotheque Edge Models - GeoStratum
 **Technical showcase of the Edge AI architecture powering the Lithotheque offline application.**
 
-![Offline](https://img.shields.io/badge/Inference-100%25_Offline-success)
-![Languages](https://img.shields.io/badge/Supported_Languages-14-blue)
-![Engine](https://img.shields.io/badge/Engine-LiteRT_Standalone-orange)
+[![Offline](https://img.shields.io/badge/Inference-100%25_Offline-success)](https://www.geostratum.eu/lithotheque)
+[![Languages](https://img.shields.io/badge/Supported_Languages-14-blue)](https://www.geostratum.eu/lithotheque)
+[![Engine](https://img.shields.io/badge/Engine-LiteRT_Standalone-orange)](https://ai.google.dev/edge/litert)
 
 ## 1. Overview
 This repository documents the advanced Edge AI architecture integrated into [GeoStratum Lithotheque](https://www.geostratum.eu/lithotheque). To provide instant, on-device geological classification and scale detection without requiring an internet connection, the application relies on a highly optimized, dual-model ecosystem deployed via **Google Play Asset Delivery (On-Demand)**.
