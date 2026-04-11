@@ -168,7 +168,8 @@ The raw weights, data preprocessing pipelines, and FP32 source models remain pro
 GeoStratum is actively exploring partnerships for B2B geological metrology solutions and academic integrations. 
 For technical inquiries, API access, or enterprise deployment, please reach out to our engineering team.
 
-📧 **Email:** [geostratum.com@outlook.com]
+📧 **Email:** geostratum.com@outlook.com
+
 🌍 **Website:** [www.geostratum.eu](https://www.geostratum.eu)
 
 ## 9. Citation
