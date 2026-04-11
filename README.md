@@ -4,9 +4,9 @@
 [![Offline](https://img.shields.io/badge/Inference-100%25_Offline-success)](https://www.geostratum.eu/lithotheque)
 [![Languages](https://img.shields.io/badge/Supported_Languages-14-blue)](https://www.geostratum.eu/lithotheque)
 [![Engine](https://img.shields.io/badge/Engine-LiteRT_Standalone-orange)](https://ai.google.dev/edge/litert)
-![C++](https://img.shields.io/badge/Native_Core-C%2B%2B_17-00599C?logo=c%2B%2B)
-![Android](https://img.shields.io/badge/Platform-Android_NDK-3DDC84?logo=android)
-![Python](https://img.shields.io/badge/Training-Python_3.10-3776AB?logo=python)
+[![C++](https://img.shields.io/badge/Native_Core-C%2B%2B_17-00599C?logo=c%2B%2B)](https://en.cppreference.com/w/cpp/17)
+[![Android](https://img.shields.io/badge/Platform-Android_NDK-3DDC84?logo=android)](https://developer.android.com/ndk)
+[![Python](https://img.shields.io/badge/Training-Python_3.10-3776AB?logo=python)](https://www.python.org/downloads/release/python-3100/)
 
 ## Table of Contents
 - [1. Overview](#1-overview)
