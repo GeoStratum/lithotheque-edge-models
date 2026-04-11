@@ -20,6 +20,32 @@ The application utilizes two distinct neural networks, fine-tuned specifically f
   * **4 Medium Passes (2x2 Grid):** Regional texture analysis.
   * **16 Fine Passes (4x4 Grid):** Micro-detail and mineral extraction.
   *(Scores are aggregated via weighted average for the final prediction).*
+### Dataset Categorization (104 Classes)
+
+The model is trained on a diverse set of 104 geological structures, categorized below by their primary genetic classification.
+
+#### 1. Sedimentary (Sed)
+* Rocks formed by the accumulation and lithification of sediments or chemical precipitation.
+> Bauxite, Caliche, Chalk, Chert, Clay, Coal, Conglomerate, Coquine, Diatomite, Dolomitic Limestone, Dolomites, Flint, Fossiliferous Limestone, Gypsum, Halite, Limestone, Novaculite, Oolitic Limestone, Phosphate, Potash, Sandstone, Shale (Mudstone), Shale-(Mudstone), Siliceous-sinter, Siltstone, Sodium carbonate, Tufa.
+
+#### 2. Magmatic / Plutonic (Mag)
+* Intrusive igneous rocks formed from slowly cooling magma deep underground.
+> Anorthosite, Aplite, Diorite, Dolerite, Dunite, Essexite, Gabbro, Granite, Granodiorite, Norite, Pegmatite, Syenite.
+
+#### 3. Volcanic / Extrusive (Volc)
+* Extrusive igneous rocks formed from rapidly cooling lava at or near the surface.
+> Andesite, Basalt, Dacite, Ignimbrite, Komatiite, Obsidian, Olivine basalt, Olivine-basalt, Phonolite, Pillow (Lava), Pumice, Rhyolite, Tephrite, Trachyte, Tuff, Volcanic bombs.
+
+---
+*Note for precision: The dataset also includes the following categories to support specific field identification tasks:*
+
+#### 4. Metamorphic (Meta)
+* Rocks altered by extreme heat, pressure, or hydrothermal processes.
+> Anthracite, Breccia (Tectonic/Fault), Gneiss, Hornfels, Lapis lazuli, Marble, Phyllite, Quartzite, Schists, Serpentine, Skarn, Slate.
+
+#### 5. Native Elements, Minerals & Ores
+* Pure elements, economic ores, and individual rock-forming minerals.
+> Bornite, Calcite, Chromite, Cobalt, Columbite-tantalite, Copper, Feldspar, Fluorite, Gold, Iron ore, Labradorite, Lead, Lithium, Magnetite, Malachite, Mariposite, Mica, Molybdenum, Nickel, Platinum, Pyrite, Quartz, Silica, Silver, Sodalite, Stibnite, Sulfur, Tantalum, Tungsten, Uranium, Vanadium, Zeolite, Zinc.
 
 ### B. LocalAiManager (Scale Detection)
 * **Task:** Metrology assistant detecting reference objects (coins, geological scales).
