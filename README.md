@@ -68,7 +68,20 @@ graph TD
 * **Resolution:** High-res 1024x1024 processing for precise small-object anchoring.
 * **Training Corpus:** Fine-tuned on >1,000 reference images.
 
-## 3. Inference Engine & Hardware Fallback
+## 3. Training Data & Acknowledgements
+
+The robustness of the Lithotheque AI ecosystem relies on a hybrid training approach, combining proprietary field metrology data with highly curated, open-source geological collections. We gratefully acknowledge the creators of the following datasets:
+
+### A. Metrology & Scale Detection (LocalAiManager)
+* **GeoStratum Proprietary Corpus:** A custom dataset comprising >1,000 high-resolution field photographs of geological reference objects (coins, geological scales) captured in diverse lighting and terrain conditions by the GeoStratum team. 
+*(Note: This dataset remains the exclusive intellectual property of GeoStratum and is not publicly distributed).*
+
+### B. Lithological Classification (VisionAiManager)
+To achieve extreme accuracy across 104 geological classes, the model was fine-tuned using the following validated sources, both utilized under the **MIT License**:
+* **[Udayl Rocks Dataset](https://huggingface.co/datasets/udayl/rocks):** Our primary dataset for lithological visual features, hosted on Hugging Face.
+* **[Stealth Technologies Rock Classification](https://www.kaggle.com/datasets/stealthtechnologies/rock-classification):** A supplementary dataset hosted on Kaggle, utilized to expand the morphological variance and improve the model's generalization capabilities across varied rock formations.
+
+## 4. Inference Engine & Hardware Fallback
 To prevent thermal throttling during the intensive 21-pass analysis, all image preprocessing (resizing, normalization) is written in **Native C++ (JNI) utilizing NEON SIMD instructions**, yielding a 5x to 10x speedup over standard Android pipelines with minimal memory overhead.
 
 Inference is powered by **LiteRT Standalone** with a robust 6-level hardware fallback system to ensure maximum compatibility across the fragmented Android ecosystem:
@@ -79,7 +92,7 @@ Inference is powered by **LiteRT Standalone** with a robust 6-level hardware fal
 5. **Legacy GPU**
 6. **XNNPACK** (Highly optimized CPU fallback)
 
-## 4. Deployment Strategy (AI Tiers)
+## 5. Deployment Strategy (AI Tiers)
 Models are aggressively quantized and delivered dynamically based on the device's hardware profile upon first launch:
 
 | Tier | Hardware Criteria | Quantization | Base Architecture |
@@ -88,7 +101,7 @@ Models are aggressively quantized and delivered dynamically based on the device'
 | **Standard** | RAM > 6GB | **INT8** | MobileNetV5 (300m) & V4 (Small) |
 | **Legacy** | Older / Entry-level devices | **INT8** | MobileNetV4 (Large) & V4 (Small) |
 
-## 5. Scientific Benchmark & Hardware Profiling
+## 6. Scientific Benchmark & Hardware Profiling
 
 The objective of this study is to evaluate the 3-tier fallback system and validate the trade-off between inference latency (required for real-time tracking) and topographic precision across highly diverse hardware profiles.
 
@@ -124,12 +137,12 @@ Real-time per-frame inference latency and Top-1 accuracy benchmarks (evaluated v
 > * **NPU vs. GPU (The Hexagon INT4 Advantage):** The data definitively proves the hardware efficiency of dedicated AI silicon. The Premium Tier (NPU/INT4) achieves the exact same accuracy (79.87%) as the Standard Tier (GPU/INT8) but operates **nearly 3x faster** (18.4 ms vs. 54.2 ms). This validates the Snapdragon Hexagon NPU's architectural superiority: it processes aggressively compressed INT4 weights with zero fidelity loss compared to standard INT8 GPU execution, drastically reducing power consumption.
 > * **NPU vs. CPU (Optimizing the Speed-to-Quality Ratio):** While the Legacy CPU Tier (running a heavier `MobileNetV4-Large` architecture) reaches a peak accuracy of 96.76%, it creates a severe latency bottleneck (142.8 ms), restricting the camera feed to a sluggish ~7 FPS. The NPU provides a vastly superior **speed-to-quality ratio**: by accepting a highly optimized 79.87% accuracy threshold for field use, inference is accelerated by a massive **factor of 7.7x**. This unlocks seamless, real-time >50 FPS video stream analysis, proving that the NPU is the ultimate solution for fluid, energy-efficient Edge AI deployment.
 
-## 6. Deployment & Application
+## 7. Deployment & Application
 The raw weights, data preprocessing pipelines, and FP32 source models remain proprietary to GeoStratum. The inference engine is exclusively accessible through the consumer application.
 
 👉 **[Download and test the app on GeoStratum](https://www.geostratum.eu/lithotheque)**
 
-## 7. Citation
+## 8. Citation
 If you reference our Multi-Scale Tiling methodology, Edge architecture, or Snapdragon benchmarks in your academic research, please cite this repository:
 
 ```bibtex
