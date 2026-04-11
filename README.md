@@ -4,9 +4,24 @@
 [![Offline](https://img.shields.io/badge/Inference-100%25_Offline-success)](https://www.geostratum.eu/lithotheque)
 [![Languages](https://img.shields.io/badge/Supported_Languages-14-blue)](https://www.geostratum.eu/lithotheque)
 [![Engine](https://img.shields.io/badge/Engine-LiteRT_Standalone-orange)](https://ai.google.dev/edge/litert)
+![C++](https://img.shields.io/badge/Native_Core-C%2B%2B_17-00599C?logo=c%2B%2B)
+![Android](https://img.shields.io/badge/Platform-Android_NDK-3DDC84?logo=android)
+![Python](https://img.shields.io/badge/Training-Python_3.10-3776AB?logo=python)
+
+## Table of Contents
+- [1. Overview](#1-overview)
+- [2. Dual-Model Ecosystem](#2-dual-model-ecosystem)
+- [3. Inference Engine & Hardware Fallback](#3-inference-engine--hardware-fallback)
+- [4. Deployment Strategy](#4-deployment-strategy-ai-tiers)
+- [5. Scientific Benchmark & Hardware Profiling](#5-scientific-benchmark--hardware-profiling)
+- [6. Training Data & Acknowledgements](#6-training-data--acknowledgements)
+- [7. Deployment & Application](#7-deployment--application)
+- [8. Contact](#8-contact)
 
 ## 1. Overview
 This repository documents the advanced Edge AI architecture integrated into [GeoStratum Lithotheque](https://www.geostratum.eu/lithotheque). To provide instant, on-device geological classification and scale detection without requiring an internet connection, the application relies on a highly optimized, dual-model ecosystem deployed via **Google Play Asset Delivery (On-Demand)**.
+
+**[Try the Application Live on geostratum.eu/lithotheque](https://www.geostratum.eu/lithotheque)**
 
 ## 2. Dual-Model Ecosystem
 The application utilizes two distinct neural networks, fine-tuned specifically for geological field operations:
@@ -148,7 +163,14 @@ The raw weights, data preprocessing pipelines, and FP32 source models remain pro
 
 👉 **[Download and test the app on GeoStratum](https://www.geostratum.eu/lithotheque)**
 
-## 8. Citation
+## 8. Contact
+GeoStratum is actively exploring partnerships for B2B geological metrology solutions and academic integrations. 
+For technical inquiries, API access, or enterprise deployment, please reach out to our engineering team.
+
+📧 **Email:** [geostratum.com@outlook.com]
+🌍 **Website:** [www.geostratum.eu](https://www.geostratum.eu)
+
+## 9. Citation
 If you reference our Multi-Scale Tiling methodology, Edge architecture, or Snapdragon benchmarks in your academic research, please cite this repository:
 
 ```bibtex
