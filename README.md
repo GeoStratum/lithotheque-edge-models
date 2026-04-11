@@ -54,11 +54,32 @@ The application utilizes **Google Play Asset Delivery** to download the appropri
 
 *Note: Latency and accuracy benchmarks are actively being compiled for the latest INT4/INT8 build.*
 
-| Target Tier | Hardware Profile | Format | Rock Model Size | Scale Model Size | Total Footprint | Avg. Latency (ms) | Top-1 Acc. (%) |
+## 5. Benchmarks & Hardware Profiling
+*(Insert your performance matrices, confusion matrix, or accuracy charts here)*
+
+The application utilizes **Google Play Asset Delivery** to download the appropriate AI Pack based on the device's capabilities. 
+
+### A. Memory Footprint & Initialization (Cold Start)
+Cold start performance is critical for field applications. The following benchmarks measure the initialization time required to load the models into memory.
+* **Test Environment:** Snapdragon X Plus X1-P64-100 (Windows).
+
+| Target Tier | Hardware Profile | Format | Rock Model Size | Scale Model Size | Total Footprint | Rock Load Time | Scale Load Time |
 | :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: |
-| **Premium** | Modern NPU | INT4 | 182.9 MB | 1.67 MB | **~184.6 MB** | *TBD* | *TBD* |
-| **Standard** | Normal NPU | INT8 | 287.6 MB | 2.67 MB | **~290.3 MB** | *TBD* | *TBD* |
-| **Legacy** | GPU/CPU | INT8 | 119.9 MB | 2.67 MB | **~122.6 MB** | *TBD* | *TBD* |
+| **Premium** | Modern NPU | INT4 | 182.9 MB | 1.67 MB | **~184.6 MB** | 383.38 ms | 12.20 ms |
+| **Standard** | Normal NPU | INT8 | 287.6 MB | 2.67 MB | **~290.3 MB** | 708.17 ms | 44.95 ms |
+| **Legacy** | GPU / CPU | INT8 | 119.9 MB | 2.67 MB | **~122.6 MB** | 179.48 ms | 44.18 ms |
+
+> **Architecture Notes:** > * **Premium Tier:** Achieves excellent load times (383ms) despite its high capacity, thanks to the highly optimized INT4 quantization mapping efficiently to the NPU.
+> * **Legacy Tier:** The rock model footprint is intentionally bottlenecked to 119.9 MB. This results in the fastest initialization time (179ms) and prevents Out-Of-Memory (OOM) crashes on older, RAM-constrained devices.
+
+### B. Inference Latency & Accuracy
+*Note: Real-time per-frame inference latency (speed of the 21-pass tiling strategy) and Top-1 accuracy benchmarks are actively being compiled for the latest builds.*
+
+| Target Tier | Engine Fallback | Avg. Rock Inference (ms) | Avg. Scale Inference (ms) | Top-1 Accuracy (%) |
+| :--- | :--- | :---: | :---: | :---: |
+| **Premium** | Dedicated NPU | *TBD* | *TBD* | *TBD* |
+| **Standard** | NNAPI / GPU | *TBD* | *TBD* | *TBD* |
+| **Legacy** | CPU (XNNPACK) | *TBD* | *TBD* | *TBD* |
 
 > **Architecture Note:** The **Legacy** pack significantly reduces the `rock_model` footprint (119.9 MB) to prevent Out-Of-Memory (OOM) crashes on older devices, ensuring a stable fallback mechanism without compromising the core metrology functionality (`scale_model`).
 
