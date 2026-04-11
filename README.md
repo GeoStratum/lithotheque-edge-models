@@ -47,7 +47,25 @@ Models are aggressively quantized and delivered dynamically based on the device'
 | **Standard** | RAM > 6GB | **INT8** | MobileNetV5 (300m) & V4 (Small) |
 | **Legacy** | Older / Entry-level devices | **INT8** | MobileNetV4 (Large) & V4 (Small) |
 
-## 5. Visual Evaluation & Benchmarks
+## 5. Visual Evaluation & Benchmarks & Hardware Profiling
+
+All performance metrics and initialization times are highly dependent on the host hardware. To ensure rigorous benchmarking, measurements are conducted on state-of-the-art ARM64 silicon featuring dedicated AI acceleration.
+
+### 💻 Primary Test Environment: Qualcomm Snapdragon X Plus
+Benchmarks were executed natively on the **Snapdragon X Plus (X1P-64-100)** platform running Windows on ARM. This SoC closely mirrors the architectural behavior of flagship Android devices, making it an ideal environment for Edge AI validation.
+
+* **Compute (CPU):** Qualcomm Oryon™ CPU (10 Cores, up to 3.4 GHz)
+* **AI Engine (NPU):** Qualcomm Hexagon™ NPU (**45 TOPS**) — *Targeted by the Premium INT4 tier.*
+* **Memory:** LPDDR5x (8448 MT/s) — *Critical for evaluating cold-start load times.*
+* **OS:** Windows 11 ARM64
+
+---
+
+### A. Memory Footprint & Initialization (Cold Start)
+*The following benchmarks measure the initialization time required to load the `.tflite` models into RAM/NPU.*
+
+[... ici, tu remets ton tableau avec les temps de 383ms, 708ms, etc. ...]
+
 *(Insert your performance matrices, confusion matrix, or accuracy charts here)*
 
 The application utilizes **Google Play Asset Delivery** to download the appropriate AI Pack based on the device's capabilities. Below is the exact memory footprint for the standalone `.tflite` models across the three deployment tiers.
