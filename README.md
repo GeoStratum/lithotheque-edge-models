@@ -73,7 +73,7 @@ graph TD
 The robustness of the Lithotheque AI ecosystem relies on a hybrid training approach, combining proprietary field metrology data with highly curated, open-source geological collections. We gratefully acknowledge the creators of the following datasets:
 
 ### A. Metrology & Scale Detection (LocalAiManager)
-* **GeoStratum Proprietary Corpus:** A custom dataset comprising >1,000 high-resolution field photographs of geological reference objects (coins, geological scales) captured in diverse lighting and terrain conditions by the GeoStratum team. 
+* **GeoStratum Proprietary Corpus:** A custom dataset comprising >1,000 high-resolution field photographs of geological reference objects (coins, geological scales) captured in diverse lighting and terrain conditions by the GeoStratum. 
 *(Note: This dataset remains the exclusive intellectual property of GeoStratum and is not publicly distributed).*
 
 ### B. Lithological Classification (VisionAiManager)
