@@ -6,7 +6,8 @@
 [![Engine](https://img.shields.io/badge/Engine-LiteRT_Standalone-orange)](https://ai.google.dev/edge/litert)
 [![C++](https://img.shields.io/badge/Native_Core-C%2B%2B_17-00599C?logo=c%2B%2B)](https://en.cppreference.com/w/cpp/17)
 [![Android](https://img.shields.io/badge/Platform-Android_NDK-3DDC84?logo=android)](https://developer.android.com/ndk)
-[![Python](https://img.shields.io/badge/Training-Python_3.10-3776AB?logo=python)](https://www.python.org/downloads/release/python-3100/)
+[![Python](https://img.shields.io/badge/Training-Python_3.11-3776AB?logo=python)](https://www.python.org/downloads/release/python-3110/)
+[![Qualcomm QNN](https://img.shields.io/badge/NPU_Backend-Qualcomm_QNN-3253DC?logo=qualcomm&logoColor=white)](https://developer.qualcomm.com/software/qualcomm-ai-engine-direct-sdk)
 
 ## Table of Contents
 - [1. Overview](#1-overview)
