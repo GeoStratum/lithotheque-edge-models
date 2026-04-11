@@ -122,18 +122,15 @@ Models are aggressively quantized and delivered dynamically based on the device'
 The objective of this study is to evaluate the 3-tier fallback system and validate the trade-off between inference latency (required for real-time tracking) and topographic precision across highly diverse hardware profiles.
 
 ### 💻 Test Environment Context: Windows ARM64 vs. Android Target
-While Lithotheque is ultimately targeted for deployment on **Android mobile devices**, rigorous benchmarking was conducted on a state-of-the-art **Copilot+ PC (Snapdragon X Plus X1P-64-100)** running Windows 11 ARM64. 
+While Lithotheque is ultimately targeted for deployment on **Android mobile devices**, rigorous benchmarking was conducted on a  **Copilot+PC (Snapdragon X Plus X1P-64-100)** running Windows 11 ARM64. 
 Because this SoC shares the exact same underlying ARM instruction set and Hexagon NPU architecture as flagship Android mobile processors (Snapdragon 8 series), it provides an exceptionally accurate, stable, and 1:1 simulation environment for Android Edge AI validation using the Qualcomm QAIRT 2.45 SDK.
 
-* **Compute:** Qualcomm Oryon™ CPU (10 Cores, up to 3.4 GHz)
-* **AI Engine:** Qualcomm Hexagon™ NPU (**45 TOPS**)
-* **Memory:** LPDDR5x (8448 MT/s)
+* **Compute (CPU):** Qualcomm Oryon™ CPU (10 Cores, up to 3.4 GHz, **42MB Total Cache**) — *Ensures stable Legacy fallback execution.*
+* **Graphics (GPU):** Qualcomm Adreno™ GPU (**3.8 TFLOPS**) — *Targeted by the Standard INT8 tier.*
+* **AI Engine (NPU):** Qualcomm Hexagon™ NPU (**45 TOPS INT8** / Native **INT4** support) — *Targeted by the Premium INT4 tier.*
+* **Memory:** LPDDR5x 8448 MT/s (**135 GB/s Bandwidth**) — *Critical for rapid Cold Start model initialization.*
 * **OS & Power State:** Windows 11 ARM64 — *Tested plugged-in on 'Best Performance' power plan to ensure maximum clock speeds and prevent thermal throttling.*
 * **Inference Runtime:** LiteRT (TensorFlow Lite) Standalone executing via Qualcomm QNN hardware delegates.
-
-* **Compute:** Qualcomm Oryon™ CPU (10 Cores, up to 3.4 GHz)
-* **AI Engine:** Qualcomm Hexagon™ NPU (**45 TOPS**)
-* **Memory:** LPDDR5x (8448 MT/s)
 
 ### A. Memory Footprint & Initialization (Cold Start)
 Cold start performance measures the initialization time required to load the `.tflite` models into RAM/NPU memory.
