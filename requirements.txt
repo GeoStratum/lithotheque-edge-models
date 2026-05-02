@@ -1,0 +1,14 @@
+# Lithotheque Edge Models - Strict Dependency File
+# Required for scientific reproducibility of the W4A8 quantization pipeline.
+
+# Core Frameworks (LiteRT / INT4 Native Support)
+tensorflow==2.21.0
+ai-edge-quantizer==0.5
+onnxruntime-quantization==1.25.0
+
+# Scientific Stack
+numpy==2.3.5
+Pillow>=10.0.0
+
+# Hardware Backend (Informational)
+# Note: Full NPU acceleration requires the Qualcomm QAIRT 2.45 SDK.

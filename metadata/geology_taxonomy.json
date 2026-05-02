@@ -1,0 +1,60 @@
+{
+  "system": "GeoStratum Lithotheque Taxonomy v1.0",
+  "classes_count": 104,
+  "categories": {
+    "Sedimentary": [
+      "Bauxite", "Caliche", "Chalk", "Chert", "Clay", "Coal", "Conglomerate", "Coquine", 
+      "Diatomite", "Dolomitic Limestone", "Dolomites", "Flint", "Fossiliferous Limestone", 
+      "Gypsum", "Halite", "Limestone", "Novaculite", "Oolitic Limestone", "Phosphate", 
+      "Potash", "Sandstone", "Shale (Mudstone)", "Siliceous-sinter", "Siltstone", 
+      "Sodium carbonate", "Tufa"
+    ],
+    "Magmatic_Plutonic": [
+      "Anorthosite", "Aplite", "Diorite", "Dolerite", "Dunite", "Essexite", "Gabbro", 
+      "Granite", "Granodiorite", "Norite", "Pegmatite", "Syenite"
+    ],
+    "Volcanic_Extrusive": [
+      "Andesite", "Basalt", "Dacite", "Ignimbrite", "Komatiite", "Obsidian", "Olivine basalt", 
+      "Phonolite", "Pillow", "Pumice", "Rhyolite", "Tephrite", "Trachyte", "Tuff", "Volcanic bombs"
+    ],
+    "Metamorphic": [
+      "Anthracite", "Breccia", "Gneiss", "Hornfels", "Lapis lazuli", "Marble", "Phyllite", 
+      "Quartzite", "Schists", "Serpentine", "Skarn", "Slate"
+    ],
+    "Minerals_Ores": [
+      "Bornite", "Calcite", "Chromite", "Cobalt", "Columbite-tantalite", "Copper", "Feldspar", 
+      "Fluorite", "Gold", "Iron ore", "Labradorite", "Lead", "Lithium", "Magnetite", 
+      "Malachite", "Mariposite", "Mica", "Molybdenum", "Nickel", "Platinum", "Pyrite", 
+      "Quartz", "Silica", "Silver", "Sodalite", "Stibnite", "Sulfur", "Tantalum", 
+      "Tungsten", "Uranium", "Vanadium", "Zeolite", "Zinc"
+    ]
+  },
+  "mapping_ids": {
+    "0": "Anorthosite", "1": "Aplite", "2": "Basalt", "3": "Bauxite", "4": "Caliche", 
+    "5": "Clay", "6": "Coal", "7": "Conglomerate", "8": "Coquine", "9": "Dacite", 
+    "10": "Diatomite", "11": "Dolerite", "12": "Dolomitic Limestone", "13": "Dunite", 
+    "14": "Essexite", "15": "Fossiliferous Limestone", "16": "Gold", "17": "Granite", 
+    "18": "Granodiorite", "19": "Halite", "20": "Komatiite", "21": "Labradorite", 
+    "22": "Limestone", "23": "Lithium", "24": "Magnetite", "25": "Malachite", 
+    "26": "Marble", "27": "Mariposite", "28": "Mica", "29": "Molybdenum", 
+    "30": "Nickel", "31": "Oolitic Limestone", "32": "Pegmatite", "33": "Phonolite", 
+    "34": "Phosphate", "35": "Potash", "36": "Pyrite", "37": "Quartzite", 
+    "38": "Rhyolite", "39": "Sandstone", "40": "Schists", "41": "Shale (Mudstone)", 
+    "42": "Shale-(Mudstone)", "43": "Silica", "44": "Siliceous-sinter", 
+    "45": "Stibnite", "46": "Sulfur", "47": "Tantalum", "48": "Trachyte", 
+    "49": "Tufa", "50": "Tuff", "51": "Tungsten", "52": "Uranium", "53": "Vanadium", 
+    "54": "Zeolite", "55": "Andesite", "56": "Anthracite", "57": "Bornite", 
+    "58": "Breccia", "59": "Calcite", "60": "Chalk", "61": "Chert", "62": "Chromite", 
+    "63": "Coal", "64": "Cobalt", "65": "Columbite-tantalite", "66": "Copper", 
+    "67": "Diorite", "68": "Dolomites", "69": "Feldspar", "70": "Flint", 
+    "71": "Fluorite", "72": "Gabbro", "73": "Gneiss", "74": "Granite", "75": "Gypsum", 
+    "76": "Hornfels", "77": "Ignimbrite", "78": "Iron ore", "79": "Lapis lazuli", 
+    "80": "Lead", "81": "Marble", "82": "Norite", "83": "Novaculite", 
+    "84": "Obsidian", "85": "Olivine basalt", "86": "Olivine-basalt", 
+    "87": "Phyllite", "88": "Pillow", "89": "Platinum", "90": "Pumice", 
+    "91": "Quartz", "92": "Quartzite", "93": "Serpentine", "94": "Siltstone", 
+    "95": "Silver", "96": "Skarn", "97": "Slate", "98": "Sodalite", 
+    "99": "Sodium carbonate", "100": "Syenite", "101": "Tephrite", 
+    "102": "Volcanic bombs", "103": "Zinc"
+  }
+}

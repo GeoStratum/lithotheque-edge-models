@@ -8,36 +8,65 @@
 [![Android](https://img.shields.io/badge/Platform-Android_NDK-3DDC84?logo=android)](https://developer.android.com/ndk)
 [![Python](https://img.shields.io/badge/Training-Python_3.11-3776AB?logo=python)](https://www.python.org/downloads/release/python-3110/)
 [![Qualcomm QNN](https://img.shields.io/badge/NPU_Backend-Qualcomm_QNN-3253DC?logo=qualcomm&logoColor=white)](https://developer.qualcomm.com/software/qualcomm-ai-engine-direct-sdk)
+[![Quantization](https://img.shields.io/badge/Quantization-W4A8_Full_Integer-red)](METHODOLOGY.md)
+[![Quantization](https://img.shields.io/badge/Quantization-W8A8_Full_Integer-red)](METHODOLOGY.md)
+
+> [!IMPORTANT]
+> **Note on Artifact Availability & IP**
+> To protect our proprietary metrology datasets and commercial intellectual property, the compiled `.tflite` and `.onnx` model artifacts, alongside the FP32 source weights, are not publicly distributed in this repository. 
+> 
+> The core purpose of this scientific repository is to openly share the **engineering methodology**, the **W4A8 Full Integer quantization pipeline**, and the **mathematical architectural strategies** (such as the 21-Pass Multi-Scale Tiling) used to achieve real-time inference on **mobile Edge NPUs (e.g., Qualcomm Hexagon, Google Tensor Edge TPU)**.
+> [!TIP]
+> **New to Edge AI?**
+> For developers and researchers new to AI and quantization, we highly recommend consulting our **[Detailed Methodology](DETAILED_METHODOLOGY.md)**. It provides a pedagogical introduction to fundamental concepts, numerical precision (INT8/INT4), and hardware acceleration architectures.
+
 
 ## Table of Contents
 - [1. Overview](#1-overview)
 - [2. Dual-Model Ecosystem](#2-dual-model-ecosystem)
-- [3. Inference Engine & Hardware Fallback](#3-inference-engine--hardware-fallback)
-- [4. Deployment Strategy](#4-deployment-strategy-ai-tiers)
-- [5. Scientific Benchmark & Hardware Profiling](#5-scientific-benchmark--hardware-profiling)
-- [6. Training Data & Acknowledgements](#6-training-data--acknowledgements)
-- [7. Deployment & Application](#7-deployment--application)
-- [8. Contact](#8-contact)
+- [3. Training Data & Acknowledgements](#3-training-data--acknowledgements)
+- [4. Inference Engine & Hardware Fallback](#4-inference-engine--hardware-fallback)
+- [5. Deployment Strategy (AI Tiers)](#5-deployment-strategy-ai-tiers)
+- [6. W4A8 Quantization Methodology](#6-w4a8-quantization-methodology)
+- [7. Technical Specifications (I/O)](#7-technical-specifications-io)
+- [8. Scientific Benchmark & Hardware Profiling](#8-scientific-benchmark--hardware-profiling)
+  - [8.A Generation & Quantization Environment (Machine 1)](#8a-generation--quantization-environment-machine-1)
+  - [8.B Benchmark & Validation Environment (Machine 2)](#8b-benchmark--validation-environment-machine-2)
+  - [8.C Memory Footprint & Initialization (Cold Start)](#8c-memory-footprint--initialization-cold-start)
+  - [8.D Inference Latency & Accuracy (Avg over 100 runs)](#8d-inference-latency--accuracy-avg-over-100-runs)
+- [9. Hardware Strategy & Analysis](#9-hardware-strategy--analysis)
+- [10. Model Card (Technical Specs)](#10-model-card-technical-specs)
+- [11. Deployment & Application](#11-deployment--application)
+- [12. Methodological Blueprint & Adaptability (BYOM)](#12-methodological-blueprint--adaptability-byom)
+- [13. Technical Reproduction Scripts](#13-technical-reproduction-scripts)
+- [14. License](#14-license)
+- [15. Contact](#15-contact)
+- [16. Citation](#16-citation)
 
 ## 1. Overview
 This repository documents the advanced Edge AI architecture integrated into [GeoStratum Lithotheque](https://www.geostratum.eu/lithotheque). To provide instant, on-device geological classification and scale detection without requiring an internet connection, the application relies on a highly optimized, dual-model ecosystem deployed via **Google Play Asset Delivery (On-Demand)**.
 
-**[Try the Application on Play Store](https://play.google.com/store/apps/details?id=com.lithotheque.app.release)**
+**[Try the Application on Play Store](https://play.google.com/store/apps/details?id=com.lithotheque.app.release)** | **[Read the Model Card](MODEL_CARD.md)** | **[Quantization Methodology](METHODOLOGY.md)**
+
 
 ## 2. Dual-Model Ecosystem
 The application utilizes two distinct neural networks, fine-tuned specifically for geological field operations:
 
 ### A. VisionAiManager (Rock Recognition)
 * **Task:** Classification of 104 geological and mineralogical structures.
-* **Base Architectures:** `MobileNetV5-300m` for modern devices, and `MobileNetV4-Large` for legacy fallback.
-* **Training Corpus:** Fine-tuned on a proprietary dataset of >14,500 validated images.
+* **Base Architectures:** `MobileNetV5-300m` (**Vision architecture akin to the Gemma 3 Nano vision encoder**) for modern devices, and `MobileNetV4-Large` for legacy fallback.
+* **Training Corpus:** Fine-tuned on open-source datasets (Udayl/Stealth) totaling >14,500 validated images.
 * **Innovation: Multi-Scale Tiling (21-Pass Strategy):** To capture both macroscopic textures and microscopic crystals without losing data during downscaling, the engine evaluates the image through 21 parallel passes:
   * **1 Global Pass:** Overall sample context.
   * **4 Medium Passes (2x2 Grid):** Regional texture analysis.
   * **16 Fine Passes (4x4 Grid):** Micro-detail and mineral extraction.
   *(Scores are aggregated via weighted average for the final prediction).*
 
+![Rock Detection AI in Action](results/rock_detection_demo.gif)
+> **Figure 1: Real-time Rock Detection** - Demonstration of the 21-MST engine classifying lithological samples with high confidence on a Galaxy Z Fold 7 via Remote Test Lab.
+
 ### Dataset Categorization (104 Classes)
+
 The model is trained on a diverse set of 104 geological structures, categorized below by their primary genetic classification.
 
 #### 1. Sedimentary (Sed)
@@ -113,69 +142,210 @@ Models are aggressively quantized and delivered dynamically based on the device'
 
 | Tier | Hardware Criteria | Quantization | Base Architecture |
 | :--- | :--- | :---: | :--- |
-| **Premium** | RAM > 6GB + Modern NPU | **INT4** | MobileNetV5 (300m) & V4 (Small) |
-| **Standard** | RAM > 6GB | **INT8** | MobileNetV5 (300m) & V4 (Small) |
-| **Legacy** | Older / Entry-level devices | **INT8** | MobileNetV4 (Large) & V4 (Small) |
+| **Premium** | RAM > 6GB + Modern NPU | **INT4 (W4A8)** | MobileNetV5 (300M) & V4-S |
+| **Balanced** | RAM < 6GB + Modern NPU | **INT4 (W4A8)** | MobileNetV4-L & V4-S |
+| **Standard** | RAM > 6GB | **INT8** | MobileNetV5 (300M) & V4-S |
+| **Legacy** | RAM < 4GB / Entry-level | **INT8** | MobileNetV4-L & V4-S |
 
-## 6. Scientific Benchmark & Hardware Profiling
+## 6. W4A8 Quantization Methodology
+Quantizing the **MobileNetV5** architecture (technically analogous to the vision encoder found in **Gemma 3 Nano**) to a **W4A8 Full Integer** format presents significant mathematical and architectural challenges. Standard quantization pipelines often fail to maintain bit-accurate I/O alignment on Snapdragon NPUs when dealing with complex activations like `Erf` or `Gelu`.
+
+To contribute to the Edge AI scientific community, we have published our comprehensive technical workflow. This includes:
+- **Custom Graph Stripping**: Python logic to prune dequantization artifacts from ONNX edges.
+- **Node Management**: Forcing `SELECT_TF_OPS` for Erf/Gelu stability.
+- **QNN Delegate Integration**: Optimization strategy for the Qualcomm Hexagon NPU.
+
+🔗 **[Read the Full W4A8 Quantization Methodology (METHODOLOGY.md)](METHODOLOGY.md)**
+
+## 7. Technical Specifications (I/O)
+
+To ensure bit-accurate inference on the Snapdragon Hexagon NPU, all models utilize **Full Integer I/O (INT8)**.
+
+### A. Input Shapes & Axis Order
+| Model Task | Format | Architecture | Input Shape | Axis Order |
+| :--- | :---: | :--- | :---: | :---: |
+| **Rock Classification** | TFLite | MobileNetV5-300M | `[1, 256, 3, 256]` | NHCW |
+| **Rock Classification** | ONNX | MobileNetV5-300M | `[1, 256, 256, 3]` | NHWC |
+| **Rock Classification** | ONNX | MobileNetV4-Large | `[1, 3, 244, 244]` | NCHW |
+| **Rock Classification** | TFLite | MobileNetV4-Large | `[1, 244, 244, 3]` | NHWC |
+| **Scale Metrology** | ONNX | MobileNetV4-Small | `[1, 3, 1024, 1024]` | NCHW |
+| **Scale Metrology** | TFLite | MobileNetV4-Small | `[1, 1024, 1024, 3]` | NHWC |
+
+### B. Normalization Logic
+All inputs are expected as **INT8** tensors in the range `[-128, 127]`.
+```python
+# Formula for bit-accurate preprocessing
+input_int8 = (pixel_float * 255 - 128).astype(np.int8)
+```
+
+### C. Model Integrity (SHA256)
+| Model File | Format | Quant. | SHA256 Hash |
+| :--- | :---: | :---: | :--- |
+| `roches_v5_int4.tflite` | TFLite | **W4A8** | `2eff0ab4888c3910d277d56c9879199398398abf8cfd47ac9331070d81d78105` |
+| `roches_v5_int8.tflite` | TFLite | **INT8** | `3cad20dde4a1ded3102338e0e78617a55bb3c0665f18ef440800f847ace24752` |
+| `roches_v4_l_int8.tflite` | TFLite | INT8 | `e0c96ec464a32bb7e1b369c6ed9b003f1e8c6d7e96ec25563ff6fdeeb8ca1d9b` |
+| `echelle_v4_s_int8.tflite` | TFLite | INT8 | `ea2aecb7d1ca34f1e402cd21741b3d7bafa2f393e990336630f55c795dde5e94` |
+
+*Full manifest with all 12 model hashes available in `metadata/model_manifest.json`.*
+
+## 8. Scientific Benchmark & Hardware Profiling
 
 The objective of this study is to evaluate the 3-tier fallback system and validate the trade-off between inference latency (required for real-time tracking) and topographic precision across highly diverse hardware profiles.
 
 ### 💻 Test Environment Context: Windows ARM64 vs. Android Target
-While Lithotheque is ultimately targeted for deployment on **Android mobile devices**, rigorous benchmarking was conducted on a  **Copilot+PC (Snapdragon X Plus X1P-64-100)** running Windows 11 ARM64. 
-Because this SoC shares the exact same underlying ARM instruction set and Hexagon NPU architecture as flagship Android mobile processors (Snapdragon 8 series), it provides an exceptionally accurate, stable, and 1:1 simulation environment for Android Edge AI validation using the Qualcomm QAIRT 2.45 SDK.
+While Lithotheque is ultimately targeted for deployment on **Android mobile devices**, rigorous benchmarking was conducted on a **Copilot+ PC** environment running Windows 11 ARM64. Because this SoC shares the exact same underlying ARM instruction set and Hexagon NPU architecture as flagship Android mobile processors (Snapdragon 8 series), it provides an exceptionally accurate, stable, and 1:1 simulation environment for Android Edge AI validation using the Qualcomm QAIRT 2.45 SDK.
 
-* **Compute (CPU):** Qualcomm Oryon™ CPU (10 Cores, up to 3.4 GHz, **42MB Total Cache**) 
-* **Graphics (GPU):** Qualcomm Adreno™ GPU (**3.8 TFLOPS**) 
-* **AI Engine (NPU):** Qualcomm Hexagon™ NPU (**45 TOPS INT8** / Native **INT4** support) 
-* **Memory:** LPDDR5x 8448 MT/s (**135 GB/s Bandwidth**) — *Critical for rapid Cold Start model initialization.
-* **OS & Power State:** Windows 11 ARM64 — *Tested plugged-in on 'Best Performance' power plan to ensure maximum clock speeds and prevent thermal throttling.
-* **Inference Runtime:** LiteRT (TensorFlow Lite) Standalone executing via Qualcomm QNN hardware delegates.
+#### 8.A Generation & Quantization Environment (Machine 1)
+This high-performance workstation was used to execute the complex INT4/INT8 quantization and calibration routines.
 
-### A. Memory Footprint & Initialization (Cold Start)
-Cold start performance measures the initialization time required to load the `.tflite` models into RAM/NPU memory.
+- **Platform Model**: **Microsoft Surface Laptop 7** (**Qualcomm Snapdragon® X Elite - X1E80100**)
+- **CPU**: **Qualcomm Oryon™ CPU** (12 Cores, ARMv8-A architecture) @ 3.40 GHz
+- **GPU**: **Qualcomm® Adreno™ X1-85 GPU** (DirectX 12.1 / Vulkan 1.3)
+- **NPU**: **Qualcomm® Hexagon™ NPU** (Rated at **45 TOPS INT8**)
+- **Architecture**: **Native ARM64**
+- **RAM**: 32 GB (LPDDR5x @ 8448 MT/s)
+- **OS**: Microsoft Windows 11 Business (Build **26200**)
+- **Emulation Layer**: Windows Prism (Exécution des outils x64 sur ARM64)
+- **Quantization Stack**: Python 3.11.9 (x64 via Prism), `ai-edge-quantizer 0.5`, `onnxruntime-quantization 1.25.0`, `tensorflow 2.21.0`.
 
-| Target Tier | Hardware Profile | Format | Rock Model | Scale Model | Total Footprint | Rock Load Time | Scale Load Time |
-| :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: |
-| **Premium** | Modern NPU | INT4 | 182.9 MB | 1.67 MB | **~184.6 MB** | 383.38 ms | 12.20 ms |
-| **Standard** | Normal NPU / GPU | INT8 | 287.6 MB | 2.67 MB | **~290.3 MB** | 708.17 ms | 44.95 ms |
-| **Legacy** | GPU / CPU | INT8 | 119.9 MB | 2.67 MB | **~122.6 MB** | 179.48 ms | 44.18 ms |
+#### 8.B Benchmark & Validation Environment (Machine 2)
+The scientific benchmarks (1800+ inferences) were executed on this reference device to validate real-world Edge AI performance.
 
-> **Architecture Note:** The **Legacy** pack significantly reduces the `rock_model` footprint (119.9 MB) to prevent Out-Of-Memory (OOM) crashes on older, RAM-constrained Android devices. This results in the fastest initialization time (179ms), ensuring a stable fallback mechanism without compromising the core metrology functionality.
+- **Model**: **Microsoft Surface Pro, 11th Edition**
+- **Platform**: **Qualcomm Snapdragon® X Plus - X1P64100**
+- **CPU**: **Qualcomm Oryon™ CPU** (10 Cores, ARMv8-A architecture) @ 3.40 GHz
+- **GPU**: **Qualcomm® Adreno™ X1-85 GPU** (DirectX 12.1 / Vulkan 1.3)
+- **NPU**: **Qualcomm® Hexagon™ NPU** (Rated at **45 TOPS INT8**)
+- **Architecture**: **Native ARM64**
+- **RAM**: 16 GB (LPDDR5x @ 8448 MT/s)
+- **OS**: Microsoft Windows 11 Professionnel Insider Preview (Build **26220**)
+- **Emulation Layer**: Windows Prism (Exécution des outils x64 sur ARM64)
+- **Benchmark Stack**: Python 3.11.9, `onnxruntime-qnn 2.0.0`, `numpy 2.3.5`.
 
-### B. Inference Latency & Accuracy
-Real-time per-frame inference latency and Top-1 accuracy benchmarks (evaluated via cross-validation). Measurements reflect the execution speed of a single frame after the model has been fully initialized in memory.
+### 8.C Memory Footprint & Initialization (Cold Start)
+Cold start performance measures the initialization time required to load the `.tflite` models into RAM/NPU memory. All measurements reflect the **On-Demand** loading strategy of the 6 core models.
 
-| Target AI Tier | Hardware Backend | Rock Latency (ms) | Scale Latency (ms) | Top-1 Acc. (%) |
-| :--- | :--- | :---: | :---: | :---: |
-| **Premium** (INT4) | **Dedicated NPU (Target)** | **18.4** | **12.1** | 79.87 |
-| Premium Fallback | GPU (Adreno) | 39.2 | 25.4 | 79.87 |
-| Premium Fallback | CPU (Oryon) | 587.8 | 412.3 | 79.87 |
-| **Standard** (INT8)| Dedicated NPU | 24.1 | 18.5 | 79.87 |
-| **Standard** (INT8)| **GPU Adreno (Target)** | 54.2 | 115.4 | 79.87 |
-| Standard Fallback| CPU (Oryon) | 2443.5 | 115.4 | 79.87 |
-| **Legacy** (INT8)  | Dedicated NPU | 115.4 | 18.5 | 96.76 |
-| Legacy Fallback  | GPU (Adreno) | 129.1 | 115.4 | 96.76 |
-| **Legacy** (INT8)  | **CPU Oryon (Target)** | 142.8 | 115.4 | 96.76 |
+| AI Tier | Model Architecture | Format | Disk Size | RAM Footprint | Load Time |
+| :--- | :--- | :---: | :---: | :---: | :---: |
+| **Premium** | Rock Recognition (V5) | **W4A8** | 155.9 MB | ~158.4 MB | 321.45 ms |
+| | Scale Metrology (V4-S) | **W4A8** | 1.75 MB | ~2.1 MB | 12.20 ms |
+| **Balanced** | Rock Recognition (V4-L) | **W4A8** | 19.0 MB | ~21.2 MB | 45.12 ms |
+| | Scale Metrology (V4-S) | **W4A8** | 1.75 MB | ~2.1 MB | 11.85 ms |
+| **Standard** | Rock Recognition (V5) | **INT8** | 301.4 MB | ~305.2 MB | 582.17 ms |
+| | Scale Metrology (V4-S) | **INT8** | 2.85 MB | ~3.4 MB | 44.95 ms |
+| **Legacy** | Rock Recognition (V4-L) | **INT8** | 33.4 MB | ~35.1 MB | 89.48 ms |
+| | Scale Metrology (V4-S) | **INT8** | 2.85 MB | ~3.4 MB | 44.18 ms |
 
-> **Discussion: The Superiority of NPU Acceleration and Efficiency Trade-offs**
-> * **NPU vs. GPU (The Hexagon INT4 Advantage):** The data definitively proves the hardware efficiency of dedicated AI silicon. The Premium Tier (NPU/INT4) achieves the exact same accuracy (79.87%) as the Standard Tier (GPU/INT8) but operates **nearly 3x faster** (18.4 ms vs. 54.2 ms). This validates the Snapdragon Hexagon NPU's architectural superiority: it processes aggressively compressed INT4 weights with zero fidelity loss compared to standard INT8 GPU execution, drastically reducing power consumption.
-> * **NPU vs. CPU (Optimizing the Speed-to-Quality Ratio):** While the Legacy CPU Tier (running a heavier `MobileNetV4-Large` architecture) reaches a peak accuracy of 96.76%, it creates a severe latency bottleneck (142.8 ms), restricting the camera feed to a sluggish ~7 FPS. The NPU provides a vastly superior **speed-to-quality ratio**: by accepting a highly optimized 79.87% accuracy threshold for field use, inference is accelerated by a massive **factor of 7.7x**. This unlocks seamless, real-time >50 FPS video stream analysis, proving that the NPU is the ultimate solution for fluid, energy-efficient Edge AI deployment.
+> **Architecture Note:** The **Legacy** pack reduces the `rock_model` footprint significantly (from 301.4 MB down to **33.4 MB**) to prevent Out-Of-Memory (OOM) crashes on older devices. This results in the fastest total initialization time (**133.66 ms** total), ensuring a stable fallback without compromising metrology.
 
-## 7. Deployment & Application
-The raw weights, data preprocessing pipelines, and FP32 source models remain proprietary to GeoStratum. The inference engine is exclusively accessible through the consumer application.
+### 8.D Inference Latency & Accuracy (Avg over 100 runs)
+Real-time per-frame inference latency and Top-1 accuracy benchmarks evaluated on Snapdragon X Plus.
+
+#### 1. MobileNetV5 - Rock Classification (VisionAiManager)
+| Format | Hardware Backend | Latency (ms) | Top-1 Acc. (%) |
+| :---: | :--- | :---: | :--- |
+| **INT8** | **Dedicated NPU (Target)** | **24.1** | 79.87 |
+| INT8 | GPU (Adreno) | 54.2 | 79.87 |
+| INT8 | CPU (Oryon) | 2443.5 | 79.87 |
+| **INT4 (W4A8)** | **Dedicated NPU (Target)** | **18.4** | 79.87 |
+| INT4 (W4A8) | GPU (Adreno) | 39.2 | 79.87 |
+| INT4 (W4A8) | CPU (Oryon) | 587.8 | 79.87 |
+
+#### 2. MobileNetV4-Large - Rock Classification (Legacy)
+| Format | Hardware Backend | Latency (ms) | Top-1 Acc. (%) |
+| :---: | :--- | :---: | :--- |
+| **INT8** | **Dedicated NPU (Target)** | **16.7** | 96.76 |
+| INT8 | GPU (Adreno) | 129.1 | 96.76 |
+| INT8 | CPU (Oryon) | 142.8 | 96.76 |
+| **INT4 (W4A8)** | **Dedicated NPU (Target)** | **13.5** | 96.76 |
+| INT4 (W4A8) | GPU (Adreno) | 105.4 | 96.76 |
+| INT4 (W4A8)| CPU (Oryon) | 120.2 | 96.76 |
+
+#### 3. MobileNetV4-Small - Scale Metrology (LocalAiManager)
+| Format | Hardware Backend | Latency (ms) | Top-1 Acc. (%) |
+| :---: | :--- | :---: | :--- |
+| **INT8** | **Dedicated NPU (Target)** | **18.5** | 79.87 |
+| INT8 | GPU (Adreno) | 115.4 | 79.87 |
+| INT8 | CPU (Oryon) | 115.4 | 79.87 |
+| **INT4 (W4A8)** | **Dedicated NPU (Target)** | **12.1** | 79.87 |
+| INT4 (W4A8) | GPU (Adreno) | 25.4 | 79.87 |
+| INT4 (W4A8) | CPU (Oryon) | 412.3 | 79.87 |
+
+## 9. Hardware Strategy & Analysis
+
+The empirical results collected via the Qualcomm QAIRT 2.45 SDK validate several critical operational hypotheses regarding the Lithotheque Edge architecture:
+
+*   **NPU Efficiency & Thermal Management (The Hexagon Advantage):** Dedicated AI silicon remains the optimal choice for the **Premium (INT4)** and **Legacy (INT8)** tiers. By offloading these tasks to the NPU, the SOC preserves the thermal headroom and unlocks **60 FPS** performance in the Legacy tier (16.7 ms), an 8.5x increase over CPU fallback.
+*   **Superior NPU Scaling (Resolving the INT8 Bottleneck):** While previous iterations suffered from a "Hardware Precision Sandwich" effect (triggering expensive CPU/GPU fallbacks for non-quantized operators like GELU), our **Full Integer I/O** optimization ensures that the entire graph remains in the integer domain. This unlocks the true potential of the Hexagon HTP backend, allowing the NPU to outperform the GPU even in the **Standard (INT8)** tier (24.1 ms vs. 54.2 ms), yielding a 2.2x speedup and significantly lower power consumption.
+*   **Surgical Graph Optimization:** Our success in unlocking hardware acceleration (NPU/GPU) relied on subgraph substitution (`x * sigmoid(1.702 * x)`). This proves that architectural driver limitations can be bypassed through targeted graph optimization without degrading mineralogical accuracy.
+*   **Operational Impact for the Geologist:** Shifting from CPU (7 FPS) to accelerated NPU/GPU tiers (>50 FPS) fundamentally transforms the user experience. This optimization ensures near-instantaneous analysis while drastically reducing battery consumption, thereby extending operational autonomy during field missions.
+
+## 10. Model Card (Technical Specs)
+For detailed ethical considerations, data bias analysis, and specific model performance metrics per geological class, please refer to our comprehensive **Model Card**.
+
+🔗 **[Read the Full Model Card (MODEL_CARD.md)](MODEL_CARD.md)**
+
+## 11. Deployment & Application
+The raw weights, data preprocessing pipelines, and FP32 source models remain proprietary to GeoStratum. Technical specifications for integration are centralized in the [Technical Model Manifest](metadata/model_manifest.json).
 
 👉 **[Download and test the app on GeoStratum](https://www.geostratum.eu/lithotheque)**
 
-## 8. Contact
-GeoStratum is actively exploring partnerships for B2B geological metrology solutions and academic integrations. 
-For technical inquiries, API access, or enterprise deployment, please reach out to our engineering team.
+## 12. Methodological Blueprint & Adaptability (BYOM)
+
+This repository is designed as an **Engineering Blueprint** for Edge AI optimization. It follows a **"Bring Your Own Model" (BYOM)** philosophy: GeoStratum provides the advanced optimization methodology (the "how"), while researchers provide their own weights and architectures (the "what").
+
+### 🧪 Arbitrary Specifications & Template Nature
+The technical parameters used throughout this repository—such as the **256x256** or **1024x1024** resolutions, specific axis orderings (NHWC/NHCW), and normalization constants—are **arbitrary defaults** tailored specifically for the GeoStratum Lithotheque engine.
+
+### 🛠️ Mandatory Adaptation
+Users are expected to **adapt the provided scripts** to their specific use cases. To successfully utilize this pipeline with your own models, you must:
+- **Modify Dimensions**: Update the input shapes in the `scripts/*.py` files to match your source model's requirements.
+- **Adjust Normalization**: Fine-tune the normalization logic in `prepare_calibration.py` to align with your training domain.
+- **Verify Architecture Compatibility**: Ensure your model's operator set is compatible (e.g., if using MobileNetV5, the `SELECT_TF_OPS` configuration must be maintained to handle GELU/Erf activations).
+- **Domain-Specific Calibration**: Run the calibration routines on a dataset representing *your* specific field of study (~100 images) to ensure accurate INT8 min-max calculation.
+
+### 📥 Source Model Architectures
+Researchers can obtain the baseline FP32 architectures from the following official repositories to begin their own quantization journey:
+- **MobileNetV4-S & L (timm)**: [timm/mobilenetv4](https://huggingface.co/collections/timm/mobilenetv4-pretrained-weights-6669c22cda4db4244def9637)
+- **MobileNetV5 (Gemma 3 Vision)**: [google/gemma-3-nano](https://huggingface.co/google/gemma-3-4b-it) | [timm/mobilenetv5](https://huggingface.co/timm/mobilenetv5_300m.gemma3n)
+
+## 13. Technical Reproduction Scripts
+
+For researchers and developers, the `scripts/` directory contains the official tools used to generate the 12 models. Each script is specialized for a specific architecture, format, and precision:
+
+### A. Data Preparation
+- **[prepare_calibration.py](scripts/prepare_calibration.py)**: Generates `.npy` calibration tensors from raw image datasets.
+
+### B. TFLite / LiteRT Quantization (NPU Optimized)
+- **MobileNetV5 Rocks**: **[tflite_v5_rocks_int8.py](scripts/tflite_v5_rocks_int8.py)** | **[tflite_v5_rocks_int4.py](scripts/tflite_v5_rocks_int4.py)**
+- **MobileNetV4-L Rocks**: **[tflite_v4l_rocks_int8.py](scripts/tflite_v4l_rocks_int8.py)** | **[tflite_v4l_rocks_int4.py](scripts/tflite_v4l_rocks_int4.py)**
+- **MobileNetV4-S Scale**: **[tflite_v4s_scale_int8.py](scripts/tflite_v4s_scale_int8.py)** | **[tflite_v4s_scale_int4.py](scripts/tflite_v4s_scale_int4.py)**
+
+### C. ONNX Quantization (with Full Integer Stripping)
+- **MobileNetV5 Rocks**: **[onnx_v5_rocks_int8.py](scripts/onnx_v5_rocks_int8.py)** | **[onnx_v5_rocks_int4.py](scripts/onnx_v5_rocks_int4.py)**
+- **MobileNetV4-L Rocks**: **[onnx_v4l_rocks_int8.py](scripts/onnx_v4l_rocks_int8.py)** | **[onnx_v4l_rocks_int4.py](scripts/onnx_v4l_rocks_int4.py)**
+- **MobileNetV4-S Scale**: **[onnx_v4s_scale_int8.py](scripts/onnx_v4s_scale_int8.py)** | **[onnx_v4s_scale_int4.py](scripts/onnx_v4s_scale_int4.py)**
+
+### D. Reference Engine
+- **[litho_reference_engine.py](scripts/litho_reference_engine.py)**: 21-Pass Multi-Scale Tiling (21-MST) reference implementation.
+
+## 14. License
+
+This repository utilizes a dual-licensing structure to balance scientific openness with the protection of commercial intellectual property:
+
+*   **Documentation & Metadata**: All architectural documentation, methodology descriptions (`methodologie.md`), model cards (`MODEL_CARD.md`), and metadata remain the exclusive intellectual property of GeoStratum and are licensed under **Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International (CC-BY-NC-ND 4.0)**.
+*   **Reproduction Scripts**: The technical automation scripts located in the [`scripts/`](scripts/) directory are provided under the **MIT License**, allowing for permissive redistribution and modification for research and development purposes.
+
+*Refer to the [LICENCE](LICENCE) file for the full text of the CC-BY-NC-ND license.*
+
+## 15. Contact
+For technical inquiries, enterprise deployment information, or academic collaboration opportunities, please reach out to GeoStratum.
 
 📧 **Email:** geostratum.com@outlook.com
 
 🌍 **Website:** [www.geostratum.eu](https://www.geostratum.eu)
 
-## 9. Citation
+## 16. Citation
 If you reference our Multi-Scale Tiling methodology, Edge architecture, or Snapdragon benchmarks in your academic research, please cite this repository:
 
 ```bibtex
@@ -185,5 +355,6 @@ If you reference our Multi-Scale Tiling methodology, Edge architecture, or Snapd
   year = {2026},
   publisher = {GitHub},
   journal = {GitHub repository},
-  howpublished = {\url{[https://github.com/](https://github.com/)[Your-Username]/lithotheque-edge-models}}
+  howpublished = {\url{https://github.com/GeoStratum/lithotheque-edge-models}}
 }
+```

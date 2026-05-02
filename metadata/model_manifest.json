@@ -1,0 +1,259 @@
+{
+  "manifest_version": "2.1",
+  "project": "Lithotheque Edge AI",
+  "last_updated": "2026-04-26",
+  "models": [
+    {
+      "id": "roches_v5_int4",
+      "architecture": "MobileNetV5-300M",
+      "task": "Rock Classification",
+      "tier_target": "Premium",
+      "format": "ONNX",
+      "quantization": "INT4",
+      "file": "roches_v5_int4.onnx",
+      "size_bytes": 148918699,
+      "sha256": "787c1f5a30ea900ec1433d46739e3681805eb3c6d11b5bec53a28c4344b4d4c2",
+      "specs": {
+        "input_resolution": "256x256",
+        "input_type": "int8",
+        "input_order": "NHWC",
+        "normalization": {
+          "mean": 128,
+          "std": 127.5,
+          "formula": "(float_px * 255 - 128)"
+        }
+      }
+    },
+    {
+      "id": "roches_v5_int4",
+      "architecture": "MobileNetV5-300M",
+      "task": "Rock Classification",
+      "tier_target": "Premium",
+      "format": "TFLITE",
+      "quantization": "INT4",
+      "file": "roches_v5_int4.tflite",
+      "size_bytes": 155871760,
+      "sha256": "2eff0ab4888c3910d277d56c9879199398398abf8cfd47ac9331070d81d78105",
+      "specs": {
+        "input_resolution": "256x256",
+        "input_type": "int8",
+        "input_order": "NHCW",
+        "normalization": {
+          "mean": 128,
+          "std": 127.5,
+          "formula": "(float_px * 255 - 128)"
+        }
+      }
+    },
+    {
+      "id": "roches_v5_int8",
+      "architecture": "MobileNetV5-300M",
+      "task": "Rock Classification",
+      "tier_target": "Standard",
+      "format": "ONNX",
+      "quantization": "INT8",
+      "file": "roches_v5_int8.onnx",
+      "size_bytes": 296372937,
+      "sha256": "9a856a1fc0a3478dfee581fcbbd4996774708c7014cb28c00184732b8ea0dcbf",
+      "specs": {
+        "input_resolution": "256x256",
+        "input_type": "int8",
+        "input_order": "NHWC",
+        "normalization": {
+          "mean": 128,
+          "std": 127.5,
+          "formula": "(float_px * 255 - 128)"
+        }
+      }
+    },
+    {
+      "id": "roches_v5_int8",
+      "architecture": "MobileNetV5-300M",
+      "task": "Rock Classification",
+      "tier_target": "Standard",
+      "format": "TFLITE",
+      "quantization": "INT8",
+      "file": "roches_v5_int8.tflite",
+      "size_bytes": 301432392,
+      "sha256": "3cad20dde4a1ded3102338e0e78617a55bb3c0665f18ef440800f847ace24752",
+      "specs": {
+        "input_resolution": "256x256",
+        "input_type": "int8",
+        "input_order": "NHCW",
+        "normalization": {
+          "mean": 128,
+          "std": 127.5,
+          "formula": "(float_px * 255 - 128)"
+        }
+      }
+    },
+    {
+      "id": "roches_v4_l_int4",
+      "architecture": "MobileNetV4-Large",
+      "task": "Rock Classification",
+      "tier_target": "Legacy",
+      "format": "ONNX",
+      "quantization": "INT4",
+      "file": "roches_v4_l_int4.onnx",
+      "size_bytes": 16176314,
+      "sha256": "08081458ec97dbc106c7cb4fcab226ad07707bf9f7c507ac7054a66b2e9607cb",
+      "specs": {
+        "input_resolution": "244x244",
+        "input_type": "int8",
+        "input_order": "NCHW",
+        "normalization": {
+          "mean": 128,
+          "std": 127.5,
+          "formula": "(float_px * 255 - 128)"
+        }
+      }
+    },
+    {
+      "id": "roches_v4_l_int4",
+      "architecture": "MobileNetV4-Large",
+      "task": "Rock Classification",
+      "tier_target": "Legacy",
+      "format": "TFLITE",
+      "quantization": "INT4",
+      "file": "roches_v4_l_int4.tflite",
+      "size_bytes": 19020224,
+      "sha256": "4bdcfe500342f76e39d1dd5e70f0476bac4f9f1b7fb5fc4d0a029f0d2b736fd5",
+      "specs": {
+        "input_resolution": "244x244",
+        "input_type": "int8",
+        "input_order": "NHWC",
+        "normalization": {
+          "mean": 128,
+          "std": 127.5,
+          "formula": "(float_px * 255 - 128)"
+        }
+      }
+    },
+    {
+      "id": "roches_v4_l_int8",
+      "architecture": "MobileNetV4-Large",
+      "task": "Rock Classification",
+      "tier_target": "Legacy",
+      "format": "ONNX",
+      "quantization": "INT8",
+      "file": "roches_v4_l_int8.onnx",
+      "size_bytes": 31816092,
+      "sha256": "33150828cb5ea516acb0749528d9592f781b32b8abaa77a0f779577ffdec5337",
+      "specs": {
+        "input_resolution": "244x244",
+        "input_type": "int8",
+        "input_order": "NCHW",
+        "normalization": {
+          "mean": 128,
+          "std": 127.5,
+          "formula": "(float_px * 255 - 128)"
+        }
+      }
+    },
+    {
+      "id": "roches_v4_l_int8",
+      "architecture": "MobileNetV4-Large",
+      "task": "Rock Classification",
+      "tier_target": "Legacy",
+      "format": "TFLITE",
+      "quantization": "INT8",
+      "file": "roches_v4_l_int8.tflite",
+      "size_bytes": 33443480,
+      "sha256": "e0c96ec464a32bb7e1b369c6ed9b003f1e8c6d7e96ec25563ff6fdeeb8ca1d9b",
+      "specs": {
+        "input_resolution": "244x244",
+        "input_type": "int8",
+        "input_order": "NHWC",
+        "normalization": {
+          "mean": 128,
+          "std": 127.5,
+          "formula": "(float_px * 255 - 128)"
+        }
+      }
+    },
+    {
+      "id": "echelle_v4_s_int4",
+      "architecture": "MobileNetV4-Small",
+      "task": "Scale Metrology",
+      "tier_target": "Universal",
+      "format": "ONNX",
+      "quantization": "INT4",
+      "file": "echelle_v4_s_int4.onnx",
+      "size_bytes": 1388986,
+      "sha256": "7b7732419ca0c4c699daa543a31eea27cbbdf8a7729566e82ebe252f05bf25df",
+      "specs": {
+        "input_resolution": "1024x1024",
+        "input_type": "int8",
+        "input_order": "NCHW",
+        "normalization": {
+          "mean": 128,
+          "std": 127.5,
+          "formula": "(float_px * 255 - 128)"
+        }
+      }
+    },
+    {
+      "id": "echelle_v4_s_int4",
+      "architecture": "MobileNetV4-Small",
+      "task": "Scale Metrology",
+      "tier_target": "Universal",
+      "format": "TFLITE",
+      "quantization": "INT4",
+      "file": "echelle_v4_s_int4.tflite",
+      "size_bytes": 1753792,
+      "sha256": "8383fa9665a6f50889c0d6a732e239b5542852d5d50a1add200377317923d5b3",
+      "specs": {
+        "input_resolution": "1024x1024",
+        "input_type": "int8",
+        "input_order": "NHWC",
+        "normalization": {
+          "mean": 128,
+          "std": 127.5,
+          "formula": "(float_px * 255 - 128)"
+        }
+      }
+    },
+    {
+      "id": "echelle_v4_s_int8",
+      "architecture": "MobileNetV4-Small",
+      "task": "Scale Metrology",
+      "tier_target": "Universal",
+      "format": "ONNX",
+      "quantization": "INT8",
+      "file": "echelle_v4_s_int8.onnx",
+      "size_bytes": 2620416,
+      "sha256": "90315acc03068b39dbb68556bab3c9d7a1edde14fbb63accbb62ccd369a0a23c",
+      "specs": {
+        "input_resolution": "1024x1024",
+        "input_type": "int8",
+        "input_order": "NCHW",
+        "normalization": {
+          "mean": 128,
+          "std": 127.5,
+          "formula": "(float_px * 255 - 128)"
+        }
+      }
+    },
+    {
+      "id": "echelle_v4_s_int8",
+      "architecture": "MobileNetV4-Small",
+      "task": "Scale Metrology",
+      "tier_target": "Universal",
+      "format": "TFLITE",
+      "quantization": "INT8",
+      "file": "echelle_v4_s_int8.tflite",
+      "size_bytes": 2847152,
+      "sha256": "ea2aecb7d1ca34f1e402cd21741b3d7bafa2f393e990336630f55c795dde5e94",
+      "specs": {
+        "input_resolution": "1024x1024",
+        "input_type": "int8",
+        "input_order": "NHWC",
+        "normalization": {
+          "mean": 128,
+          "std": 127.5,
+          "formula": "(float_px * 255 - 128)"
+        }
+      }
+    }
+  ]
+}
