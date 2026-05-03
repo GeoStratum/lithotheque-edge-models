@@ -129,13 +129,11 @@ To achieve extreme accuracy across 104 geological classes, the model was fine-tu
 ## 4. Inference Engine & Hardware Fallback
 To prevent thermal throttling during the intensive 21-pass analysis, all image preprocessing (resizing, normalization) is written in **Native C++ (JNI) utilizing NEON SIMD instructions**, yielding a 5x to 10x speedup over standard Android pipelines with minimal memory overhead.
 
-Inference is powered by **LiteRT Standalone** with a robust 6-level hardware fallback system to ensure maximum compatibility across the fragmented Android ecosystem:
-1. **LiteRT** (e.g., Snapdragon 8 Gen 2+, Google Tensor)
-2. **NNAPI** (Android Hardware Acceleration)
-3. **Modern GPU** (Shader acceleration)
-4. **Modern CPU** (SIMD/Neon vectorization)
-5. **Legacy GPU**
-6. **XNNPACK** (Highly optimized CPU fallback)
+Inference is powered by **LiteRT Standalone (2.1.4)** with a robust hardware fallback system, now fully compliant with **Android 15 (16 KB memory pages)** requirements:
+1. **LiteRT Natively Accelerated** (e.g., Snapdragon 8 Gen 3+, Google Tensor G4)
+2. **Qualcomm QNN / Samsung NPU** (Direct hardware access)
+3. **GPU ML Drift** (Modern shader-based acceleration)
+4. **XNNPACK** (Highly optimized CPU fallback utilizing NEON SIMD)
 
 ## 5. Deployment Strategy (AI Tiers)
 Models are aggressively quantized and delivered dynamically based on the device's hardware profile upon first launch:
@@ -152,7 +150,8 @@ Quantizing the **MobileNetV5** architecture (technically analogous to the vision
 
 To contribute to the Edge AI scientific community, we have published our comprehensive technical workflow. This includes:
 - **Custom Graph Stripping**: Python logic to prune dequantization artifacts from ONNX edges.
-- **Node Management**: Forcing `SELECT_TF_OPS` for Erf/Gelu stability.
+- **Node Management**: Forcing `SELECT_TF_OPS` (via `litert-select-tf-ops`) for Erf/Gelu stability.
+- **Android 15 Compatibility**: All native artifacts are 16 KB page-aligned (`-Wl,-z,max-page-size=16384`).
 - **QNN Delegate Integration**: Optimization strategy for the Qualcomm Hexagon NPU.
 
 🔗 **[Read the Full W4A8 Quantization Methodology (METHODOLOGY.md)](METHODOLOGY.md)**
