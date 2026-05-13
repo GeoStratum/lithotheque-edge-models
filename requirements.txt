@@ -3,7 +3,7 @@
 
 # Core Frameworks (LiteRT / INT4 Native Support)
 tensorflow==2.21.0
-ai-edge-quantizer==0.5
+ai-edge-quantizer==0.6.0
 onnxruntime-quantization==1.25.0
 
 # Scientific Stack

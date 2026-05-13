@@ -150,7 +150,7 @@ Quantizing the **MobileNetV5** architecture (technically analogous to the vision
 
 To contribute to the Edge AI scientific community, we have published our comprehensive technical workflow. This includes:
 - **Custom Graph Stripping**: Python logic to prune dequantization artifacts from ONNX edges.
-- **Node Management**: Forcing `SELECT_TF_OPS` (via `litert-select-tf-ops`) for Erf/Gelu stability.
+- **NPU Native Backend**: Elimination of `SELECT_TF_OPS` for true hardware acceleration.
 - **Android 15 Compatibility**: All native artifacts are 16 KB page-aligned (`-Wl,-z,max-page-size=16384`).
 - **QNN Delegate Integration**: Optimization strategy for the Qualcomm Hexagon NPU.
 
@@ -180,8 +180,8 @@ input_int8 = (pixel_float * 255 - 128).astype(np.int8)
 ### C. Model Integrity (SHA256)
 | Model File | Format | Quant. | SHA256 Hash |
 | :--- | :---: | :---: | :--- |
-| `roches_v5_int4.tflite` | TFLite | **W4A8** | `2eff0ab4888c3910d277d56c9879199398398abf8cfd47ac9331070d81d78105` |
-| `roches_v5_int8.tflite` | TFLite | **INT8** | `3cad20dde4a1ded3102338e0e78617a55bb3c0665f18ef440800f847ace24752` |
+| `roches_v5_int4_noflex.tflite` | TFLite | **W4A8** | `a1c549f1448a173d44410bfd1b70b35143e16f154a4f06f8a5ef7aa540156c37` |
+| `roches_v5_int8_noflex.tflite` | TFLite | **INT8** | `c64df6025968babb98dffd843db551b3f1804a0610c3a25e8b043c08bee0f474` |
 | `roches_v4_l_int8.tflite` | TFLite | INT8 | `e0c96ec464a32bb7e1b369c6ed9b003f1e8c6d7e96ec25563ff6fdeeb8ca1d9b` |
 | `echelle_v4_s_int8.tflite` | TFLite | INT8 | `ea2aecb7d1ca34f1e402cd21741b3d7bafa2f393e990336630f55c795dde5e94` |
 
@@ -275,7 +275,7 @@ Real-time per-frame inference latency and Top-1 accuracy benchmarks evaluated on
 The empirical results collected via the Qualcomm QAIRT 2.45 SDK validate several critical operational hypotheses regarding the Lithotheque Edge architecture:
 
 *   **NPU Efficiency & Thermal Management (The Hexagon Advantage):** Dedicated AI silicon remains the optimal choice for the **Premium (INT4)** and **Legacy (INT8)** tiers. By offloading these tasks to the NPU, the SOC preserves the thermal headroom and unlocks **60 FPS** performance in the Legacy tier (16.7 ms), an 8.5x increase over CPU fallback.
-*   **Superior NPU Scaling (Resolving the INT8 Bottleneck):** While previous iterations suffered from a "Hardware Precision Sandwich" effect (triggering expensive CPU/GPU fallbacks for non-quantized operators like GELU), our **Full Integer I/O** optimization ensures that the entire graph remains in the integer domain. This unlocks the true potential of the Hexagon HTP backend, allowing the NPU to outperform the GPU even in the **Standard (INT8)** tier (24.1 ms vs. 54.2 ms), yielding a 2.2x speedup and significantly lower power consumption.
+*   **Superior NPU Scaling (Eliminating Flex Ops):** While previous iterations suffered from a "Hardware Precision Sandwich" effect (triggering expensive CPU/GPU fallbacks for Flex operators), our **Full Integer I/O** and **No-Flex** optimization ensures that the entire graph remains in the integer domain. This unlocks the true potential of the Hexagon HTP backend, allowing the NPU to outperform the GPU even in the **Standard (INT8)** tier (24.1 ms vs. 54.2 ms), yielding a 2.2x speedup and significantly lower power consumption.
 *   **Surgical Graph Optimization:** Our success in unlocking hardware acceleration (NPU/GPU) relied on subgraph substitution (`x * sigmoid(1.702 * x)`). This proves that architectural driver limitations can be bypassed through targeted graph optimization without degrading mineralogical accuracy.
 *   **Operational Impact for the Geologist:** Shifting from CPU (7 FPS) to accelerated NPU/GPU tiers (>50 FPS) fundamentally transforms the user experience. This optimization ensures near-instantaneous analysis while drastically reducing battery consumption, thereby extending operational autonomy during field missions.
 

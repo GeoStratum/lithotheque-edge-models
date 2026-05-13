@@ -249,8 +249,15 @@ The problem is hardware-related: mobile NPUs are primary matrix calculators. The
 If the compiler inserts a single floating-point operation in the middle of the network to calculate this `GELU`, the NPU refuses to process the rest and sends the calculation back to the central processor (CPU). This is the *fallback* phenomenon that causes major bottlenecks (overheating and FPS drop).
 To force a 100% integer (Full Integer) pipeline on the Hexagon NPU, our workflow implements surgical optimizations:
 - **Topological Cleanup (Graph Stripping)**: An exclusive Python algorithm that reads the exported ONNX graph and manually "cuts" de-quantization parasitic nodes erroneously inserted by standard compilers during error function evaluation.
-- **Selective Delegation (`SELECT_TF_OPS`)**: A directive forcing the LiteRT engine to mathematically isolate the `Gelu` node for processing via optimized integer routines, ensuring that the entirety of the massive convolution layers remain anchored and accelerated on the NPU.
-- **QNN Delegate Optimization**: Direct memory addressing strategy for Qualcomm hardware targets.
+- **Native Subgraph Substitution**: Replacing the `Erf` based GELU activation with a polynomial approximation ($x \times \sigma(1.702 \times x)$). This removes the dependency on `SELECT_TF_OPS`, allowing the entire graph to remain on the NPU without CPU fallback.
+
+### D. Super-Selectivity Matrix (Softmax Calibration)
+Quantization, especially at 4-bit (W4), introduces a "stochastic noise" in the final activation layer, which can lead to over-confident or under-confident predictions depending on the hardware tier. To harmonize the AI's behavior, we implement a **Super-Selectivity Matrix** in the post-processing engine. 
+
+The system dynamically detects the model's `outputScale` and applies a specific multiplier to the logits before the Softmax operation:
+- **High-Precision Tiers (Scale < 0.0003)**: Multiplier **1.500f** (Sharpening).
+- **Quantized Rocks (Scale ~0.005 - 0.024)**: Multipliers from **1.200f** to **0.800f** (Calibration).
+- **Geometric Metrology (Scale ~0.055)**: Multiplier **5.000f** (Extreme Selectivity for metric precision).
 
 🔗 **[Read the complete W4A8 quantization methodology (METHODOLOGY.md)](METHODOLOGY.md)**
 
@@ -259,10 +266,21 @@ To force a 100% integer (Full Integer) pipeline on the Hexagon NPU, our workflow
 To prevent any bottleneck related to data type conversion (Casting) by the central processor with each new image captured, the architecture requires that input and output tensors be natively ingested and returned in integer format (INT8). Maintaining this strict data flow avoids the hardware having to make costly back-and-forth trips between its integer calculation unit and its floating-point unit.
 
 ### A. Tensor Topology in Memory (NHWC vs NCHW)
-The order in which pixels are stored in physical memory (axis order) has a critical impact on the chip's memory bandwidth. While training algorithms on PC historically favor the **NCHW** format (Batch, Channels, Height, Width), accelerated inference on mobile processors requires **NHWC** alignment (Batch, Height, Width, Channels). This format ensures that the spatial data of the same pixel (RGB color channels) are contiguous in physical memory, allowing the NPU to process an entire pixel block in a single clock cycle (vectorization).
+The order in which pixels are stored in physical memory (axis order) has a critical impact on the chip's memory bandwidth. While training algorithms on PC historically favor the **NCHW** format (Batch, Channels, Height, Width), accelerated
+
+### 7. High-Density Weight Compression (INT4/W4A8)
+
+For the MobileNetV5-300M model, we employ the `ai-edge-quantizer` 0.6.0 framework to achieve 4-bit weight compression while maintaining 8-bit activations (W4A8). This strategy is critical for fitting the 300M parameter model into mobile memory constraints without sacrificing classification accuracy.
+
+**Quantization Workflow:**
+1.  **Float TFLite Extraction:** The Keras model is first exported to a standard FP32 TFLite flatbuffer.
+2.  **Static Configuration:** We define a global quantization policy using `add_static_config` targeting all operations with a `CHANNELWISE` granularity.
+3.  **Hadamard Rotation (Experimental):** Where supported, Hadamard transformations are applied to weights to minimize the quantization error introduced by outliers.
+4.  **Static Range Calibration:** Using the representative dataset (100 samples), we compute the dynamic ranges for all intermediate activations.
+5.  **Flatbuffer Materialization:** The final `Quantizer.quantize()` call materializes the INT4 weights and 8-bit quantization parameters into the final `.tflite` artifact.
 
 | Model Task | Format | Architecture | Input Shape | Axis Order |
-| :--- | :---: | :--- | :---: | :---: |
+| :--- | :---: | :--- | :---: | :--- |
 | **Rock Classification** | TFLite | MobileNetV5-300M | `[1, 256, 3, 256]` | NHCW |
 | **Rock Classification** | ONNX | MobileNetV5-300M | `[1, 256, 256, 3]` | NHWC |
 | **Rock Classification** | ONNX | MobileNetV4-Large | `[1, 3, 244, 244]` | NCHW |
@@ -278,12 +296,13 @@ input_int8 = (pixel_float * 255 - 128).astype(np.int8)
 ```
 
 ### C. Model Integrity (SHA256)
-| Model File | Format | Quant. | SHA256 Hash |
+| Model File | Asset Pack | Quant. | SHA256 Hash |
 | :--- | :---: | :---: | :--- |
-| `roches_v5_int4.tflite` | TFLite | **W4A8** | `2eff0ab4888c3910d277d56c9879199398398abf8cfd47ac9331070d81d78105` |
-| `roches_v5_int8.tflite` | TFLite | **INT8** | `3cad20dde4a1ded3102338e0e78617a55bb3c0665f18ef440800f847ace24752` |
-| `roches_v4_l_int8.tflite` | TFLite | INT8 | `e0c96ec464a32bb7e1b369c6ed9b003f1e8c6d7e96ec25563ff6fdeeb8ca1d9b` |
-| `echelle_v4_s_int8.tflite` | TFLite | INT8 | `ea2aecb7d1ca34f1e402cd21741b3d7bafa2f393e990336630f55c795dde5e94` |
+| `rock_model.tflite` | Premium | **W4A8** | `A1C549F1448A173D44410BFD1B70B35143E16F154A4F06F8A5EF7AA540156C37` |
+| `rock_model.tflite` | Standard | **INT8** | `C64DF6025968BABB98DFFD843DB551B3F1804A0610C3A25E8B043C08BEE0F474` |
+| `rock_model.tflite` | Legacy | INT8 | `E0C96EC464A32BB7E1B369C6ED9B003F1E8C6D7E96EC25563FF6FDEEB8CA1D9B` |
+| `scale_model.tflite` | Standard | INT8 | `EA2AECB7D1CA34F1E402CD21741B3D7BAFA2F393E990336630F55C795DDE5E94` |
+| `scale_model.tflite` | Premium | **W4A8** | `8383FA9665A6F50889C0D6A732E239B5542852D5D50A1ADD200377317923D5B3` |
 
 *The full manifest with the 12 model hashes is available in `metadata/model_manifest.json`.*
 
@@ -331,14 +350,14 @@ Profiling series (over 1,800 looped inference passes) were executed on this cons
 
 | AI Tier | Model Architecture | Format | Disk Size | RAM Footprint | Load Time |
 | :--- | :--- | :---: | :---: | :---: | :---: |
-| **Premium** | Rock Recognition (V5) | **W4A8** | 155.9 MB | ~158.4 MB | 321.45 ms |
-| | Scale Metrology (V4-S) | **W4A8** | 1.75 MB | ~2.1 MB | 12.20 ms |
-| **Balanced** | Rock Recognition (V4-L) | **W4A8** | 19.0 MB | ~21.2 MB | 45.12 ms |
-| | Scale Metrology (V4-S) | **W4A8** | 1.75 MB | ~2.1 MB | 11.85 ms |
-| **Standard** | Rock Recognition (V5) | **INT8** | 301.4 MB | ~305.2 MB | 582.17 ms |
-| | Scale Metrology (V4-S) | **INT8** | 2.85 MB | ~3.4 MB | 44.95 ms |
-| **Legacy** | Rock Recognition (V4-L) | **INT8** | 33.4 MB | ~35.1 MB | 89.48 ms |
-| | Scale Metrology (V4-S) | **INT8** | 2.85 MB | ~3.4 MB | 44.18 ms |
+| **Premium** | Rock Recognition (V5) | **W4A8** | 145.9 MB | ~148.4 MB | 321.45 ms |
+| | Scale Metrology (V4-S) | **W4A8** | 1.67 MB | ~2.1 MB | 12.20 ms |
+| **Balanced** | Rock Recognition (V4-L) | **W4A8** | 18.1 MB | ~20.2 MB | 45.12 ms |
+| | Scale Metrology (V4-S) | **W4A8** | 1.67 MB | ~2.1 MB | 11.85 ms |
+| **Standard** | Rock Recognition (V5) | **INT8** | 284.9 MB | ~288.2 MB | 582.17 ms |
+| | Scale Metrology (V4-S) | **INT8** | 2.71 MB | ~3.4 MB | 44.95 ms |
+| **Legacy** | Rock Recognition (V4-L) | **INT8** | 31.8 MB | ~33.1 MB | 89.48 ms |
+| | Scale Metrology (V4-S) | **INT8** | 2.71 MB | ~3.4 MB | 44.18 ms |
 
 > **Architecture Note**: The **Legacy** pack significantly reduces the `rock_model` footprint (from 301.4 MB to **33.4 MB**) to avoid Out-Of-Memory (OOM) crashes on older devices. This results in the fastest total initialization time (**133.66 ms** total), ensuring a stable fallback without compromising metrology.
 
@@ -405,7 +424,7 @@ It is vital to understand that hardcoded values in our scripts (`256x256` input 
 To inject this velocity into your own applications, structural adaptation of the `scripts/` folder scripts is required:
 - **Tensor Resizing**: Modify dimension tuples (`input_shapes`) in export scripts to exactly match your model's input layer (e.g., `224x224` instead of `256x256`).
 - **Mathematical Translation (Normalization)**: The preprocessing logic in `prepare_calibration.py` must project your test images exactly as they were during your model's training phase on PC.
-- **Topological Consistency**: Inspect your model's nodes. If your architecture integrates atypical mathematical operations, you must extend the `SELECT_TF_OPS` directives to avoid CPU *fallback* bottlenecks.
+- **Topological Consistency**: Inspect your model's nodes. If your architecture integrates atypical mathematical operations, ensure they are replaced with TFLite-compatible subgraphs to avoid CPU *fallback* bottlenecks and eliminate the need for `SELECT_TF_OPS`.
 - **The Golden Rule of Calibration**: INT8 anchoring calculation (Zero-point and scale) must imperatively run on a lot of 100 images representative of **your** specialty domain (radiology, botany, etc.) to avoid irreversible statistical inference drift.
 
 ### 📥 Source Model Architectures
