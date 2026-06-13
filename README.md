@@ -4,7 +4,7 @@
 [![Offline](https://img.shields.io/badge/Inference-100%25_Offline-success)](https://www.geostratum.eu/lithotheque)
 [![Languages](https://img.shields.io/badge/Supported_Languages-14-blue)](https://www.geostratum.eu/lithotheque)
 [![Engine](https://img.shields.io/badge/Engine-LiteRT_Standalone-orange)](https://ai.google.dev/edge/litert)
-[![C++](https://img.shields.io/badge/Native_Core-C%2B%2B_17-00599C?logo=c%2B%2B)](https://en.cppreference.com/w/cpp/17)
+[![C++](https://img.shields.io/badge/Native_Core-C%2B%2B_23-00599C?logo=c%2B%2B)](https://en.cppreference.com/w/cpp/23)
 [![Android](https://img.shields.io/badge/Platform-Android_NDK-3DDC84?logo=android)](https://developer.android.com/ndk)
 [![Python](https://img.shields.io/badge/Training-Python_3.11-3776AB?logo=python)](https://www.python.org/downloads/release/python-3110/)
 [![Qualcomm QNN](https://img.shields.io/badge/NPU_Backend-Qualcomm_QNN-3253DC?logo=qualcomm&logoColor=white)](https://developer.qualcomm.com/software/qualcomm-ai-engine-direct-sdk)
@@ -86,7 +86,7 @@ The model is trained on a diverse set of 104 geological structures, categorized 
 
 ```mermaid
 graph TD
-    A[Raw Camera Frame] -->|C++ NEON JNI| B(Preprocessing & Normalization)
+    A[Raw Camera Frame] -->|C++ NEON / SVE2 JNI| B(Preprocessing & Normalization)
     B --> C{Multi-Scale Tiling Engine}
     
     C -->|Step 1| F[16 Fine Passes<br>4x4 Grid: Minerals & Micro-details]
@@ -127,7 +127,7 @@ To achieve extreme accuracy across 104 geological classes, the model was fine-tu
 * **[Stealth Technologies Rock Classification](https://www.kaggle.com/datasets/stealthtechnologies/rock-classification):** A supplementary dataset hosted on Kaggle, utilized to expand the morphological variance and improve the model's generalization capabilities across varied rock formations.
 
 ## 4. Inference Engine & Hardware Fallback
-To prevent thermal throttling during the intensive 21-pass analysis, all image preprocessing (resizing, normalization) is written in **Native C++ (JNI) utilizing NEON SIMD instructions**, yielding a 5x to 10x speedup over standard Android pipelines with minimal memory overhead.
+To prevent thermal throttling during the intensive 21-pass analysis, all image preprocessing (resizing, normalization) is written in **Native C++ (JNI) utilizing C++23 auto-vectorization (supporting ARMv9-A SVE2 with dynamic fallback to ARMv8-A NEON SIMD)**, yielding a 5x to 10x speedup over standard Android pipelines with minimal memory overhead.
 
 Inference is powered by **LiteRT Standalone (2.1.4)** with a robust hardware fallback system, now fully compliant with **Android 15 (16 KB memory pages)** requirements:
 1. **LiteRT Natively Accelerated** (e.g., Snapdragon 8 Gen 3+, Google Tensor G4)
