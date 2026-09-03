@@ -54,7 +54,7 @@ The application utilizes two distinct neural networks, fine-tuned specifically f
 
 ### A. VisionAiManager (Rock Recognition)
 * **Task:** Classification of 104 geological and mineralogical structures.
-* **Base Architectures:** `MobileNetV5-300m` (**Vision architecture akin to the Gemma 3 Nano vision encoder**) for modern devices, and `MobileNetV4-Large` for legacy fallback.
+* **Base Architectures:** `MobileNetV5-300m` (**Vision architecture akin to the Gemma 3n vision encoder**) for modern devices, and `MobileNetV4-Large` for legacy fallback.
 * **Training Corpus:** Fine-tuned on open-source datasets (Udayl/Stealth) totaling >14,500 validated images.
 * **Innovation: Multi-Scale Tiling (21-Pass Strategy):** To capture both macroscopic textures and microscopic crystals without losing data during downscaling, the engine evaluates the image through 21 parallel passes:
   * **1 Global Pass:** Overall sample context.
