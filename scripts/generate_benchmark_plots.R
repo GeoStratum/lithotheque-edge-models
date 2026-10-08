@@ -142,8 +142,8 @@ multi_pareto <- data.frame(
   ),
   Model = c(rep("MobileNetV5", 8), rep("MobileNetV4-Large", 2), rep("MobileNetV4-Small", 2)),
   Latency = c(means_v5, v4l_npu_int8_lat, v4l_npu_int4_lat, v4s_npu_int8_lat, v4s_npu_int4_lat),
-  Top1 = c(83.33, 80.33, 83.33, 78.42, 83.33, 80.33, 83.33, 78.42, 96.76, 96.76, 79.87, 79.87),
-  Top3 = c(89.33, 87.67, 89.33, 85.20, 89.33, 87.67, 89.33, 85.20, 99.10, 99.10, 88.50, 88.50),
+  Top1 = c(83.33, 80.33, 83.33, 78.42, 83.33, 80.33, 83.33, 78.42, 26.42, 26.42, 77.14, 77.14),
+  Top3 = c(89.33, 87.67, 89.33, 85.20, 89.33, 87.67, 89.33, 85.20, 53.85, 53.85, 77.14, 77.14),
   Color = c(
     "#238636", "#2ea043", "#1f6feb", "#388bfd", "#d29922", "#e3b341", "#da3633", "#f85149",
     "#a371f7", "#bc8cff", "#56d364", "#7ee787"
@@ -157,11 +157,11 @@ plot(
   multi_pareto$Top1,
   log = "x",
   xlim = c(5, 14000),
-  ylim = c(72, 102),
+  ylim = c(20, 102),
   xaxt = "n",
   xlab = "Inference Latency (ms) [Log Scale]",
-  ylab = "Classification Accuracy (%)",
-  main = "Multi-Model Pareto Frontier: Classification Accuracy vs. Inference Latency",
+  ylab = "Empirical Accuracy (%)",
+  main = "Multi-Model Pareto Frontier: Empirical Accuracy vs. Inference Latency",
   col = multi_pareto$Color,
   pch = multi_pareto$Pch,
   cex = 2.4,
@@ -201,13 +201,12 @@ text(3380.1, 80.33, labels = "V5: i3-12100F W4A8\n(80.3% / 87.7%)", pos = 1, off
 text(4135.1, 83.33, labels = "V5: Oryon CPU INT8\n(83.3% / 89.3%)", pos = 4, offset = 0.6, col = "#da3633", cex = 0.72, font = 2)
 text(4326.6, 78.42, labels = "V5: Oryon CPU W4A8\n(78.4% / 85.2%)", pos = 4, offset = 0.6, col = "#f85149", cex = 0.72, font = 2)
 
-text(16.8, 96.76, labels = "V4-Large NPU INT8\n(96.8% / 99.1%)", pos = 4, offset = 0.6, col = "#a371f7", cex = 0.72, font = 2)
-text(13.5, 96.76, labels = "V4-Large NPU INT4\n(96.8% / 99.1%)", pos = 3, offset = 0.6, col = "#bc8cff", cex = 0.72, font = 2)
-text(18.5, 79.87, labels = "V4-Small NPU INT8\n(79.9% / 88.5%)", pos = 4, offset = 0.6, col = "#56d364", cex = 0.72, font = 2)
-text(12.0, 79.87, labels = "V4-Small NPU INT4\n(79.9% / 88.5%)", pos = 1, offset = 0.6, col = "#7ee787", cex = 0.72, font = 2)
+text(16.8, 26.42, labels = "V4-Large NPU INT8\n(26.4% / 53.9%)", pos = 4, offset = 0.6, col = "#a371f7", cex = 0.72, font = 2)
+text(13.5, 26.42, labels = "V4-Large NPU INT4\n(26.4% / 53.9%)", pos = 2, offset = 0.6, col = "#bc8cff", cex = 0.72, font = 2)
+text(18.5, 77.14, labels = "V4-Small NPU INT8\n(77.1%)", pos = 4, offset = 0.6, col = "#56d364", cex = 0.72, font = 2)
+text(12.0, 77.14, labels = "V4-Small NPU INT4\n(77.1%)", pos = 2, offset = 0.6, col = "#7ee787", cex = 0.72, font = 2)
 
-
-pareto_frontier_idx <- c(10, 9, 1, 3)
+pareto_frontier_idx <- c(11, 1, 3)
 lines(
   multi_pareto$Latency[pareto_frontier_idx],
   multi_pareto$Top1[pareto_frontier_idx],
@@ -217,11 +216,11 @@ lines(
 )
 
 legend(
-  "bottomleft",
+  "bottomright",
   legend = c(
     "MobileNetV5 (512x512 VisionAiManager)",
-    "MobileNetV4-Large (256x256 Legacy Tier)",
-    "MobileNetV4-Small (256x256 LocalAiManager)",
+    "MobileNetV4-Large (244x244 Legacy Tier)",
+    "MobileNetV4-Small (1024x1024 LocalAiManager)",
     "Point Styles: Solid = Top-1 Acc | Open Ring = Top-3 Acc",
     "Dashed Blue: Empirical Pareto Optimal Frontier"
   ),

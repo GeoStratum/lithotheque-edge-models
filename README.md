@@ -317,22 +317,22 @@ Exhaustive on-device measurements collected on the Snapdragon X Plus Copilot+ ul
 #### 2. MobileNetV4-Large - Rock Classification (Legacy)
 | Format | Hardware Backend | Latency (ms) | Top-1 Acc. (%) |
 | :---: | :--- | :---: | :--- |
-| **INT8** | **Dedicated NPU (Target)** | **16.7** | 96.76 |
-| INT8 | GPU (Adreno) | 129.1 | 96.76 |
-| INT8 | CPU (Oryon) | 142.8 | 96.76 |
-| **INT4 (W4A8)** | **Dedicated NPU (Target)** | **13.5** | 96.76 |
-| INT4 (W4A8) | GPU (Adreno) | 105.4 | 96.76 |
-| INT4 (W4A8)| CPU (Oryon) | 120.2 | 96.76 |
+| **INT8** | **Dedicated NPU (Target)** | **16.7** | 26.42 |
+| INT8 | GPU (Adreno) | 129.1 | 26.42 |
+| INT8 | CPU (Oryon) | 142.8 | 26.42 |
+| **INT4 (W4A8)** | **Dedicated NPU (Target)** | **13.5** | 26.42 |
+| INT4 (W4A8) | GPU (Adreno) | 105.4 | 26.42 |
+| INT4 (W4A8)| CPU (Oryon) | 120.2 | 26.42 |
 
 #### 3. MobileNetV4-Small - Scale Metrology (LocalAiManager)
-| Format | Hardware Backend | Latency (ms) | Top-1 Acc. (%) |
+| Format | Hardware Backend | Latency (ms) | Detection Rate (%) |
 | :---: | :--- | :---: | :--- |
-| **INT8** | **Dedicated NPU (Target)** | **18.5** | 79.87 |
-| INT8 | GPU (Adreno) | 115.4 | 79.87 |
-| INT8 | CPU (Oryon) | 115.4 | 79.87 |
-| **INT4 (W4A8)** | **Dedicated NPU (Target)** | **12.1** | 79.87 |
-| INT4 (W4A8) | GPU (Adreno) | 25.4 | 79.87 |
-| INT4 (W4A8) | CPU (Oryon) | 412.3 | 79.87 |
+| **INT8** | **Dedicated NPU (Target)** | **18.5** | 77.14 |
+| INT8 | GPU (Adreno) | 115.4 | 77.14 |
+| INT8 | CPU (Oryon) | 115.4 | 77.14 |
+| **INT4 (W4A8)** | **Dedicated NPU (Target)** | **12.1** | 77.14 |
+| INT4 (W4A8) | GPU (Adreno) | 25.4 | 77.14 |
+| INT4 (W4A8) | CPU (Oryon) | 412.3 | 77.14 |
 
 ## 9. Hardware Strategy & Analysis
 
