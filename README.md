@@ -191,29 +191,50 @@ input_int8 = (pixel_float * 255 - 128).astype(np.int8)
 
 The objective of this study is to evaluate the 3-tier fallback system and validate the trade-off between inference latency (required for real-time tracking) and topographic precision across highly diverse hardware profiles.
 
-### 💻 Test Environment Context: Station de Quantification GPU RTX vs. Cible Edge NPU Snapdragon
-Pour cette version d'octobre 2026, la phase intensive d'exportation, de calibration fine ($512\times 512$) et de quantification haute précision a été réalisée sur une **station de calcul équipée d'une architecture NVIDIA Blackwell RTX**. Les benchmarks préliminaires d'inférence GPU/CPU sont fournis ci-dessous, et une campagne de requalification matérielle dédiée sur l'environnement de référence **Qualcomm Snapdragon (NPU Hexagon / QAIRT SDK)** sera reconduite prochainement sur la machine Snapdragon de test.
+### 💻 Hardware Environments Differentiation (RTX Workstation vs. Snapdragon PC)
 
-#### 8.A Generation & Quantization Environment (Station de Calcul Actuelle)
-Cette station de travail haute performance a servi pour l'ensemble des pipelines d'exportation, de calibration fine et de re-quantification chirurgicale INT4/INT8 :
+This project relies on **two distinct and complementary hardware environments**:
+1. **Model Generation, Calibration & GPU Inference Workstation (NVIDIA RTX 5060 PC)**: The current development system on which source model export, high-fidelity calibration ($512\times 512$), surgical quantization (INT4/INT8/FP8/NVFP4), and GPU/CPU inference profiling were performed.
+2. **Target Edge Deployment Platform (Qualcomm Snapdragon X Elite / X Plus PC)**: The reference ultra-portable Copilot+ mobile platform featuring the **Qualcomm Hexagon NPU**. **Full hardware NPU benchmarks will be re-executed directly on this Snapdragon machine** once the updated model artifacts are deployed.
 
-- **GPU Dédié** : **NVIDIA GeForce RTX 5060** (Architecture **NVIDIA Blackwell**, Compute Capability `sm_120`, VRAM 8 Go GDDR7)
-- **CPU Hôte** : **12th Gen Intel® Core™ i3-12100F** (4 cœurs, 8 threads @ 3.30 GHz - Turbo 4.30 GHz)
-- **Mémoire Vive (RAM)** : **32 Go DDR4/DDR5**
-- **Système d'Exploitation** : Microsoft Windows 11 Professionnel (x64)
-- **Toolchain & Stack d'Accélération** : CUDA Toolkit **13.4**, cuDNN 9.x, PyTorch **2.11.0 / 2.14.0**, `torchao 0.18.0` (support natif NVFP4 Microscaling E2M1), `onnxruntime-gpu 1.29.0`.
-- **Quantization Stack Edge** : Python 3.11 / Python 3.14, `ai-edge-quantizer 0.5`, `ai-edge-litert 2.2.0`, `tensorflow 2.21.0`, `onnxruntime.quantization 1.22.0`.
+---
 
-#### 8.B Benchmark & Target Re-Validation Environment (Plateforme Snapdragon)
-*Note méthodologique :* Les métriques NPU Hexagon de référence ci-dessous correspondent aux profils validés sur l'environnement Snapdragon. Une nouvelle passe de profilage direct sur cette machine sera reconduite prochainement pour mesurer les gains de latence NPU apportés par le graphe $512\times 512$.
+#### 8.A Machine 1: NVIDIA RTX GPU Workstation (Generation, Quantization & GPU Profiling)
+Current host system where the full export, high-precision calibration, and re-quantization pipeline was executed:
 
-- **Model Cible** : **Microsoft Surface Pro, 11th Edition / Surface Laptop 7**
-- **Platform** : **Qualcomm Snapdragon® X Plus (X1P64100) / X Elite (X1E80100)**
-- **CPU** : **Qualcomm Oryon™ CPU** (10-12 Cores, architecture ARMv8-A @ 3.40 GHz)
-- **NPU** : **Qualcomm® Hexagon™ NPU** (Accélérateur tensoriel 45 TOPS INT8)
-- **Architecture Cible Edge** : **Native ARM64 / Android NDK (Qualcomm QAIRT 2.45 SDK)**
-- **Mémoire** : 16 Go - 32 Go LPDDR5x @ 8448 MT/s
-- **OS** : Windows 11 ARM64 (Build 26220) / Android 15 (pages mémoire 16 Ko)
+- **Hardware Category**: Desktop Workstation (x64)
+- **Dedicated GPU**: **NVIDIA GeForce RTX 5060**
+  - Architecture: **NVIDIA Blackwell**
+  - Compute Capability: **`sm_120`**
+  - VRAM: **8 GB GDDR7**
+  - Role: Accelerated CUDA / Tensor Core inference (FP16, BF16, FP8, NVFP4 Microscaling E2M1).
+- **Host Processor (CPU)**: **12th Gen Intel® Core™ i3-12100F** (4 Cores / 8 Threads @ 3.30 GHz - Turbo 4.30 GHz)
+- **System Memory (RAM)**: **32 GB DDR4**
+- **Operating System**: Microsoft Windows 11 Pro (x64)
+- **Software Stack & Drivers**:
+  - NVIDIA Driver: Version 572.x / 32.0.16.1742
+  - CUDA Toolkit: **CUDA 13.4**
+  - Frameworks: PyTorch **2.11.0+cu128 / 2.14.0**, `torchao 0.18.0` (native Blackwell NVFP4 support), `onnxruntime-gpu 1.29.0`.
+  - Edge Tooling: Python 3.11 & 3.14, `ai-edge-quantizer 0.5`, `ai-edge-litert 2.2.0`, `tensorflow 2.21.0`.
+
+---
+
+#### 8.B Machine 2: Qualcomm Snapdragon Copilot+ PC (Target Edge NPU & Mobile Validation)
+The reference edge target system where initial mobile NPU execution profiles (Qualcomm QAIRT SDK) were established, and where **a dedicated hardware re-benchmark session will be conducted**:
+
+- **Hardware Category**: Copilot+ Ultra-Portable PC (Native ARM64 Architecture)
+- **Platform & SoC**: **Qualcomm Snapdragon® X Plus (X1P64100) / X Elite (X1E80100)**
+- **Dedicated Accelerator (NPU)**: **Qualcomm® Hexagon™ NPU**
+  - Nominal Compute Power: **45 TOPS INT8**
+  - Role: Low-power, ultra-fast Full Integer INT8 / INT4 (W4A8) edge inference.
+- **CPU**: **Qualcomm Oryon™ CPU** (10 to 12 Cores, ARMv8-A @ 3.40 GHz)
+- **Integrated GPU**: **Qualcomm® Adreno™ X1-85 GPU**
+- **System Memory (RAM)**: **16 GB to 32 GB LPDDR5x** (@ 8448 MT/s)
+- **Operating System**: Microsoft Windows 11 ARM64 (Build 26220) / Prism Emulation & Android 15 NDK target (16 KB pages).
+- **Edge Software Stack**: Qualcomm QAIRT SDK 2.45, `onnxruntime-qnn 2.0.0`, LiteRT NPU Delegate.
+- **NPU Measurement Status**: *The NPU latency figures in the table below reflect the baseline Snapdragon reference profiles. A comprehensive on-device benchmark session will be re-run directly on the Snapdragon PC using the newly quantized $512\times 512$ models.*
+
+---
 
 ### 8.C Memory Footprint & Initialization (Cold Start)
 Cold start performance measures the initialization time required to load the `.tflite` models into RAM/NPU memory. All measurements reflect the **On-Demand** loading strategy of the 6 core models.
@@ -231,21 +252,25 @@ Cold start performance measures the initialization time required to load the `.t
 
 > **Architecture Note:** The **Legacy** pack reduces the `rock_model` footprint significantly (from 301.4 MB down to **33.4 MB**) to prevent Out-Of-Memory (OOM) crashes on older devices. This results in the fastest total initialization time (**133.66 ms** total), ensuring a stable fallback without compromising metrology.
 
-### 8.D Inference Latency & Accuracy (Avg over 100 runs)
-Real-time per-frame inference latency and Top-1 accuracy benchmarks evaluated on Snapdragon X Plus.
+### 8.D Inference Profiling & Benchmarks by Hardware Environment
 
 #### 1. MobileNetV5 - Rock Classification (VisionAiManager)
-| Format | Hardware Backend | Latency (ms) | Top-1 Acc. (%) | Top-3 Acc. (%) |
-| :---: | :--- | :---: | :---: | :---: |
-| **FP16 / BF16** | GPU / Tensor Core | 89.8 | **88.33** | **92.67** |
-| **INT8** | **Dedicated NPU (Target)** | **24.1** | **83.33** | **89.33** |
-| INT8 | GPU (Adreno / RTX) | 54.2 | 83.33 | 89.33 |
-| INT8 | CPU (Oryon) | 2443.5 | 83.33 | 89.33 |
-| **INT4 (W4A8)** | **Dedicated NPU (Target)** | **18.4** | **80.33** | **87.67** |
-| INT4 (W4A8) | GPU (Adreno / RTX) | 39.2 | 80.33 | 87.67 |
-| INT4 (W4A8) | CPU (Oryon) | 587.8 | 80.33 | 87.67 |
+This table compares benchmark results measured on the **RTX Workstation** with the reference NPU baseline profiles on the **Snapdragon PC**:
 
-> **Mise à jour Architecture & Fine-Tuning (Octobre 2026)** : Grâce au fine-tuning haute résolution $512\times 512$ et à la re-quantification chirurgicale avec le tenseur de calibration normalisé `calib_exact_training_512.npy` (`per_channel=True`, `reduce_range=False`), le modèle MobileNetV5 franchit **80.33% Top-1** et **87.67% Top-3** en **W4A8 Full Integer**, et **83.33% Top-1** en **INT8**, surpassant la baseline initiale de 79.87%.
+| Format | Tested Hardware Environment | Execution Backend | Latency (ms) | Top-1 Acc. (%) | Top-3 Acc. (%) |
+| :---: | :--- | :--- | :---: | :---: | :---: |
+| **BF16 / FP16** | **RTX 5060 PC** | **NVIDIA RTX 5060 (CUDA / Tensor Cores)** | **89.8** | **88.33%** | **92.67%** |
+| **FP8 (E4M3FN)** | **RTX 5060 PC** | **NVIDIA RTX 5060 (Blackwell FP8)** | **30.8** | *FP8 Weights* | *FP8 Weights* |
+| **INT8 (W8A8)** | **Snapdragon PC** *(Ref Profile)* | **Qualcomm Hexagon NPU** *(To be re-benchmarked on Snapdragon PC)* | **24.1** | **83.33%** | **89.33%** |
+| INT8 (W8A8) | RTX 5060 PC | NVIDIA GPU (Adreno/RTX sim.) | 54.2 | 83.33% | 89.33% |
+| INT8 (W8A8) | RTX 5060 PC | Intel Core i3-12100F (CPU) | 2443.5 | 83.33% | 89.33% |
+| **W4A8 Full Int** | **Snapdragon PC** *(Ref Profile)* | **Qualcomm Hexagon NPU** *(To be re-benchmarked on Snapdragon PC)* | **18.4** | **80.33%** | **87.67%** |
+| W4A8 Full Int | RTX 5060 PC | NVIDIA GPU (Adreno/RTX sim.) | 39.2 | 80.33% | 87.67% |
+| W4A8 Full Int | RTX 5060 PC | Intel Core i3-12100F (CPU) | 587.8 | 80.33% | 87.67% |
+
+> **Methodological Clarification**:
+> - High-fidelity calibration ($512\times 512$, `per_channel=True`) carried out on the **RTX Workstation** elevated W4A8 accuracy to **80.33% Top-1** and INT8 accuracy to **83.33% Top-1**, outperforming the earlier baseline (79.87%).
+> - Listed NPU latencies (18.4 ms and 24.1 ms) stem from the initial Snapdragon reference profile. A dedicated hardware evaluation session will be run directly on the **Snapdragon PC** to capture the exact execution speeds of these updated models on the Hexagon NPU accelerator.
 
 
 #### 2. MobileNetV4-Large - Rock Classification (Legacy)

@@ -295,18 +295,19 @@ For full scientific reproducibility, the following specialized automation script
 - **Frameworks**: `tensorflow==2.21.0`, `ai-edge-quantizer==0.5`, `ai-edge-litert==2.2.0`, `onnxruntime-quantization==1.22.0`, `torch==2.14.0`, `torchao==0.18.0`.
 - **Compiler / Runtimes**: MSVC, CUDA Toolkit 13.4, cuDNN 9.x.
 
-### Hardware (Generation & Quantization Workstation - Octobre 2026)
-- **GPU**: NVIDIA GeForce RTX 5060 (Architecture NVIDIA Blackwell, Compute Capability `sm_120`, 8 Go GDDR7)
+### Hardware (Generation & Quantization Workstation - October 2026)
+- **GPU**: NVIDIA GeForce RTX 5060 (NVIDIA Blackwell Architecture, Compute Capability `sm_120`, 8 GB GDDR7)
 - **CPU**: 12th Gen Intel® Core™ i3-12100F (4 Cores, 8 Threads @ 3.30 GHz - Turbo 4.30 GHz)
-- **RAM**: 32 Go
-- **OS**: Windows 11 Professionnel (x64)
+- **RAM**: 32 GB DDR4
+- **OS**: Windows 11 Pro (x64)
 
-### Target Edge Benchmark Hardware (Requalification Snapdragon)
+### Target Edge Benchmark Hardware (Snapdragon Edge Deployment Platform)
 - **Platform**: Microsoft Surface Laptop 7 / Surface Pro 11 (Qualcomm Snapdragon® X Elite / X Plus)
 - **NPU**: Qualcomm Hexagon (45 TOPS INT8)
-- **RAM**: 16 - 32 Go LPDDR5x @ 8448 MT/s
-- **OS**: Windows 11 ARM64 / Android 15 (pages 16 Ko)
+- **RAM**: 16 - 32 GB LPDDR5x @ 8448 MT/s
+- **OS**: Windows 11 ARM64 / Android 15 (16 KB pages)
 
 ---
 *This document certifies the technical reproducibility of the models across NVIDIA Blackwell and Qualcomm Snapdragon platforms.*
+
 
