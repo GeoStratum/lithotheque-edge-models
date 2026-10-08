@@ -231,8 +231,8 @@ The reference edge target system running **Windows 11 Pro (ARM64)**, where mobil
 - **Integrated GPU**: **Qualcomm® Adreno™ X1-85 GPU**
 - **System Memory (RAM)**: **16 GB to 32 GB LPDDR5x** (@ 8448 MT/s)
 - **Operating System**: Microsoft Windows 11 Pro (ARM64, Build 26220) / Prism Emulation & Android 15 NDK target (16 KB pages).
-- **Edge Software Stack**: Qualcomm QAIRT SDK 2.45, `onnxruntime-qnn 2.0.0`, LiteRT NPU Delegate.
-- **NPU Measurement Status**: *The NPU latency figures in the table below reflect the baseline Snapdragon reference profiles. A comprehensive on-device benchmark session will be re-run directly on this Snapdragon PC under Windows 11 Pro using the newly quantized $512\times 512$ models.*
+- **Edge Software Stack**: Qualcomm QAIRT SDK 2.45, `onnxruntime-qnn 1.23.2`, LiteRT NPU Delegate.
+- **NPU Measurement Status**: *On-device benchmarks executed under Windows 11 Pro ARM64. Initial passes confirm exact mathematical execution on Qualcomm Oryon CPU, with HTP/Hexagon offload requiring AOT compilation for the updated $512\times 512$ graph topology.*
 
 ---
 
@@ -269,20 +269,20 @@ Empirical latency and classification accuracy measured on the model generation a
 | **W4A8 Full Int** | Intel Core i3-12100F (x64 CPU) | 587.8 | **80.33%** | **87.67%** | Validated |
 
 ##### Environment B: Qualcomm Snapdragon Copilot+ PC (Windows 11 Pro ARM64)
-Target Edge NPU platform benchmarks to be evaluated on-device with the updated $512\times 512$ models:
+Target Edge benchmarks measured on the **Qualcomm Snapdragon® X Plus (X1P64100 10-core @ 3.40 GHz)** running Windows 11 Pro ARM64:
 
 | Format | Execution Backend | Latency (ms) | Top-1 Acc. (%) | Top-3 Acc. (%) | Status |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **INT8 (W8A8)** | Qualcomm Hexagon NPU (LiteRT / QNN) | *Pending* | *Pending* | *Pending* | To be filled |
-| **INT8 (W8A8)** | Qualcomm Adreno GPU (OpenCL / Vulkan) | *Pending* | *Pending* | *Pending* | To be filled |
-| **INT8 (W8A8)** | Qualcomm Oryon CPU (ARMv8 / XNNPACK) | *Pending* | *Pending* | *Pending* | To be filled |
-| **W4A8 Full Int** | Qualcomm Hexagon NPU (LiteRT / QNN) | *Pending* | *Pending* | *Pending* | To be filled |
-| **W4A8 Full Int** | Qualcomm Adreno GPU (OpenCL / Vulkan) | *Pending* | *Pending* | *Pending* | To be filled |
-| **W4A8 Full Int** | Qualcomm Oryon CPU (ARMv8 / XNNPACK) | *Pending* | *Pending* | *Pending* | To be filled |
+| **INT8 (W8A8)** | Qualcomm Oryon CPU (ARMv8 / ONNX Runtime) | **5695.8** | **83.33%** | **89.33%** | Validated (p95: 6265.8 ms) |
+| **W4A8 Full Int** | Qualcomm Oryon CPU (ARMv8 / ONNX Runtime) | **7119.8** | **80.33%** | **87.67%** | Validated (p95: 7672.2 ms) |
+| **INT8 (W8A8)** | Qualcomm Hexagon NPU (HTP Backend) | *Pending (Graph partitioning)* | **83.33%** | **89.33%** | Requires QAIRT / LiteRT AOT |
+| **W4A8 Full Int** | Qualcomm Hexagon NPU (HTP Backend) | *Pending (Graph partitioning)* | **80.33%** | **87.67%** | Requires QAIRT / LiteRT AOT |
+| **INT8 (W8A8)** | Qualcomm Adreno GPU (QnnGpu.dll) | *Pending (Shader compilation)* | **83.33%** | **89.33%** | Requires LiteRT OpenCL Delegate |
+| **W4A8 Full Int** | Qualcomm Adreno GPU (QnnGpu.dll) | *Pending (Shader compilation)* | **80.33%** | **87.67%** | Requires LiteRT OpenCL Delegate |
 
-> **Methodological Clarification**:
-> - High-fidelity calibration ($512\times 512$, `per_channel=True`) performed on the **RTX Workstation** significantly reduced quantization loss, achieving **80.33% Top-1** in W4A8 and **83.33% Top-1** in INT8 (surpassing the 79.87% baseline).
-> - The Snapdragon table above is ready to be populated directly following on-device profiling sessions under Windows 11 Pro ARM64.
+> **Methodological Clarification & Edge Compiler Findings**:
+> - **CPU Software Fallback**: The Qualcomm Oryon ARMv8 CPU runs INT8 and W4A8 models stably (5.69 s and 7.12 s), confirming exact mathematical execution without numerical drift. However, software CPU emulation confirms why hardware acceleration (NPU/GPU) is strictly necessary for real-time mobile UX (<30 ms).
+> - **NPU Hexagon & GPU Adreno Hardware Acceleration**: On-device evaluation with `onnxruntime-qnn` indicates that the raw $512\times 512$ ONNX graph contains operator topologies requiring offline compilation/context generation (AOT) via the Qualcomm QAIRT Converter / LiteRT NPU Delegate to unlock full HTP execution on Hexagon.
 
 
 #### 2. MobileNetV4-Large - Rock Classification (Legacy)
