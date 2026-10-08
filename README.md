@@ -195,7 +195,7 @@ The objective of this study is to evaluate the 3-tier fallback system and valida
 
 This project relies on **two distinct and complementary hardware environments**:
 1. **Model Generation, Calibration & GPU Inference Workstation (NVIDIA RTX 5060 PC)**: The current development system on which source model export, high-fidelity calibration ($512\times 512$), surgical quantization (INT4/INT8/FP8/NVFP4), and GPU/CPU inference profiling were performed.
-2. **Target Edge Deployment Platform (Qualcomm Snapdragon X Elite / X Plus PC)**: The reference ultra-portable Copilot+ mobile platform featuring the **Qualcomm Hexagon NPU**. **Full hardware NPU benchmarks will be re-executed directly on this Snapdragon machine** once the updated model artifacts are deployed.
+2. **Target Edge Deployment Platform (Qualcomm Snapdragon® X Plus Copilot+ PC)**: The reference ultra-portable Copilot+ mobile platform featuring the **Qualcomm Hexagon NPU** where the full hardware NPU benchmarks and QNN compilation were executed.
 
 ---
 
@@ -220,7 +220,7 @@ Current host system where the full export, high-precision calibration, and re-qu
 ---
 
 #### 8.B Machine 2: Qualcomm Snapdragon Copilot+ PC (Edge Deployment & Validation Platform)
-The reference edge target system running **Microsoft Windows 11 Pro 24H2 (ARM64)**, where mobile NPU execution profiles (Qualcomm QAIRT SDK) were established and measured:
+The reference edge target system running **Microsoft Windows 11 Pro 24H2 (ARM64, Build 26100 / 26220)**, where mobile NPU execution profiles (Qualcomm QAIRT SDK 2.37.1) were established and empirically benchmarked across 600 runs:
 
 - **Hardware Category**: Copilot+ Ultra-Portable PC (Native ARM64 Architecture)
 - **Platform & SoC (Processor & Accelerators)**:
