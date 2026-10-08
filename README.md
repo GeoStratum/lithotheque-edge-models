@@ -255,22 +255,34 @@ Cold start performance measures the initialization time required to load the `.t
 ### 8.D Inference Profiling & Benchmarks by Hardware Environment
 
 #### 1. MobileNetV5 - Rock Classification (VisionAiManager)
-This table compares benchmark results measured on the **RTX Workstation** with the reference NPU baseline profiles on the **Snapdragon PC**:
 
-| Format | Tested Hardware Environment | Execution Backend | Latency (ms) | Top-1 Acc. (%) | Top-3 Acc. (%) |
-| :---: | :--- | :--- | :---: | :---: | :---: |
-| **BF16 / FP16** | **RTX 5060 PC** | **NVIDIA RTX 5060 (CUDA / Tensor Cores)** | **89.8** | **88.33%** | **92.67%** |
-| **FP8 (E4M3FN)** | **RTX 5060 PC** | **NVIDIA RTX 5060 (Blackwell FP8)** | **30.8** | *FP8 Weights* | *FP8 Weights* |
-| **INT8 (W8A8)** | **Snapdragon PC** *(Ref Profile)* | **Qualcomm Hexagon NPU** *(To be re-benchmarked on Snapdragon PC)* | **24.1** | **83.33%** | **89.33%** |
-| INT8 (W8A8) | RTX 5060 PC | NVIDIA GPU (Adreno/RTX sim.) | 54.2 | 83.33% | 89.33% |
-| INT8 (W8A8) | RTX 5060 PC | Intel Core i3-12100F (CPU) | 2443.5 | 83.33% | 89.33% |
-| **W4A8 Full Int** | **Snapdragon PC** *(Ref Profile)* | **Qualcomm Hexagon NPU** *(To be re-benchmarked on Snapdragon PC)* | **18.4** | **80.33%** | **87.67%** |
-| W4A8 Full Int | RTX 5060 PC | NVIDIA GPU (Adreno/RTX sim.) | 39.2 | 80.33% | 87.67% |
-| W4A8 Full Int | RTX 5060 PC | Intel Core i3-12100F (CPU) | 587.8 | 80.33% | 87.67% |
+##### Environment A: NVIDIA RTX 5060 Workstation (Desktop x64)
+Empirical latency and classification accuracy measured on the model generation and quantization workstation:
+
+| Format | Execution Backend | Latency (ms) | Top-1 Acc. (%) | Top-3 Acc. (%) | Status |
+| :---: | :--- | :---: | :---: | :---: | :---: |
+| **BF16 / FP16** | NVIDIA RTX 5060 (CUDA / Tensor Cores) | **89.8** | **88.33%** | **92.67%** | Validated |
+| **FP8 (E4M3FN)** | NVIDIA RTX 5060 (Blackwell FP8) | **30.8** | *FP8 Weights* | *FP8 Weights* | Validated |
+| **INT8 (W8A8)** | NVIDIA GPU (TensorRT / CUDA EP) | 54.2 | **83.33%** | **89.33%** | Validated |
+| **INT8 (W8A8)** | Intel Core i3-12100F (x64 CPU) | 2443.5 | **83.33%** | **89.33%** | Validated |
+| **W4A8 Full Int** | NVIDIA GPU (TensorRT / CUDA EP) | 39.2 | **80.33%** | **87.67%** | Validated |
+| **W4A8 Full Int** | Intel Core i3-12100F (x64 CPU) | 587.8 | **80.33%** | **87.67%** | Validated |
+
+##### Environment B: Qualcomm Snapdragon Copilot+ PC (Windows 11 Pro ARM64)
+Target Edge NPU platform benchmarks to be evaluated on-device with the updated $512\times 512$ models:
+
+| Format | Execution Backend | Latency (ms) | Top-1 Acc. (%) | Top-3 Acc. (%) | Status |
+| :---: | :--- | :---: | :---: | :---: | :---: |
+| **INT8 (W8A8)** | Qualcomm Hexagon NPU (LiteRT / QNN) | *Pending* | *Pending* | *Pending* | To be filled |
+| **INT8 (W8A8)** | Qualcomm Adreno GPU (OpenCL / Vulkan) | *Pending* | *Pending* | *Pending* | To be filled |
+| **INT8 (W8A8)** | Qualcomm Oryon CPU (ARMv8 / XNNPACK) | *Pending* | *Pending* | *Pending* | To be filled |
+| **W4A8 Full Int** | Qualcomm Hexagon NPU (LiteRT / QNN) | *Pending* | *Pending* | *Pending* | To be filled |
+| **W4A8 Full Int** | Qualcomm Adreno GPU (OpenCL / Vulkan) | *Pending* | *Pending* | *Pending* | To be filled |
+| **W4A8 Full Int** | Qualcomm Oryon CPU (ARMv8 / XNNPACK) | *Pending* | *Pending* | *Pending* | To be filled |
 
 > **Methodological Clarification**:
-> - High-fidelity calibration ($512\times 512$, `per_channel=True`) carried out on the **RTX Workstation** elevated W4A8 accuracy to **80.33% Top-1** and INT8 accuracy to **83.33% Top-1**, outperforming the earlier baseline (79.87%).
-> - Listed NPU latencies (18.4 ms and 24.1 ms) stem from the initial Snapdragon reference profile. A dedicated hardware evaluation session will be run directly on the **Snapdragon PC** to capture the exact execution speeds of these updated models on the Hexagon NPU accelerator.
+> - High-fidelity calibration ($512\times 512$, `per_channel=True`) performed on the **RTX Workstation** significantly reduced quantization loss, achieving **80.33% Top-1** in W4A8 and **83.33% Top-1** in INT8 (surpassing the 79.87% baseline).
+> - The Snapdragon table above is ready to be populated directly following on-device profiling sessions under Windows 11 Pro ARM64.
 
 
 #### 2. MobileNetV4-Large - Rock Classification (Legacy)
