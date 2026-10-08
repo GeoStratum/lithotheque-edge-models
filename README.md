@@ -175,22 +175,17 @@ All inputs are expected as **INT8** tensors in the range `[-128, 127]`.
 input_int8 = (pixel_float * 255 - 128).astype(np.int8)
 ```
 
-### C. Model Integrity & Zero-FP32 Certification (SHA256)
+### C. Zero-FP32 Architectural Specifications
 All production models for MobileNetV5-300M adhere strictly to the **Zero-FP32 Hardware Constraint** (100% full integer arithmetics, 0 float32 tensors, pure QOperator ONNX and full-integer TFLite) to prevent NPU hardware partition rejection on Qualcomm Snapdragon Hexagon HTP:
 
-| Model File | Format | Quantization | Size | SHA256 Hash | FP32 Tensor Count | NPU HTP Status |
-| :--- | :---: | :---: | :---: | :--- | :---: | :---: |
-| `best_mobilenetv5_rocks_int8.tflite` | TFLite | **INT8 (W8A8)** | 287.94 MB | `d55e5ba6237dce1f9c4c39c00dcd531607a27dc1e4626416da46ae52605d9630` | **0 (0.0%)** | **100% Validated (0 fallback)** |
-| `best_mobilenetv5_rocks_w4a8.tflite` | TFLite | **W4A8 Full Int** | 148.05 MB | `cd6c8b10f9b76d1915f98d6eda42a19dd6bb1e7335637a0caa7b96f56e8e33f0` | **0 (0.0%)** | **100% Validated (0 fallback)** |
-| `best_mobilenetv5_rocks_int8.onnx` | ONNX | **INT8 QOperator** | 284.29 MB | `b6a330db9420bfbe8d4954ee1c030071ef6b8a576a14a8609b15df4ca8ab5a27` | **0 (0.0%)** | **100% Validated (0 float Conv)** |
-| `best_mobilenetv5_rocks_w4a8.onnx` | ONNX | **W4A8 QOperator** | 284.84 MB | `b03638f6893ed9d6a50bad3cd3a3002c811528755cba9110cce63a58ae81960d` | **0 (0.0%)** | **100% Validated (0 float Conv)** |
-| `best_mobilenetv5_rocks_w4a8_npu.onnx` | ONNX | **W4A8 NPU HTP** | 287.56 MB | `834caab68f3da386822054549f52f8a98cc8c749024b9aaf7400f61da88f2c71` | **0 (0.0%)** | **100% Validated (HTP Native)** |
+| Model File | Format | Quantization | Size | FP32 Tensor Count | NPU HTP Status |
+| :--- | :---: | :---: | :---: | :---: | :---: |
+| `best_mobilenetv5_rocks_int8.tflite` | TFLite | **INT8 (W8A8)** | 287.94 MB | **0 (0.0%)** | **100% Validated (0 fallback)** |
+| `best_mobilenetv5_rocks_w4a8.tflite` | TFLite | **W4A8 Full Int** | 148.05 MB | **0 (0.0%)** | **100% Validated (0 fallback)** |
+| `best_mobilenetv5_rocks_int8.onnx` | ONNX | **INT8 QOperator** | 284.29 MB | **0 (0.0%)** | **100% Validated (0 float Conv)** |
+| `best_mobilenetv5_rocks_w4a8.onnx` | ONNX | **W4A8 QOperator** | 284.84 MB | **0 (0.0%)** | **100% Validated (0 float Conv)** |
+| `best_mobilenetv5_rocks_w4a8_npu.onnx` | ONNX | **W4A8 NPU HTP** | 287.56 MB | **0 (0.0%)** | **100% Validated (HTP Native)** |
 
-*Legacy MobileNetV4 Models Reference Checksums:*
-- `roches_v4_l_int8.tflite` : `e0c96ec464a32bb7e1b369c6ed9b003f1e8c6d7e96ec25563ff6fdeeb8ca1d9b`
-- `echelle_v4_s_int8.tflite`: `ea2aecb7d1ca34f1e402cd21741b3d7bafa2f393e990336630f55c795dde5e94`
-
-*Full manifest with all model hashes available in `metadata/model_manifest.json`.*
 
 ## 8. Scientific Benchmark & Hardware Profiling
 
