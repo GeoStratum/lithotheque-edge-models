@@ -50,3 +50,6 @@ download_file('1gEjpgUwmtZuS7Y8LZXh3qbhtQ9XrknQu', 'best_mobilenetv5_rocks_w4a8.
 
 # Telecharger best_mobilenetv5_rocks_int8.onnx (ID: 1iNrWJC_kZHoKmZxPXDOb0QXom51pUHdi)
 download_file('1iNrWJC_kZHoKmZxPXDOb0QXom51pUHdi', 'best_mobilenetv5_rocks_int8.onnx')
+
+# Telecharger best_mobilenetv5_rocks_w4a8_npu.onnx (ID: 1FzDde92TVHXeCZ9IxoyCa3DBlQXUaxU_)
+download_file('1FzDde92TVHXeCZ9IxoyCa3DBlQXUaxU_', 'best_mobilenetv5_rocks_w4a8_npu.onnx')
