@@ -18,7 +18,7 @@
 > The core purpose of this scientific repository is to openly share the **engineering methodology**, the **W4A8 Full Integer quantization pipeline**, and the **mathematical architectural strategies** (such as the 21-Pass Multi-Scale Tiling) used to achieve real-time inference on **mobile Edge NPUs (e.g., Qualcomm Hexagon, Google Tensor Edge TPU)**.
 > [!TIP]
 > **New to Edge AI?**
-> For developers and researchers new to AI and quantization, we highly recommend consulting our **[Detailed Methodology](DETAILED_METHODOLOGY.md)**. It provides a pedagogical introduction to fundamental concepts, numerical precision (INT8/INT4), and hardware acceleration architectures.
+> For developers and researchers new to AI and quantization, we highly recommend consulting our **[Detailed Methodology](docs/DETAILED_METHODOLOGY.md)**. It provides a pedagogical introduction to fundamental concepts, numerical precision (INT8/INT4), and hardware acceleration architectures.
 
 
 ## Table of Contents
@@ -301,7 +301,17 @@ Exhaustive on-device measurements collected on the Snapdragon X Plus Copilot+ ul
 >    - The Qualcomm HTP compiler previously failed during low-level microcode generation due to a layout transformation conflict (`com.ms.internal.nhwc`) and dynamic `/msfa/Resize` node dimensions.
 >    - Applying the session configuration flag `optimization.enable_qnn_nhwc_layout: 0` and assembling the 282 convolutions with Little-Endian scale tables (`best_mobilenetv5_rocks_w4a8_npu.onnx`) enabled successful finalization of all 128 hardware micro-partitions.
 > 3. **Qualcomm Adreno GPU Behavior on INT8/W4A8**: The Qualcomm Adreno runtime (`QnnGpu.dll`) is strictly architected for floating-point tensors (FP16/FP32). Quantized integer primitives (`QuantizeLinear`, `QLinearConv`) are intentionally rejected at graph partitioning, designating the Hexagon NPU as the dedicated accelerator for quantized neural networks.
-> 4. **Standardized CSV Export (600 Tests)**: The complete set of 600 raw inference data points (100 runs $\times$ 3 backends $\times$ 2 models) is archived in `benchmark_snapdragon_100_runs.csv` and documented in `RAPPORT_BENCHMARK_NPU_SNAPDRAGON.txt`.
+> 4. **Standardized CSV Export & Documentation**: The raw data points (600 runs per platform) are archived in [benchmark_snapdragon_pc.csv](results/benchmark_snapdragon_pc.csv), [benchmark_workstation_pc_models_normaux.csv](results/benchmark_workstation_pc_models_normaux.csv), and [benchmark_workstation_pc_models_zero_fp32.csv](results/benchmark_workstation_pc_models_zero_fp32.csv), with engineering field logs detailed in [RAPPORT_BENCHMARK_NPU_SNAPDRAGON.txt](docs/RAPPORT_BENCHMARK_NPU_SNAPDRAGON.txt).
+
+##### Scientific Empirical Visualization (Generated via R 4.6.1 Engine)
+
+| 1. Cross-Hardware Latency Scaling | 2. Accuracy vs. Latency Pareto Frontier |
+| :---: | :---: |
+| ![Hardware Latency Comparison](results/hardware_latency_comparison.png) | ![Pareto Accuracy vs Latency](results/pareto_accuracy_vs_latency.png) |
+
+| 3. Qualcomm Hexagon NPU Stability (100 Runs) | 4. QDQ vs. Zero-FP32 Architectural Impact |
+| :---: | :---: |
+| ![Qualcomm Hexagon NPU Stability](results/snapdragon_npu_stability_distribution.png) | ![Quantization Paradigm Comparison](results/quantization_paradigm_comparison.png) |
 
 
 #### 2. MobileNetV4-Large - Rock Classification (Legacy)
