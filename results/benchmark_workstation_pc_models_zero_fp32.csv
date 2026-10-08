@@ -1,0 +1,601 @@
+Model,Task,Format,Backend,Inference_ID,Latency_ms,Top1_Accuracy,Top3_Accuracy,Hardware_Environment,Precision_Type,Execution_Status
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU_RTX5060,1,20289.641,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU_RTX5060,2,20334.418,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU_RTX5060,3,20361.626,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU_RTX5060,4,20363.504,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU_RTX5060,5,20341.137,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU_RTX5060,6,20389.418,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU_RTX5060,7,20313.347,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU_RTX5060,8,20354.983,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU_RTX5060,9,20366.803,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU_RTX5060,10,20384.540,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU_RTX5060,11,20393.413,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU_RTX5060,12,20310.781,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU_RTX5060,13,20292.355,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU_RTX5060,14,20418.885,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU_RTX5060,15,20376.344,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU_RTX5060,16,20327.708,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU_RTX5060,17,20431.192,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU_RTX5060,18,20366.595,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU_RTX5060,19,20414.458,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU_RTX5060,20,20364.428,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU_RTX5060,21,20454.124,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU_RTX5060,22,20440.380,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU_RTX5060,23,20350.187,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU_RTX5060,24,20405.111,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU_RTX5060,25,20390.432,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU_RTX5060,26,20422.978,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU_RTX5060,27,20317.968,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU_RTX5060,28,20392.262,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU_RTX5060,29,20409.019,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU_RTX5060,30,20282.247,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU_RTX5060,31,20308.143,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU_RTX5060,32,20269.625,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU_RTX5060,33,20349.267,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU_RTX5060,34,20393.679,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU_RTX5060,35,20428.996,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU_RTX5060,36,20364.724,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU_RTX5060,37,20434.678,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU_RTX5060,38,20299.285,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU_RTX5060,39,20284.738,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU_RTX5060,40,20358.890,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU_RTX5060,41,20378.673,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU_RTX5060,42,20359.919,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU_RTX5060,43,20268.355,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU_RTX5060,44,20357.380,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU_RTX5060,45,20302.689,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU_RTX5060,46,20391.525,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU_RTX5060,47,20377.887,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU_RTX5060,48,20319.095,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU_RTX5060,49,20338.266,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU_RTX5060,50,20313.725,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU_RTX5060,51,20358.569,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU_RTX5060,52,20404.371,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU_RTX5060,53,20317.032,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU_RTX5060,54,20384.072,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU_RTX5060,55,20337.528,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU_RTX5060,56,20325.711,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU_RTX5060,57,20356.574,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU_RTX5060,58,20314.804,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU_RTX5060,59,20336.476,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU_RTX5060,60,20307.485,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU_RTX5060,61,20449.803,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU_RTX5060,62,20362.977,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU_RTX5060,63,20329.902,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU_RTX5060,64,20371.019,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU_RTX5060,65,20356.335,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU_RTX5060,66,20351.446,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU_RTX5060,67,20389.028,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU_RTX5060,68,20395.478,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU_RTX5060,69,20337.517,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU_RTX5060,70,20335.478,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU_RTX5060,71,20349.013,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU_RTX5060,72,20257.804,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU_RTX5060,73,20293.206,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU_RTX5060,74,20422.899,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU_RTX5060,75,20435.414,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU_RTX5060,76,20350.183,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU_RTX5060,77,20387.335,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU_RTX5060,78,20375.396,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU_RTX5060,79,20499.940,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU_RTX5060,80,20411.771,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU_RTX5060,81,20355.634,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU_RTX5060,82,20318.391,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU_RTX5060,83,20289.100,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU_RTX5060,84,20370.546,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU_RTX5060,85,20327.354,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU_RTX5060,86,20297.389,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU_RTX5060,87,20332.294,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU_RTX5060,88,20312.720,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU_RTX5060,89,20437.311,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU_RTX5060,90,20401.064,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU_RTX5060,91,20361.031,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU_RTX5060,92,20427.987,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU_RTX5060,93,20364.872,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU_RTX5060,94,20322.632,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU_RTX5060,95,20429.931,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU_RTX5060,96,20385.641,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU_RTX5060,97,20314.714,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU_RTX5060,98,20352.825,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU_RTX5060,99,20321.987,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU_RTX5060,100,20299.164,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU_i3_12100F,1,20281.635,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU_i3_12100F,2,20318.998,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU_i3_12100F,3,20193.294,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU_i3_12100F,4,20267.833,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU_i3_12100F,5,20221.716,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU_i3_12100F,6,20227.929,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU_i3_12100F,7,20223.929,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU_i3_12100F,8,20213.608,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU_i3_12100F,9,20248.284,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU_i3_12100F,10,20214.864,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU_i3_12100F,11,20256.717,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU_i3_12100F,12,20244.531,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU_i3_12100F,13,20237.360,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU_i3_12100F,14,20211.953,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU_i3_12100F,15,20224.523,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU_i3_12100F,16,20275.145,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU_i3_12100F,17,20265.475,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU_i3_12100F,18,20209.293,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU_i3_12100F,19,20250.215,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU_i3_12100F,20,20274.993,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU_i3_12100F,21,20183.003,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU_i3_12100F,22,20267.088,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU_i3_12100F,23,20221.260,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU_i3_12100F,24,20268.123,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU_i3_12100F,25,20217.436,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU_i3_12100F,26,20177.854,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU_i3_12100F,27,20184.593,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU_i3_12100F,28,20248.267,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU_i3_12100F,29,20256.309,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU_i3_12100F,30,20212.076,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU_i3_12100F,31,20270.707,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU_i3_12100F,32,20183.302,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU_i3_12100F,33,20243.929,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU_i3_12100F,34,20200.421,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU_i3_12100F,35,20221.670,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU_i3_12100F,36,20248.241,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU_i3_12100F,37,20213.744,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU_i3_12100F,38,20231.827,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU_i3_12100F,39,20284.679,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU_i3_12100F,40,20224.518,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU_i3_12100F,41,20278.196,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU_i3_12100F,42,20203.511,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU_i3_12100F,43,20266.573,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU_i3_12100F,44,20301.220,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU_i3_12100F,45,20152.518,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU_i3_12100F,46,20216.158,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU_i3_12100F,47,20268.369,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU_i3_12100F,48,20238.724,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU_i3_12100F,49,20260.544,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU_i3_12100F,50,20223.489,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU_i3_12100F,51,20249.730,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU_i3_12100F,52,20240.524,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU_i3_12100F,53,20290.816,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU_i3_12100F,54,20256.108,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU_i3_12100F,55,20259.269,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU_i3_12100F,56,20230.789,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU_i3_12100F,57,20227.911,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU_i3_12100F,58,20230.003,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU_i3_12100F,59,20261.429,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU_i3_12100F,60,20230.443,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU_i3_12100F,61,20257.451,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU_i3_12100F,62,20325.305,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU_i3_12100F,63,20279.543,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU_i3_12100F,64,20234.051,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU_i3_12100F,65,20292.086,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU_i3_12100F,66,20230.933,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU_i3_12100F,67,20168.991,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU_i3_12100F,68,20208.133,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU_i3_12100F,69,20175.350,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU_i3_12100F,70,20233.082,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU_i3_12100F,71,20247.140,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU_i3_12100F,72,20310.145,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU_i3_12100F,73,20258.863,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU_i3_12100F,74,20238.114,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU_i3_12100F,75,20277.957,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU_i3_12100F,76,20162.417,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU_i3_12100F,77,20255.393,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU_i3_12100F,78,20275.733,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU_i3_12100F,79,20190.254,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU_i3_12100F,80,20289.903,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU_i3_12100F,81,20259.303,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU_i3_12100F,82,20230.659,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU_i3_12100F,83,20270.486,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU_i3_12100F,84,20332.726,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU_i3_12100F,85,20253.351,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU_i3_12100F,86,20255.872,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU_i3_12100F,87,20228.984,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU_i3_12100F,88,20214.146,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU_i3_12100F,89,20277.993,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU_i3_12100F,90,20213.909,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU_i3_12100F,91,20249.160,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU_i3_12100F,92,20228.289,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU_i3_12100F,93,20264.641,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU_i3_12100F,94,20259.119,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU_i3_12100F,95,20285.867,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU_i3_12100F,96,20227.059,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU_i3_12100F,97,20236.185,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU_i3_12100F,98,20209.247,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU_i3_12100F,99,20229.557,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU_i3_12100F,100,20260.777,83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,1,N/A (Pas de NPU matériel sur workstation de bureau fixe),83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,2,N/A (Pas de NPU matériel sur workstation de bureau fixe),83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,3,N/A (Pas de NPU matériel sur workstation de bureau fixe),83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,4,N/A (Pas de NPU matériel sur workstation de bureau fixe),83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,5,N/A (Pas de NPU matériel sur workstation de bureau fixe),83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,6,N/A (Pas de NPU matériel sur workstation de bureau fixe),83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,7,N/A (Pas de NPU matériel sur workstation de bureau fixe),83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,8,N/A (Pas de NPU matériel sur workstation de bureau fixe),83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,9,N/A (Pas de NPU matériel sur workstation de bureau fixe),83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,10,N/A (Pas de NPU matériel sur workstation de bureau fixe),83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,11,N/A (Pas de NPU matériel sur workstation de bureau fixe),83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,12,N/A (Pas de NPU matériel sur workstation de bureau fixe),83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,13,N/A (Pas de NPU matériel sur workstation de bureau fixe),83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,14,N/A (Pas de NPU matériel sur workstation de bureau fixe),83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,15,N/A (Pas de NPU matériel sur workstation de bureau fixe),83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,16,N/A (Pas de NPU matériel sur workstation de bureau fixe),83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,17,N/A (Pas de NPU matériel sur workstation de bureau fixe),83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,18,N/A (Pas de NPU matériel sur workstation de bureau fixe),83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,19,N/A (Pas de NPU matériel sur workstation de bureau fixe),83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,20,N/A (Pas de NPU matériel sur workstation de bureau fixe),83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,21,N/A (Pas de NPU matériel sur workstation de bureau fixe),83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,22,N/A (Pas de NPU matériel sur workstation de bureau fixe),83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,23,N/A (Pas de NPU matériel sur workstation de bureau fixe),83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,24,N/A (Pas de NPU matériel sur workstation de bureau fixe),83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,25,N/A (Pas de NPU matériel sur workstation de bureau fixe),83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,26,N/A (Pas de NPU matériel sur workstation de bureau fixe),83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,27,N/A (Pas de NPU matériel sur workstation de bureau fixe),83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,28,N/A (Pas de NPU matériel sur workstation de bureau fixe),83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,29,N/A (Pas de NPU matériel sur workstation de bureau fixe),83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,30,N/A (Pas de NPU matériel sur workstation de bureau fixe),83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,31,N/A (Pas de NPU matériel sur workstation de bureau fixe),83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,32,N/A (Pas de NPU matériel sur workstation de bureau fixe),83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,33,N/A (Pas de NPU matériel sur workstation de bureau fixe),83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,34,N/A (Pas de NPU matériel sur workstation de bureau fixe),83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,35,N/A (Pas de NPU matériel sur workstation de bureau fixe),83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,36,N/A (Pas de NPU matériel sur workstation de bureau fixe),83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,37,N/A (Pas de NPU matériel sur workstation de bureau fixe),83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,38,N/A (Pas de NPU matériel sur workstation de bureau fixe),83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,39,N/A (Pas de NPU matériel sur workstation de bureau fixe),83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,40,N/A (Pas de NPU matériel sur workstation de bureau fixe),83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,41,N/A (Pas de NPU matériel sur workstation de bureau fixe),83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,42,N/A (Pas de NPU matériel sur workstation de bureau fixe),83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,43,N/A (Pas de NPU matériel sur workstation de bureau fixe),83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,44,N/A (Pas de NPU matériel sur workstation de bureau fixe),83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,45,N/A (Pas de NPU matériel sur workstation de bureau fixe),83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,46,N/A (Pas de NPU matériel sur workstation de bureau fixe),83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,47,N/A (Pas de NPU matériel sur workstation de bureau fixe),83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,48,N/A (Pas de NPU matériel sur workstation de bureau fixe),83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,49,N/A (Pas de NPU matériel sur workstation de bureau fixe),83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,50,N/A (Pas de NPU matériel sur workstation de bureau fixe),83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,51,N/A (Pas de NPU matériel sur workstation de bureau fixe),83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,52,N/A (Pas de NPU matériel sur workstation de bureau fixe),83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,53,N/A (Pas de NPU matériel sur workstation de bureau fixe),83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,54,N/A (Pas de NPU matériel sur workstation de bureau fixe),83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,55,N/A (Pas de NPU matériel sur workstation de bureau fixe),83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,56,N/A (Pas de NPU matériel sur workstation de bureau fixe),83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,57,N/A (Pas de NPU matériel sur workstation de bureau fixe),83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,58,N/A (Pas de NPU matériel sur workstation de bureau fixe),83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,59,N/A (Pas de NPU matériel sur workstation de bureau fixe),83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,60,N/A (Pas de NPU matériel sur workstation de bureau fixe),83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,61,N/A (Pas de NPU matériel sur workstation de bureau fixe),83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,62,N/A (Pas de NPU matériel sur workstation de bureau fixe),83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,63,N/A (Pas de NPU matériel sur workstation de bureau fixe),83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,64,N/A (Pas de NPU matériel sur workstation de bureau fixe),83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,65,N/A (Pas de NPU matériel sur workstation de bureau fixe),83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,66,N/A (Pas de NPU matériel sur workstation de bureau fixe),83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,67,N/A (Pas de NPU matériel sur workstation de bureau fixe),83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,68,N/A (Pas de NPU matériel sur workstation de bureau fixe),83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,69,N/A (Pas de NPU matériel sur workstation de bureau fixe),83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,70,N/A (Pas de NPU matériel sur workstation de bureau fixe),83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,71,N/A (Pas de NPU matériel sur workstation de bureau fixe),83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,72,N/A (Pas de NPU matériel sur workstation de bureau fixe),83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,73,N/A (Pas de NPU matériel sur workstation de bureau fixe),83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,74,N/A (Pas de NPU matériel sur workstation de bureau fixe),83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,75,N/A (Pas de NPU matériel sur workstation de bureau fixe),83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,76,N/A (Pas de NPU matériel sur workstation de bureau fixe),83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,77,N/A (Pas de NPU matériel sur workstation de bureau fixe),83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,78,N/A (Pas de NPU matériel sur workstation de bureau fixe),83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,79,N/A (Pas de NPU matériel sur workstation de bureau fixe),83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,80,N/A (Pas de NPU matériel sur workstation de bureau fixe),83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,81,N/A (Pas de NPU matériel sur workstation de bureau fixe),83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,82,N/A (Pas de NPU matériel sur workstation de bureau fixe),83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,83,N/A (Pas de NPU matériel sur workstation de bureau fixe),83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,84,N/A (Pas de NPU matériel sur workstation de bureau fixe),83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,85,N/A (Pas de NPU matériel sur workstation de bureau fixe),83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,86,N/A (Pas de NPU matériel sur workstation de bureau fixe),83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,87,N/A (Pas de NPU matériel sur workstation de bureau fixe),83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,88,N/A (Pas de NPU matériel sur workstation de bureau fixe),83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,89,N/A (Pas de NPU matériel sur workstation de bureau fixe),83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,90,N/A (Pas de NPU matériel sur workstation de bureau fixe),83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,91,N/A (Pas de NPU matériel sur workstation de bureau fixe),83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,92,N/A (Pas de NPU matériel sur workstation de bureau fixe),83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,93,N/A (Pas de NPU matériel sur workstation de bureau fixe),83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,94,N/A (Pas de NPU matériel sur workstation de bureau fixe),83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,95,N/A (Pas de NPU matériel sur workstation de bureau fixe),83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,96,N/A (Pas de NPU matériel sur workstation de bureau fixe),83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,97,N/A (Pas de NPU matériel sur workstation de bureau fixe),83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,98,N/A (Pas de NPU matériel sur workstation de bureau fixe),83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,99,N/A (Pas de NPU matériel sur workstation de bureau fixe),83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,100,N/A (Pas de NPU matériel sur workstation de bureau fixe),83.33%,89.33%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU_RTX5060,1,20362.944,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU_RTX5060,2,20292.419,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU_RTX5060,3,20367.673,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU_RTX5060,4,20388.087,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU_RTX5060,5,20348.514,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU_RTX5060,6,20409.975,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU_RTX5060,7,20298.651,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU_RTX5060,8,20278.875,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU_RTX5060,9,20256.444,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU_RTX5060,10,20393.984,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU_RTX5060,11,20358.633,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU_RTX5060,12,20328.815,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU_RTX5060,13,20342.909,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU_RTX5060,14,20283.879,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU_RTX5060,15,20433.872,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU_RTX5060,16,20336.577,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU_RTX5060,17,20335.745,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU_RTX5060,18,20361.632,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU_RTX5060,19,20351.352,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU_RTX5060,20,20340.553,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU_RTX5060,21,20297.950,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU_RTX5060,22,20350.952,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU_RTX5060,23,20410.195,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU_RTX5060,24,20387.658,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU_RTX5060,25,20398.064,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU_RTX5060,26,20309.679,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU_RTX5060,27,20289.587,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU_RTX5060,28,20325.867,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU_RTX5060,29,20333.490,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU_RTX5060,30,20377.106,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU_RTX5060,31,20260.066,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU_RTX5060,32,20395.391,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU_RTX5060,33,20324.514,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU_RTX5060,34,20313.221,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU_RTX5060,35,20288.642,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU_RTX5060,36,20261.646,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU_RTX5060,37,20365.723,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU_RTX5060,38,20334.229,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU_RTX5060,39,20276.972,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU_RTX5060,40,20276.757,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU_RTX5060,41,20317.047,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU_RTX5060,42,20401.249,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU_RTX5060,43,20320.247,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU_RTX5060,44,20268.018,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU_RTX5060,45,20320.829,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU_RTX5060,46,20319.696,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU_RTX5060,47,20217.881,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU_RTX5060,48,20328.870,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU_RTX5060,49,20321.451,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU_RTX5060,50,20360.391,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU_RTX5060,51,20408.806,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU_RTX5060,52,20378.466,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU_RTX5060,53,20319.857,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU_RTX5060,54,20284.676,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU_RTX5060,55,20439.231,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU_RTX5060,56,20333.637,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU_RTX5060,57,20331.735,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU_RTX5060,58,20330.137,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU_RTX5060,59,20339.470,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU_RTX5060,60,20325.087,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU_RTX5060,61,20307.056,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU_RTX5060,62,20308.182,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU_RTX5060,63,20329.774,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU_RTX5060,64,20308.326,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU_RTX5060,65,20301.210,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU_RTX5060,66,20335.620,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU_RTX5060,67,20320.441,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU_RTX5060,68,20394.318,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU_RTX5060,69,20219.809,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU_RTX5060,70,20376.993,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU_RTX5060,71,20383.486,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU_RTX5060,72,20244.068,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU_RTX5060,73,20316.757,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU_RTX5060,74,20315.549,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU_RTX5060,75,20272.035,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU_RTX5060,76,20298.482,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU_RTX5060,77,20284.506,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU_RTX5060,78,20404.745,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU_RTX5060,79,20370.448,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU_RTX5060,80,20384.555,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU_RTX5060,81,20361.460,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU_RTX5060,82,20283.730,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU_RTX5060,83,20309.120,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU_RTX5060,84,20351.704,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU_RTX5060,85,20279.821,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU_RTX5060,86,20361.096,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU_RTX5060,87,20321.056,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU_RTX5060,88,20315.408,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU_RTX5060,89,20361.010,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU_RTX5060,90,20349.809,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU_RTX5060,91,20315.989,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU_RTX5060,92,20379.842,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU_RTX5060,93,20285.745,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU_RTX5060,94,20357.019,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU_RTX5060,95,20356.060,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU_RTX5060,96,20318.149,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU_RTX5060,97,20344.848,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU_RTX5060,98,20278.603,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU_RTX5060,99,20369.959,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU_RTX5060,100,20323.384,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Unfused_Memcpy_Injections (CUDA EP)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU_i3_12100F,1,20264.194,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU_i3_12100F,2,20325.491,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU_i3_12100F,3,20257.111,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU_i3_12100F,4,20229.650,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU_i3_12100F,5,20223.871,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU_i3_12100F,6,20308.214,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU_i3_12100F,7,20234.643,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU_i3_12100F,8,20353.017,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU_i3_12100F,9,20203.385,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU_i3_12100F,10,20350.742,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU_i3_12100F,11,20292.810,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU_i3_12100F,12,20280.808,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU_i3_12100F,13,20263.328,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU_i3_12100F,14,20300.146,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU_i3_12100F,15,20283.112,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU_i3_12100F,16,20327.609,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU_i3_12100F,17,20289.035,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU_i3_12100F,18,20290.442,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU_i3_12100F,19,20270.399,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU_i3_12100F,20,20282.359,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU_i3_12100F,21,20296.584,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU_i3_12100F,22,20217.883,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU_i3_12100F,23,20232.001,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU_i3_12100F,24,20313.567,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU_i3_12100F,25,20291.244,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU_i3_12100F,26,20277.405,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU_i3_12100F,27,20285.299,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU_i3_12100F,28,20298.136,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU_i3_12100F,29,20263.529,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU_i3_12100F,30,20254.226,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU_i3_12100F,31,20292.218,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU_i3_12100F,32,20246.423,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU_i3_12100F,33,20300.502,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU_i3_12100F,34,20218.179,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU_i3_12100F,35,20324.717,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU_i3_12100F,36,20303.011,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU_i3_12100F,37,20294.565,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU_i3_12100F,38,20322.905,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU_i3_12100F,39,20349.534,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU_i3_12100F,40,20324.140,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU_i3_12100F,41,20212.786,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU_i3_12100F,42,20234.676,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU_i3_12100F,43,20260.212,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU_i3_12100F,44,20285.598,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU_i3_12100F,45,20304.769,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU_i3_12100F,46,20256.276,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU_i3_12100F,47,20291.864,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU_i3_12100F,48,20255.120,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU_i3_12100F,49,20260.731,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU_i3_12100F,50,20229.720,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU_i3_12100F,51,20248.574,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU_i3_12100F,52,20231.864,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU_i3_12100F,53,20246.521,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU_i3_12100F,54,20325.672,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU_i3_12100F,55,20247.553,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU_i3_12100F,56,20387.243,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU_i3_12100F,57,20303.819,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU_i3_12100F,58,20291.789,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU_i3_12100F,59,20251.104,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU_i3_12100F,60,20311.892,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU_i3_12100F,61,20262.130,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU_i3_12100F,62,20289.338,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU_i3_12100F,63,20384.423,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU_i3_12100F,64,20280.834,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU_i3_12100F,65,20329.402,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU_i3_12100F,66,20257.156,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU_i3_12100F,67,20283.215,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU_i3_12100F,68,20353.641,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU_i3_12100F,69,20260.128,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU_i3_12100F,70,20355.265,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU_i3_12100F,71,20312.182,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU_i3_12100F,72,20262.644,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU_i3_12100F,73,20309.244,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU_i3_12100F,74,20322.510,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU_i3_12100F,75,20308.831,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU_i3_12100F,76,20223.341,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU_i3_12100F,77,20256.222,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU_i3_12100F,78,20274.927,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU_i3_12100F,79,20281.677,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU_i3_12100F,80,20308.786,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU_i3_12100F,81,20291.510,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU_i3_12100F,82,20232.502,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU_i3_12100F,83,20299.408,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU_i3_12100F,84,20308.393,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU_i3_12100F,85,20306.412,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU_i3_12100F,86,20326.730,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU_i3_12100F,87,20317.103,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU_i3_12100F,88,20302.488,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU_i3_12100F,89,20281.844,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU_i3_12100F,90,20219.803,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU_i3_12100F,91,20301.335,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU_i3_12100F,92,20292.680,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU_i3_12100F,93,20295.172,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU_i3_12100F,94,20234.787,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU_i3_12100F,95,20242.419,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU_i3_12100F,96,20325.653,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU_i3_12100F,97,20283.037,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU_i3_12100F,98,20311.159,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU_i3_12100F,99,20285.684,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU_i3_12100F,100,20285.740,80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,Scalar_Integer_Convolution_Emulation
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,1,N/A (Pas de NPU matériel sur workstation de bureau fixe),80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,2,N/A (Pas de NPU matériel sur workstation de bureau fixe),80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,3,N/A (Pas de NPU matériel sur workstation de bureau fixe),80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,4,N/A (Pas de NPU matériel sur workstation de bureau fixe),80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,5,N/A (Pas de NPU matériel sur workstation de bureau fixe),80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,6,N/A (Pas de NPU matériel sur workstation de bureau fixe),80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,7,N/A (Pas de NPU matériel sur workstation de bureau fixe),80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,8,N/A (Pas de NPU matériel sur workstation de bureau fixe),80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,9,N/A (Pas de NPU matériel sur workstation de bureau fixe),80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,10,N/A (Pas de NPU matériel sur workstation de bureau fixe),80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,11,N/A (Pas de NPU matériel sur workstation de bureau fixe),80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,12,N/A (Pas de NPU matériel sur workstation de bureau fixe),80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,13,N/A (Pas de NPU matériel sur workstation de bureau fixe),80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,14,N/A (Pas de NPU matériel sur workstation de bureau fixe),80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,15,N/A (Pas de NPU matériel sur workstation de bureau fixe),80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,16,N/A (Pas de NPU matériel sur workstation de bureau fixe),80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,17,N/A (Pas de NPU matériel sur workstation de bureau fixe),80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,18,N/A (Pas de NPU matériel sur workstation de bureau fixe),80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,19,N/A (Pas de NPU matériel sur workstation de bureau fixe),80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,20,N/A (Pas de NPU matériel sur workstation de bureau fixe),80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,21,N/A (Pas de NPU matériel sur workstation de bureau fixe),80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,22,N/A (Pas de NPU matériel sur workstation de bureau fixe),80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,23,N/A (Pas de NPU matériel sur workstation de bureau fixe),80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,24,N/A (Pas de NPU matériel sur workstation de bureau fixe),80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,25,N/A (Pas de NPU matériel sur workstation de bureau fixe),80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,26,N/A (Pas de NPU matériel sur workstation de bureau fixe),80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,27,N/A (Pas de NPU matériel sur workstation de bureau fixe),80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,28,N/A (Pas de NPU matériel sur workstation de bureau fixe),80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,29,N/A (Pas de NPU matériel sur workstation de bureau fixe),80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,30,N/A (Pas de NPU matériel sur workstation de bureau fixe),80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,31,N/A (Pas de NPU matériel sur workstation de bureau fixe),80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,32,N/A (Pas de NPU matériel sur workstation de bureau fixe),80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,33,N/A (Pas de NPU matériel sur workstation de bureau fixe),80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,34,N/A (Pas de NPU matériel sur workstation de bureau fixe),80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,35,N/A (Pas de NPU matériel sur workstation de bureau fixe),80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,36,N/A (Pas de NPU matériel sur workstation de bureau fixe),80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,37,N/A (Pas de NPU matériel sur workstation de bureau fixe),80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,38,N/A (Pas de NPU matériel sur workstation de bureau fixe),80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,39,N/A (Pas de NPU matériel sur workstation de bureau fixe),80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,40,N/A (Pas de NPU matériel sur workstation de bureau fixe),80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,41,N/A (Pas de NPU matériel sur workstation de bureau fixe),80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,42,N/A (Pas de NPU matériel sur workstation de bureau fixe),80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,43,N/A (Pas de NPU matériel sur workstation de bureau fixe),80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,44,N/A (Pas de NPU matériel sur workstation de bureau fixe),80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,45,N/A (Pas de NPU matériel sur workstation de bureau fixe),80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,46,N/A (Pas de NPU matériel sur workstation de bureau fixe),80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,47,N/A (Pas de NPU matériel sur workstation de bureau fixe),80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,48,N/A (Pas de NPU matériel sur workstation de bureau fixe),80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,49,N/A (Pas de NPU matériel sur workstation de bureau fixe),80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,50,N/A (Pas de NPU matériel sur workstation de bureau fixe),80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,51,N/A (Pas de NPU matériel sur workstation de bureau fixe),80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,52,N/A (Pas de NPU matériel sur workstation de bureau fixe),80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,53,N/A (Pas de NPU matériel sur workstation de bureau fixe),80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,54,N/A (Pas de NPU matériel sur workstation de bureau fixe),80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,55,N/A (Pas de NPU matériel sur workstation de bureau fixe),80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,56,N/A (Pas de NPU matériel sur workstation de bureau fixe),80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,57,N/A (Pas de NPU matériel sur workstation de bureau fixe),80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,58,N/A (Pas de NPU matériel sur workstation de bureau fixe),80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,59,N/A (Pas de NPU matériel sur workstation de bureau fixe),80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,60,N/A (Pas de NPU matériel sur workstation de bureau fixe),80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,61,N/A (Pas de NPU matériel sur workstation de bureau fixe),80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,62,N/A (Pas de NPU matériel sur workstation de bureau fixe),80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,63,N/A (Pas de NPU matériel sur workstation de bureau fixe),80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,64,N/A (Pas de NPU matériel sur workstation de bureau fixe),80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,65,N/A (Pas de NPU matériel sur workstation de bureau fixe),80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,66,N/A (Pas de NPU matériel sur workstation de bureau fixe),80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,67,N/A (Pas de NPU matériel sur workstation de bureau fixe),80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,68,N/A (Pas de NPU matériel sur workstation de bureau fixe),80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,69,N/A (Pas de NPU matériel sur workstation de bureau fixe),80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,70,N/A (Pas de NPU matériel sur workstation de bureau fixe),80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,71,N/A (Pas de NPU matériel sur workstation de bureau fixe),80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,72,N/A (Pas de NPU matériel sur workstation de bureau fixe),80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,73,N/A (Pas de NPU matériel sur workstation de bureau fixe),80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,74,N/A (Pas de NPU matériel sur workstation de bureau fixe),80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,75,N/A (Pas de NPU matériel sur workstation de bureau fixe),80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,76,N/A (Pas de NPU matériel sur workstation de bureau fixe),80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,77,N/A (Pas de NPU matériel sur workstation de bureau fixe),80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,78,N/A (Pas de NPU matériel sur workstation de bureau fixe),80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,79,N/A (Pas de NPU matériel sur workstation de bureau fixe),80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,80,N/A (Pas de NPU matériel sur workstation de bureau fixe),80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,81,N/A (Pas de NPU matériel sur workstation de bureau fixe),80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,82,N/A (Pas de NPU matériel sur workstation de bureau fixe),80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,83,N/A (Pas de NPU matériel sur workstation de bureau fixe),80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,84,N/A (Pas de NPU matériel sur workstation de bureau fixe),80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,85,N/A (Pas de NPU matériel sur workstation de bureau fixe),80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,86,N/A (Pas de NPU matériel sur workstation de bureau fixe),80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,87,N/A (Pas de NPU matériel sur workstation de bureau fixe),80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,88,N/A (Pas de NPU matériel sur workstation de bureau fixe),80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,89,N/A (Pas de NPU matériel sur workstation de bureau fixe),80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,90,N/A (Pas de NPU matériel sur workstation de bureau fixe),80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,91,N/A (Pas de NPU matériel sur workstation de bureau fixe),80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,92,N/A (Pas de NPU matériel sur workstation de bureau fixe),80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,93,N/A (Pas de NPU matériel sur workstation de bureau fixe),80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,94,N/A (Pas de NPU matériel sur workstation de bureau fixe),80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,95,N/A (Pas de NPU matériel sur workstation de bureau fixe),80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,96,N/A (Pas de NPU matériel sur workstation de bureau fixe),80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,97,N/A (Pas de NPU matériel sur workstation de bureau fixe),80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,98,N/A (Pas de NPU matériel sur workstation de bureau fixe),80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,99,N/A (Pas de NPU matériel sur workstation de bureau fixe),80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,100,N/A (Pas de NPU matériel sur workstation de bureau fixe),80.33%,87.67%,Desktop_RTX5060_Blackwell,Pure_Integer_Zero_FP32_QOperator,No_NPU_Hardware
