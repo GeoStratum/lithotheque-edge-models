@@ -283,25 +283,25 @@ Empirical latency and classification accuracy measured on the model generation a
 | **W4A8 Full Int** | NVIDIA RTX 5060 (Tensor Cores INT4) | 39.2 | **80.33%** | **87.67%** | Validated |
 | **W4A8 Full Int** | Intel Core i3-12100F (x64 CPU) | 587.8 | **80.33%** | **87.67%** | Validated |
 
-##### Environment B: Qualcomm Snapdragon Copilot+ PC (Windows 11 Pro ARM64 - Mesures sur 600 inférences réelles)
-Mesures exhaustives réelles réalisées sur le PC ultra-portable Snapdragon X Copilot+ (Windows 11 Pro ARM64, Build 26100 / 26220) avec le moteur **Qualcomm QAIRT 2.37.1** (`QnnHtp.dll` build `2.37.1.25080709`) et `onnxruntime-qnn 1.23.2` :
+##### Environment B: Qualcomm Snapdragon Copilot+ PC (Windows 11 Pro 24H2 ARM64 - Empirical Measurements across 600 Runs)
+Exhaustive on-device measurements collected on the Snapdragon X Plus Copilot+ ultra-portable PC (Windows 11 Pro 24H2 ARM64, Build 26100 / 26220) powered by the **Qualcomm QAIRT 2.37.1** execution engine (`QnnHtp.dll` build `2.37.1.25080709`) and `onnxruntime-qnn 1.23.2`:
 
-| Modèle & Format | Execution Backend | Latency Moy. (ms) | Min (ms) | Max (ms) | Écart-type (ms) | Top-1 Acc. (%) | Statut & Diagnostic Matériel |
+| Model & Format | Execution Backend | Mean Latency (ms) | Min (ms) | Max (ms) | Std Dev (ms) | Top-1 Acc. (%) | Hardware Status & Diagnostic |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: | :--- |
-| **MobileNetV5 INT8** | **Qualcomm Hexagon NPU (HTP Burst)** | **449.96 ms** | **428.69 ms** | **504.22 ms** | 16.04 ms | **83.33%** | **Validé NPU (100 runs)** - Accélération matérielle native (9.2x vs CPU) |
-| **MobileNetV5 W4A8** | **Qualcomm Hexagon NPU (HTP Burst)** | **476.98 ms** | **439.93 ms** | **573.52 ms** | 23.26 ms | **78.42%** | **Validé NPU (100 runs)** - Résolution QNN Error 6020 (9.1x vs CPU) |
-| **MobileNetV5 INT8** | **Qualcomm Oryon CPU (4 threads)** | **4 135.08 ms** | **2 863.09 ms** | **5 319.42 ms** | 516.29 ms | **83.33%** | **Mesuré (100 runs)** - CPU ARM64 multithreadé optimal |
-| **MobileNetV5 W4A8** | **Qualcomm Oryon CPU (4 threads)** | **4 326.60 ms** | **1 243.54 ms** | **5 858.53 ms** | 606.20 ms | **78.42%** | **Mesuré (100 runs)** - Repli fonctionnel complet CPU ARM64 |
-| **MobileNetV5 INT8** | Qualcomm Adreno GPU (QnnGpu OpenCL) | *N/A* | - | - | - | 83.33% | Rejeté : Pilote GPU Adreno purement flottant FP16 (incompatible INT8) |
-| **MobileNetV5 W4A8** | Qualcomm Adreno GPU (QnnGpu OpenCL) | *N/A* | - | - | - | 78.42% | Rejeté : Pilote GPU Adreno purement flottant FP16 (incompatible INT4) |
+| **MobileNetV5 INT8** | **Qualcomm Hexagon NPU (HTP Burst)** | **449.96 ms** | **428.69 ms** | **504.22 ms** | 16.04 ms | **83.33%** | **Validated NPU (100 runs)** - Native hardware acceleration (9.2x vs CPU) |
+| **MobileNetV5 W4A8** | **Qualcomm Hexagon NPU (HTP Burst)** | **476.98 ms** | **439.93 ms** | **573.52 ms** | 23.26 ms | **78.42%** | **Validated NPU (100 runs)** - QNN Error 6020 resolved (9.1x vs CPU) |
+| **MobileNetV5 INT8** | **Qualcomm Oryon CPU (4 threads)** | **4,135.08 ms** | **2,863.09 ms** | **5,319.42 ms** | 516.29 ms | **83.33%** | **Measured (100 runs)** - Multithreaded ARM64 CPU execution |
+| **MobileNetV5 W4A8** | **Qualcomm Oryon CPU (4 threads)** | **4,326.60 ms** | **1,243.54 ms** | **5,858.53 ms** | 606.20 ms | **78.42%** | **Measured (100 runs)** - Full functional ARM64 CPU fallback |
+| **MobileNetV5 INT8** | Qualcomm Adreno GPU (QnnGpu OpenCL) | *N/A* | - | - | - | 83.33% | Rejected: Adreno GPU driver supports FP16 floating-point ops only |
+| **MobileNetV5 W4A8** | Qualcomm Adreno GPU (QnnGpu OpenCL) | *N/A* | - | - | - | 78.42% | Rejected: Adreno GPU driver supports FP16 floating-point ops only |
 
-> **Synthèse Méthodologique & Enseignements Edge (Rapport Snapdragon d'Octobre 2026) :**
-> 1. **Accélération NPU Qualcomm Hexagon (INT8 & W4A8)** : Le NPU surpasse le CPU Oryon d'un facteur **9.2x** en INT8 (449 ms vs 4 135 ms) et **9.1x** en W4A8 (476 ms vs 4 326 ms), avec un profil thermique ultra-froid (TDP < 5W sur NPU sans aucun bridage thermique).
-> 2. **Résolution Technique de l'Erreur QNN 6020 (`QNN_HTP_GRAPH_ERROR_CANNOT_FINALIZE`)** :
->    - Le compilateur HTP Qualcomm échouait lors de la finalisation du microcode en raison d'un conflit de disposition (`com.ms.internal.nhwc`) et d'un nœud `/msfa/Resize` dynamique.
->    - En appliquant l'option de configuration de session `optimization.enable_qnn_nhwc_layout: 0` et en structurant les 282 convolutions avec des tables d'échelles Little-Endian stabilisées (`best_mobilenetv5_rocks_w4a8_npu.onnx`), les 128 micro-partitions matérielles ont été finalisées sans aucune erreur.
-> 3. **Comportement GPU Adreno sur INT8/W4A8** : Le pilote Qualcomm Adreno (`QnnGpu.dll`) est exclusivement conçu pour les calculs en virgule flottante (FP16/FP32). Les opérateurs entiers (`QuantizeLinear`, `QLinearConv`) sont systématiquement rejetés au partitionnement. Les calculs quantifiés sont donc réservés au NPU Hexagon.
-> 4. **Export CSV Standardisé (600 tests)** : L'intégralité des 600 points de données (100 runs $\times$ 3 backends $\times$ 2 modèles) est consignée dans `benchmark_snapdragon_100_runs.csv` et documentée dans `RAPPORT_BENCHMARK_NPU_SNAPDRAGON.txt`.
+> **Methodological Synthesis & Edge Insights (October 2026 Snapdragon Engineering Report):**
+> 1. **Qualcomm Hexagon NPU Hardware Acceleration (INT8 & W4A8)**: The dedicated Hexagon NPU outperforms the multithreaded Oryon CPU by a factor of **9.2x** in INT8 (449 ms vs. 4,135 ms) and **9.1x** in W4A8 (476 ms vs. 4,326 ms), operating under a cool thermal envelope (< 5W TDP) without thermal throttling.
+> 2. **Technical Resolution of QNN Error 6020 (`QNN_HTP_GRAPH_ERROR_CANNOT_FINALIZE`)**:
+>    - The Qualcomm HTP compiler previously failed during low-level microcode generation due to a layout transformation conflict (`com.ms.internal.nhwc`) and dynamic `/msfa/Resize` node dimensions.
+>    - Applying the session configuration flag `optimization.enable_qnn_nhwc_layout: 0` and assembling the 282 convolutions with Little-Endian scale tables (`best_mobilenetv5_rocks_w4a8_npu.onnx`) enabled successful finalization of all 128 hardware micro-partitions.
+> 3. **Qualcomm Adreno GPU Behavior on INT8/W4A8**: The Qualcomm Adreno runtime (`QnnGpu.dll`) is strictly architected for floating-point tensors (FP16/FP32). Quantized integer primitives (`QuantizeLinear`, `QLinearConv`) are intentionally rejected at graph partitioning, designating the Hexagon NPU as the dedicated accelerator for quantized neural networks.
+> 4. **Standardized CSV Export (600 Tests)**: The complete set of 600 raw inference data points (100 runs $\times$ 3 backends $\times$ 2 models) is archived in `benchmark_snapdragon_100_runs.csv` and documented in `RAPPORT_BENCHMARK_NPU_SNAPDRAGON.txt`.
 
 
 #### 2. MobileNetV4-Large - Rock Classification (Legacy)
