@@ -219,8 +219,8 @@ Current host system where the full export, high-precision calibration, and re-qu
 
 ---
 
-#### 8.B Machine 2: Qualcomm Snapdragon Copilot+ PC (Target Edge NPU & Mobile Validation)
-The reference edge target system where initial mobile NPU execution profiles (Qualcomm QAIRT SDK) were established, and where **a dedicated hardware re-benchmark session will be conducted**:
+#### 8.B Machine 2: Qualcomm Snapdragon Copilot+ PC (Edge Deployment & Validation Platform)
+The reference edge target system running **Windows 11 Pro (ARM64)**, where mobile NPU execution profiles (Qualcomm QAIRT SDK) were established, and where **a dedicated hardware re-benchmark session will be conducted**:
 
 - **Hardware Category**: Copilot+ Ultra-Portable PC (Native ARM64 Architecture)
 - **Platform & SoC**: **Qualcomm Snapdragon® X Plus (X1P64100) / X Elite (X1E80100)**
@@ -230,9 +230,9 @@ The reference edge target system where initial mobile NPU execution profiles (Qu
 - **CPU**: **Qualcomm Oryon™ CPU** (10 to 12 Cores, ARMv8-A @ 3.40 GHz)
 - **Integrated GPU**: **Qualcomm® Adreno™ X1-85 GPU**
 - **System Memory (RAM)**: **16 GB to 32 GB LPDDR5x** (@ 8448 MT/s)
-- **Operating System**: Microsoft Windows 11 ARM64 (Build 26220) / Prism Emulation & Android 15 NDK target (16 KB pages).
+- **Operating System**: Microsoft Windows 11 Pro (ARM64, Build 26220) / Prism Emulation & Android 15 NDK target (16 KB pages).
 - **Edge Software Stack**: Qualcomm QAIRT SDK 2.45, `onnxruntime-qnn 2.0.0`, LiteRT NPU Delegate.
-- **NPU Measurement Status**: *The NPU latency figures in the table below reflect the baseline Snapdragon reference profiles. A comprehensive on-device benchmark session will be re-run directly on the Snapdragon PC using the newly quantized $512\times 512$ models.*
+- **NPU Measurement Status**: *The NPU latency figures in the table below reflect the baseline Snapdragon reference profiles. A comprehensive on-device benchmark session will be re-run directly on this Snapdragon PC under Windows 11 Pro using the newly quantized $512\times 512$ models.*
 
 ---
 

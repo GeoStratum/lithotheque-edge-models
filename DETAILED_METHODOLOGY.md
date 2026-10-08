@@ -314,32 +314,33 @@ The goal of this profiling is to empirically quantify the viability of the hardw
 Although the final application is intended for the Android mobile ecosystem, the scientific benchmarks in this repository were executed on "Copilot+ PC" workstations under Windows 11 ARM64.
 **The Engineering Justification**: These laptops integrate the Snapdragon X processor, which shares rigorously the same ARMv8 instruction set and the same neural chip (Qualcomm Hexagon NPU) as high-end Android smartphones. Unlike a phone subject to rapid thermal throttling and a locked mobile operating system, the ARM64 PC offers direct access to low-level APIs (Qualcomm QAIRT SDK), allowing millisecond-by-millisecond profiling in conditions of absolute thermal stability. The results obtained are a perfect mathematical reflection of an Android smartphone in optimal conditions.
 
-#### 8.A Generation and Calibration Station (Machine 1)
-This station was dedicated to asynchronous processing of massive tensors during mathematical profiling of activations (Asymmetric W4A8 Calibration).
+#### 8.A Generation, Calibration & GPU Profiling Workstation (Machine 1)
+This station executed the source model export, high-precision calibration ($512\times 512$), surgical quantization, and CUDA / GPU inference benchmarking:
 
-- **Platform Model**: **Microsoft Surface Laptop 7** (**Qualcomm Snapdragon® X Elite - X1E80100**)
-- **CPU**: **Qualcomm Oryon™ CPU** (12 cores, ARMv8-A architecture) @ 3.40 GHz
-- **GPU**: **Qualcomm® Adreno™ X1-85 GPU** (DirectX 12.1 / Vulkan 1.3)
-- **NPU**: **Qualcomm® Hexagon™ NPU** (Rated at **45 TOPS** - *Tera Operations Per Second*. This coprocessor is capable of executing 45 trillion 8-bit integer multiplications every second, with almost zero heat release).
-- **Architecture**: **Native ARM64**
-- **RAM**: 32 GB (LPDDR5x @ 8448 MT/s)
-- **OS**: Microsoft Windows 11 Business (Build **26200**)
-- **Emulation Layer**: Windows Prism (Running x64 tools on ARM64)
-- **Quantization Stack**: Python 3.11.9 (x64 via Prism), `ai-edge-quantizer 0.5`, `onnxruntime-quantization 1.25.0`, `tensorflow 2.21.0`.
+- **Hardware Category**: Desktop Workstation (x64)
+- **Dedicated GPU**: **NVIDIA GeForce RTX 5060**
+  - Architecture: **NVIDIA Blackwell**
+  - Compute Capability: **`sm_120`**
+  - VRAM: **8 GB GDDR7**
+  - Role: Accelerated CUDA / Tensor Core inference (FP16, BF16, FP8, NVFP4 Microscaling E2M1).
+- **Host Processor (CPU)**: **12th Gen Intel® Core™ i3-12100F** (4 Cores / 8 Threads @ 3.30 GHz - Turbo 4.30 GHz)
+- **RAM**: **32 GB DDR4**
+- **OS**: Microsoft Windows 11 Pro (x64)
+- **Quantization Stack**: Python 3.11 & 3.14, `ai-edge-quantizer 0.5`, `ai-edge-litert 2.2.0`, `tensorflow 2.21.0`, `torch 2.14.0`, `torchao 0.18.0`.
 
-#### 8.B Inference and Validation Station (Machine 2)
-Profiling series (over 1,800 looped inference passes) were executed on this consumer device to validate real AI latencies in production situations.
+#### 8.B Edge Target Validation & Benchmark Station (Machine 2)
+The reference Copilot+ PC under **Windows 11 Pro (ARM64)** used for edge hardware validation and where on-device NPU measurements will be re-run:
 
-- **Model**: **Microsoft Surface Pro, 11th Edition**
-- **Platform**: **Qualcomm Snapdragon® X Plus - X1P64100**
-- **CPU**: **Qualcomm Oryon™ CPU** (10 cores, ARMv8-A architecture) @ 3.40 GHz
+- **Model**: **Qualcomm Snapdragon® Copilot+ PC**
+- **Platform**: **Qualcomm Snapdragon® X Plus (X1P64100) / X Elite (X1E80100)**
+- **CPU**: **Qualcomm Oryon™ CPU** (10-12 cores, ARMv8-A architecture) @ 3.40 GHz
 - **GPU**: **Qualcomm® Adreno™ X1-85 GPU** (DirectX 12.1 / Vulkan 1.3)
 - **NPU**: **Qualcomm® Hexagon™ NPU** (Rated at **45 TOPS INT8**)
 - **Architecture**: **Native ARM64**
-- **RAM**: 16 GB (LPDDR5x @ 8448 MT/s)
-- **OS**: Microsoft Windows 11 Professionnel Insider Preview (Build **26220**)
+- **RAM**: 16 GB to 32 GB (LPDDR5x @ 8448 MT/s)
+- **OS**: Microsoft Windows 11 Pro (ARM64, Build **26220**)
 - **Emulation Layer**: Windows Prism (Running x64 tools on ARM64)
-- **Benchmark Stack**: Python 3.11.9, `onnxruntime-qnn 2.0.0`, `numpy 2.3.5`.
+- **Benchmark Stack**: Python 3.11.9, `onnxruntime-qnn 2.0.0`, LiteRT NPU Delegate.
 
 > **💡 Engineering Note: Understanding the TOPS Metric**
 > The acronym **TOPS** (*Tera Operations Per Second*) is the unit of measurement for neural acceleration. Since a "Tera" represents 1,000 billion, the 45 TOPS NPU mentioned above physically executes **45 trillion operations per second**.
