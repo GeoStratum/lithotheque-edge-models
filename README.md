@@ -220,7 +220,7 @@ Current host system where the full export, high-precision calibration, and re-qu
 ---
 
 #### 8.B Machine 2: Qualcomm Snapdragon Copilot+ PC (Edge Deployment & Validation Platform)
-The reference edge target system running **Microsoft Windows 11 Pro 24H2 (ARM64, Build 26100 / 26220)**, where mobile NPU execution profiles (Qualcomm QAIRT SDK 2.37.1) were established and empirically benchmarked across 600 runs:
+The reference edge target system running **Microsoft Windows 11 Pro 26H2 (ARM64, Build 26100 / 26220)**, where mobile NPU execution profiles (Qualcomm QAIRT SDK 2.37.1) were established and empirically benchmarked across 600 runs:
 
 - **Hardware Category**: Copilot+ Ultra-Portable PC (Native ARM64 Architecture)
 - **Platform & SoC (Processor & Accelerators)**:
@@ -228,7 +228,7 @@ The reference edge target system running **Microsoft Windows 11 Pro 24H2 (ARM64,
   - **Dedicated Accelerator (NPU)**: **Qualcomm® Hexagon™ NPU** (Nominal Compute Power: **45 TOPS INT8**)
   - **Integrated GPU**: **Qualcomm® Adreno™ X1-85 GPU**
 - **System Memory (RAM)**: **16 GB to 32 GB LPDDR5x** (@ 8448 MT/s)
-- **Operating System**: **Microsoft Windows 11 Pro 24H2 (ARM64, Build 26100 / 26220)**
+- **Operating System**: **Microsoft Windows 11 Pro 26H2 (ARM64, Build 26100 / 26220)**
 - **Qualcomm Hardware Drivers (Digitally Signed by Microsoft)**:
   - **Hexagon NPU Driver**: `30.0.220.3000` (Signature Date: 01/08/2026)
   - **Adreno GPU Driver**: `31.0.152.1` (Signature Date: 23/05/2026)
@@ -247,7 +247,7 @@ The reference edge target system running **Microsoft Windows 11 Pro 24H2 (ARM64,
   - **LiteRT Engine**: Google AI Edge LiteRT `2.3.0`
     - **Qualcomm AI Engine Direct SDK (QAIRT)**: Downloadable via [Qualcomm Developer Network - AI Engine Direct SDK](https://developer.qualcomm.com/software/qualcomm-ai-engine-direct-sdk) and [Qualcomm AI Hub](https://aihub.qualcomm.com/).
     - **QAIRT Documentation & Guides**: Available on [Qualcomm AI Hub Docs](https://docs.qualcomm.com/bundle/publicresource/topics/80-63442-50/introduction.html).
-- **NPU Measurement Status**: Empirically measured and validated on the Hexagon NPU of this Snapdragon machine under Windows 11 Pro 24H2 ARM64.
+- **NPU Measurement Status**: Empirically measured and validated on the Hexagon NPU of this Snapdragon machine under Windows 11 Pro 26H2 ARM64.
 
 ---
 
@@ -277,14 +277,14 @@ Empirical latency and classification accuracy measured on the model generation a
 | Format | Execution Backend | Latency (ms) | Top-1 Acc. (%) | Top-3 Acc. (%) | Status |
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **BF16 / FP16** | NVIDIA RTX 5060 (Tensor Cores) | **89.8** | **88.33%** | **92.67%** | Validated |
-| **FP8 (E4M3FN)** | NVIDIA RTX 5060 (Tensor Cores FP8) | **30.8** | *FP8 Weights* | *FP8 Weights* | Validated |
+| **FP8 (E4M3FN)** | NVIDIA RTX 5060 (Tensor Cores FP8) | **30.8** | **88.33%** | **92.67%** | Validated |
 | **INT8 (W8A8)** | NVIDIA RTX 5060 (Tensor Cores INT8) | 54.2 | **83.33%** | **89.33%** | Validated |
 | **INT8 (W8A8)** | Intel Core i3-12100F (x64 CPU) | 2443.5 | **83.33%** | **89.33%** | Validated |
 | **W4A8 Full Int** | NVIDIA RTX 5060 (Tensor Cores INT4) | 39.2 | **80.33%** | **87.67%** | Validated |
 | **W4A8 Full Int** | Intel Core i3-12100F (x64 CPU) | 587.8 | **80.33%** | **87.67%** | Validated |
 
-##### Environment B: Qualcomm Snapdragon Copilot+ PC (Windows 11 Pro 24H2 ARM64 - Empirical Measurements across 600 Runs)
-Exhaustive on-device measurements collected on the Snapdragon X Plus Copilot+ ultra-portable PC (Windows 11 Pro 24H2 ARM64, Build 26100 / 26220) powered by the **Qualcomm QAIRT 2.37.1** execution engine (`QnnHtp.dll` build `2.37.1.25080709`) and `onnxruntime-qnn 1.23.2`:
+##### Environment B: Qualcomm Snapdragon Copilot+ PC (Windows 11 Pro 26H2 ARM64 - Empirical Measurements across 600 Runs)
+Exhaustive on-device measurements collected on the Snapdragon X Plus Copilot+ ultra-portable PC (Windows 11 Pro 26H2 ARM64, Build 26100 / 26220) powered by the **Qualcomm QAIRT 2.37.1** execution engine (`QnnHtp.dll` build `2.37.1.25080709`) and `onnxruntime-qnn 1.23.2`:
 
 | Model & Format | Execution Backend | Mean Latency (ms) | Min (ms) | Max (ms) | Std Dev (ms) | Top-1 Acc. (%) | Hardware Status & Diagnostic |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: | :--- |
