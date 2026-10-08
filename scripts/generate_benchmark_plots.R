@@ -290,7 +290,7 @@ bp3 <- barplot(
   ylim = c(4, 1500),
   yaxt = "n",
   ylab = "Inference Latency (ms) [Log Scale]",
-  main = "Geological Scale Metrology & Detection (MobileNetV4-Small 1024x1024) - Latency by Backend",
+  main = "Geological Scale Detection (MobileNetV4-Small 1024x1024) - Latency by Backend",
   cex.names = 0.85,
   font.main = 2
 )
@@ -311,7 +311,7 @@ text(
 rect(0.5, 650, 4.5, 1300, col = "#161b22", border = "#30363d")
 text(
   2.5, 950,
-  labels = "Detection Accuracy: 77.14%\nTask: Presence / Absence & mm Distance\nResolution: 1024x1024 High-Precision",
+  labels = "Detection Accuracy: 77.14%\nTask: Presence / Absence Detection\nResolution: 1024x1024 High-Precision",
   col = "#58a6ff",
   cex = 0.82,
   font = 2

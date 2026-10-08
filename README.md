@@ -309,9 +309,9 @@ Exhaustive on-device measurements collected on the Snapdragon X Plus Copilot+ ul
 | :---: | :---: |
 | ![Hardware Latency Comparison](results/hardware_latency_comparison.png) | ![Pareto Accuracy vs Latency](results/pareto_accuracy_vs_latency.png) |
 
-| 3. Geological Scale Metrology (V4-Small) | 4. Qualcomm Hexagon NPU Stability (100 Runs) |
+| 3. Geological Scale Detection (V4-Small) | 4. Qualcomm Hexagon NPU Stability (100 Runs) |
 | :---: | :---: |
-| ![Geological Scale Metrology](results/scale_metrology_detection_profiling.png) | ![Qualcomm Hexagon NPU Stability](results/snapdragon_npu_stability_distribution.png) |
+| ![Geological Scale Detection](results/scale_metrology_detection_profiling.png) | ![Qualcomm Hexagon NPU Stability](results/snapdragon_npu_stability_distribution.png) |
 
 | 5. QDQ vs. Zero-FP32 Architectural Impact |
 | :---: |
@@ -328,7 +328,7 @@ Exhaustive on-device measurements collected on the Snapdragon X Plus Copilot+ ul
 | INT4 (W4A8) | GPU (Adreno) | 105.4 | 26.42 |
 | INT4 (W4A8)| CPU (Oryon) | 120.2 | 26.42 |
 
-#### 3. MobileNetV4-Small - Scale Metrology (LocalAiManager)
+#### 3. MobileNetV4-Small - Scale Detection (Presence / Absence)
 | Format | Hardware Backend | Latency (ms) | Detection Rate (%) |
 | :---: | :--- | :---: | :--- |
 | **INT8** | **Dedicated NPU (Target)** | **18.5** | 77.14 |
