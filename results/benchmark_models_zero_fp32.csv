@@ -1,0 +1,601 @@
+Model,Task,Format,Backend,Inference_ID,Latency_ms,Top1_Accuracy,Top3_Accuracy,Precision_Type,NPU_HTP_Status
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,1,456.169,83.33%,89.33%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,2,448.232,83.33%,89.33%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,3,458.056,83.33%,89.33%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,4,468.998,83.33%,89.33%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,5,447.033,83.33%,89.33%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,6,447.033,83.33%,89.33%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,7,469.700,83.33%,89.33%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,8,459.553,83.33%,89.33%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,9,444.092,83.33%,89.33%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,10,456.742,83.33%,89.33%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,11,444.167,83.33%,89.33%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,12,444.138,83.33%,89.33%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,13,452.985,83.33%,89.33%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,14,426.044,83.33%,89.33%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,15,428.399,83.33%,89.33%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,16,442.931,83.33%,89.33%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,17,437.300,83.33%,89.33%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,18,453.888,83.33%,89.33%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,19,438.610,83.33%,89.33%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,20,432.306,83.33%,89.33%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,21,468.281,83.33%,89.33%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,22,447.138,83.33%,89.33%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,23,450.804,83.33%,89.33%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,24,432.151,83.33%,89.33%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,25,443.155,83.33%,89.33%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,26,451.347,83.33%,89.33%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,27,435.573,83.33%,89.33%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,28,454.656,83.33%,89.33%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,29,442.452,83.33%,89.33%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,30,446.314,83.33%,89.33%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,31,442.439,83.33%,89.33%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,32,473.113,83.33%,89.33%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,33,449.791,83.33%,89.33%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,34,436.739,83.33%,89.33%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,35,460.242,83.33%,89.33%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,36,434.699,83.33%,89.33%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,37,452.571,83.33%,89.33%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,38,425.464,83.33%,89.33%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,39,433.358,83.33%,89.33%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,40,452.421,83.33%,89.33%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,41,459.191,83.33%,89.33%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,42,452.102,83.33%,89.33%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,43,448.514,83.33%,89.33%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,44,446.196,83.33%,89.33%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,45,431.478,83.33%,89.33%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,46,440.962,83.33%,89.33%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,47,444.202,83.33%,89.33%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,48,463.174,83.33%,89.33%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,49,454.255,83.33%,89.33%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,50,427.922,83.33%,89.33%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,51,454.011,83.33%,89.33%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,52,445.146,83.33%,89.33%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,53,441.498,83.33%,89.33%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,54,457.606,83.33%,89.33%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,55,462.847,83.33%,89.33%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,56,461.601,83.33%,89.33%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,57,439.470,83.33%,89.33%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,58,446.095,83.33%,89.33%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,59,454.101,83.33%,89.33%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,60,462.154,83.33%,89.33%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,61,443.970,83.33%,89.33%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,62,447.639,83.33%,89.33%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,63,436.131,83.33%,89.33%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,64,435.007,83.33%,89.33%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,65,460.117,83.33%,89.33%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,66,466.913,83.33%,89.33%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,67,449.060,83.33%,89.33%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,68,462.504,83.33%,89.33%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,69,454.480,83.33%,89.33%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,70,441.896,83.33%,89.33%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,71,454.477,83.33%,89.33%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,72,469.185,83.33%,89.33%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,73,449.512,83.33%,89.33%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,74,469.518,83.33%,89.33%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,75,417.213,83.33%,89.33%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,76,460.234,83.33%,89.33%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,77,451.048,83.33%,89.33%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,78,446.222,83.33%,89.33%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,79,451.107,83.33%,89.33%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,80,425.115,83.33%,89.33%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,81,447.214,83.33%,89.33%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,82,454.424,83.33%,89.33%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,83,468.434,83.33%,89.33%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,84,443.482,83.33%,89.33%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,85,439.854,83.33%,89.33%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,86,443.688,83.33%,89.33%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,87,461.403,83.33%,89.33%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,88,454.069,83.33%,89.33%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,89,443.338,83.33%,89.33%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,90,456.376,83.33%,89.33%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,91,451.173,83.33%,89.33%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,92,462.068,83.33%,89.33%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,93,441.184,83.33%,89.33%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,94,445.864,83.33%,89.33%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,95,445.059,83.33%,89.33%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,96,431.666,83.33%,89.33%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,97,453.662,83.33%,89.33%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,98,453.223,83.33%,89.33%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,99,450.024,83.33%,89.33%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,NPU,100,447.028,83.33%,89.33%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU,1,1180.183,83.33%,89.33%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU,2,1264.735,83.33%,89.33%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU,3,1271.359,83.33%,89.33%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU,4,1232.296,83.33%,89.33%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU,5,1286.781,83.33%,89.33%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU,6,1334.834,83.33%,89.33%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU,7,1460.816,83.33%,89.33%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU,8,1315.329,83.33%,89.33%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU,9,1322.382,83.33%,89.33%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU,10,1294.162,83.33%,89.33%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU,11,1137.394,83.33%,89.33%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU,12,1298.236,83.33%,89.33%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU,13,1305.610,83.33%,89.33%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU,14,1509.866,83.33%,89.33%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU,15,1284.139,83.33%,89.33%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU,16,1326.122,83.33%,89.33%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU,17,1297.539,83.33%,89.33%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU,18,1201.152,83.33%,89.33%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU,19,1397.630,83.33%,89.33%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU,20,1364.404,83.33%,89.33%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU,21,1367.728,83.33%,89.33%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU,22,1223.192,83.33%,89.33%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU,23,1419.728,83.33%,89.33%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU,24,1181.333,83.33%,89.33%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU,25,1350.373,83.33%,89.33%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU,26,1486.679,83.33%,89.33%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU,27,1216.294,83.33%,89.33%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU,28,1252.355,83.33%,89.33%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU,29,1308.960,83.33%,89.33%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU,30,1257.695,83.33%,89.33%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU,31,1168.684,83.33%,89.33%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU,32,1306.318,83.33%,89.33%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU,33,1210.194,83.33%,89.33%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU,34,1340.745,83.33%,89.33%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU,35,1222.339,83.33%,89.33%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU,36,1432.234,83.33%,89.33%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU,37,1233.913,83.33%,89.33%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU,38,1273.115,83.33%,89.33%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU,39,1369.639,83.33%,89.33%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU,40,1195.867,83.33%,89.33%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU,41,1319.824,83.33%,89.33%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU,42,1411.597,83.33%,89.33%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU,43,1163.854,83.33%,89.33%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU,44,1316.184,83.33%,89.33%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU,45,1322.580,83.33%,89.33%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU,46,1366.945,83.33%,89.33%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU,47,1195.349,83.33%,89.33%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU,48,1188.251,83.33%,89.33%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU,49,1344.855,83.33%,89.33%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU,50,1325.734,83.33%,89.33%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU,51,1321.782,83.33%,89.33%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU,52,1329.938,83.33%,89.33%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU,53,1242.688,83.33%,89.33%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU,54,1320.232,83.33%,89.33%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU,55,1325.401,83.33%,89.33%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU,56,1239.770,83.33%,89.33%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU,57,1459.081,83.33%,89.33%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU,58,1340.766,83.33%,89.33%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU,59,1199.229,83.33%,89.33%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU,60,1356.297,83.33%,89.33%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU,61,1217.642,83.33%,89.33%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU,62,1367.392,83.33%,89.33%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU,63,1398.971,83.33%,89.33%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU,64,1230.732,83.33%,89.33%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU,65,1382.377,83.33%,89.33%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU,66,1335.576,83.33%,89.33%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU,67,1370.365,83.33%,89.33%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU,68,1461.717,83.33%,89.33%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU,69,1279.632,83.33%,89.33%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU,70,1236.422,83.33%,89.33%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU,71,1224.881,83.33%,89.33%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU,72,1231.146,83.33%,89.33%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU,73,1293.936,83.33%,89.33%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU,74,1329.488,83.33%,89.33%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU,75,1324.009,83.33%,89.33%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU,76,1370.801,83.33%,89.33%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU,77,1301.595,83.33%,89.33%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU,78,1424.040,83.33%,89.33%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU,79,1277.994,83.33%,89.33%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU,80,1531.704,83.33%,89.33%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU,81,1353.672,83.33%,89.33%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU,82,1227.632,83.33%,89.33%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU,83,1209.464,83.33%,89.33%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU,84,1341.500,83.33%,89.33%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU,85,1281.496,83.33%,89.33%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU,86,1361.180,83.33%,89.33%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU,87,1340.715,83.33%,89.33%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU,88,1294.300,83.33%,89.33%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU,89,1228.513,83.33%,89.33%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU,90,1171.728,83.33%,89.33%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU,91,1262.536,83.33%,89.33%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU,92,1373.284,83.33%,89.33%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU,93,1318.688,83.33%,89.33%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU,94,1194.602,83.33%,89.33%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU,95,1315.210,83.33%,89.33%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU,96,1333.242,83.33%,89.33%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU,97,1225.362,83.33%,89.33%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU,98,1313.557,83.33%,89.33%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU,99,1305.438,83.33%,89.33%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,CPU,100,1203.338,83.33%,89.33%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU,1,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",83.33%,89.33%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU,2,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",83.33%,89.33%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU,3,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",83.33%,89.33%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU,4,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",83.33%,89.33%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU,5,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",83.33%,89.33%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU,6,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",83.33%,89.33%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU,7,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",83.33%,89.33%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU,8,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",83.33%,89.33%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU,9,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",83.33%,89.33%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU,10,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",83.33%,89.33%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU,11,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",83.33%,89.33%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU,12,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",83.33%,89.33%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU,13,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",83.33%,89.33%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU,14,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",83.33%,89.33%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU,15,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",83.33%,89.33%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU,16,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",83.33%,89.33%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU,17,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",83.33%,89.33%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU,18,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",83.33%,89.33%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU,19,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",83.33%,89.33%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU,20,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",83.33%,89.33%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU,21,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",83.33%,89.33%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU,22,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",83.33%,89.33%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU,23,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",83.33%,89.33%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU,24,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",83.33%,89.33%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU,25,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",83.33%,89.33%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU,26,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",83.33%,89.33%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU,27,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",83.33%,89.33%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU,28,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",83.33%,89.33%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU,29,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",83.33%,89.33%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU,30,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",83.33%,89.33%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU,31,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",83.33%,89.33%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU,32,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",83.33%,89.33%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU,33,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",83.33%,89.33%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU,34,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",83.33%,89.33%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU,35,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",83.33%,89.33%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU,36,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",83.33%,89.33%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU,37,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",83.33%,89.33%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU,38,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",83.33%,89.33%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU,39,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",83.33%,89.33%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU,40,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",83.33%,89.33%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU,41,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",83.33%,89.33%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU,42,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",83.33%,89.33%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU,43,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",83.33%,89.33%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU,44,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",83.33%,89.33%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU,45,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",83.33%,89.33%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU,46,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",83.33%,89.33%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU,47,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",83.33%,89.33%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU,48,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",83.33%,89.33%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU,49,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",83.33%,89.33%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU,50,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",83.33%,89.33%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU,51,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",83.33%,89.33%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU,52,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",83.33%,89.33%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU,53,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",83.33%,89.33%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU,54,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",83.33%,89.33%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU,55,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",83.33%,89.33%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU,56,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",83.33%,89.33%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU,57,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",83.33%,89.33%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU,58,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",83.33%,89.33%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU,59,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",83.33%,89.33%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU,60,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",83.33%,89.33%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU,61,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",83.33%,89.33%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU,62,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",83.33%,89.33%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU,63,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",83.33%,89.33%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU,64,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",83.33%,89.33%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU,65,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",83.33%,89.33%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU,66,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",83.33%,89.33%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU,67,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",83.33%,89.33%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU,68,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",83.33%,89.33%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU,69,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",83.33%,89.33%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU,70,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",83.33%,89.33%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU,71,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",83.33%,89.33%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU,72,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",83.33%,89.33%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU,73,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",83.33%,89.33%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU,74,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",83.33%,89.33%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU,75,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",83.33%,89.33%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU,76,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",83.33%,89.33%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU,77,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",83.33%,89.33%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU,78,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",83.33%,89.33%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU,79,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",83.33%,89.33%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU,80,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",83.33%,89.33%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU,81,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",83.33%,89.33%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU,82,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",83.33%,89.33%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU,83,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",83.33%,89.33%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU,84,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",83.33%,89.33%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU,85,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",83.33%,89.33%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU,86,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",83.33%,89.33%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU,87,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",83.33%,89.33%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU,88,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",83.33%,89.33%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU,89,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",83.33%,89.33%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU,90,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",83.33%,89.33%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU,91,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",83.33%,89.33%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU,92,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",83.33%,89.33%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU,93,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",83.33%,89.33%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU,94,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",83.33%,89.33%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU,95,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",83.33%,89.33%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU,96,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",83.33%,89.33%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU,97,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",83.33%,89.33%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU,98,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",83.33%,89.33%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU,99,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",83.33%,89.33%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,INT8_Zero_FP32,GPU,100,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",83.33%,89.33%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,1,426.581,80.33%,87.67%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,2,429.463,80.33%,87.67%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,3,436.879,80.33%,87.67%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,4,436.464,80.33%,87.67%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,5,401.937,80.33%,87.67%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,6,408.183,80.33%,87.67%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,7,428.814,80.33%,87.67%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,8,428.796,80.33%,87.67%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,9,428.814,80.33%,87.67%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,10,476.209,80.33%,87.67%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,11,429.607,80.33%,87.67%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,12,437.625,80.33%,87.67%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,13,435.047,80.33%,87.67%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,14,430.750,80.33%,87.67%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,15,417.023,80.33%,87.67%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,16,432.277,80.33%,87.67%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,17,410.526,80.33%,87.67%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,18,418.137,80.33%,87.67%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,19,414.608,80.33%,87.67%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,20,422.663,80.33%,87.67%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,21,454.368,80.33%,87.67%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,22,394.985,80.33%,87.67%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,23,431.245,80.33%,87.67%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,24,398.599,80.33%,87.67%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,25,414.799,80.33%,87.67%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,26,436.963,80.33%,87.67%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,27,422.413,80.33%,87.67%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,28,406.196,80.33%,87.67%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,29,411.343,80.33%,87.67%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,30,431.150,80.33%,87.67%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,31,411.129,80.33%,87.67%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,32,424.574,80.33%,87.67%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,33,422.147,80.33%,87.67%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,34,412.247,80.33%,87.67%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,35,451.944,80.33%,87.67%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,36,430.502,80.33%,87.67%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,37,392.743,80.33%,87.67%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,38,424.148,80.33%,87.67%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,39,412.103,80.33%,87.67%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,40,433.605,80.33%,87.67%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,41,410.246,80.33%,87.67%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,42,419.871,80.33%,87.67%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,43,428.671,80.33%,87.67%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,44,433.794,80.33%,87.67%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,45,404.456,80.33%,87.67%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,46,416.750,80.33%,87.67%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,47,414.756,80.33%,87.67%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,48,412.223,80.33%,87.67%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,49,446.569,80.33%,87.67%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,50,427.251,80.33%,87.67%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,51,403.595,80.33%,87.67%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,52,434.534,80.33%,87.67%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,53,451.635,80.33%,87.67%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,54,436.161,80.33%,87.67%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,55,399.925,80.33%,87.67%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,56,414.624,80.33%,87.67%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,57,439.490,80.33%,87.67%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,58,411.451,80.33%,87.67%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,59,427.802,80.33%,87.67%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,60,432.500,80.33%,87.67%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,61,408.338,80.33%,87.67%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,62,420.655,80.33%,87.67%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,63,375.474,80.33%,87.67%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,64,406.954,80.33%,87.67%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,65,417.914,80.33%,87.67%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,66,403.781,80.33%,87.67%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,67,444.680,80.33%,87.67%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,68,401.192,80.33%,87.67%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,69,415.251,80.33%,87.67%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,70,423.357,80.33%,87.67%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,71,441.966,80.33%,87.67%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,72,401.111,80.33%,87.67%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,73,438.017,80.33%,87.67%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,74,421.645,80.33%,87.67%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,75,407.563,80.33%,87.67%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,76,428.062,80.33%,87.67%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,77,424.327,80.33%,87.67%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,78,412.977,80.33%,87.67%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,79,422.491,80.33%,87.67%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,80,416.029,80.33%,87.67%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,81,423.112,80.33%,87.67%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,82,430.902,80.33%,87.67%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,83,444.021,80.33%,87.67%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,84,403.923,80.33%,87.67%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,85,451.789,80.33%,87.67%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,86,393.780,80.33%,87.67%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,87,419.345,80.33%,87.67%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,88,429.854,80.33%,87.67%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,89,425.490,80.33%,87.67%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,90,412.658,80.33%,87.67%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,91,418.545,80.33%,87.67%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,92,414.499,80.33%,87.67%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,93,413.131,80.33%,87.67%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,94,433.564,80.33%,87.67%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,95,426.570,80.33%,87.67%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,96,411.661,80.33%,87.67%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,97,434.274,80.33%,87.67%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,98,425.864,80.33%,87.67%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,99,433.043,80.33%,87.67%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,NPU,100,430.441,80.33%,87.67%,Pure_Integer_Zero_FP32,Native_Hardware_Accelerated (0% FP32)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU,1,3197.011,80.33%,87.67%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU,2,3229.268,80.33%,87.67%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU,3,3386.165,80.33%,87.67%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU,4,3369.734,80.33%,87.67%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU,5,3293.982,80.33%,87.67%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU,6,3310.569,80.33%,87.67%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU,7,3449.810,80.33%,87.67%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU,8,3225.501,80.33%,87.67%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU,9,3362.142,80.33%,87.67%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU,10,3272.227,80.33%,87.67%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU,11,3270.368,80.33%,87.67%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU,12,3428.343,80.33%,87.67%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU,13,3395.540,80.33%,87.67%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU,14,3394.111,80.33%,87.67%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU,15,3453.147,80.33%,87.67%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU,16,3299.010,80.33%,87.67%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU,17,3378.324,80.33%,87.67%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU,18,3259.258,80.33%,87.67%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU,19,3335.390,80.33%,87.67%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU,20,3280.873,80.33%,87.67%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU,21,3308.130,80.33%,87.67%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU,22,3367.909,80.33%,87.67%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU,23,3198.304,80.33%,87.67%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU,24,3547.576,80.33%,87.67%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU,25,3175.768,80.33%,87.67%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU,26,3150.787,80.33%,87.67%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU,27,3435.463,80.33%,87.67%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU,28,3391.490,80.33%,87.67%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU,29,3371.384,80.33%,87.67%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU,30,3371.891,80.33%,87.67%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU,31,3295.020,80.33%,87.67%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU,32,3188.819,80.33%,87.67%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU,33,3305.587,80.33%,87.67%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU,34,3215.231,80.33%,87.67%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU,35,3413.504,80.33%,87.67%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU,36,3278.843,80.33%,87.67%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU,37,3197.430,80.33%,87.67%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU,38,3257.924,80.33%,87.67%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU,39,3346.042,80.33%,87.67%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU,40,3228.843,80.33%,87.67%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU,41,3197.824,80.33%,87.67%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU,42,3325.732,80.33%,87.67%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU,43,3325.886,80.33%,87.67%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU,44,3235.657,80.33%,87.67%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU,45,3239.965,80.33%,87.67%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU,46,3324.336,80.33%,87.67%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU,47,3122.720,80.33%,87.67%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU,48,3127.594,80.33%,87.67%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU,49,3210.277,80.33%,87.67%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU,50,3270.876,80.33%,87.67%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU,51,3333.799,80.33%,87.67%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU,52,3473.533,80.33%,87.67%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU,53,3399.409,80.33%,87.67%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU,54,3277.297,80.33%,87.67%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU,55,3294.208,80.33%,87.67%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU,56,3176.186,80.33%,87.67%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU,57,3294.268,80.33%,87.67%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU,58,3261.851,80.33%,87.67%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU,59,3335.216,80.33%,87.67%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU,60,3197.222,80.33%,87.67%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU,61,3358.812,80.33%,87.67%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU,62,3480.419,80.33%,87.67%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU,63,3283.439,80.33%,87.67%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU,64,3344.695,80.33%,87.67%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU,65,3379.307,80.33%,87.67%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU,66,3248.344,80.33%,87.67%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU,67,3323.381,80.33%,87.67%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU,68,3298.001,80.33%,87.67%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU,69,3308.211,80.33%,87.67%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU,70,3203.729,80.33%,87.67%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU,71,3299.431,80.33%,87.67%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU,72,3356.250,80.33%,87.67%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU,73,3470.627,80.33%,87.67%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU,74,3411.602,80.33%,87.67%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU,75,3554.872,80.33%,87.67%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU,76,3204.408,80.33%,87.67%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU,77,3401.168,80.33%,87.67%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU,78,3318.491,80.33%,87.67%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU,79,3559.266,80.33%,87.67%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU,80,3199.494,80.33%,87.67%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU,81,3195.723,80.33%,87.67%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU,82,3224.563,80.33%,87.67%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU,83,3041.623,80.33%,87.67%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU,84,3233.399,80.33%,87.67%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU,85,3205.394,80.33%,87.67%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU,86,3314.537,80.33%,87.67%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU,87,3337.501,80.33%,87.67%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU,88,3521.631,80.33%,87.67%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU,89,3410.541,80.33%,87.67%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU,90,3227.262,80.33%,87.67%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU,91,3188.680,80.33%,87.67%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU,92,3355.520,80.33%,87.67%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU,93,3138.062,80.33%,87.67%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU,94,3516.265,80.33%,87.67%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU,95,3438.023,80.33%,87.67%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU,96,3240.189,80.33%,87.67%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU,97,3090.914,80.33%,87.67%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU,98,3458.955,80.33%,87.67%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU,99,3282.745,80.33%,87.67%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,CPU,100,3445.028,80.33%,87.67%,Pure_Integer_Zero_FP32,Supported_CPU_Multithread
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU,1,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",80.33%,87.67%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU,2,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",80.33%,87.67%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU,3,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",80.33%,87.67%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU,4,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",80.33%,87.67%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU,5,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",80.33%,87.67%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU,6,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",80.33%,87.67%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU,7,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",80.33%,87.67%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU,8,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",80.33%,87.67%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU,9,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",80.33%,87.67%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU,10,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",80.33%,87.67%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU,11,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",80.33%,87.67%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU,12,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",80.33%,87.67%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU,13,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",80.33%,87.67%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU,14,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",80.33%,87.67%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU,15,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",80.33%,87.67%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU,16,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",80.33%,87.67%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU,17,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",80.33%,87.67%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU,18,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",80.33%,87.67%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU,19,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",80.33%,87.67%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU,20,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",80.33%,87.67%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU,21,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",80.33%,87.67%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU,22,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",80.33%,87.67%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU,23,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",80.33%,87.67%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU,24,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",80.33%,87.67%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU,25,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",80.33%,87.67%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU,26,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",80.33%,87.67%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU,27,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",80.33%,87.67%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU,28,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",80.33%,87.67%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU,29,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",80.33%,87.67%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU,30,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",80.33%,87.67%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU,31,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",80.33%,87.67%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU,32,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",80.33%,87.67%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU,33,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",80.33%,87.67%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU,34,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",80.33%,87.67%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU,35,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",80.33%,87.67%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU,36,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",80.33%,87.67%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU,37,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",80.33%,87.67%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU,38,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",80.33%,87.67%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU,39,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",80.33%,87.67%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU,40,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",80.33%,87.67%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU,41,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",80.33%,87.67%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU,42,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",80.33%,87.67%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU,43,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",80.33%,87.67%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU,44,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",80.33%,87.67%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU,45,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",80.33%,87.67%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU,46,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",80.33%,87.67%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU,47,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",80.33%,87.67%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU,48,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",80.33%,87.67%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU,49,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",80.33%,87.67%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU,50,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",80.33%,87.67%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU,51,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",80.33%,87.67%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU,52,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",80.33%,87.67%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU,53,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",80.33%,87.67%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU,54,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",80.33%,87.67%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU,55,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",80.33%,87.67%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU,56,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",80.33%,87.67%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU,57,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",80.33%,87.67%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU,58,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",80.33%,87.67%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU,59,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",80.33%,87.67%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU,60,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",80.33%,87.67%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU,61,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",80.33%,87.67%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU,62,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",80.33%,87.67%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU,63,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",80.33%,87.67%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU,64,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",80.33%,87.67%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU,65,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",80.33%,87.67%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU,66,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",80.33%,87.67%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU,67,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",80.33%,87.67%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU,68,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",80.33%,87.67%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU,69,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",80.33%,87.67%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU,70,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",80.33%,87.67%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU,71,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",80.33%,87.67%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU,72,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",80.33%,87.67%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU,73,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",80.33%,87.67%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU,74,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",80.33%,87.67%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU,75,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",80.33%,87.67%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU,76,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",80.33%,87.67%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU,77,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",80.33%,87.67%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU,78,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",80.33%,87.67%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU,79,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",80.33%,87.67%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU,80,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",80.33%,87.67%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU,81,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",80.33%,87.67%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU,82,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",80.33%,87.67%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU,83,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",80.33%,87.67%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU,84,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",80.33%,87.67%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU,85,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",80.33%,87.67%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU,86,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",80.33%,87.67%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU,87,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",80.33%,87.67%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU,88,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",80.33%,87.67%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU,89,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",80.33%,87.67%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU,90,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",80.33%,87.67%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU,91,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",80.33%,87.67%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU,92,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",80.33%,87.67%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU,93,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",80.33%,87.67%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU,94,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",80.33%,87.67%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU,95,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",80.33%,87.67%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU,96,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",80.33%,87.67%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU,97,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",80.33%,87.67%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU,98,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",80.33%,87.67%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU,99,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",80.33%,87.67%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)
+MobileNetV5,Rock_Classification,W4A8_Zero_FP32,GPU,100,"N/A (Driver Adreno QnnGpu purement flottant FP16/FP32, integer non supporté)",80.33%,87.67%,Pure_Integer_Zero_FP32,Incompatible_GPU_Hardware (Exclusivement NPU)

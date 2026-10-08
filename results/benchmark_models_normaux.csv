@@ -1,0 +1,601 @@
+Model,Task,Format,Backend,Inference_ID,Latency_ms,Top1_Accuracy,Top3_Accuracy,Precision_Type,NPU_HTP_Status
+MobileNetV5,Rock_Classification,INT8,NPU,1,441.122,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Validated_NPU
+MobileNetV5,Rock_Classification,INT8,NPU,2,439.597,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Validated_NPU
+MobileNetV5,Rock_Classification,INT8,NPU,3,455.340,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Validated_NPU
+MobileNetV5,Rock_Classification,INT8,NPU,4,457.711,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Validated_NPU
+MobileNetV5,Rock_Classification,INT8,NPU,5,462.187,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Validated_NPU
+MobileNetV5,Rock_Classification,INT8,NPU,6,438.766,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Validated_NPU
+MobileNetV5,Rock_Classification,INT8,NPU,7,444.756,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Validated_NPU
+MobileNetV5,Rock_Classification,INT8,NPU,8,442.980,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Validated_NPU
+MobileNetV5,Rock_Classification,INT8,NPU,9,454.924,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Validated_NPU
+MobileNetV5,Rock_Classification,INT8,NPU,10,444.807,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Validated_NPU
+MobileNetV5,Rock_Classification,INT8,NPU,11,439.322,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Validated_NPU
+MobileNetV5,Rock_Classification,INT8,NPU,12,437.309,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Validated_NPU
+MobileNetV5,Rock_Classification,INT8,NPU,13,428.695,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Validated_NPU
+MobileNetV5,Rock_Classification,INT8,NPU,14,484.089,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Validated_NPU
+MobileNetV5,Rock_Classification,INT8,NPU,15,441.683,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Validated_NPU
+MobileNetV5,Rock_Classification,INT8,NPU,16,435.857,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Validated_NPU
+MobileNetV5,Rock_Classification,INT8,NPU,17,438.977,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Validated_NPU
+MobileNetV5,Rock_Classification,INT8,NPU,18,447.855,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Validated_NPU
+MobileNetV5,Rock_Classification,INT8,NPU,19,441.495,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Validated_NPU
+MobileNetV5,Rock_Classification,INT8,NPU,20,436.225,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Validated_NPU
+MobileNetV5,Rock_Classification,INT8,NPU,21,454.622,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Validated_NPU
+MobileNetV5,Rock_Classification,INT8,NPU,22,437.617,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Validated_NPU
+MobileNetV5,Rock_Classification,INT8,NPU,23,446.211,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Validated_NPU
+MobileNetV5,Rock_Classification,INT8,NPU,24,459.077,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Validated_NPU
+MobileNetV5,Rock_Classification,INT8,NPU,25,482.489,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Validated_NPU
+MobileNetV5,Rock_Classification,INT8,NPU,26,445.245,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Validated_NPU
+MobileNetV5,Rock_Classification,INT8,NPU,27,504.224,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Validated_NPU
+MobileNetV5,Rock_Classification,INT8,NPU,28,450.616,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Validated_NPU
+MobileNetV5,Rock_Classification,INT8,NPU,29,432.656,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Validated_NPU
+MobileNetV5,Rock_Classification,INT8,NPU,30,453.460,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Validated_NPU
+MobileNetV5,Rock_Classification,INT8,NPU,31,433.928,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Validated_NPU
+MobileNetV5,Rock_Classification,INT8,NPU,32,442.961,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Validated_NPU
+MobileNetV5,Rock_Classification,INT8,NPU,33,441.610,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Validated_NPU
+MobileNetV5,Rock_Classification,INT8,NPU,34,455.567,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Validated_NPU
+MobileNetV5,Rock_Classification,INT8,NPU,35,441.718,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Validated_NPU
+MobileNetV5,Rock_Classification,INT8,NPU,36,439.802,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Validated_NPU
+MobileNetV5,Rock_Classification,INT8,NPU,37,446.790,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Validated_NPU
+MobileNetV5,Rock_Classification,INT8,NPU,38,440.145,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Validated_NPU
+MobileNetV5,Rock_Classification,INT8,NPU,39,447.802,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Validated_NPU
+MobileNetV5,Rock_Classification,INT8,NPU,40,469.870,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Validated_NPU
+MobileNetV5,Rock_Classification,INT8,NPU,41,456.169,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Validated_NPU
+MobileNetV5,Rock_Classification,INT8,NPU,42,448.030,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Validated_NPU
+MobileNetV5,Rock_Classification,INT8,NPU,43,435.400,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Validated_NPU
+MobileNetV5,Rock_Classification,INT8,NPU,44,437.904,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Validated_NPU
+MobileNetV5,Rock_Classification,INT8,NPU,45,450.468,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Validated_NPU
+MobileNetV5,Rock_Classification,INT8,NPU,46,442.219,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Validated_NPU
+MobileNetV5,Rock_Classification,INT8,NPU,47,502.808,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Validated_NPU
+MobileNetV5,Rock_Classification,INT8,NPU,48,439.923,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Validated_NPU
+MobileNetV5,Rock_Classification,INT8,NPU,49,450.743,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Validated_NPU
+MobileNetV5,Rock_Classification,INT8,NPU,50,452.326,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Validated_NPU
+MobileNetV5,Rock_Classification,INT8,NPU,51,445.223,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Validated_NPU
+MobileNetV5,Rock_Classification,INT8,NPU,52,444.033,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Validated_NPU
+MobileNetV5,Rock_Classification,INT8,NPU,53,433.950,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Validated_NPU
+MobileNetV5,Rock_Classification,INT8,NPU,54,442.803,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Validated_NPU
+MobileNetV5,Rock_Classification,INT8,NPU,55,441.160,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Validated_NPU
+MobileNetV5,Rock_Classification,INT8,NPU,56,444.141,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Validated_NPU
+MobileNetV5,Rock_Classification,INT8,NPU,57,452.582,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Validated_NPU
+MobileNetV5,Rock_Classification,INT8,NPU,58,454.525,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Validated_NPU
+MobileNetV5,Rock_Classification,INT8,NPU,59,453.605,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Validated_NPU
+MobileNetV5,Rock_Classification,INT8,NPU,60,502.012,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Validated_NPU
+MobileNetV5,Rock_Classification,INT8,NPU,61,432.019,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Validated_NPU
+MobileNetV5,Rock_Classification,INT8,NPU,62,454.471,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Validated_NPU
+MobileNetV5,Rock_Classification,INT8,NPU,63,440.109,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Validated_NPU
+MobileNetV5,Rock_Classification,INT8,NPU,64,436.417,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Validated_NPU
+MobileNetV5,Rock_Classification,INT8,NPU,65,445.619,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Validated_NPU
+MobileNetV5,Rock_Classification,INT8,NPU,66,481.708,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Validated_NPU
+MobileNetV5,Rock_Classification,INT8,NPU,67,445.686,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Validated_NPU
+MobileNetV5,Rock_Classification,INT8,NPU,68,436.065,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Validated_NPU
+MobileNetV5,Rock_Classification,INT8,NPU,69,437.401,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Validated_NPU
+MobileNetV5,Rock_Classification,INT8,NPU,70,442.263,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Validated_NPU
+MobileNetV5,Rock_Classification,INT8,NPU,71,451.373,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Validated_NPU
+MobileNetV5,Rock_Classification,INT8,NPU,72,435.265,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Validated_NPU
+MobileNetV5,Rock_Classification,INT8,NPU,73,482.138,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Validated_NPU
+MobileNetV5,Rock_Classification,INT8,NPU,74,433.707,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Validated_NPU
+MobileNetV5,Rock_Classification,INT8,NPU,75,437.502,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Validated_NPU
+MobileNetV5,Rock_Classification,INT8,NPU,76,447.024,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Validated_NPU
+MobileNetV5,Rock_Classification,INT8,NPU,77,454.967,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Validated_NPU
+MobileNetV5,Rock_Classification,INT8,NPU,78,436.673,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Validated_NPU
+MobileNetV5,Rock_Classification,INT8,NPU,79,450.949,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Validated_NPU
+MobileNetV5,Rock_Classification,INT8,NPU,80,442.631,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Validated_NPU
+MobileNetV5,Rock_Classification,INT8,NPU,81,444.245,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Validated_NPU
+MobileNetV5,Rock_Classification,INT8,NPU,82,462.595,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Validated_NPU
+MobileNetV5,Rock_Classification,INT8,NPU,83,448.490,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Validated_NPU
+MobileNetV5,Rock_Classification,INT8,NPU,84,445.366,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Validated_NPU
+MobileNetV5,Rock_Classification,INT8,NPU,85,447.867,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Validated_NPU
+MobileNetV5,Rock_Classification,INT8,NPU,86,491.392,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Validated_NPU
+MobileNetV5,Rock_Classification,INT8,NPU,87,439.673,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Validated_NPU
+MobileNetV5,Rock_Classification,INT8,NPU,88,470.537,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Validated_NPU
+MobileNetV5,Rock_Classification,INT8,NPU,89,448.300,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Validated_NPU
+MobileNetV5,Rock_Classification,INT8,NPU,90,455.241,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Validated_NPU
+MobileNetV5,Rock_Classification,INT8,NPU,91,448.663,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Validated_NPU
+MobileNetV5,Rock_Classification,INT8,NPU,92,455.440,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Validated_NPU
+MobileNetV5,Rock_Classification,INT8,NPU,93,439.700,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Validated_NPU
+MobileNetV5,Rock_Classification,INT8,NPU,94,449.594,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Validated_NPU
+MobileNetV5,Rock_Classification,INT8,NPU,95,446.067,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Validated_NPU
+MobileNetV5,Rock_Classification,INT8,NPU,96,437.317,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Validated_NPU
+MobileNetV5,Rock_Classification,INT8,NPU,97,449.063,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Validated_NPU
+MobileNetV5,Rock_Classification,INT8,NPU,98,443.661,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Validated_NPU
+MobileNetV5,Rock_Classification,INT8,NPU,99,491.462,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Validated_NPU
+MobileNetV5,Rock_Classification,INT8,NPU,100,487.063,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Validated_NPU
+MobileNetV5,Rock_Classification,INT8,CPU,1,1278.208,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,INT8,CPU,2,1295.577,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,INT8,CPU,3,1266.456,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,INT8,CPU,4,1222.447,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,INT8,CPU,5,1272.199,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,INT8,CPU,6,1270.865,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,INT8,CPU,7,1289.183,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,INT8,CPU,8,1244.952,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,INT8,CPU,9,1361.329,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,INT8,CPU,10,1398.243,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,INT8,CPU,11,1349.268,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,INT8,CPU,12,1218.153,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,INT8,CPU,13,1269.072,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,INT8,CPU,14,1350.433,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,INT8,CPU,15,1293.528,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,INT8,CPU,16,1333.693,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,INT8,CPU,17,1225.067,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,INT8,CPU,18,1302.378,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,INT8,CPU,19,1253.530,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,INT8,CPU,20,1311.563,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,INT8,CPU,21,1301.618,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,INT8,CPU,22,1300.423,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,INT8,CPU,23,1324.607,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,INT8,CPU,24,1298.817,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,INT8,CPU,25,1335.953,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,INT8,CPU,26,1345.215,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,INT8,CPU,27,1293.673,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,INT8,CPU,28,1271.482,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,INT8,CPU,29,1328.777,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,INT8,CPU,30,1226.526,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,INT8,CPU,31,1298.711,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,INT8,CPU,32,1341.594,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,INT8,CPU,33,1294.125,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,INT8,CPU,34,1356.666,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,INT8,CPU,35,1296.711,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,INT8,CPU,36,1397.800,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,INT8,CPU,37,1351.892,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,INT8,CPU,38,1448.621,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,INT8,CPU,39,1322.048,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,INT8,CPU,40,1345.580,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,INT8,CPU,41,1364.304,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,INT8,CPU,42,1341.780,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,INT8,CPU,43,1315.516,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,INT8,CPU,44,1354.927,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,INT8,CPU,45,1289.804,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,INT8,CPU,46,1228.974,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,INT8,CPU,47,1301.414,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,INT8,CPU,48,1255.143,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,INT8,CPU,49,1324.452,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,INT8,CPU,50,1303.423,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,INT8,CPU,51,1345.371,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,INT8,CPU,52,1284.324,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,INT8,CPU,53,1304.672,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,INT8,CPU,54,1504.672,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,INT8,CPU,55,1384.235,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,INT8,CPU,56,1553.278,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,INT8,CPU,57,1395.146,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,INT8,CPU,58,1576.541,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,INT8,CPU,59,1523.308,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,INT8,CPU,60,1473.479,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,INT8,CPU,61,1231.381,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,INT8,CPU,62,846.199,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,INT8,CPU,63,1269.509,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,INT8,CPU,64,1231.600,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,INT8,CPU,65,1341.124,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,INT8,CPU,66,1224.115,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,INT8,CPU,67,1255.602,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,INT8,CPU,68,1210.776,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,INT8,CPU,69,1290.116,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,INT8,CPU,70,1335.879,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,INT8,CPU,71,1278.213,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,INT8,CPU,72,1263.549,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,INT8,CPU,73,1196.357,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,INT8,CPU,74,1267.258,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,INT8,CPU,75,1197.303,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,INT8,CPU,76,1204.780,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,INT8,CPU,77,1251.547,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,INT8,CPU,78,1204.435,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,INT8,CPU,79,1265.723,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,INT8,CPU,80,1198.426,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,INT8,CPU,81,1278.265,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,INT8,CPU,82,1239.533,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,INT8,CPU,83,1266.950,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,INT8,CPU,84,1245.961,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,INT8,CPU,85,1214.010,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,INT8,CPU,86,1267.992,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,INT8,CPU,87,1222.062,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,INT8,CPU,88,1264.811,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,INT8,CPU,89,1433.327,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,INT8,CPU,90,1369.480,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,INT8,CPU,91,1322.305,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,INT8,CPU,92,1423.271,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,INT8,CPU,93,1216.152,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,INT8,CPU,94,1238.490,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,INT8,CPU,95,1354.413,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,INT8,CPU,96,1282.643,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,INT8,CPU,97,1317.249,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,INT8,CPU,98,1222.465,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,INT8,CPU,99,1290.843,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,INT8,CPU,100,1302.888,83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,INT8,GPU,1,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,INT8,GPU,2,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,INT8,GPU,3,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,INT8,GPU,4,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,INT8,GPU,5,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,INT8,GPU,6,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,INT8,GPU,7,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,INT8,GPU,8,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,INT8,GPU,9,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,INT8,GPU,10,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,INT8,GPU,11,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,INT8,GPU,12,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,INT8,GPU,13,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,INT8,GPU,14,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,INT8,GPU,15,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,INT8,GPU,16,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,INT8,GPU,17,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,INT8,GPU,18,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,INT8,GPU,19,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,INT8,GPU,20,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,INT8,GPU,21,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,INT8,GPU,22,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,INT8,GPU,23,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,INT8,GPU,24,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,INT8,GPU,25,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,INT8,GPU,26,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,INT8,GPU,27,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,INT8,GPU,28,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,INT8,GPU,29,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,INT8,GPU,30,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,INT8,GPU,31,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,INT8,GPU,32,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,INT8,GPU,33,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,INT8,GPU,34,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,INT8,GPU,35,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,INT8,GPU,36,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,INT8,GPU,37,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,INT8,GPU,38,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,INT8,GPU,39,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,INT8,GPU,40,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,INT8,GPU,41,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,INT8,GPU,42,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,INT8,GPU,43,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,INT8,GPU,44,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,INT8,GPU,45,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,INT8,GPU,46,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,INT8,GPU,47,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,INT8,GPU,48,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,INT8,GPU,49,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,INT8,GPU,50,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,INT8,GPU,51,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,INT8,GPU,52,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,INT8,GPU,53,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,INT8,GPU,54,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,INT8,GPU,55,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,INT8,GPU,56,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,INT8,GPU,57,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,INT8,GPU,58,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,INT8,GPU,59,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,INT8,GPU,60,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,INT8,GPU,61,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,INT8,GPU,62,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,INT8,GPU,63,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,INT8,GPU,64,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,INT8,GPU,65,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,INT8,GPU,66,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,INT8,GPU,67,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,INT8,GPU,68,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,INT8,GPU,69,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,INT8,GPU,70,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,INT8,GPU,71,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,INT8,GPU,72,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,INT8,GPU,73,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,INT8,GPU,74,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,INT8,GPU,75,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,INT8,GPU,76,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,INT8,GPU,77,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,INT8,GPU,78,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,INT8,GPU,79,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,INT8,GPU,80,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,INT8,GPU,81,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,INT8,GPU,82,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,INT8,GPU,83,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,INT8,GPU,84,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,INT8,GPU,85,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,INT8,GPU,86,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,INT8,GPU,87,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,INT8,GPU,88,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,INT8,GPU,89,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,INT8,GPU,90,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,INT8,GPU,91,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,INT8,GPU,92,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,INT8,GPU,93,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,INT8,GPU,94,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,INT8,GPU,95,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,INT8,GPU,96,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,INT8,GPU,97,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,INT8,GPU,98,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,INT8,GPU,99,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,INT8,GPU,100,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),83.33%,89.33%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,W4A8,NPU,1,N/A (ONNX Sub-byte INT4 dtype 22 unsupported by QNN EP),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_SubByte_W4A8_QDQ
+MobileNetV5,Rock_Classification,W4A8,NPU,2,N/A (ONNX Sub-byte INT4 dtype 22 unsupported by QNN EP),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_SubByte_W4A8_QDQ
+MobileNetV5,Rock_Classification,W4A8,NPU,3,N/A (ONNX Sub-byte INT4 dtype 22 unsupported by QNN EP),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_SubByte_W4A8_QDQ
+MobileNetV5,Rock_Classification,W4A8,NPU,4,N/A (ONNX Sub-byte INT4 dtype 22 unsupported by QNN EP),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_SubByte_W4A8_QDQ
+MobileNetV5,Rock_Classification,W4A8,NPU,5,N/A (ONNX Sub-byte INT4 dtype 22 unsupported by QNN EP),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_SubByte_W4A8_QDQ
+MobileNetV5,Rock_Classification,W4A8,NPU,6,N/A (ONNX Sub-byte INT4 dtype 22 unsupported by QNN EP),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_SubByte_W4A8_QDQ
+MobileNetV5,Rock_Classification,W4A8,NPU,7,N/A (ONNX Sub-byte INT4 dtype 22 unsupported by QNN EP),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_SubByte_W4A8_QDQ
+MobileNetV5,Rock_Classification,W4A8,NPU,8,N/A (ONNX Sub-byte INT4 dtype 22 unsupported by QNN EP),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_SubByte_W4A8_QDQ
+MobileNetV5,Rock_Classification,W4A8,NPU,9,N/A (ONNX Sub-byte INT4 dtype 22 unsupported by QNN EP),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_SubByte_W4A8_QDQ
+MobileNetV5,Rock_Classification,W4A8,NPU,10,N/A (ONNX Sub-byte INT4 dtype 22 unsupported by QNN EP),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_SubByte_W4A8_QDQ
+MobileNetV5,Rock_Classification,W4A8,NPU,11,N/A (ONNX Sub-byte INT4 dtype 22 unsupported by QNN EP),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_SubByte_W4A8_QDQ
+MobileNetV5,Rock_Classification,W4A8,NPU,12,N/A (ONNX Sub-byte INT4 dtype 22 unsupported by QNN EP),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_SubByte_W4A8_QDQ
+MobileNetV5,Rock_Classification,W4A8,NPU,13,N/A (ONNX Sub-byte INT4 dtype 22 unsupported by QNN EP),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_SubByte_W4A8_QDQ
+MobileNetV5,Rock_Classification,W4A8,NPU,14,N/A (ONNX Sub-byte INT4 dtype 22 unsupported by QNN EP),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_SubByte_W4A8_QDQ
+MobileNetV5,Rock_Classification,W4A8,NPU,15,N/A (ONNX Sub-byte INT4 dtype 22 unsupported by QNN EP),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_SubByte_W4A8_QDQ
+MobileNetV5,Rock_Classification,W4A8,NPU,16,N/A (ONNX Sub-byte INT4 dtype 22 unsupported by QNN EP),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_SubByte_W4A8_QDQ
+MobileNetV5,Rock_Classification,W4A8,NPU,17,N/A (ONNX Sub-byte INT4 dtype 22 unsupported by QNN EP),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_SubByte_W4A8_QDQ
+MobileNetV5,Rock_Classification,W4A8,NPU,18,N/A (ONNX Sub-byte INT4 dtype 22 unsupported by QNN EP),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_SubByte_W4A8_QDQ
+MobileNetV5,Rock_Classification,W4A8,NPU,19,N/A (ONNX Sub-byte INT4 dtype 22 unsupported by QNN EP),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_SubByte_W4A8_QDQ
+MobileNetV5,Rock_Classification,W4A8,NPU,20,N/A (ONNX Sub-byte INT4 dtype 22 unsupported by QNN EP),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_SubByte_W4A8_QDQ
+MobileNetV5,Rock_Classification,W4A8,NPU,21,N/A (ONNX Sub-byte INT4 dtype 22 unsupported by QNN EP),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_SubByte_W4A8_QDQ
+MobileNetV5,Rock_Classification,W4A8,NPU,22,N/A (ONNX Sub-byte INT4 dtype 22 unsupported by QNN EP),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_SubByte_W4A8_QDQ
+MobileNetV5,Rock_Classification,W4A8,NPU,23,N/A (ONNX Sub-byte INT4 dtype 22 unsupported by QNN EP),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_SubByte_W4A8_QDQ
+MobileNetV5,Rock_Classification,W4A8,NPU,24,N/A (ONNX Sub-byte INT4 dtype 22 unsupported by QNN EP),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_SubByte_W4A8_QDQ
+MobileNetV5,Rock_Classification,W4A8,NPU,25,N/A (ONNX Sub-byte INT4 dtype 22 unsupported by QNN EP),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_SubByte_W4A8_QDQ
+MobileNetV5,Rock_Classification,W4A8,NPU,26,N/A (ONNX Sub-byte INT4 dtype 22 unsupported by QNN EP),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_SubByte_W4A8_QDQ
+MobileNetV5,Rock_Classification,W4A8,NPU,27,N/A (ONNX Sub-byte INT4 dtype 22 unsupported by QNN EP),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_SubByte_W4A8_QDQ
+MobileNetV5,Rock_Classification,W4A8,NPU,28,N/A (ONNX Sub-byte INT4 dtype 22 unsupported by QNN EP),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_SubByte_W4A8_QDQ
+MobileNetV5,Rock_Classification,W4A8,NPU,29,N/A (ONNX Sub-byte INT4 dtype 22 unsupported by QNN EP),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_SubByte_W4A8_QDQ
+MobileNetV5,Rock_Classification,W4A8,NPU,30,N/A (ONNX Sub-byte INT4 dtype 22 unsupported by QNN EP),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_SubByte_W4A8_QDQ
+MobileNetV5,Rock_Classification,W4A8,NPU,31,N/A (ONNX Sub-byte INT4 dtype 22 unsupported by QNN EP),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_SubByte_W4A8_QDQ
+MobileNetV5,Rock_Classification,W4A8,NPU,32,N/A (ONNX Sub-byte INT4 dtype 22 unsupported by QNN EP),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_SubByte_W4A8_QDQ
+MobileNetV5,Rock_Classification,W4A8,NPU,33,N/A (ONNX Sub-byte INT4 dtype 22 unsupported by QNN EP),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_SubByte_W4A8_QDQ
+MobileNetV5,Rock_Classification,W4A8,NPU,34,N/A (ONNX Sub-byte INT4 dtype 22 unsupported by QNN EP),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_SubByte_W4A8_QDQ
+MobileNetV5,Rock_Classification,W4A8,NPU,35,N/A (ONNX Sub-byte INT4 dtype 22 unsupported by QNN EP),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_SubByte_W4A8_QDQ
+MobileNetV5,Rock_Classification,W4A8,NPU,36,N/A (ONNX Sub-byte INT4 dtype 22 unsupported by QNN EP),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_SubByte_W4A8_QDQ
+MobileNetV5,Rock_Classification,W4A8,NPU,37,N/A (ONNX Sub-byte INT4 dtype 22 unsupported by QNN EP),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_SubByte_W4A8_QDQ
+MobileNetV5,Rock_Classification,W4A8,NPU,38,N/A (ONNX Sub-byte INT4 dtype 22 unsupported by QNN EP),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_SubByte_W4A8_QDQ
+MobileNetV5,Rock_Classification,W4A8,NPU,39,N/A (ONNX Sub-byte INT4 dtype 22 unsupported by QNN EP),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_SubByte_W4A8_QDQ
+MobileNetV5,Rock_Classification,W4A8,NPU,40,N/A (ONNX Sub-byte INT4 dtype 22 unsupported by QNN EP),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_SubByte_W4A8_QDQ
+MobileNetV5,Rock_Classification,W4A8,NPU,41,N/A (ONNX Sub-byte INT4 dtype 22 unsupported by QNN EP),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_SubByte_W4A8_QDQ
+MobileNetV5,Rock_Classification,W4A8,NPU,42,N/A (ONNX Sub-byte INT4 dtype 22 unsupported by QNN EP),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_SubByte_W4A8_QDQ
+MobileNetV5,Rock_Classification,W4A8,NPU,43,N/A (ONNX Sub-byte INT4 dtype 22 unsupported by QNN EP),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_SubByte_W4A8_QDQ
+MobileNetV5,Rock_Classification,W4A8,NPU,44,N/A (ONNX Sub-byte INT4 dtype 22 unsupported by QNN EP),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_SubByte_W4A8_QDQ
+MobileNetV5,Rock_Classification,W4A8,NPU,45,N/A (ONNX Sub-byte INT4 dtype 22 unsupported by QNN EP),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_SubByte_W4A8_QDQ
+MobileNetV5,Rock_Classification,W4A8,NPU,46,N/A (ONNX Sub-byte INT4 dtype 22 unsupported by QNN EP),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_SubByte_W4A8_QDQ
+MobileNetV5,Rock_Classification,W4A8,NPU,47,N/A (ONNX Sub-byte INT4 dtype 22 unsupported by QNN EP),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_SubByte_W4A8_QDQ
+MobileNetV5,Rock_Classification,W4A8,NPU,48,N/A (ONNX Sub-byte INT4 dtype 22 unsupported by QNN EP),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_SubByte_W4A8_QDQ
+MobileNetV5,Rock_Classification,W4A8,NPU,49,N/A (ONNX Sub-byte INT4 dtype 22 unsupported by QNN EP),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_SubByte_W4A8_QDQ
+MobileNetV5,Rock_Classification,W4A8,NPU,50,N/A (ONNX Sub-byte INT4 dtype 22 unsupported by QNN EP),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_SubByte_W4A8_QDQ
+MobileNetV5,Rock_Classification,W4A8,NPU,51,N/A (ONNX Sub-byte INT4 dtype 22 unsupported by QNN EP),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_SubByte_W4A8_QDQ
+MobileNetV5,Rock_Classification,W4A8,NPU,52,N/A (ONNX Sub-byte INT4 dtype 22 unsupported by QNN EP),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_SubByte_W4A8_QDQ
+MobileNetV5,Rock_Classification,W4A8,NPU,53,N/A (ONNX Sub-byte INT4 dtype 22 unsupported by QNN EP),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_SubByte_W4A8_QDQ
+MobileNetV5,Rock_Classification,W4A8,NPU,54,N/A (ONNX Sub-byte INT4 dtype 22 unsupported by QNN EP),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_SubByte_W4A8_QDQ
+MobileNetV5,Rock_Classification,W4A8,NPU,55,N/A (ONNX Sub-byte INT4 dtype 22 unsupported by QNN EP),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_SubByte_W4A8_QDQ
+MobileNetV5,Rock_Classification,W4A8,NPU,56,N/A (ONNX Sub-byte INT4 dtype 22 unsupported by QNN EP),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_SubByte_W4A8_QDQ
+MobileNetV5,Rock_Classification,W4A8,NPU,57,N/A (ONNX Sub-byte INT4 dtype 22 unsupported by QNN EP),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_SubByte_W4A8_QDQ
+MobileNetV5,Rock_Classification,W4A8,NPU,58,N/A (ONNX Sub-byte INT4 dtype 22 unsupported by QNN EP),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_SubByte_W4A8_QDQ
+MobileNetV5,Rock_Classification,W4A8,NPU,59,N/A (ONNX Sub-byte INT4 dtype 22 unsupported by QNN EP),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_SubByte_W4A8_QDQ
+MobileNetV5,Rock_Classification,W4A8,NPU,60,N/A (ONNX Sub-byte INT4 dtype 22 unsupported by QNN EP),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_SubByte_W4A8_QDQ
+MobileNetV5,Rock_Classification,W4A8,NPU,61,N/A (ONNX Sub-byte INT4 dtype 22 unsupported by QNN EP),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_SubByte_W4A8_QDQ
+MobileNetV5,Rock_Classification,W4A8,NPU,62,N/A (ONNX Sub-byte INT4 dtype 22 unsupported by QNN EP),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_SubByte_W4A8_QDQ
+MobileNetV5,Rock_Classification,W4A8,NPU,63,N/A (ONNX Sub-byte INT4 dtype 22 unsupported by QNN EP),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_SubByte_W4A8_QDQ
+MobileNetV5,Rock_Classification,W4A8,NPU,64,N/A (ONNX Sub-byte INT4 dtype 22 unsupported by QNN EP),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_SubByte_W4A8_QDQ
+MobileNetV5,Rock_Classification,W4A8,NPU,65,N/A (ONNX Sub-byte INT4 dtype 22 unsupported by QNN EP),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_SubByte_W4A8_QDQ
+MobileNetV5,Rock_Classification,W4A8,NPU,66,N/A (ONNX Sub-byte INT4 dtype 22 unsupported by QNN EP),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_SubByte_W4A8_QDQ
+MobileNetV5,Rock_Classification,W4A8,NPU,67,N/A (ONNX Sub-byte INT4 dtype 22 unsupported by QNN EP),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_SubByte_W4A8_QDQ
+MobileNetV5,Rock_Classification,W4A8,NPU,68,N/A (ONNX Sub-byte INT4 dtype 22 unsupported by QNN EP),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_SubByte_W4A8_QDQ
+MobileNetV5,Rock_Classification,W4A8,NPU,69,N/A (ONNX Sub-byte INT4 dtype 22 unsupported by QNN EP),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_SubByte_W4A8_QDQ
+MobileNetV5,Rock_Classification,W4A8,NPU,70,N/A (ONNX Sub-byte INT4 dtype 22 unsupported by QNN EP),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_SubByte_W4A8_QDQ
+MobileNetV5,Rock_Classification,W4A8,NPU,71,N/A (ONNX Sub-byte INT4 dtype 22 unsupported by QNN EP),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_SubByte_W4A8_QDQ
+MobileNetV5,Rock_Classification,W4A8,NPU,72,N/A (ONNX Sub-byte INT4 dtype 22 unsupported by QNN EP),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_SubByte_W4A8_QDQ
+MobileNetV5,Rock_Classification,W4A8,NPU,73,N/A (ONNX Sub-byte INT4 dtype 22 unsupported by QNN EP),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_SubByte_W4A8_QDQ
+MobileNetV5,Rock_Classification,W4A8,NPU,74,N/A (ONNX Sub-byte INT4 dtype 22 unsupported by QNN EP),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_SubByte_W4A8_QDQ
+MobileNetV5,Rock_Classification,W4A8,NPU,75,N/A (ONNX Sub-byte INT4 dtype 22 unsupported by QNN EP),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_SubByte_W4A8_QDQ
+MobileNetV5,Rock_Classification,W4A8,NPU,76,N/A (ONNX Sub-byte INT4 dtype 22 unsupported by QNN EP),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_SubByte_W4A8_QDQ
+MobileNetV5,Rock_Classification,W4A8,NPU,77,N/A (ONNX Sub-byte INT4 dtype 22 unsupported by QNN EP),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_SubByte_W4A8_QDQ
+MobileNetV5,Rock_Classification,W4A8,NPU,78,N/A (ONNX Sub-byte INT4 dtype 22 unsupported by QNN EP),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_SubByte_W4A8_QDQ
+MobileNetV5,Rock_Classification,W4A8,NPU,79,N/A (ONNX Sub-byte INT4 dtype 22 unsupported by QNN EP),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_SubByte_W4A8_QDQ
+MobileNetV5,Rock_Classification,W4A8,NPU,80,N/A (ONNX Sub-byte INT4 dtype 22 unsupported by QNN EP),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_SubByte_W4A8_QDQ
+MobileNetV5,Rock_Classification,W4A8,NPU,81,N/A (ONNX Sub-byte INT4 dtype 22 unsupported by QNN EP),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_SubByte_W4A8_QDQ
+MobileNetV5,Rock_Classification,W4A8,NPU,82,N/A (ONNX Sub-byte INT4 dtype 22 unsupported by QNN EP),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_SubByte_W4A8_QDQ
+MobileNetV5,Rock_Classification,W4A8,NPU,83,N/A (ONNX Sub-byte INT4 dtype 22 unsupported by QNN EP),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_SubByte_W4A8_QDQ
+MobileNetV5,Rock_Classification,W4A8,NPU,84,N/A (ONNX Sub-byte INT4 dtype 22 unsupported by QNN EP),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_SubByte_W4A8_QDQ
+MobileNetV5,Rock_Classification,W4A8,NPU,85,N/A (ONNX Sub-byte INT4 dtype 22 unsupported by QNN EP),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_SubByte_W4A8_QDQ
+MobileNetV5,Rock_Classification,W4A8,NPU,86,N/A (ONNX Sub-byte INT4 dtype 22 unsupported by QNN EP),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_SubByte_W4A8_QDQ
+MobileNetV5,Rock_Classification,W4A8,NPU,87,N/A (ONNX Sub-byte INT4 dtype 22 unsupported by QNN EP),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_SubByte_W4A8_QDQ
+MobileNetV5,Rock_Classification,W4A8,NPU,88,N/A (ONNX Sub-byte INT4 dtype 22 unsupported by QNN EP),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_SubByte_W4A8_QDQ
+MobileNetV5,Rock_Classification,W4A8,NPU,89,N/A (ONNX Sub-byte INT4 dtype 22 unsupported by QNN EP),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_SubByte_W4A8_QDQ
+MobileNetV5,Rock_Classification,W4A8,NPU,90,N/A (ONNX Sub-byte INT4 dtype 22 unsupported by QNN EP),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_SubByte_W4A8_QDQ
+MobileNetV5,Rock_Classification,W4A8,NPU,91,N/A (ONNX Sub-byte INT4 dtype 22 unsupported by QNN EP),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_SubByte_W4A8_QDQ
+MobileNetV5,Rock_Classification,W4A8,NPU,92,N/A (ONNX Sub-byte INT4 dtype 22 unsupported by QNN EP),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_SubByte_W4A8_QDQ
+MobileNetV5,Rock_Classification,W4A8,NPU,93,N/A (ONNX Sub-byte INT4 dtype 22 unsupported by QNN EP),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_SubByte_W4A8_QDQ
+MobileNetV5,Rock_Classification,W4A8,NPU,94,N/A (ONNX Sub-byte INT4 dtype 22 unsupported by QNN EP),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_SubByte_W4A8_QDQ
+MobileNetV5,Rock_Classification,W4A8,NPU,95,N/A (ONNX Sub-byte INT4 dtype 22 unsupported by QNN EP),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_SubByte_W4A8_QDQ
+MobileNetV5,Rock_Classification,W4A8,NPU,96,N/A (ONNX Sub-byte INT4 dtype 22 unsupported by QNN EP),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_SubByte_W4A8_QDQ
+MobileNetV5,Rock_Classification,W4A8,NPU,97,N/A (ONNX Sub-byte INT4 dtype 22 unsupported by QNN EP),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_SubByte_W4A8_QDQ
+MobileNetV5,Rock_Classification,W4A8,NPU,98,N/A (ONNX Sub-byte INT4 dtype 22 unsupported by QNN EP),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_SubByte_W4A8_QDQ
+MobileNetV5,Rock_Classification,W4A8,NPU,99,N/A (ONNX Sub-byte INT4 dtype 22 unsupported by QNN EP),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_SubByte_W4A8_QDQ
+MobileNetV5,Rock_Classification,W4A8,NPU,100,N/A (ONNX Sub-byte INT4 dtype 22 unsupported by QNN EP),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_SubByte_W4A8_QDQ
+MobileNetV5,Rock_Classification,W4A8,CPU,1,3864.857,80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,W4A8,CPU,2,3801.983,80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,W4A8,CPU,3,3672.574,80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,W4A8,CPU,4,3198.841,80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,W4A8,CPU,5,3113.844,80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,W4A8,CPU,6,3241.887,80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,W4A8,CPU,7,3280.633,80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,W4A8,CPU,8,3743.580,80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,W4A8,CPU,9,4077.283,80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,W4A8,CPU,10,1948.379,80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,W4A8,CPU,11,2580.217,80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,W4A8,CPU,12,3186.987,80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,W4A8,CPU,13,3114.955,80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,W4A8,CPU,14,3315.808,80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,W4A8,CPU,15,3586.829,80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,W4A8,CPU,16,3553.726,80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,W4A8,CPU,17,3492.720,80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,W4A8,CPU,18,3546.537,80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,W4A8,CPU,19,3663.258,80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,W4A8,CPU,20,3555.331,80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,W4A8,CPU,21,3551.512,80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,W4A8,CPU,22,3488.641,80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,W4A8,CPU,23,3504.215,80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,W4A8,CPU,24,3535.641,80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,W4A8,CPU,25,3538.843,80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,W4A8,CPU,26,3624.565,80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,W4A8,CPU,27,3863.496,80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,W4A8,CPU,28,3534.960,80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,W4A8,CPU,29,3490.854,80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,W4A8,CPU,30,3529.597,80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,W4A8,CPU,31,3719.892,80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,W4A8,CPU,32,3479.399,80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,W4A8,CPU,33,3536.384,80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,W4A8,CPU,34,3450.676,80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,W4A8,CPU,35,3442.839,80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,W4A8,CPU,36,3463.019,80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,W4A8,CPU,37,3444.029,80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,W4A8,CPU,38,3439.210,80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,W4A8,CPU,39,3495.219,80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,W4A8,CPU,40,3443.824,80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,W4A8,CPU,41,3454.222,80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,W4A8,CPU,42,3441.552,80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,W4A8,CPU,43,3488.843,80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,W4A8,CPU,44,3519.673,80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,W4A8,CPU,45,3442.220,80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,W4A8,CPU,46,3507.905,80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,W4A8,CPU,47,3663.048,80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,W4A8,CPU,48,3471.276,80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,W4A8,CPU,49,3570.050,80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,W4A8,CPU,50,3470.247,80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,W4A8,CPU,51,3466.547,80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,W4A8,CPU,52,3635.876,80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,W4A8,CPU,53,3518.497,80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,W4A8,CPU,54,3494.887,80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,W4A8,CPU,55,3541.971,80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,W4A8,CPU,56,3500.434,80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,W4A8,CPU,57,3480.769,80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,W4A8,CPU,58,3464.661,80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,W4A8,CPU,59,3498.134,80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,W4A8,CPU,60,3464.698,80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,W4A8,CPU,61,3433.786,80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,W4A8,CPU,62,3517.155,80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,W4A8,CPU,63,3558.836,80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,W4A8,CPU,64,3756.914,80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,W4A8,CPU,65,3548.397,80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,W4A8,CPU,66,3115.907,80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,W4A8,CPU,67,3071.911,80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,W4A8,CPU,68,2966.933,80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,W4A8,CPU,69,2952.091,80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,W4A8,CPU,70,3078.768,80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,W4A8,CPU,71,3011.614,80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,W4A8,CPU,72,2972.734,80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,W4A8,CPU,73,2961.551,80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,W4A8,CPU,74,2934.694,80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,W4A8,CPU,75,2958.605,80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,W4A8,CPU,76,2934.186,80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,W4A8,CPU,77,2968.128,80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,W4A8,CPU,78,2958.969,80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,W4A8,CPU,79,2955.979,80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,W4A8,CPU,80,3023.173,80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,W4A8,CPU,81,3017.735,80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,W4A8,CPU,82,2975.502,80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,W4A8,CPU,83,2926.301,80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,W4A8,CPU,84,2949.948,80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,W4A8,CPU,85,3029.549,80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,W4A8,CPU,86,2962.077,80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,W4A8,CPU,87,2967.875,80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,W4A8,CPU,88,2961.038,80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,W4A8,CPU,89,2958.887,80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,W4A8,CPU,90,2947.800,80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,W4A8,CPU,91,2926.576,80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,W4A8,CPU,92,2958.884,80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,W4A8,CPU,93,2879.873,80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,W4A8,CPU,94,2828.048,80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,W4A8,CPU,95,2865.248,80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,W4A8,CPU,96,2888.290,80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,W4A8,CPU,97,2882.321,80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,W4A8,CPU,98,2940.134,80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,W4A8,CPU,99,2939.076,80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,W4A8,CPU,100,2951.314,80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Supported_CPU_Fallback
+MobileNetV5,Rock_Classification,W4A8,GPU,1,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,W4A8,GPU,2,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,W4A8,GPU,3,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,W4A8,GPU,4,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,W4A8,GPU,5,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,W4A8,GPU,6,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,W4A8,GPU,7,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,W4A8,GPU,8,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,W4A8,GPU,9,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,W4A8,GPU,10,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,W4A8,GPU,11,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,W4A8,GPU,12,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,W4A8,GPU,13,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,W4A8,GPU,14,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,W4A8,GPU,15,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,W4A8,GPU,16,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,W4A8,GPU,17,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,W4A8,GPU,18,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,W4A8,GPU,19,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,W4A8,GPU,20,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,W4A8,GPU,21,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,W4A8,GPU,22,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,W4A8,GPU,23,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,W4A8,GPU,24,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,W4A8,GPU,25,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,W4A8,GPU,26,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,W4A8,GPU,27,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,W4A8,GPU,28,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,W4A8,GPU,29,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,W4A8,GPU,30,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,W4A8,GPU,31,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,W4A8,GPU,32,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,W4A8,GPU,33,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,W4A8,GPU,34,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,W4A8,GPU,35,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,W4A8,GPU,36,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,W4A8,GPU,37,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,W4A8,GPU,38,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,W4A8,GPU,39,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,W4A8,GPU,40,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,W4A8,GPU,41,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,W4A8,GPU,42,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,W4A8,GPU,43,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,W4A8,GPU,44,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,W4A8,GPU,45,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,W4A8,GPU,46,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,W4A8,GPU,47,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,W4A8,GPU,48,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,W4A8,GPU,49,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,W4A8,GPU,50,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,W4A8,GPU,51,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,W4A8,GPU,52,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,W4A8,GPU,53,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,W4A8,GPU,54,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,W4A8,GPU,55,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,W4A8,GPU,56,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,W4A8,GPU,57,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,W4A8,GPU,58,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,W4A8,GPU,59,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,W4A8,GPU,60,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,W4A8,GPU,61,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,W4A8,GPU,62,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,W4A8,GPU,63,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,W4A8,GPU,64,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,W4A8,GPU,65,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,W4A8,GPU,66,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,W4A8,GPU,67,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,W4A8,GPU,68,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,W4A8,GPU,69,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,W4A8,GPU,70,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,W4A8,GPU,71,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,W4A8,GPU,72,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,W4A8,GPU,73,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,W4A8,GPU,74,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,W4A8,GPU,75,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,W4A8,GPU,76,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,W4A8,GPU,77,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,W4A8,GPU,78,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,W4A8,GPU,79,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,W4A8,GPU,80,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,W4A8,GPU,81,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,W4A8,GPU,82,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,W4A8,GPU,83,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,W4A8,GPU,84,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,W4A8,GPU,85,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,W4A8,GPU,86,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,W4A8,GPU,87,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,W4A8,GPU,88,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,W4A8,GPU,89,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,W4A8,GPU,90,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,W4A8,GPU,91,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,W4A8,GPU,92,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,W4A8,GPU,93,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,W4A8,GPU,94,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,W4A8,GPU,95,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,W4A8,GPU,96,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,W4A8,GPU,97,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,W4A8,GPU,98,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,W4A8,GPU,99,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
+MobileNetV5,Rock_Classification,W4A8,GPU,100,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),80.33%,87.67%,Standard_QDQ_with_FP32_Wrappers,Rejected_GPU_Adreno
