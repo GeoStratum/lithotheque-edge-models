@@ -152,7 +152,7 @@ To contribute to the Edge AI scientific community, we have published our compreh
 - **NPU Native Backend**: Elimination of `SELECT_TF_OPS` for true hardware acceleration.
 - **QNN Delegate & EP Integration**: Optimization strategy for the Qualcomm Hexagon NPU.
 
-🔗 **[Read the Full W4A8 Quantization Methodology (METHODOLOGY.md)](METHODOLOGY.md)**
+**[Read the Full W4A8 Quantization Methodology (METHODOLOGY.md)](METHODOLOGY.md)**
 
 ## 7. Technical Specifications (I/O)
 
@@ -191,7 +191,7 @@ All production models for MobileNetV5-300M adhere strictly to the **Zero-FP32 Ha
 
 The objective of this study is to evaluate the 3-tier fallback system and validate the trade-off between inference latency (required for real-time tracking) and topographic precision across highly diverse hardware profiles.
 
-### 💻 Hardware Environments Differentiation (RTX Workstation vs. Snapdragon PC)
+###  Hardware Environments Differentiation (RTX Workstation vs. Snapdragon PC)
 
 This project relies on **two distinct and complementary hardware environments**:
 1. **Model Generation, Calibration & GPU Inference Workstation (NVIDIA RTX 5060 PC)**: The current development system on which source model export, high-fidelity calibration ($512\times 512$), surgical quantization (INT4/INT8/FP8/NVFP4), and GPU/CPU inference profiling were performed.
@@ -346,28 +346,28 @@ The empirical results collected via the Qualcomm QAIRT 2.45 SDK validate several
 ## 10. Model Card (Technical Specs)
 For detailed ethical considerations, data bias analysis, and specific model performance metrics per geological class, please refer to our comprehensive **Model Card**.
 
-🔗 **[Read the Full Model Card (MODEL_CARD.md)](MODEL_CARD.md)**
+**[Read the Full Model Card (MODEL_CARD.md)](MODEL_CARD.md)**
 
 ## 11. Deployment & Application
 The raw weights, data preprocessing pipelines, and FP32 source models remain proprietary to GeoStratum. Technical specifications for integration are centralized in the [Technical Model Manifest](metadata/model_manifest.json).
 
-👉 **[Download and test the app on GeoStratum](https://www.geostratum.eu/lithotheque)**
+**[Download and test the app on GeoStratum](https://www.geostratum.eu/lithotheque)**
 
 ## 12. Methodological Blueprint & Adaptability (BYOM)
 
 This repository is designed as an **Engineering Blueprint** for Edge AI optimization. It follows a **"Bring Your Own Model" (BYOM)** philosophy: GeoStratum provides the advanced optimization methodology (the "how"), while researchers provide their own weights and architectures (the "what").
 
-### 🧪 Arbitrary Specifications & Template Nature
+### Arbitrary Specifications & Template Nature
 The technical parameters used throughout this repository—such as the **256x256** or **1024x1024** resolutions, specific axis orderings (NHWC/NHCW), and normalization constants—are **arbitrary defaults** tailored specifically for the GeoStratum Lithotheque engine.
 
-### 🛠️ Mandatory Adaptation
+### Mandatory Adaptation
 Users are expected to **adapt the provided scripts** to their specific use cases. To successfully utilize this pipeline with your own models, you must:
 - **Modify Dimensions**: Update the input shapes in the `scripts/*.py` files to match your source model's requirements.
 - **Adjust Normalization**: Fine-tune the normalization logic in `prepare_calibration.py` to align with your training domain.
 - **Verify Architecture Compatibility**: Ensure your model's operator set is compatible (e.g., if using MobileNetV5, the `SELECT_TF_OPS` configuration must be maintained to handle GELU/Erf activations).
 - **Domain-Specific Calibration**: Run the calibration routines on a dataset representing *your* specific field of study (~100 images) to ensure accurate INT8 min-max calculation.
 
-### 📥 Source Model Architectures
+### Source Model Architectures
 Researchers can obtain the baseline FP32 architectures from the following official repositories to begin their own quantization journey:
 - **MobileNetV4-S & L (timm)**: [timm/mobilenetv4](https://huggingface.co/collections/timm/mobilenetv4-pretrained-weights-6669c22cda4db4244def9637)
 - **MobileNetV5 (Gemma 3 Vision)**: [google/gemma-3-nano](https://huggingface.co/google/gemma-3-4b-it) | [timm/mobilenetv5](https://huggingface.co/timm/mobilenetv5_300m.gemma3n)
@@ -404,9 +404,9 @@ This repository utilizes a dual-licensing structure to balance scientific openne
 ## 15. Contact
 For technical inquiries, enterprise deployment information, or academic collaboration opportunities, please reach out to GeoStratum.
 
-📧 **Email:** geostratum.com@outlook.com
+**Email:** communication@geostratum.eu
 
-🌍 **Website:** [www.geostratum.eu](https://www.geostratum.eu)
+**Website:** [www.geostratum.eu](https://www.geostratum.eu)
 
 ## 16. Citation
 If you reference our Multi-Scale Tiling methodology, Edge architecture, or Snapdragon benchmarks in your academic research, please cite this repository:

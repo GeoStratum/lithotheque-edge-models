@@ -257,7 +257,7 @@ Instead of a single prediction, the model evaluates 21 distinct crops of the hig
 - **4 Medium Passes**: 2x2 grid crops (30% total weight).
 - **16 Fine Passes**: 4x4 grid crops (50% total weight).
 
-🔗 **[Reference Python Implementation (scripts/litho_reference_engine.py)](scripts/litho_reference_engine.py)**
+**[Reference Python Implementation (scripts/litho_reference_engine.py)](scripts/litho_reference_engine.py)**
 
 ---
 

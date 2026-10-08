@@ -259,7 +259,7 @@ The system dynamically detects the model's `outputScale` and applies a specific 
 - **Quantized Rocks (Scale ~0.005 - 0.024)**: Multipliers from **1.200f** to **0.800f** (Calibration).
 - **Geometric Metrology (Scale ~0.055)**: Multiplier **5.000f** (Extreme Selectivity for metric precision).
 
-🔗 **[Read the complete W4A8 quantization methodology (METHODOLOGY.md)](METHODOLOGY.md)**
+**[Read the complete W4A8 quantization methodology (METHODOLOGY.md)](METHODOLOGY.md)**
 
 ## 7. Input/Output (I/O) Engineering
 
@@ -310,7 +310,7 @@ input_int8 = (pixel_float * 255 - 128).astype(np.int8)
 
 The goal of this profiling is to empirically quantify the viability of the hardware fallback system and evaluate the strict trade-off between inference latency (necessary to maintain the fluidity of camera tracking in augmented reality) and the degradation of predictive precision induced by extreme compression.
 
-### 💻 Test Environment (The ARM64 Windows PC Choice)
+###  Test Environment (The ARM64 Windows PC Choice)
 Although the final application is intended for the Android mobile ecosystem, the scientific benchmarks in this repository were executed on "Copilot+ PC" workstations under Windows 11 ARM64.
 **The Engineering Justification**: These laptops integrate the Snapdragon X processor, which shares rigorously the same ARMv8 instruction set and the same neural chip (Qualcomm Hexagon NPU) as high-end Android smartphones. Unlike a phone subject to rapid thermal throttling and a locked mobile operating system, the ARM64 PC offers direct access to low-level APIs (Qualcomm QAIRT SDK), allowing millisecond-by-millisecond profiling in conditions of absolute thermal stability. The results obtained are a perfect mathematical reflection of an Android smartphone in optimal conditions.
 
@@ -342,7 +342,7 @@ The reference Copilot+ PC under **Windows 11 Pro (ARM64)** used for edge hardwar
 - **Emulation Layer**: Windows Prism (Running x64 tools on ARM64)
 - **Benchmark Stack**: Python 3.11.9, `onnxruntime-qnn 2.0.0`, LiteRT NPU Delegate.
 
-> **💡 Engineering Note: Understanding the TOPS Metric**
+> **Engineering Note: Understanding the TOPS Metric**
 > The acronym **TOPS** (*Tera Operations Per Second*) is the unit of measurement for neural acceleration. Since a "Tera" represents 1,000 billion, the 45 TOPS NPU mentioned above physically executes **45 trillion operations per second**.
 > Unlike the FLOPS of a graphics processor (which evaluate complex floating-point calculations), TOPS measure **MAC** (Multiply-Accumulate: $A \times B + C$) operations on integers (INT8/INT4). This is why quantization is vital: it simplifies the neural network so the NPU treats it like a massive assembly line, performing only simple mathematics but at lightning speed and without draining the battery.
 
@@ -407,28 +407,28 @@ Empirical analysis of latencies extracted via the Qualcomm QAIRT SDK highlights 
 ## 10. Model Card and Epistemological Limits
 In a spirit of scientific rigor and transparency, the capabilities and inference limits of these models are documented within a standardized **Model Card**. This document details potential sampling biases (e.g., over-representation of certain geographical formations), prediction limits when faced with weather-related alterations of samples (visual noise), and granular precision metrics for each of the 104 classes.
 
-🔗 **[Read the Full Model Card (MODEL_CARD.md)](MODEL_CARD.md)**
+**[Read the Full Model Card (MODEL_CARD.md)](MODEL_CARD.md)**
 
 ## 11. Integration Contract and Deployment
 While the FP32 source weights and training corpora remain GeoStratum's exclusive property, the integration of compiled models into the client application relies on the [Technical Model Manifest](metadata/model_manifest.json). This JSON file acts as a strict interface contract (API) between the C++ AI engine and binary assets, ensuring the application dynamically allocates correct tensor dimensions and applies appropriate normalization mathematical constants according to the provisioned model.
 
-👉 **[Download and test the application on GeoStratum](https://www.geostratum.eu/lithotheque)**
+**[Download and test the application on GeoStratum](https://www.geostratum.eu/lithotheque)**
 
 ## 12. Methodological Blueprint and Adaptability (BYOM)
 
 This repository goes beyond the Lithotheque application: it was designed as an **Engineering Blueprint (Design Pattern)** for global Edge AI optimization. It follows the **"Bring Your Own Model" (BYOM)** philosophy: we deliver the W4A8 asymmetric optimization pipeline (the "how"), leaving it to researchers in agronomy, medicine, or industry to apply it to their own models (the "what").
 
-### 🧪 Arbitrary Parameterization vs. Universal Mechanics
+### Arbitrary Parameterization vs. Universal Mechanics
 It is vital to understand that hardcoded values in our scripts (`256x256` input resolution, `NHWC` format, normalization mathematical constants) are **arbitrary choices** dictated by our own geological network topology. What is universal, however, is the asymmetric quantization mechanic and the underlying graph surgery.
 
-### 🛠️ Adaptation: A Structural Necessity
+### Adaptation: A Structural Necessity
 To inject this velocity into your own applications, structural adaptation of the `scripts/` folder scripts is required:
 - **Tensor Resizing**: Modify dimension tuples (`input_shapes`) in export scripts to exactly match your model's input layer (e.g., `224x224` instead of `256x256`).
 - **Mathematical Translation (Normalization)**: The preprocessing logic in `prepare_calibration.py` must project your test images exactly as they were during your model's training phase on PC.
 - **Topological Consistency**: Inspect your model's nodes. If your architecture integrates atypical mathematical operations, ensure they are replaced with TFLite-compatible subgraphs to avoid CPU *fallback* bottlenecks and eliminate the need for `SELECT_TF_OPS`.
 - **The Golden Rule of Calibration**: INT8 anchoring calculation (Zero-point and scale) must imperatively run on a lot of 100 images representative of **your** specialty domain (radiology, botany, etc.) to avoid irreversible statistical inference drift.
 
-### 📥 Source Model Architectures
+### Source Model Architectures
 Researchers can obtain baseline FP32 architectures from the following official repositories to start their own quantization journey:
 - **MobileNetV4-S & L (timm)**: [timm/mobilenetv4](https://huggingface.co/collections/timm/mobilenetv4-pretrained-weights-6669c22cda4db4244def9637)
 - **MobileNetV5 (Gemma 3 Vision)**: [google/gemma-3-nano](https://huggingface.co/google/gemma-3-4b-it) | [timm/mobilenetv5](https://huggingface.co/timm/mobilenetv5_300m.gemma3n)
@@ -485,9 +485,9 @@ The Edge AI engineering deployed in Lithotheque is geology-agnostic. Whether you
 
 For any commercial integration, code audit, or fundamental research collaboration, contact our engineering team:
 
-📧 **Email:** geostratum.com@outlook.com
+**Email:** communication@geostratum.eu
 
-🌍 **Website:** [www.geostratum.eu](https://www.geostratum.eu)
+**Website:** [www.geostratum.eu](https://www.geostratum.eu)
 
 ## 16. Traceability and Scientific Citation
 Epistemological rigor requires method traceability. If the *Multi-Scale Tiling (21-MST)* architecture, the *W4A8 asymmetric quantization* methodology, or the Snapdragon Hexagon profiling metrics contribute to your research work, we invite you to source this repository via the following bibliographic standard:

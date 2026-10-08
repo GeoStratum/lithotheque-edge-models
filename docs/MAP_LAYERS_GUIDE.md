@@ -2,7 +2,7 @@
 
 Lithotheque supports dynamic map overlays via WMS (Web Map Service) and XYZ tile protocols. Use this guide to quickly add geological maps from around the world.
 
-## 🛠️ How to Add a Custom Layer
+## How to Add a Custom Layer
 
 1. **Open the Map**: Navigate to the Map screen.
 2. **Layer Control**: Tap the **Palette icon** (Layers).
@@ -13,7 +13,7 @@ Lithotheque supports dynamic map overlays via WMS (Web Map Service) and XYZ tile
 
 ---
 
-## 📚 Recommended Map Sources (Alphabetical)
+## Recommended Map Sources (Alphabetical)
 
 ### A
 #### ASG - African Surface Geology
