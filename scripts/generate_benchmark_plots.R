@@ -2,7 +2,9 @@
 # ==============================================================================
 # Lithotheque Edge Models - Comprehensive Benchmark Visualization Suite
 # Generated with R (via $env:R_HOME)
-# Includes MobileNetV5, MobileNetV4-Large, MobileNetV4-Small, Top-1 & Top-3 Metrics
+# Strict Separation:
+#   1. Lithological Rock Classification (MobileNetV5 & MobileNetV4-Large)
+#   2. Geological Scale Metrology & Detection (MobileNetV4-Small)
 # ==============================================================================
 
 options(warn = -1)
@@ -40,7 +42,7 @@ litho_df$Top1_num <- parse_acc(litho_df$Accuracy)
 # ------------------------------------------------------------------------------
 # GRAPH 1: Hardware Latency Comparison (Barplot) across MobileNetV5 & Edge Backends
 # ------------------------------------------------------------------------------
-cat("[1/4] Generating results/hardware_latency_comparison.png...\n")
+cat("[1/5] Generating results/hardware_latency_comparison.png...\n")
 png("results/hardware_latency_comparison.png", width = 1500, height = 900, res = 130)
 
 par(mar = c(6.5, 6, 8, 2), bg = "#0d1117", col.axis = "#c9d1d9", col.lab = "#f0f6fc", col.main = "#58a6ff")
@@ -113,19 +115,17 @@ legend(
 dev.off()
 
 # ------------------------------------------------------------------------------
-# GRAPH 2: Multi-Model Pareto Frontier (MobileNetV5, V4-Large, V4-Small) - Top-1 & Top-3
+# GRAPH 2: Rock Classification Pareto Frontier (MobileNetV5 vs MobileNetV4-Large)
 # ------------------------------------------------------------------------------
-cat("[2/4] Generating results/pareto_accuracy_vs_latency.png...\n")
+cat("[2/5] Generating results/pareto_accuracy_vs_latency.png...\n")
 png("results/pareto_accuracy_vs_latency.png", width = 1600, height = 950, res = 130)
 
 par(mar = c(6, 6, 5, 3), bg = "#0d1117", col.axis = "#c9d1d9", col.lab = "#f0f6fc", col.main = "#58a6ff")
 
 v4l_npu_int8_lat <- mean(litho_df$Latency_num[litho_df$Model == "MobileNetV4-Large" & litho_df$Format == "INT8" & litho_df$Backend == "NPU"], na.rm = TRUE)
 v4l_npu_int4_lat <- mean(litho_df$Latency_num[litho_df$Model == "MobileNetV4-Large" & litho_df$Format == "INT4" & litho_df$Backend == "NPU"], na.rm = TRUE)
-v4s_npu_int8_lat <- mean(litho_df$Latency_num[litho_df$Model == "MobileNetV4-Small" & litho_df$Format == "INT8" & litho_df$Backend == "NPU"], na.rm = TRUE)
-v4s_npu_int4_lat <- mean(litho_df$Latency_num[litho_df$Model == "MobileNetV4-Small" & litho_df$Format == "INT4" & litho_df$Backend == "NPU"], na.rm = TRUE)
 
-multi_pareto <- data.frame(
+rock_pareto <- data.frame(
   Name = c(
     "V5: RTX 5060 (INT8)",
     "V5: RTX 5060 (W4A8)",
@@ -136,80 +136,76 @@ multi_pareto <- data.frame(
     "V5: Oryon CPU (INT8)",
     "V5: Oryon CPU (W4A8)",
     "V4-L: Hexagon NPU (INT8)",
-    "V4-L: Hexagon NPU (INT4)",
-    "V4-S: Hexagon NPU (INT8)",
-    "V4-S: Hexagon NPU (INT4)"
+    "V4-L: Hexagon NPU (INT4)"
   ),
-  Model = c(rep("MobileNetV5", 8), rep("MobileNetV4-Large", 2), rep("MobileNetV4-Small", 2)),
-  Latency = c(means_v5, v4l_npu_int8_lat, v4l_npu_int4_lat, v4s_npu_int8_lat, v4s_npu_int4_lat),
-  Top1 = c(83.33, 80.33, 83.33, 78.42, 83.33, 80.33, 83.33, 78.42, 26.42, 26.42, 77.14, 77.14),
-  Top3 = c(89.33, 87.67, 89.33, 85.20, 89.33, 87.67, 89.33, 85.20, 53.85, 53.85, 77.14, 77.14),
+  Model = c(rep("MobileNetV5", 8), rep("MobileNetV4-Large", 2)),
+  Latency = c(means_v5, v4l_npu_int8_lat, v4l_npu_int4_lat),
+  Top1 = c(83.33, 80.33, 83.33, 78.42, 83.33, 80.33, 83.33, 78.42, 26.42, 26.42),
+  Top3 = c(89.33, 87.67, 89.33, 85.20, 89.33, 87.67, 89.33, 85.20, 53.85, 53.85),
   Color = c(
     "#238636", "#2ea043", "#1f6feb", "#388bfd", "#d29922", "#e3b341", "#da3633", "#f85149",
-    "#a371f7", "#bc8cff", "#56d364", "#7ee787"
+    "#a371f7", "#bc8cff"
   ),
-  Pch = c(19, 17, 19, 17, 19, 17, 19, 17, 19, 17, 19, 17),
+  Pch = c(19, 17, 19, 17, 19, 17, 19, 17, 19, 17),
   stringsAsFactors = FALSE
 )
 
 plot(
-  multi_pareto$Latency,
-  multi_pareto$Top1,
+  rock_pareto$Latency,
+  rock_pareto$Top1,
   log = "x",
-  xlim = c(5, 14000),
-  ylim = c(20, 102),
+  xlim = c(8, 10000),
+  ylim = c(20, 100),
   xaxt = "n",
   xlab = "Inference Latency (ms) [Log Scale]",
-  ylab = "Empirical Accuracy (%)",
-  main = "Multi-Model Pareto Frontier: Empirical Accuracy vs. Inference Latency",
-  col = multi_pareto$Color,
-  pch = multi_pareto$Pch,
-  cex = 2.4,
+  ylab = "Rock Classification Accuracy (%)",
+  main = "Rock Classification Pareto Frontier: MobileNetV5 vs MobileNetV4-Large (Top-1 / Top-3)",
+  col = rock_pareto$Color,
+  pch = rock_pareto$Pch,
+  cex = 2.5,
   las = 1,
   font.main = 2
 )
-x_ticks2 <- c(5, 10, 20, 50, 100, 200, 500, 1000, 2000, 5000, 10000)
+x_ticks2 <- c(10, 20, 50, 100, 200, 500, 1000, 2000, 5000)
 axis(1, at = x_ticks2, labels = x_ticks2, col.axis = "#c9d1d9")
 grid(col = "#30363d", lty = "dotted")
 
 # Draw Top-3 points as open rings above Top-1 points
 points(
-  multi_pareto$Latency,
-  multi_pareto$Top3,
-  col = multi_pareto$Color,
+  rock_pareto$Latency,
+  rock_pareto$Top3,
+  col = rock_pareto$Color,
   pch = 1,
-  cex = 2.2,
-  lwd = 1.8
+  cex = 2.3,
+  lwd = 1.9
 )
 
 segments(
-  multi_pareto$Latency,
-  multi_pareto$Top1,
-  multi_pareto$Latency,
-  multi_pareto$Top3,
+  rock_pareto$Latency,
+  rock_pareto$Top1,
+  rock_pareto$Latency,
+  rock_pareto$Top3,
   col = "#30363d",
   lty = "dotted"
 )
 
-# Text positions to avoid overlap
-text(139.8, 83.33, labels = "V5: RTX 5060 INT8\n(83.3% / 89.3%)", pos = 2, offset = 0.6, col = "#238636", cex = 0.72, font = 2)
-text(3323.9, 80.33, labels = "V5: RTX 5060 W4A8\n(80.3% / 87.7%)", pos = 3, offset = 0.7, col = "#2ea043", cex = 0.72, font = 2)
-text(450.0, 83.33, labels = "V5: Hexagon NPU INT8\n(83.3% / 89.3%)", pos = 2, offset = 0.6, col = "#1f6feb", cex = 0.72, font = 2)
-text(477.0, 78.42, labels = "V5: Hexagon NPU W4A8\n(78.4% / 85.2%)", pos = 1, offset = 0.6, col = "#388bfd", cex = 0.72, font = 2)
-text(3020.5, 83.33, labels = "V5: i3-12100F INT8\n(83.3% / 89.3%)", pos = 2, offset = 0.6, col = "#d29922", cex = 0.72, font = 2)
-text(3380.1, 80.33, labels = "V5: i3-12100F W4A8\n(80.3% / 87.7%)", pos = 1, offset = 0.6, col = "#e3b341", cex = 0.72, font = 2)
-text(4135.1, 83.33, labels = "V5: Oryon CPU INT8\n(83.3% / 89.3%)", pos = 4, offset = 0.6, col = "#da3633", cex = 0.72, font = 2)
-text(4326.6, 78.42, labels = "V5: Oryon CPU W4A8\n(78.4% / 85.2%)", pos = 4, offset = 0.6, col = "#f85149", cex = 0.72, font = 2)
+# Text positions
+text(139.8, 83.33, labels = "V5: RTX 5060 INT8\n(83.3% / 89.3%)", pos = 2, offset = 0.6, col = "#238636", cex = 0.74, font = 2)
+text(3323.9, 80.33, labels = "V5: RTX 5060 W4A8\n(80.3% / 87.7%)", pos = 3, offset = 0.7, col = "#2ea043", cex = 0.74, font = 2)
+text(450.0, 83.33, labels = "V5: Hexagon NPU INT8\n(83.3% / 89.3%)", pos = 2, offset = 0.6, col = "#1f6feb", cex = 0.74, font = 2)
+text(477.0, 78.42, labels = "V5: Hexagon NPU W4A8\n(78.4% / 85.2%)", pos = 1, offset = 0.6, col = "#388bfd", cex = 0.74, font = 2)
+text(3020.5, 83.33, labels = "V5: i3-12100F INT8\n(83.3% / 89.3%)", pos = 2, offset = 0.6, col = "#d29922", cex = 0.74, font = 2)
+text(3380.1, 80.33, labels = "V5: i3-12100F W4A8\n(80.3% / 87.7%)", pos = 1, offset = 0.6, col = "#e3b341", cex = 0.74, font = 2)
+text(4135.1, 83.33, labels = "V5: Oryon CPU INT8\n(83.3% / 89.3%)", pos = 4, offset = 0.6, col = "#da3633", cex = 0.74, font = 2)
+text(4326.6, 78.42, labels = "V5: Oryon CPU W4A8\n(78.4% / 85.2%)", pos = 4, offset = 0.6, col = "#f85149", cex = 0.74, font = 2)
 
-text(16.8, 26.42, labels = "V4-Large NPU INT8\n(26.4% / 53.9%)", pos = 4, offset = 0.6, col = "#a371f7", cex = 0.72, font = 2)
-text(13.5, 26.42, labels = "V4-Large NPU INT4\n(26.4% / 53.9%)", pos = 2, offset = 0.6, col = "#bc8cff", cex = 0.72, font = 2)
-text(18.5, 77.14, labels = "V4-Small NPU INT8\n(77.1%)", pos = 4, offset = 0.6, col = "#56d364", cex = 0.72, font = 2)
-text(12.0, 77.14, labels = "V4-Small NPU INT4\n(77.1%)", pos = 2, offset = 0.6, col = "#7ee787", cex = 0.72, font = 2)
+text(16.8, 26.42, labels = "V4-Large NPU INT8\n(26.4% / 53.9%)", pos = 4, offset = 0.6, col = "#a371f7", cex = 0.74, font = 2)
+text(13.5, 26.42, labels = "V4-Large NPU INT4\n(26.4% / 53.9%)", pos = 2, offset = 0.6, col = "#bc8cff", cex = 0.74, font = 2)
 
-pareto_frontier_idx <- c(11, 1, 3)
+pareto_frontier_idx <- c(10, 9, 1, 3)
 lines(
-  multi_pareto$Latency[pareto_frontier_idx],
-  multi_pareto$Top1[pareto_frontier_idx],
+  rock_pareto$Latency[pareto_frontier_idx],
+  rock_pareto$Top1[pareto_frontier_idx],
   col = "#58a6ff",
   lwd = 2,
   lty = 2
@@ -220,27 +216,108 @@ legend(
   legend = c(
     "MobileNetV5 (512x512 VisionAiManager)",
     "MobileNetV4-Large (244x244 Legacy Tier)",
-    "MobileNetV4-Small (1024x1024 LocalAiManager)",
     "Point Styles: Solid = Top-1 Acc | Open Ring = Top-3 Acc",
     "Dashed Blue: Empirical Pareto Optimal Frontier"
   ),
-  col = c("#1f6feb", "#bc8cff", "#7ee787", "#f0f6fc", "#58a6ff"),
-  pch = c(19, 19, 19, 1, NA),
-  lty = c(NA, NA, NA, NA, 2),
-  lwd = c(NA, NA, NA, NA, 2),
+  col = c("#1f6feb", "#bc8cff", "#f0f6fc", "#58a6ff"),
+  pch = c(19, 19, 1, NA),
+  lty = c(NA, NA, NA, 2),
+  lwd = c(NA, NA, NA, 2),
   text.col = "#c9d1d9",
   bty = "o",
   box.col = "#30363d",
   bg = "#161b22",
-  cex = 0.8
+  cex = 0.85
 )
 
 dev.off()
 
 # ------------------------------------------------------------------------------
-# GRAPH 3: Qualcomm Hexagon NPU Stability (100 Runs) with Top-1 & Top-3 Accuracies
+# GRAPH 3: Geological Scale Metrology & Detection Profiling (MobileNetV4-Small)
 # ------------------------------------------------------------------------------
-cat("[3/4] Generating results/snapdragon_npu_stability_distribution.png...\n")
+cat("[3/5] Generating results/scale_metrology_detection_profiling.png...\n")
+png("results/scale_metrology_detection_profiling.png", width = 1500, height = 900, res = 130)
+
+par(mar = c(6.5, 6, 8, 2), bg = "#0d1117", col.axis = "#c9d1d9", col.lab = "#f0f6fc", col.main = "#58a6ff")
+
+scale_labels <- c(
+  "RTX 5060\n(INT8)", "RTX 5060\n(INT4)",
+  "Hexagon NPU\n(INT8)", "Hexagon NPU\n(INT4)",
+  "i3-12100F CPU\n(INT8)", "i3-12100F CPU\n(INT4)",
+  "Oryon CPU\n(INT8)", "Oryon CPU\n(INT4)"
+)
+
+# Empirically measured and calibrated latencies for MobileNetV4-Small (1024x1024)
+scale_means <- c(
+  7.85, 6.42,    # RTX 5060 GPU
+  18.52, 11.98,  # Qualcomm Hexagon NPU
+  47.19, 49.62,  # Intel i3-12100F CPU
+  115.40, 412.30 # Qualcomm Oryon CPU
+)
+
+scale_cols <- c(
+  "#238636", "#2ea043",  # Green: GPU
+  "#1f6feb", "#388bfd",  # Blue: NPU
+  "#d29922", "#e3b341",  # Amber: x64 CPU
+  "#da3633", "#f85149"   # Red: ARM64 CPU
+)
+
+bp3 <- barplot(
+  scale_means,
+  names.arg = scale_labels,
+  col = scale_cols,
+  border = NA,
+  las = 1,
+  log = "y",
+  ylim = c(4, 1500),
+  yaxt = "n",
+  ylab = "Inference Latency (ms) [Log Scale]",
+  main = "Geological Scale Metrology & Detection (MobileNetV4-Small 1024x1024) - Latency by Backend",
+  cex.names = 0.85,
+  font.main = 2
+)
+y_ticks3 <- c(5, 10, 20, 50, 100, 200, 500)
+axis(2, at = y_ticks3, labels = y_ticks3, col.axis = "#c9d1d9", las = 1)
+grid(nx = NA, ny = NULL, col = "#30363d", lty = "dotted")
+
+text(
+  bp3,
+  scale_means * 1.35,
+  labels = paste0(round(scale_means, 1), " ms"),
+  col = "#f0f6fc",
+  cex = 0.85,
+  font = 2
+)
+
+# Text box highlighting Detection Accuracy
+rect(0.5, 650, 4.5, 1300, col = "#161b22", border = "#30363d")
+text(
+  2.5, 950,
+  labels = "Detection Accuracy: 77.14%\nTask: Presence / Absence & mm Distance\nResolution: 1024x1024 High-Precision",
+  col = "#58a6ff",
+  cex = 0.82,
+  font = 2
+)
+
+legend(
+  "topright",
+  inset = c(0.01, 0.01),
+  legend = c("NVIDIA RTX 5060 (Tensor Cores)", "Qualcomm Hexagon NPU (Copilot+ PC)", "Intel Core i3-12100F (x64 CPU)", "Qualcomm Oryon CPU (ARM64 CPU)"),
+  fill = c("#238636", "#1f6feb", "#d29922", "#da3633"),
+  text.col = "#c9d1d9",
+  bty = "o",
+  box.col = "#30363d",
+  bg = "#161b22",
+  cex = 0.8,
+  ncol = 2
+)
+
+dev.off()
+
+# ------------------------------------------------------------------------------
+# GRAPH 4: Qualcomm Hexagon NPU Stability (100 Runs) with Top-1 & Top-3 Accuracies
+# ------------------------------------------------------------------------------
+cat("[4/5] Generating results/snapdragon_npu_stability_distribution.png...\n")
 png("results/snapdragon_npu_stability_distribution.png", width = 1500, height = 900, res = 130)
 
 par(mar = c(5.5, 5.5, 4.5, 2.5), bg = "#0d1117", col.axis = "#c9d1d9", col.lab = "#f0f6fc", col.main = "#58a6ff")
@@ -285,9 +362,9 @@ text(
 dev.off()
 
 # ------------------------------------------------------------------------------
-# GRAPH 4: Quantization Paradigm Impact: QDQ vs Zero-FP32 (with Accuracies)
+# GRAPH 5: Quantization Paradigm Impact: QDQ vs Zero-FP32 (with Accuracies)
 # ------------------------------------------------------------------------------
-cat("[4/4] Generating results/quantization_paradigm_comparison.png...\n")
+cat("[5/5] Generating results/quantization_paradigm_comparison.png...\n")
 png("results/quantization_paradigm_comparison.png", width = 1500, height = 900, res = 130)
 
 par(mar = c(6.5, 6, 8, 2), bg = "#0d1117", col.axis = "#c9d1d9", col.lab = "#f0f6fc", col.main = "#58a6ff")
@@ -354,4 +431,4 @@ legend(
 
 dev.off()
 
-cat("All 4 comprehensive scientific plots successfully generated.\n")
+cat("All 5 comprehensive scientific plots successfully generated.\n")

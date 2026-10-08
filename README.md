@@ -305,13 +305,17 @@ Exhaustive on-device measurements collected on the Snapdragon X Plus Copilot+ ul
 
 ##### Scientific Empirical Visualization (Generated via R 4.6.1 Engine)
 
-| 1. Cross-Hardware Latency Scaling | 2. Accuracy vs. Latency Pareto Frontier |
+| 1. Cross-Hardware Latency Scaling (V5) | 2. Rock Classification Pareto Frontier (V5 & V4-Large) |
 | :---: | :---: |
 | ![Hardware Latency Comparison](results/hardware_latency_comparison.png) | ![Pareto Accuracy vs Latency](results/pareto_accuracy_vs_latency.png) |
 
-| 3. Qualcomm Hexagon NPU Stability (100 Runs) | 4. QDQ vs. Zero-FP32 Architectural Impact |
+| 3. Geological Scale Metrology (V4-Small) | 4. Qualcomm Hexagon NPU Stability (100 Runs) |
 | :---: | :---: |
-| ![Qualcomm Hexagon NPU Stability](results/snapdragon_npu_stability_distribution.png) | ![Quantization Paradigm Comparison](results/quantization_paradigm_comparison.png) |
+| ![Geological Scale Metrology](results/scale_metrology_detection_profiling.png) | ![Qualcomm Hexagon NPU Stability](results/snapdragon_npu_stability_distribution.png) |
+
+| 5. QDQ vs. Zero-FP32 Architectural Impact |
+| :---: |
+| ![Quantization Paradigm Comparison](results/quantization_paradigm_comparison.png) |
 
 
 #### 2. MobileNetV4-Large - Rock Classification (Legacy)
