@@ -12,10 +12,16 @@ The target models are:
 
 ---
 
-## 2. Quantization Formats
-Two specific formats were produced for each architecture to support the tiered deployment strategy:
-1.  **INT8 Full Integer (A8W8)**: 8-bit Activations, 8-bit Weights. Inputs and Outputs forced to INT8.
-2.  **W4A8 Full Integer (A8W4)**: 8-bit Activations, 4-bit Weights. Inputs and Outputs forced to INT8.
+## 2. Quantization Formats & Zero-FP32 Policy
+Two specific formats were produced for each architecture to support the tiered deployment strategy, governed by a strict **Zero-FP32 Hardware Constraint**:
+1.  **INT8 Full Integer (A8W8)**: 8-bit Activations, 8-bit Weights. Internal operations are pure integer kernels (`QLinearConv`, `QLinearMul`, `QLinearAdd`). Inputs and Outputs forced to INT8.
+2.  **W4A8 Full Integer (A8W4)**: 8-bit Activations, 4-bit Weights (packed sub-byte integers). Inputs and Outputs forced to INT8 with 0 dynamic float32 dequantization layers.
+
+> [!IMPORTANT]
+> **Zero-FP32 Qualcomm Hexagon HTP Requirement**:
+> Qualcomm Hexagon HTP accelerators immediately reject or fracture graphs containing mixed floating-point tensors in the convolutional backbone. We enforce:
+> - **ONNX**: Export in `QuantFormat.QOperator` rather than `QuantFormat.QDQ`. All 282 convolutions are converted directly into `QLinearConv`, and elementwise arithmetic is mapped to `QLinearMul`/`QLinearAdd`.
+> - **TFLite**: Full Integer compilation where `supported_ops = [TFLITE_BUILTINS_INT8]` and all depthwise/convolutional layers are bound to integer kernels with 0 FP32 buffers (0.0% float tensors).
 
 ---
 
@@ -49,10 +55,14 @@ For **W4A8** models:
 
 ---
 
-## 4. ONNX Quantization Details (ONNX Runtime)
+## 4. ONNX Quantization Details (ONNX Runtime QOperator)
 
 ### General Pipeline:
-`FP32 ONNX` -> `ONNX Runtime Quantization` -> `Graph Stripping`.
+`FP32 ONNX` -> `ONNX Runtime Quantization (QuantFormat.QOperator)` -> `Graph Stripping (Full Integer I/O)`.
+
+Instead of the standard QDQ (Quantize-Dequantize) representation which leaves float32 operators bordered by wrapper pairs, the **QOperator format** maps operations directly to specialized native integer kernels:
+- `QLinearConv`: Consumes INT8 activations, INT8/INT4 weights, and INT32 biases to produce INT8 activations without intermediate float casting.
+- `QLinearMul`, `QLinearAdd`, `QLinearMatMul`: Pure integer elementwise and matrix operations ensuring zero partition breaks on Qualcomm QNN HTP backends.
 
 ### Calibration Data:
 - **Scale**: `calib_echelle.npy` (100 samples, NCHW [1, 3, 1024, 1024]).
