@@ -120,8 +120,6 @@ dev.off()
 cat("[2/5] Generating results/pareto_accuracy_vs_latency.png...\n")
 png("results/pareto_accuracy_vs_latency.png", width = 1600, height = 950, res = 130)
 
-par(mar = c(6, 6, 5, 3), bg = "#0d1117", col.axis = "#c9d1d9", col.lab = "#f0f6fc", col.main = "#58a6ff")
-
 v4l_npu_int8_lat <- mean(litho_df$Latency_num[litho_df$Model == "MobileNetV4-Large" & litho_df$Format == "INT8" & litho_df$Backend == "NPU"], na.rm = TRUE)
 v4l_npu_int4_lat <- mean(litho_df$Latency_num[litho_df$Model == "MobileNetV4-Large" & litho_df$Format == "INT4" & litho_df$Backend == "NPU"], na.rm = TRUE)
 
@@ -150,12 +148,14 @@ rock_pareto <- data.frame(
   stringsAsFactors = FALSE
 )
 
+par(mar = c(6, 6, 5, 10), bg = "#0d1117", col.axis = "#c9d1d9", col.lab = "#f0f6fc", col.main = "#58a6ff")
+
 plot(
   rock_pareto$Latency,
   rock_pareto$Top1,
   log = "x",
-  xlim = c(8, 10000),
-  ylim = c(20, 100),
+  xlim = c(5, 15000),
+  ylim = c(10, 105),
   xaxt = "n",
   xlab = "Inference Latency (ms) [Log Scale]",
   ylab = "Rock Classification Accuracy (%)",
@@ -166,7 +166,7 @@ plot(
   las = 1,
   font.main = 2
 )
-x_ticks2 <- c(10, 20, 50, 100, 200, 500, 1000, 2000, 5000)
+x_ticks2 <- c(5, 10, 20, 50, 100, 200, 500, 1000, 2000, 5000, 10000)
 axis(1, at = x_ticks2, labels = x_ticks2, col.axis = "#c9d1d9")
 grid(col = "#30363d", lty = "dotted")
 
@@ -189,18 +189,36 @@ segments(
   lty = "dotted"
 )
 
-# Text positions
-text(139.8, 83.33, labels = "V5: RTX 5060 INT8\n(83.3% / 89.3%)", pos = 2, offset = 0.6, col = "#238636", cex = 0.74, font = 2)
-text(3323.9, 80.33, labels = "V5: RTX 5060 W4A8\n(80.3% / 87.7%)", pos = 3, offset = 0.7, col = "#2ea043", cex = 0.74, font = 2)
-text(450.0, 83.33, labels = "V5: Hexagon NPU INT8\n(83.3% / 89.3%)", pos = 2, offset = 0.6, col = "#1f6feb", cex = 0.74, font = 2)
-text(477.0, 78.42, labels = "V5: Hexagon NPU W4A8\n(78.4% / 85.2%)", pos = 1, offset = 0.6, col = "#388bfd", cex = 0.74, font = 2)
-text(3020.5, 83.33, labels = "V5: i3-12100F INT8\n(83.3% / 89.3%)", pos = 2, offset = 0.6, col = "#d29922", cex = 0.74, font = 2)
-text(3380.1, 80.33, labels = "V5: i3-12100F W4A8\n(80.3% / 87.7%)", pos = 1, offset = 0.6, col = "#e3b341", cex = 0.74, font = 2)
-text(4135.1, 83.33, labels = "V5: Oryon CPU INT8\n(83.3% / 89.3%)", pos = 4, offset = 0.6, col = "#da3633", cex = 0.74, font = 2)
-text(4326.6, 78.42, labels = "V5: Oryon CPU W4A8\n(78.4% / 85.2%)", pos = 4, offset = 0.6, col = "#f85149", cex = 0.74, font = 2)
+# Text positions: completely separated to prevent any overlap
+# 1. V4-Large NPU INT4 (placed below the point)
+text(13.5, 18.0, labels = "V4-Large NPU INT4\n(26.4% / 53.9%)", pos = 1, offset = 0.8, col = "#bc8cff", cex = 0.72, font = 2)
 
-text(16.8, 26.42, labels = "V4-Large NPU INT8\n(26.4% / 53.9%)", pos = 4, offset = 0.6, col = "#a371f7", cex = 0.74, font = 2)
-text(13.5, 26.42, labels = "V4-Large NPU INT4\n(26.4% / 53.9%)", pos = 2, offset = 0.6, col = "#bc8cff", cex = 0.74, font = 2)
+# 2. V4-Large NPU INT8 (placed to the right)
+text(16.8, 26.42, labels = "V4-Large NPU INT8\n(26.4% / 53.9%)", pos = 4, offset = 0.8, col = "#a371f7", cex = 0.72, font = 2)
+
+# 3. V5: RTX 5060 INT8 (placed to the left)
+text(139.8, 83.33, labels = "V5: RTX 5060 INT8\n(83.3% / 89.3%)", pos = 2, offset = 0.8, col = "#238636", cex = 0.72, font = 2)
+
+# 4. V5: Hexagon NPU INT8 (placed above)
+text(450.0, 83.33, labels = "V5: Hexagon NPU INT8\n(83.3% / 89.3%)", pos = 3, offset = 1.2, col = "#1f6feb", cex = 0.72, font = 2)
+
+# 5. V5: Hexagon NPU W4A8 (placed below)
+text(477.0, 78.42, labels = "V5: Hexagon NPU W4A8\n(78.4% / 85.2%)", pos = 1, offset = 0.9, col = "#388bfd", cex = 0.72, font = 2)
+
+# 6. V5: i3-12100F INT8 (placed to the left)
+text(3020.5, 83.33, labels = "V5: i3-12100F INT8\n(83.3% / 89.3%)", pos = 2, offset = 0.8, col = "#d29922", cex = 0.72, font = 2)
+
+# 7. V5: i3-12100F W4A8 (placed below)
+text(3380.1, 80.33, labels = "V5: i3-12100F W4A8\n(80.3% / 87.7%)", pos = 1, offset = 0.8, col = "#e3b341", cex = 0.72, font = 2)
+
+# 8. V5: RTX 5060 W4A8 (placed above)
+text(3323.9, 80.33, labels = "V5: RTX 5060 W4A8\n(80.3% / 87.7%)", pos = 3, offset = 1.6, col = "#2ea043", cex = 0.72, font = 2)
+
+# 9. V5: Oryon CPU INT8 (placed above-right)
+text(4135.1, 83.33, labels = "V5: Oryon CPU INT8\n(83.3% / 89.3%)", pos = 4, offset = 0.9, col = "#da3633", cex = 0.72, font = 2)
+
+# 10. V5: Oryon CPU W4A8 (placed below-right)
+text(4326.6, 78.42, labels = "V5: Oryon CPU W4A8\n(78.4% / 85.2%)", pos = 4, offset = 0.9, col = "#f85149", cex = 0.72, font = 2)
 
 pareto_frontier_idx <- c(10, 9, 1, 3)
 lines(
