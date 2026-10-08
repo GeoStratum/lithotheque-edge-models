@@ -261,11 +261,11 @@ Empirical latency and classification accuracy measured on the model generation a
 
 | Format | Execution Backend | Latency (ms) | Top-1 Acc. (%) | Top-3 Acc. (%) | Status |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **BF16 / FP16** | NVIDIA RTX 5060 (CUDA / Tensor Cores) | **89.8** | **88.33%** | **92.67%** | Validated |
-| **FP8 (E4M3FN)** | NVIDIA RTX 5060 (Blackwell FP8) | **30.8** | *FP8 Weights* | *FP8 Weights* | Validated |
-| **INT8 (W8A8)** | NVIDIA RTX 5060 (CUDA EP) | 54.2 | **83.33%** | **89.33%** | Validated |
+| **BF16 / FP16** | NVIDIA RTX 5060 (Tensor Cores) | **89.8** | **88.33%** | **92.67%** | Validated |
+| **FP8 (E4M3FN)** | NVIDIA RTX 5060 (Tensor Cores FP8) | **30.8** | *FP8 Weights* | *FP8 Weights* | Validated |
+| **INT8 (W8A8)** | NVIDIA RTX 5060 (Tensor Cores INT8) | 54.2 | **83.33%** | **89.33%** | Validated |
 | **INT8 (W8A8)** | Intel Core i3-12100F (x64 CPU) | 2443.5 | **83.33%** | **89.33%** | Validated |
-| **W4A8 Full Int** | NVIDIA RTX 5060 (CUDA EP) | 39.2 | **80.33%** | **87.67%** | Validated |
+| **W4A8 Full Int** | NVIDIA RTX 5060 (Tensor Cores INT4) | 39.2 | **80.33%** | **87.67%** | Validated |
 | **W4A8 Full Int** | Intel Core i3-12100F (x64 CPU) | 587.8 | **80.33%** | **87.67%** | Validated |
 
 ##### Environment B: Qualcomm Snapdragon Copilot+ PC (Windows 11 Pro ARM64)
