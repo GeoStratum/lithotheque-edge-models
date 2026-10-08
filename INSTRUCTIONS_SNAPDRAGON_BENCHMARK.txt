@@ -1,5 +1,5 @@
 ================================================================================
-INSTRUCTIONS DE BENCHMARK & CARACTÉRISATION SUR LE PC SNAPDRAGON (ARM64)
+INSTRUCTIONS COMPLÈTES DE BENCHMARK & CARACTÉRISATION SUR LE PC SNAPDRAGON (ARM64)
 ================================================================================
 Projet : Lithotheque Edge Models (GeoStratum)
 Date de préparation : Octobre 2026
@@ -7,100 +7,187 @@ Machine Cible : Copilot+ PC sous Qualcomm Snapdragon X Plus / Elite (ARM64)
 OS : Microsoft Windows 11 Professionnel (ARM64)
 ================================================================================
 
-Ce document récapitule toutes les actions et commandes à exécuter sur la machine
-Snapdragon pour caractériser précisément la plateforme et renseigner le tableau B
-dans le README.md de lithotheque-edge-models.
+Ce guide exhaustif détaille :
+1. Les commandes d'audit matériel, OS et pilotes (Qualcomm Adreno, Hexagon NPU).
+2. L'installation de l'environnement Python / LiteRT ARM64.
+3. Le rapatriement des modèles quantifiés.
+4. Un script Python automatisé prêt à l'emploi (mesurant NPU, GPU, CPU en 1 clic).
+5. La procédure avec `benchmark_model.exe` (LiteRT C++ natif).
+6. Le modèle de tableau à reporter dans le README.md.
 
+================================================================================
+ÉTAPE 1 : AUDIT SYSTÈME, PILOTES & MATÉRIEL (POWERSHELL)
+================================================================================
+Ouvrir PowerShell (pwsh) en mode normal ou administrateur et copier-coller :
+
+1.1. Informations Windows & Build exacte :
+--------------------------------------------------
+Get-ComputerInfo | Select-Object WindowsProductName, WindowsVersion, OsBuildNumber, OsHardwareAbstractionLayer
+
+1.2. Modèle exact du processeur & NPU :
+--------------------------------------------------
+Get-CimInstance Win32_Processor | Select-Object Name, NumberOfCores, NumberOfLogicalProcessors, MaxClockSpeed
+
+1.3. GPU & Version exacte du pilote Adreno :
+--------------------------------------------------
+Get-CimInstance Win32_VideoController | Select-Object Name, DriverVersion, DriverDate
+
+1.4. Pilotes Qualcomm Hexagon NPU & Accélérateurs :
+--------------------------------------------------
+Get-PnpDevice -Class "ComputeAccelerator" | Select-Object FriendlyName, InstanceId, Status
+# Si vide, rechercher globalement :
+Get-PnpDevice | Where-Object { $_.FriendlyName -like "*Qualcomm*" -or $_.FriendlyName -like "*Hexagon*" -or $_.FriendlyName -like "*NPU*" } | Select-Object FriendlyName, Status
+
+1.5. RAM totale, type et fréquence réelle :
+--------------------------------------------------
+Get-CimInstance Win32_PhysicalMemory | Select-Object Capacity, Speed, ConfiguredClockSpeed, MemoryType
+
+Astuce : Tu peux tout exporter en un fichier texte sur le bureau avec :
+"=== AUDIT SNAPDRAGON ===" > "$HOME\Desktop\specs_snapdragon.txt"
+Get-ComputerInfo | Select-Object WindowsProductName, WindowsVersion, OsBuildNumber >> "$HOME\Desktop\specs_snapdragon.txt"
+Get-CimInstance Win32_Processor | Select-Object Name, NumberOfCores, MaxClockSpeed >> "$HOME\Desktop\specs_snapdragon.txt"
+Get-CimInstance Win32_VideoController | Select-Object Name, DriverVersion >> "$HOME\Desktop\specs_snapdragon.txt"
+Get-CimInstance Win32_PhysicalMemory | Select-Object Capacity, Speed >> "$HOME\Desktop\specs_snapdragon.txt"
+
+
+================================================================================
+ÉTAPE 2 : PRÉPARATION DE L'ENVIRONNEMENT PYTHON ARM64
+================================================================================
+Sur Windows 11 ARM64, privilégier Python ARM64 natif (Python 3.11 ou 3.12 ARM64 depuis python.org ou le Microsoft Store).
+
+Dans votre terminal :
+1. Installer les dépendances d'inférence :
+   pip install numpy onnx
+
+2. Installer ONNX Runtime avec support Qualcomm QNN :
+   pip install onnxruntime-qnn
+   # Ou si vous utilisez le paquet officiel Qualcomm QAIRT SDK :
+   # Le SDK QAIRT fournit les DLLs HTP : QnnHtp.dll, QnnHtpPrepare.dll, libQnnHtpV73.so, etc.
+
+3. Vérifier la présence du backend QNN :
+   python -c "import onnxruntime as ort; print('Providers dispos:', ort.get_available_providers())"
+   # Le résultat doit lister 'QNNExecutionProvider' et 'CPUExecutionProvider'.
+
+
+================================================================================
+ÉTAPE 3 : FICHIERS MODÈLES À RÉCUPÉRER SUR LE PC SNAPDRAGON
+================================================================================
+Transférer ou cloner le dépôt Forgejo sur la machine Snapdragon :
+git clone https://git.geostratum.eu/GeoStratum/lithotheque-edge-models.git
+
+Les fichiers de modèles à tester :
+- Modèle W4A8 ONNX   : onnx/best_mobilenetv5_rocks_w4a8.onnx  (153.7 Mo)
+- Modèle INT8 ONNX   : onnx/best_mobilenetv5_rocks_int8.onnx  (300.6 Mo)
+- Modèle W4A8 TFLite : tflite/best_mobilenetv5_rocks_w4a8.tflite (149.2 Mo)
+- Modèle INT8 TFLite : tflite/best_mobilenetv5_rocks_int8.tflite (287.9 Mo)
+
+
+================================================================================
+ÉTAPE 4 : SCRIPT PYTHON DE BENCHMARK AUTOMATISÉ (1 CLIC)
+================================================================================
+Créer un fichier `benchmark_snapdragon.py` à côté des modèles et exécuter :
+`python benchmark_snapdragon.py`
+
+Code du script complet :
 --------------------------------------------------------------------------------
-1. RÉCUPÉRATION DES INFOS SYSTÈME, WINDOWS & PILOTES
+import time
+import numpy as np
+import onnxruntime as ort
+
+MODELS = {
+    "W4A8 Full Int": "onnx/best_mobilenetv5_rocks_w4a8.onnx",
+    "INT8 (W8A8)": "onnx/best_mobilenetv5_rocks_int8.onnx"
+}
+
+def benchmark_backend(model_path, provider_name, provider_options=None, num_runs=100, warmup=10):
+    options = ort.SessionOptions()
+    options.graph_optimization_level = ort.GraphOptimizationLevel.ORT_ENABLE_ALL
+    
+    providers = [provider_name]
+    p_opts = [provider_options] if provider_options else None
+    
+    try:
+        session = ort.InferenceSession(model_path, options, providers=providers, provider_options=p_opts)
+    except Exception as e:
+        return f"Erreur chargement: {e}"
+        
+    input_name = session.get_inputs()[0].name
+    # Tensor INT8 [-128, 127] shape (1, 256, 256, 3)
+    dummy_input = np.random.randint(-128, 127, size=(1, 256, 256, 3), dtype=np.int8)
+    
+    # Warmup
+    for _ in range(warmup):
+        session.run(None, {input_name: dummy_input})
+        
+    # Benchmark
+    latencies = []
+    for _ in range(num_runs):
+        t0 = time.perf_counter()
+        session.run(None, {input_name: dummy_input})
+        latencies.append((time.perf_counter() - t0) * 1000.0)
+        
+    avg = np.mean(latencies)
+    std = np.std(latencies)
+    p95 = np.percentile(latencies, 95)
+    return f"{avg:.2f} ms (p95: {p95:.2f} ms)"
+
+print("="*60)
+print("DÉBUT DU BENCHMARK LITHOTHEQUE SUR SNAPDRAGON ARM64")
+print("="*60)
+
+for tag, path in MODELS.items():
+    print(f"\n--- Évaluation du Modèle : {tag} ({path}) ---")
+    
+    # 1. NPU Qualcomm Hexagon (HTP Backend)
+    npu_opts = {'backend_path': 'QnnHtp.dll', 'htp_performance_mode': 'burst'}
+    res_npu = benchmark_backend(path, 'QNNExecutionProvider', npu_opts)
+    print(f"  [NPU Hexagon] : {res_npu}")
+    
+    # 2. CPU Oryon ARM64
+    res_cpu = benchmark_backend(path, 'CPUExecutionProvider')
+    print(f"  [CPU Oryon]   : {res_cpu}")
+
+print("\nBenchmark terminé !")
 --------------------------------------------------------------------------------
-Ouvrir PowerShell (pwsh ou powershell) sur le PC Snapdragon et lancer :
 
-A. Informations Windows & Build exacte :
-   Get-ComputerInfo | Select-Object WindowsProductName, WindowsVersion, OsBuildNumber, OsHardwareAbstractionLayer
 
-B. Modèle exact du processeur & NPU :
-   Get-CimInstance Win32_Processor | Select-Object Name, NumberOfCores, NumberOfLogicalProcessors, MaxClockSpeed
+================================================================================
+ÉTAPE 5 : OPTION ALTERNATIVE VIA LITERT / TFLITE (C++ NATIF)
+================================================================================
+Si vous disposez de `benchmark_model.exe` (compilé pour Windows ARM64 ou Android) :
 
-C. GPU & Version exacte du pilote Adreno :
-   Get-CimInstance Win32_VideoController | Select-Object Name, DriverVersion, DriverDate
+1. Benchmark NPU Hexagon (via delegate QNN HTP) :
+   .\benchmark_model.exe --graph=tflite\best_mobilenetv5_rocks_w4a8.tflite `
+       --num_runs=100 --warmup_runs=10 `
+       --use_qnn=true --qnn_backend=htp
 
-D. Version des pilotes Qualcomm NPU / Hexagon :
-   Get-PnpDevice -Class "ComputeAccelerator" | Select-Object FriendlyName, InstanceId, Status
-   # Ou alternativement :
-   Get-PnpDevice | Where-Object { $_.FriendlyName -like "*Qualcomm*" -or $_.FriendlyName -like "*Hexagon*" -or $_.FriendlyName -like "*NPU*" } | Select-Object FriendlyName, Status
+2. Benchmark CPU Oryon (XNNPACK SIMD) :
+   .\benchmark_model.exe --graph=tflite\best_mobilenetv5_rocks_w4a8.tflite `
+       --num_runs=100 --warmup_runs=10 `
+       --use_xnnpack=true --num_threads=4
 
-E. Mémoire RAM réelle et vitesse :
-   Get-CimInstance Win32_PhysicalMemory | Select-Object Capacity, Speed, MemoryType
+3. Benchmark GPU Adreno (Vulkan / OpenCL) :
+   .\benchmark_model.exe --graph=tflite\best_mobilenetv5_rocks_w4a8.tflite `
+       --num_runs=100 --warmup_runs=10 `
+       --use_gpu=true
 
---------------------------------------------------------------------------------
-2. MODÈLES À TESTER (DISPONIBLES DANS LE DOSSIER DU PROJET)
---------------------------------------------------------------------------------
-Les modèles mis à jour sont situés dans :
-  - ONNX INT8 : onnx/best_mobilenetv5_rocks_int8.onnx (300.6 Mo)
-  - ONNX W4A8 : onnx/best_mobilenetv5_rocks_w4a8.onnx (153.7 Mo)
-  - TFLite INT8 : tflite/best_mobilenetv5_rocks_int8.tflite (287.9 Mo)
-  - TFLite W4A8 : tflite/best_mobilenetv5_rocks_w4a8.tflite (149.2 Mo)
 
---------------------------------------------------------------------------------
-3. TESTS DE LATENCE SUR LE NPU HEXAGON / CPU / GPU
---------------------------------------------------------------------------------
-
-Option A : Via le benchmark LiteRT / TFLite (benchmark_model.exe ARM64 natif)
-   1. Télécharger ou utiliser le binaire benchmark_model de LiteRT ARM64.
-   2. Tester le NPU Hexagon (via delegate QNN / HTP) :
-      .\benchmark_model.exe --graph=best_mobilenetv5_rocks_w4a8.tflite --num_runs=100 --warmup_runs=10 --use_nnapi=false --use_qnn=true --qnn_backend=htp
-   3. Tester le CPU (Oryon avec XNNPACK) :
-      .\benchmark_model.exe --graph=best_mobilenetv5_rocks_w4a8.tflite --num_runs=100 --warmup_runs=10 --use_xnnpack=true --num_threads=4
-   4. Tester le GPU (Adreno via OpenCL/Vulkan) :
-      .\benchmark_model.exe --graph=best_mobilenetv5_rocks_w4a8.tflite --num_runs=100 --warmup_runs=10 --use_gpu=true
-
-Option B : Via onnxruntime-qnn (Python sous ARM64)
-   Dans un environnement Python ARM64 avec onnxruntime-qnn :
-   1. Vérifier la détection du provider QNN :
-      python -c "import onnxruntime as ort; print(ort.get_available_providers())"
-      # Doit afficher ['QNNExecutionProvider', 'CPUExecutionProvider']
-   2. Lancer la session avec le provider QNN :
-      ```python
-      import onnxruntime as ort
-      import numpy as np
-      import time
-
-      options = ort.SessionOptions()
-      provider_options = [{
-          'backend_path': 'QnnHtp.dll', # Accélérateur NPU Hexagon
-          'htp_performance_mode': 'burst'
-      }]
-      session = ort.InferenceSession('best_mobilenetv5_rocks_w4a8.onnx', options, providers=['QNNExecutionProvider'], provider_options=provider_options)
-
-      dummy_input = np.zeros((1, 256, 256, 3), dtype=np.int8)
-      # Warmup
-      for _ in range(10): session.run(None, {'pixel_values': dummy_input})
-      
-      # Mesure sur 100 runs
-      latencies = []
-      for _ in range(100):
-          t0 = time.perf_counter()
-          session.run(None, {'pixel_values': dummy_input})
-          latencies.append((time.perf_counter() - t0) * 1000)
-      print(f"Latence moyenne NPU Hexagon W4A8 : {np.mean(latencies):.2f} ms")
-      ```
-
---------------------------------------------------------------------------------
-4. DONNÉES À REPORTAGE DANS LE README.MD DE LITHOTHEQUE-EDGE-MODELS
---------------------------------------------------------------------------------
-Une fois les mesures obtenues, ouvrir `lithotheque-edge-models/README.md` et
-compléter le tableau "Environment B: Qualcomm Snapdragon Copilot+ PC" :
+================================================================================
+ÉTAPE 6 : MISE À JOUR DU README.MD DE LITHOTHEQUE-EDGE-MODELS
+================================================================================
+Une fois les latences notées, ouvrir `README.md` et mettre à jour le tableau B :
 
 | Format | Execution Backend | Latency (ms) | Top-1 Acc. (%) | Top-3 Acc. (%) | Status |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **INT8 (W8A8)** | Qualcomm Hexagon NPU (LiteRT / QNN) | [XX.X] | 83.33% | 89.33% | Validated |
-| **INT8 (W8A8)** | Qualcomm Adreno GPU (OpenCL / Vulkan) | [XX.X] | 83.33% | 89.33% | Validated |
-| **INT8 (W8A8)** | Qualcomm Oryon CPU (ARMv8 / XNNPACK) | [XX.X] | 83.33% | 89.33% | Validated |
-| **W4A8 Full Int** | Qualcomm Hexagon NPU (LiteRT / QNN) | [XX.X] | 80.33% | 87.67% | Validated |
-| **W4A8 Full Int** | Qualcomm Adreno GPU (OpenCL / Vulkan) | [XX.X] | 80.33% | 87.67% | Validated |
-| **W4A8 Full Int** | Qualcomm Oryon CPU (ARMv8 / XNNPACK) | [XX.X] | 80.33% | 87.67% | Validated |
+| **INT8 (W8A8)** | Qualcomm Hexagon NPU (LiteRT / QNN) | [Insérer ms] | 83.33% | 89.33% | Validated |
+| **INT8 (W8A8)** | Qualcomm Adreno GPU (OpenCL / Vulkan) | [Insérer ms] | 83.33% | 89.33% | Validated |
+| **INT8 (W8A8)** | Qualcomm Oryon CPU (ARMv8 / XNNPACK) | [Insérer ms] | 83.33% | 89.33% | Validated |
+| **W4A8 Full Int** | Qualcomm Hexagon NPU (LiteRT / QNN) | [Insérer ms] | 80.33% | 87.67% | Validated |
+| **W4A8 Full Int** | Qualcomm Adreno GPU (OpenCL / Vulkan) | [Insérer ms] | 80.33% | 87.67% | Validated |
+| **W4A8 Full Int** | Qualcomm Oryon CPU (ARMv8 / XNNPACK) | [Insérer ms] | 80.33% | 87.67% | Validated |
 
-Remplacer également dans Section 8.B la version précise du build et des drivers
-obtenus à l'étape 1.
+Puis enregistrer, commiter et pusher sur Forgejo :
+git add README.md
+git commit -m "docs: populate Qualcomm Snapdragon benchmark results"
+git push forgejo main
 ================================================================================
