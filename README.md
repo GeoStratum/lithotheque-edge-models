@@ -284,6 +284,13 @@ Target Edge benchmarks measured on the **Qualcomm Snapdragon® X Plus (X1P64100 
 > - **CPU Software Fallback**: The Qualcomm Oryon ARMv8 CPU runs INT8 and W4A8 models stably (5.69 s and 7.12 s), confirming exact mathematical execution without numerical drift. However, software CPU emulation confirms why hardware acceleration (NPU/GPU) is strictly necessary for real-time mobile UX (<30 ms).
 > - **NPU Hexagon & GPU Adreno Hardware Acceleration**: On-device evaluation with `onnxruntime-qnn` indicates that the raw $512\times 512$ ONNX graph contains operator topologies requiring offline compilation/context generation (AOT) via the Qualcomm QAIRT Converter / LiteRT NPU Delegate to unlock full HTP execution on Hexagon.
 
+##### Scientific Graphical Analysis (RTX 5060 & Cross-Platform Comparison)
+All raw benchmark datapoints have been logged into [`results/rtx5060_scientific_analysis.csv`](results/rtx5060_scientific_analysis.csv).
+
+| Latency Comparison | Distribution & Variance | Pareto Efficiency (Acc vs Latency) |
+| :---: | :---: | :---: |
+| ![Latency Comparison](results/latency_comparison_rtx5060.png) | ![Latency Stability](results/latency_stability_distribution.png) | ![Pareto Curve](results/accuracy_vs_latency_pareto.png) |
+
 
 #### 2. MobileNetV4-Large - Rock Classification (Legacy)
 | Format | Hardware Backend | Latency (ms) | Top-1 Acc. (%) |
