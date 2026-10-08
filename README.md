@@ -5,7 +5,7 @@
 [![Languages](https://img.shields.io/badge/Supported_Languages-55-blue)](https://www.geostratum.eu/lithotheque)
 [![Engine](https://img.shields.io/badge/Engine-LiteRT_Standalone-orange)](https://ai.google.dev/edge/litert)
 [![C++](https://img.shields.io/badge/Native_Core-C%2B%2B_23-00599C?logo=c%2B%2B)](https://en.cppreference.com/w/cpp/23)
-[![Android](https://img.shields.io/badge/Platform-Android_NDK-3DDC84?logo=android)](https://developer.android.com/ndk)
+[![Windows](https://img.shields.io/badge/Platform-Windows_11_ARM64-0078D4?logo=windows)](https://www.microsoft.com/windows)
 [![Python](https://img.shields.io/badge/Training-Python_3.11-3776AB?logo=python)](https://www.python.org/downloads/release/python-3110/)
 [![Qualcomm QNN](https://img.shields.io/badge/NPU_Backend-Qualcomm_QNN-3253DC?logo=qualcomm&logoColor=white)](https://developer.qualcomm.com/software/qualcomm-ai-engine-direct-sdk)
 [![Quantization](https://img.shields.io/badge/Quantization-W4A8_Full_Integer-red)](METHODOLOGY.md)
@@ -127,13 +127,12 @@ To achieve extreme accuracy across 104 geological classes, the model was fine-tu
 * **[Stealth Technologies Rock Classification](https://www.kaggle.com/datasets/stealthtechnologies/rock-classification):** A supplementary dataset hosted on Kaggle, utilized to expand the morphological variance and improve the model's generalization capabilities across varied rock formations.
 
 ## 4. Inference Engine & Hardware Fallback
-To prevent thermal throttling during the intensive 21-pass analysis, all image preprocessing (resizing, normalization) is written in **Native C++ (JNI) utilizing C++23 auto-vectorization (supporting ARMv9-A SVE2 with dynamic fallback to ARMv8-A NEON SIMD)**, yielding a 5x to 10x speedup over standard Android pipelines with minimal memory overhead.
+To prevent thermal throttling during the intensive 21-pass analysis, all image preprocessing (resizing, normalization) is written in **Native C++ utilizing C++23 auto-vectorization (supporting ARMv8-A NEON SIMD and AVX2)**, yielding a 5x to 10x speedup over standard interpreter pipelines with minimal memory overhead.
 
-Inference is powered by **LiteRT Standalone (2.1.4)** with a robust hardware fallback system, now fully compliant with **Android 15 (16 KB memory pages)** requirements:
-1. **LiteRT Natively Accelerated** (e.g., Snapdragon 8 Gen 3+, Google Tensor G4)
-2. **Qualcomm QNN / Samsung NPU** (Direct hardware access)
-3. **GPU ML Drift** (Modern shader-based acceleration)
-4. **XNNPACK** (Highly optimized CPU fallback utilizing NEON SIMD)
+Inference is powered by **ONNX Runtime (QNN Execution Provider) & LiteRT Standalone** with a robust hardware fallback system on **Windows 11 ARM64**:
+1. **Qualcomm Hexagon NPU Native HTP** (Direct hardware access via `QnnHtp.dll`)
+2. **Qualcomm Oryon CPU Multithreaded** (Highly optimized CPU fallback utilizing NEON SIMD)
+3. **GPU ML Drift** (Shader-based acceleration for FP16 tasks)
 
 ## 5. Deployment Strategy (AI Tiers)
 Models are aggressively quantized and delivered dynamically based on the device's hardware profile upon first launch:
@@ -151,8 +150,7 @@ Quantizing the **MobileNetV5** architecture (technically analogous to the vision
 To contribute to the Edge AI scientific community, we have published our comprehensive technical workflow. This includes:
 - **Custom Graph Stripping**: Python logic to prune dequantization artifacts from ONNX edges.
 - **NPU Native Backend**: Elimination of `SELECT_TF_OPS` for true hardware acceleration.
-- **Android 15 Compatibility**: All native artifacts are 16 KB page-aligned (`-Wl,-z,max-page-size=16384`).
-- **QNN Delegate Integration**: Optimization strategy for the Qualcomm Hexagon NPU.
+- **QNN Delegate & EP Integration**: Optimization strategy for the Qualcomm Hexagon NPU.
 
 🔗 **[Read the Full W4A8 Quantization Methodology (METHODOLOGY.md)](METHODOLOGY.md)**
 
@@ -227,25 +225,34 @@ Current host system where the full export, high-precision calibration, and re-qu
 ---
 
 #### 8.B Machine 2: Qualcomm Snapdragon Copilot+ PC (Edge Deployment & Validation Platform)
-The reference edge target system running **Windows 11 Pro (ARM64)**, where mobile NPU execution profiles (Qualcomm QAIRT SDK) were established, and where **a dedicated hardware re-benchmark session will be conducted**:
+The reference edge target system running **Microsoft Windows 11 Pro 24H2 (ARM64)**, where mobile NPU execution profiles (Qualcomm QAIRT SDK) were established and measured:
 
 - **Hardware Category**: Copilot+ Ultra-Portable PC (Native ARM64 Architecture)
-- **Platform & SoC**: **Qualcomm Snapdragon® X Plus (X1P64100) / X Elite (X1E80100)**
-- **Dedicated Accelerator (NPU)**: **Qualcomm® Hexagon™ NPU**
-  - Nominal Compute Power: **45 TOPS INT8**
-  - Role: Low-power, ultra-fast Full Integer INT8 / INT4 (W4A8) edge inference.
-- **CPU**: **Qualcomm Oryon™ CPU** (10 to 12 Cores, ARMv8-A @ 3.40 GHz)
-- **Integrated GPU**: **Qualcomm® Adreno™ X1-85 GPU**
+- **Platform & SoC (Processor & Accelerators)**:
+  - **Processor (CPU)**: **Qualcomm Snapdragon® X Plus - X1P64100** @ 3.40 GHz (10 Cores Qualcomm Oryon™, ARMv8-A)
+  - **Dedicated Accelerator (NPU)**: **Qualcomm® Hexagon™ NPU** (Nominal Compute Power: **45 TOPS INT8**)
+  - **Integrated GPU**: **Qualcomm® Adreno™ X1-85 GPU**
 - **System Memory (RAM)**: **16 GB to 32 GB LPDDR5x** (@ 8448 MT/s)
-- **Operating System**: Microsoft Windows 11 Pro 24H2 (ARM64, Build 26100 / 26220) / Prism Emulation & Android 15 NDK target (16 KB pages).
-- **Edge Software Stack & Qualcomm Tooling**:
-  - **Qualcomm QAIRT Backend (QNN Core)**: Version **2.37.1** (`QnnHtp.dll` build `2.37.1.25080709`, target HTP / Hexagon v73)
-  - **Qualcomm AI Hub Client**: `qai-hub 0.47.0`
-  - **ONNX Runtime QNN Execution Provider**: `onnxruntime-qnn 1.23.2` (avec backend matériel HTP / Hexagon v73)
+- **Operating System**: **Microsoft Windows 11 Pro 24H2 (ARM64, Build 26100 / 26220)**
+- **Qualcomm Hardware Drivers (Digitally Signed by Microsoft)**:
+  - **Hexagon NPU Driver**: `30.0.220.3000` (Signature Date: 01/08/2026)
+  - **Adreno GPU Driver**: `31.0.152.1` (Signature Date: 23/05/2026)
+  - **FastRPC Device Driver**: `1.0.4338.2200` (Date: 06/02/2025)
+  - **Compute DSP Subsystem Driver**: `2.0.4513.4500` (Date: 01/08/2026)
+  - **Secure Processor Subsystem Driver**: `2.0.4513.4500` (Date: 01/08/2026)
+  - **Qualcomm Bus / IOMMU Drivers**: `1.0.4160.6000` (Date: 29/10/2024)
+- **Qualcomm QNN Software Stack & AI Engines**:
+  - **Qualcomm AI Engine Direct / QNN Core (`QnnHtp.dll`)**: Version **2.37.1** (Exact Internal Build: `2.37.1.250807093845_124904`)
+  - **Qualcomm AI Hub Client (`qai-hub`)**: Version **0.51.0**
+  - **ONNX Runtime Engine**: Version **1.23.2 / 1.30.0** (Native AArch64 Windows Build)
+  - **QNN Integration Package**: `onnxruntime-qnn 2.6.0`
+  - **ONNX Library**: `onnx 1.22.0`
+  - **NumPy**: `numpy 2.5.3`
+  - **Python Execution Environment**: **Python 3.11.9 (ARM64 Windows)**
   - **LiteRT Engine**: Google AI Edge LiteRT `2.3.0`
-    - **Qualcomm AI Engine Direct SDK (QAIRT)** : Téléchargeable officiellement via le [Qualcomm Developer Network - AI Engine Direct SDK](https://developer.qualcomm.com/software/qualcomm-ai-engine-direct-sdk) et [Qualcomm AI Hub](https://aihub.qualcomm.com/).
-    - **Documentation & guides QAIRT** : Disponibles sur le portail [Qualcomm AI Hub Docs](https://docs.qualcomm.com/bundle/publicresource/topics/80-63442-50/introduction.html).
-- **NPU Measurement Status**: Validé et mesuré empiriquement sur le NPU Hexagon de cette machine Snapdragon sous Windows 11 Pro 24H2 ARM64.
+    - **Qualcomm AI Engine Direct SDK (QAIRT)**: Downloadable via [Qualcomm Developer Network - AI Engine Direct SDK](https://developer.qualcomm.com/software/qualcomm-ai-engine-direct-sdk) and [Qualcomm AI Hub](https://aihub.qualcomm.com/).
+    - **QAIRT Documentation & Guides**: Available on [Qualcomm AI Hub Docs](https://docs.qualcomm.com/bundle/publicresource/topics/80-63442-50/introduction.html).
+- **NPU Measurement Status**: Empirically measured and validated on the Hexagon NPU of this Snapdragon machine under Windows 11 Pro 24H2 ARM64.
 
 ---
 

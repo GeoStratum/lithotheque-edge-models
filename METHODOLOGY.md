@@ -125,7 +125,7 @@ We selected **100 images** per model from the validation datasets.
 ## 6. Edge Hardware Optimization & Portability
 
 While benchmarks were conducted on the Snapdragon X Elite, the optimization strategy was designed for **maximum cross-platform portability**:
-- **W4A8 Format Selection**: The **W4A8** format was chosen over more specialized formats (like W4A16) to ensure the widest possible compatibility across various Edge AI runtimes (LiteRT, ONNX Runtime) and hardware accelerators (NPUs from multiple vendors, modern GPUs). This ensures a consistent performance baseline across the fragmented Android and Windows ARM64 ecosystems.
+- **W4A8 Format Selection**: The **W4A8** format was chosen over more specialized formats (like W4A16) to ensure the widest possible compatibility across various Edge AI runtimes (LiteRT, ONNX Runtime) and hardware accelerators (NPUs from multiple vendors, modern GPUs). This ensures a consistent performance baseline across the Windows ARM64 Copilot+ ecosystem.
 - **Full Integer I/O**: Without this, the CPU would perform a "Casting" overhead for every frame. By forcing INT8, the data flow remains entirely in the integer domain from the sensor to the final prediction, significantly reducing thermal throttling risks on mobile devices.
 
 ---
@@ -312,10 +312,10 @@ For full scientific reproducibility, the following specialized automation script
 - **OS**: Windows 11 Pro (x64)
 
 ### Target Edge Benchmark Hardware (Snapdragon Edge Deployment Platform)
-- **Platform**: Microsoft Surface Laptop 7 / Surface Pro 11 (Qualcomm Snapdragon® X Elite / X Plus)
+- **Platform**: Microsoft Surface Laptop 7 / Surface Pro 11 (Qualcomm Snapdragon® X Plus - X1P64100 / X Elite)
 - **NPU**: Qualcomm Hexagon (45 TOPS INT8)
 - **RAM**: 16 - 32 GB LPDDR5x @ 8448 MT/s
-- **OS**: Windows 11 ARM64 / Android 15 (16 KB pages)
+- **OS**: Windows 11 Pro 24H2 (ARM64, Build 26100 / 26220)
 
 ---
 *This document certifies the technical reproducibility of the models across NVIDIA Blackwell and Qualcomm Snapdragon platforms.*
