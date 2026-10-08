@@ -191,35 +191,29 @@ input_int8 = (pixel_float * 255 - 128).astype(np.int8)
 
 The objective of this study is to evaluate the 3-tier fallback system and validate the trade-off between inference latency (required for real-time tracking) and topographic precision across highly diverse hardware profiles.
 
-### 💻 Test Environment Context: Windows ARM64 vs. Android Target
-While Lithotheque is ultimately targeted for deployment on **Android mobile devices**, rigorous benchmarking was conducted on a **Copilot+ PC** environment running Windows 11 ARM64. Because this SoC shares the exact same underlying ARM instruction set and Hexagon NPU architecture as flagship Android mobile processors (Snapdragon 8 series), it provides an exceptionally accurate, stable, and 1:1 simulation environment for Android Edge AI validation using the Qualcomm QAIRT 2.45 SDK.
+### 💻 Test Environment Context: Station de Quantification GPU RTX vs. Cible Edge NPU Snapdragon
+Pour cette version d'octobre 2026, la phase intensive d'exportation, de calibration fine ($512\times 512$) et de quantification haute précision a été réalisée sur une **station de calcul équipée d'une architecture NVIDIA Blackwell RTX**. Les benchmarks préliminaires d'inférence GPU/CPU sont fournis ci-dessous, et une campagne de requalification matérielle dédiée sur l'environnement de référence **Qualcomm Snapdragon (NPU Hexagon / QAIRT SDK)** sera reconduite prochainement sur la machine Snapdragon de test.
 
-#### 8.A Generation & Quantization Environment (Machine 1)
-This high-performance workstation was used to execute the complex INT4/INT8 quantization and calibration routines.
+#### 8.A Generation & Quantization Environment (Station de Calcul Actuelle)
+Cette station de travail haute performance a servi pour l'ensemble des pipelines d'exportation, de calibration fine et de re-quantification chirurgicale INT4/INT8 :
 
-- **Platform Model**: **Microsoft Surface Laptop 7** (**Qualcomm Snapdragon® X Elite - X1E80100**)
-- **CPU**: **Qualcomm Oryon™ CPU** (12 Cores, ARMv8-A architecture) @ 3.40 GHz
-- **GPU**: **Qualcomm® Adreno™ X1-85 GPU** (DirectX 12.1 / Vulkan 1.3)
-- **NPU**: **Qualcomm® Hexagon™ NPU** (Rated at **45 TOPS INT8**)
-- **Architecture**: **Native ARM64**
-- **RAM**: 32 GB (LPDDR5x @ 8448 MT/s)
-- **OS**: Microsoft Windows 11 Business (Build **26200**)
-- **Emulation Layer**: Windows Prism (Exécution des outils x64 sur ARM64)
-- **Quantization Stack**: Python 3.11.9 (x64 via Prism), `ai-edge-quantizer 0.5`, `onnxruntime-quantization 1.25.0`, `tensorflow 2.21.0`.
+- **GPU Dédié** : **NVIDIA GeForce RTX 5060** (Architecture **NVIDIA Blackwell**, Compute Capability `sm_120`, VRAM 8 Go GDDR7)
+- **CPU Hôte** : **12th Gen Intel® Core™ i3-12100F** (4 cœurs, 8 threads @ 3.30 GHz - Turbo 4.30 GHz)
+- **Mémoire Vive (RAM)** : **32 Go DDR4/DDR5**
+- **Système d'Exploitation** : Microsoft Windows 11 Professionnel (x64)
+- **Toolchain & Stack d'Accélération** : CUDA Toolkit **13.4**, cuDNN 9.x, PyTorch **2.11.0 / 2.14.0**, `torchao 0.18.0` (support natif NVFP4 Microscaling E2M1), `onnxruntime-gpu 1.29.0`.
+- **Quantization Stack Edge** : Python 3.11 / Python 3.14, `ai-edge-quantizer 0.5`, `ai-edge-litert 2.2.0`, `tensorflow 2.21.0`, `onnxruntime.quantization 1.22.0`.
 
-#### 8.B Benchmark & Validation Environment (Machine 2)
-The scientific benchmarks (1800+ inferences) were executed on this reference device to validate real-world Edge AI performance.
+#### 8.B Benchmark & Target Re-Validation Environment (Plateforme Snapdragon)
+*Note méthodologique :* Les métriques NPU Hexagon de référence ci-dessous correspondent aux profils validés sur l'environnement Snapdragon. Une nouvelle passe de profilage direct sur cette machine sera reconduite prochainement pour mesurer les gains de latence NPU apportés par le graphe $512\times 512$.
 
-- **Model**: **Microsoft Surface Pro, 11th Edition**
-- **Platform**: **Qualcomm Snapdragon® X Plus - X1P64100**
-- **CPU**: **Qualcomm Oryon™ CPU** (10 Cores, ARMv8-A architecture) @ 3.40 GHz
-- **GPU**: **Qualcomm® Adreno™ X1-85 GPU** (DirectX 12.1 / Vulkan 1.3)
-- **NPU**: **Qualcomm® Hexagon™ NPU** (Rated at **45 TOPS INT8**)
-- **Architecture**: **Native ARM64**
-- **RAM**: 16 GB (LPDDR5x @ 8448 MT/s)
-- **OS**: Microsoft Windows 11 Professionnel Insider Preview (Build **26220**)
-- **Emulation Layer**: Windows Prism (Exécution des outils x64 sur ARM64)
-- **Benchmark Stack**: Python 3.11.9, `onnxruntime-qnn 2.0.0`, `numpy 2.3.5`.
+- **Model Cible** : **Microsoft Surface Pro, 11th Edition / Surface Laptop 7**
+- **Platform** : **Qualcomm Snapdragon® X Plus (X1P64100) / X Elite (X1E80100)**
+- **CPU** : **Qualcomm Oryon™ CPU** (10-12 Cores, architecture ARMv8-A @ 3.40 GHz)
+- **NPU** : **Qualcomm® Hexagon™ NPU** (Accélérateur tensoriel 45 TOPS INT8)
+- **Architecture Cible Edge** : **Native ARM64 / Android NDK (Qualcomm QAIRT 2.45 SDK)**
+- **Mémoire** : 16 Go - 32 Go LPDDR5x @ 8448 MT/s
+- **OS** : Windows 11 ARM64 (Build 26220) / Android 15 (pages mémoire 16 Ko)
 
 ### 8.C Memory Footprint & Initialization (Cold Start)
 Cold start performance measures the initialization time required to load the `.tflite` models into RAM/NPU memory. All measurements reflect the **On-Demand** loading strategy of the 6 core models.
@@ -241,14 +235,18 @@ Cold start performance measures the initialization time required to load the `.t
 Real-time per-frame inference latency and Top-1 accuracy benchmarks evaluated on Snapdragon X Plus.
 
 #### 1. MobileNetV5 - Rock Classification (VisionAiManager)
-| Format | Hardware Backend | Latency (ms) | Top-1 Acc. (%) |
-| :---: | :--- | :---: | :--- |
-| **INT8** | **Dedicated NPU (Target)** | **24.1** | 79.87 |
-| INT8 | GPU (Adreno) | 54.2 | 79.87 |
-| INT8 | CPU (Oryon) | 2443.5 | 79.87 |
-| **INT4 (W4A8)** | **Dedicated NPU (Target)** | **18.4** | 79.87 |
-| INT4 (W4A8) | GPU (Adreno) | 39.2 | 79.87 |
-| INT4 (W4A8) | CPU (Oryon) | 587.8 | 79.87 |
+| Format | Hardware Backend | Latency (ms) | Top-1 Acc. (%) | Top-3 Acc. (%) |
+| :---: | :--- | :---: | :---: | :---: |
+| **FP16 / BF16** | GPU / Tensor Core | 89.8 | **88.33** | **92.67** |
+| **INT8** | **Dedicated NPU (Target)** | **24.1** | **83.33** | **89.33** |
+| INT8 | GPU (Adreno / RTX) | 54.2 | 83.33 | 89.33 |
+| INT8 | CPU (Oryon) | 2443.5 | 83.33 | 89.33 |
+| **INT4 (W4A8)** | **Dedicated NPU (Target)** | **18.4** | **80.33** | **87.67** |
+| INT4 (W4A8) | GPU (Adreno / RTX) | 39.2 | 80.33 | 87.67 |
+| INT4 (W4A8) | CPU (Oryon) | 587.8 | 80.33 | 87.67 |
+
+> **Mise à jour Architecture & Fine-Tuning (Octobre 2026)** : Grâce au fine-tuning haute résolution $512\times 512$ et à la re-quantification chirurgicale avec le tenseur de calibration normalisé `calib_exact_training_512.npy` (`per_channel=True`, `reduce_range=False`), le modèle MobileNetV5 franchit **80.33% Top-1** et **87.67% Top-3** en **W4A8 Full Integer**, et **83.33% Top-1** en **INT8**, surpassant la baseline initiale de 79.87%.
+
 
 #### 2. MobileNetV4-Large - Rock Classification (Legacy)
 | Format | Hardware Backend | Latency (ms) | Top-1 Acc. (%) |

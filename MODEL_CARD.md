@@ -20,7 +20,7 @@ These models are designed for educational and preliminary field classification. 
 *Always consult laboratory analysis (e.g., XRD, XRF) for definitive geological validation.*
 
 ## Metrics & Performance
-* **Accuracy:** 96.76% (Top-1) on the Legacy backend, 79.87% on Standard/Premium quantized backends.
+* **Accuracy:** 96.76% (Top-1) sur le backend Legacy V4, et jusqu'à **83.33% Top-1 / 89.33% Top-3** en **INT8**, et **80.33% Top-1 / 87.67% Top-3** en **W4A8 Full Integer** sur le backend MobileNetV5 (dépassant la baseline précédente de 79.87%).
 * **Latency:** Ranging from 18.4 ms (Dedicated NPU) to 142.8 ms (Legacy CPU).
 * *For comprehensive hardware profiling, please refer to the main `README.md`.*
 
