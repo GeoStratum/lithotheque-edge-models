@@ -257,16 +257,21 @@ Cold start performance measures the initialization time required to load the `.t
 #### 1. MobileNetV5 - Rock Classification (VisionAiManager)
 
 ##### Environment A: NVIDIA RTX 5060 Workstation (Desktop x64)
-Empirical latency and classification accuracy measured on the model generation and quantization workstation:
+Empirical latency and classification accuracy measured across 100 consecutive runs on the NVIDIA GeForce RTX 5060 (Blackwell `sm_120`) workstation:
 
 | Format | Execution Backend | Latency (ms) | Top-1 Acc. (%) | Top-3 Acc. (%) | Status |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **BF16 / FP16** | NVIDIA RTX 5060 (Tensor Cores) | **89.8** | **88.33%** | **92.67%** | Validated |
-| **FP8 (E4M3FN)** | NVIDIA RTX 5060 (Tensor Cores FP8) | **30.8** | *FP8 Weights* | *FP8 Weights* | Validated |
-| **INT8 (W8A8)** | NVIDIA RTX 5060 (Tensor Cores INT8) | 54.2 | **83.33%** | **89.33%** | Validated |
-| **INT8 (W8A8)** | Intel Core i3-12100F (x64 CPU) | 2443.5 | **83.33%** | **89.33%** | Validated |
-| **W4A8 Full Int** | NVIDIA RTX 5060 (Tensor Cores INT4) | 39.2 | **80.33%** | **87.67%** | Validated |
-| **W4A8 Full Int** | Intel Core i3-12100F (x64 CPU) | 587.8 | **80.33%** | **87.67%** | Validated |
+| **BF16 / FP16** | NVIDIA RTX 5060 (Tensor Cores) | **89.8** | **88.33%** | **92.67%** | Validated (Native CUDA) |
+| **FP8 (E4M3FN)** | NVIDIA RTX 5060 (Tensor Cores FP8) | **30.8** | *FP8 Weights* | *FP8 Weights* | Validated (Native Blackwell) |
+| **INT8 (W8A8)** | NVIDIA RTX 5060 (Tensor Cores INT8) | **140.2** | **83.33%** | **89.33%** | Validated (p95: 154.4 ms, 1 Memcpy node) |
+| **INT8 (W8A8)** | Intel Core i3-12100F (x64 CPU) | **3019.7** | **83.33%** | **89.33%** | Validated (p95: 3103.1 ms) |
+| **W4A8 Full Int** | NVIDIA RTX 5060 (ORT CUDA EP - Unfused) | **3321.2** | **80.33%** | **87.67%** | See Compiler Note below |
+| **W4A8 Full Int** | Intel Core i3-12100F (x64 CPU) | **3375.3** | **80.33%** | **87.67%** | Validated (p95: 3509.0 ms) |
+
+> **💡 Architectural Note on Blackwell W4A8 Hardware Acceleration vs. Runtime Fusion**:
+> - **Silicon Hardware Capability**: The NVIDIA Blackwell architecture (`sm_120`) physically includes native 5th-generation Tensor Core instructions supporting sub-byte quantization (INT4/W4A8 and NVFP4 Microscaling) with double the theoretical throughput of INT8.
+> - **The ONNX Runtime QDQ Bottleneck**: In standard `onnxruntime-gpu`, INT4 QDQ convolution nodes (`Conv` paired with 4-bit `QuantizeLinear`/`DequantizeLinear`) are not yet fused into hardware Tensor Core kernels (unlike LLM `MatMulNBits` layers). Consequently, ORT triggers **6,354 host-to-device PCIe `Memcpy` operations** during inference, bouncing intermediate activation tensors between CPU system memory and GPU VRAM.
+> - **Edge Silicon Contrast (Snapdragon Hexagon)**: This highlights a foundational finding of our study: while desktop GPUs require specialized compilation pipelines (`nvidia-modelopt` / TensorRT AOT engines) to avoid PCIe bus stalls, the **Qualcomm Hexagon NPU** executes W4A8 directly in silicon without memory round-trips, achieving sub-20 ms mobile execution.
 
 ##### Environment B: Qualcomm Snapdragon Copilot+ PC (Windows 11 Pro ARM64)
 Target Edge benchmarks measured on the **Qualcomm Snapdragon® X Plus (X1P64100 10-core @ 3.40 GHz)** running Windows 11 Pro ARM64:
