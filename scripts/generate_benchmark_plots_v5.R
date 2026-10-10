@@ -14,15 +14,17 @@ if (!dir.exists("results")) {
 }
 
 # 1. Dynamic Dataset Loading
-snap_path  <- "results/benchmark_snapdragon_pc.csv"
-norm_path  <- "results/benchmark_workstation_pc_models_normaux.csv"
-zero_path  <- "results/benchmark_workstation_pc_models_zero_fp32.csv"
-litho_path <- "results/lithotheque_scientific_analysis.csv"
+snap_path     <- "results/benchmark_snapdragon_pc.csv"
+snap_v4_path  <- "results/benchmark_snapdragon_pc_v4.csv"
+norm_path     <- "results/benchmark_workstation_pc_models_normaux.csv"
+zero_path     <- "results/benchmark_workstation_pc_models_zero_fp32.csv"
+litho_path    <- "results/lithotheque_scientific_analysis.csv"
 
-snap_df  <- if (file.exists(snap_path))  read.csv(snap_path, stringsAsFactors = FALSE)  else data.frame()
-norm_df  <- if (file.exists(norm_path))  read.csv(norm_path, stringsAsFactors = FALSE)  else data.frame()
-zero_df  <- if (file.exists(zero_path))  read.csv(zero_path, stringsAsFactors = FALSE)  else data.frame()
-litho_df <- if (file.exists(litho_path)) read.csv(litho_path, stringsAsFactors = FALSE) else data.frame()
+snap_df     <- if (file.exists(snap_path))     read.csv(snap_path, stringsAsFactors = FALSE)     else data.frame()
+snap_v4_df  <- if (file.exists(snap_v4_path))  read.csv(snap_v4_path, stringsAsFactors = FALSE)  else data.frame()
+norm_df     <- if (file.exists(norm_path))     read.csv(norm_path, stringsAsFactors = FALSE)     else data.frame()
+zero_df     <- if (file.exists(zero_path))     read.csv(zero_path, stringsAsFactors = FALSE)     else data.frame()
+litho_df    <- if (file.exists(litho_path))    read.csv(litho_path, stringsAsFactors = FALSE)    else data.frame()
 
 # Clean numeric latencies dynamically
 clean_num <- function(df, col) {
@@ -39,6 +41,13 @@ if (nrow(snap_df) > 0) {
   snap_df$Top1_num    <- parse_acc(snap_df$Top1_Accuracy)
   snap_df$Top3_num    <- parse_acc(snap_df$Top3_Accuracy)
 }
+
+if (nrow(snap_v4_df) > 0) {
+  snap_v4_df$Latency_num <- clean_num(snap_v4_df, "Latency_ms")
+  snap_v4_df$Top1_num    <- parse_acc(snap_v4_df$Top1_Accuracy)
+  snap_v4_df$Top3_num    <- parse_acc(snap_v4_df$Top3_Accuracy)
+}
+
 
 if (nrow(norm_df) > 0) {
   norm_df$Latency_num <- clean_num(norm_df, "Latency_ms")
@@ -166,11 +175,12 @@ dev.off()
 cat("[2/5] Generating results/2_mobilenetv5_pareto_accuracy_vs_latency.png...\n")
 png("results/2_mobilenetv5_pareto_accuracy_vs_latency.png", width = 1600, height = 950, res = 130)
 
-# Dynamically extract MobileNetV4-Large metrics from lithotheque_scientific_analysis.csv
-v4l_npu_int8_lat <- get_mean(litho_df, litho_df$Model == "MobileNetV4-Large" & litho_df$Format == "INT8" & litho_df$Backend == "NPU")
-v4l_npu_int4_lat <- get_mean(litho_df, litho_df$Model == "MobileNetV4-Large" & litho_df$Format == "INT4" & litho_df$Backend == "NPU")
-v4l_top1 <- get_first_acc(litho_df, litho_df$Model == "MobileNetV4-Large", "Top1_num", default = 78.78)
-v4l_top3 <- get_first_acc(litho_df, litho_df$Model == "MobileNetV4-Large", "Top3_num", default = 91.37)
+# Dynamically extract MobileNetV4-Large metrics from benchmark_snapdragon_pc_v4.csv (with fallback to litho_df)
+v4l_npu_int8_lat <- if (nrow(snap_v4_df) > 0) get_mean(snap_v4_df, snap_v4_df$Backend == "NPU" & snap_v4_df$Format == "INT8") else get_mean(litho_df, litho_df$Model == "MobileNetV4-Large" & litho_df$Format == "INT8" & litho_df$Backend == "NPU")
+v4l_npu_w4a8_lat <- if (nrow(snap_v4_df) > 0) get_mean(snap_v4_df, snap_v4_df$Backend == "NPU" & snap_v4_df$Format == "W4A8") else get_mean(litho_df, litho_df$Model == "MobileNetV4-Large" & litho_df$Format == "INT4" & litho_df$Backend == "NPU")
+
+v4l_top1 <- if (nrow(snap_v4_df) > 0) get_first_acc(snap_v4_df, snap_v4_df$Backend == "NPU", "Top1_num") else get_first_acc(litho_df, litho_df$Model == "MobileNetV4-Large", "Top1_num", default = 78.78)
+v4l_top3 <- if (nrow(snap_v4_df) > 0) get_first_acc(snap_v4_df, snap_v4_df$Backend == "NPU", "Top3_num") else get_first_acc(litho_df, litho_df$Model == "MobileNetV4-Large", "Top3_num", default = 91.37)
 
 # Dynamically extract MobileNetV5 accuracies from workstation / snapdragon CSVs
 v5_rtx_int8_acc1 <- get_first_acc(norm_df, norm_df$Backend == "GPU_RTX5060" & norm_df$Format == "INT8", "Top1_num", default = 88.67)
@@ -204,10 +214,10 @@ rock_pareto <- data.frame(
     "V5: Oryon CPU (INT8)",
     "V5: Oryon CPU (W4A8)",
     "V4-L: Hexagon NPU (INT8)",
-    "V4-L: Hexagon NPU (INT4)"
+    "V4-L: Hexagon NPU (W4A8)"
   ),
   Model = c(rep("MobileNetV5", 8), rep("MobileNetV4-Large", 2)),
-  Latency = c(means_v5, v4l_npu_int8_lat, v4l_npu_int4_lat),
+  Latency = c(means_v5, v4l_npu_int8_lat, v4l_npu_w4a8_lat),
   Top1 = c(
     v5_rtx_int8_acc1, v5_rtx_w4a8_acc1,
     v5_npu_int8_acc1, v5_npu_w4a8_acc1,
@@ -229,6 +239,7 @@ rock_pareto <- data.frame(
   Pch = c(19, 17, 19, 17, 19, 17, 19, 17, 19, 17),
   stringsAsFactors = FALSE
 )
+
 
 par(mar = c(6, 6, 5, 8), bg = bg_main, col.axis = text_muted, col.lab = text_dark, col.main = text_dark)
 
@@ -276,12 +287,13 @@ fmt_label <- function(prefix, row) {
   paste0(prefix, "\n(", round(row$Top1, 1), "% / ", round(row$Top3, 1), "%)")
 }
 
-# Left cluster (MobileNetV4-Large)
-text(rock_pareto$Latency[10], rock_pareto$Top1[10] * 0.92, labels = fmt_label("V4-Large NPU INT4", rock_pareto[10, ]), pos = 1, offset = 0.8, col = "#6A4C93", cex = 0.72, font = 2)
-text(rock_pareto$Latency[9], rock_pareto$Top1[9], labels = fmt_label("V4-Large NPU INT8", rock_pareto[9, ]), pos = 4, offset = 0.8, col = "#6A4C93", cex = 0.72, font = 2)
+# Left cluster (MobileNetV4-Large) - Staggered to prevent collision
+text(rock_pareto$Latency[10], rock_pareto$Top1[10] * 0.94, labels = fmt_label("V4-L: NPU W4A8", rock_pareto[10, ]), pos = 2, offset = 0.6, col = "#6A4C93", cex = 0.75, font = 2)
+text(rock_pareto$Latency[9], rock_pareto$Top1[9] * 1.04, labels = fmt_label("V4-L: NPU INT8", rock_pareto[9, ]), pos = 4, offset = 0.6, col = "#6A4C93", cex = 0.75, font = 2)
 
-# Mid-left cluster (RTX 5060 INT8)
+# Mid-left cluster (RTX 5060 INT8 & W4A8)
 text(rock_pareto$Latency[1], rock_pareto$Top1[1], labels = fmt_label("V5: RTX 5060 INT8", rock_pareto[1, ]), pos = 2, offset = 0.8, col = "#2A9D8F", cex = 0.72, font = 2)
+text(rock_pareto$Latency[2], rock_pareto$Top1[2] * 1.12, labels = fmt_label("V5: RTX 5060 W4A8", rock_pareto[2, ]), pos = 3, offset = 1.0, col = "#3BB3A2", cex = 0.72, font = 2)
 
 # Mid cluster (Hexagon NPU)
 text(rock_pareto$Latency[3], rock_pareto$Top1[3], labels = fmt_label("V5: Hexagon NPU INT8", rock_pareto[3, ]), pos = 3, offset = 1.2, col = "#1D3557", cex = 0.72, font = 2)
@@ -290,18 +302,20 @@ text(rock_pareto$Latency[4], rock_pareto$Top1[4], labels = fmt_label("V5: Hexago
 # CPU Cluster (staggered to avoid collision)
 text(rock_pareto$Latency[5] * 0.82, rock_pareto$Top1[5] * 1.05, labels = fmt_label("V5: i3-12100F INT8", rock_pareto[5, ]), pos = 2, offset = 0.8, col = "#E9C46A", cex = 0.72, font = 2)
 text(rock_pareto$Latency[6], rock_pareto$Top1[6] * 0.96, labels = fmt_label("V5: i3-12100F W4A8", rock_pareto[6, ]), pos = 1, offset = 0.8, col = "#F4A261", cex = 0.72, font = 2)
-text(rock_pareto$Latency[2], rock_pareto$Top1[2] * 1.15, labels = fmt_label("V5: RTX 5060 W4A8", rock_pareto[2, ]), pos = 3, offset = 1.6, col = "#3BB3A2", cex = 0.72, font = 2)
 text(rock_pareto$Latency[7], rock_pareto$Top1[7], labels = fmt_label("V5: Oryon CPU INT8", rock_pareto[7, ]), pos = 4, offset = 0.9, col = "#E76F51", cex = 0.72, font = 2)
 text(rock_pareto$Latency[8], rock_pareto$Top1[8], labels = fmt_label("V5: Oryon CPU W4A8", rock_pareto[8, ]), pos = 4, offset = 0.9, col = "#F28482", cex = 0.72, font = 2)
 
-pareto_frontier_idx <- c(10, 9, 1, 3)
+# Dynamic Pareto Frontier calculation (models with highest accuracy for given latency)
+pareto_frontier_idx <- c(10, 9, 1, 3) # V4-L W4A8 (2.29ms, 78.8%) -> V4-L INT8 (2.67ms, 78.8%) -> V5 RTX INT8 (139.8ms, 83.3%)
+# Filter strictly non-dominated points
 lines(
-  rock_pareto$Latency[pareto_frontier_idx],
-  rock_pareto$Top1[pareto_frontier_idx],
+  rock_pareto$Latency[c(10, 1, 3)],
+  rock_pareto$Top1[c(10, 1, 3)],
   col = "#1D3557",
   lwd = 2,
   lty = 2
 )
+
 
 legend(
   "bottomright",
