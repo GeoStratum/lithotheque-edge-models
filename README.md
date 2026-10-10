@@ -292,8 +292,8 @@ Exhaustive on-device measurements collected on the Snapdragon X Plus Copilot+ ul
 | **MobileNetV5 W4A8** | **Qualcomm Hexagon NPU (HTP Burst)** | **476.98 ms** | **439.93 ms** | **573.52 ms** | 23.26 ms | **78.42%** | **Validated NPU (100 runs)** - QNN Error 6020 resolved (9.1x vs CPU) |
 | **MobileNetV5 INT8** | **Qualcomm Oryon CPU (4 threads)** | **4,135.08 ms** | **2,863.09 ms** | **5,319.42 ms** | 516.29 ms | **83.33%** | **Measured (100 runs)** - Multithreaded ARM64 CPU execution |
 | **MobileNetV5 W4A8** | **Qualcomm Oryon CPU (4 threads)** | **4,326.60 ms** | **1,243.54 ms** | **5,858.53 ms** | 606.20 ms | **78.42%** | **Measured (100 runs)** - Full functional ARM64 CPU fallback |
-| **MobileNetV5 INT8** | Qualcomm Adreno GPU (QnnGpu OpenCL) | *N/A* | - | - | - | 83.33% | Rejected: Adreno GPU driver supports FP16 floating-point ops only |
-| **MobileNetV5 W4A8** | Qualcomm Adreno GPU (QnnGpu OpenCL) | *N/A* | - | - | - | 78.42% | Rejected: Adreno GPU driver supports FP16 floating-point ops only |
+| **MobileNetV5 INT8** | Qualcomm Adreno GPU (QnnGpu OpenCL) | *N/A* | - | - | - | *N/A* | Rejected: Adreno GPU driver supports FP16 floating-point ops only |
+| **MobileNetV5 W4A8** | Qualcomm Adreno GPU (QnnGpu OpenCL) | *N/A* | - | - | - | *N/A* | Rejected: Adreno GPU driver supports FP16 floating-point ops only |
 
 > **Methodological Synthesis & Edge Insights (October 2026 Snapdragon Engineering Report):**
 > 1. **Qualcomm Hexagon NPU Hardware Acceleration (INT8 & W4A8)**: The dedicated Hexagon NPU outperforms the multithreaded Oryon CPU by a factor of **9.2x** in INT8 (449 ms vs. 4,135 ms) and **9.1x** in W4A8 (476 ms vs. 4,326 ms), operating under a cool thermal envelope (< 5W TDP) without thermal throttling.
@@ -345,8 +345,8 @@ Physical on-device qualification conducted on the Qualcomm Snapdragon X silicon 
 | **MobileNetV4 INT8** | **Qualcomm Oryon CPU (ARM64)** | **9.46 ms** | **6.67 ms** | **40.96 ms** | 5.34 ms | **77.84%** | **90.42%** | **Measured (100 runs)** - Multithreaded Oryon CPU ARM64 (~105 FPS) |
 | **MobileNetV4 W4A8** | **Qualcomm Oryon CPU (ARM64)** | **18.12 ms** | **10.13 ms** | **56.54 ms** | 6.67 ms | **73.91%** | **87.15%** | **Measured (100 runs)** - Functional CPU Oryon fallback (~55 FPS) |
 | **MobileNetV4 FP32** | Qualcomm Adreno GPU (QnnGpu OpenCL) | 22.00 ms | 19.99 ms | 31.93 ms | 2.12 ms | 78.78% | 91.37% | Measured under native FP32 (~45 FPS, baseline) |
-| **MobileNetV4 INT8** | Qualcomm Adreno GPU (QnnGpu OpenCL) | *N/A* | - | - | - | 77.84% | 90.42% | Rejected: Adreno GPU driver restricted to floating-point ops (FP16/FP32) |
-| **MobileNetV4 W4A8** | Qualcomm Adreno GPU (QnnGpu OpenCL) | *N/A* | - | - | - | 73.91% | 87.15% | Rejected: Adreno GPU driver restricted to floating-point ops (FP16/FP32) |
+| **MobileNetV4 INT8** | Qualcomm Adreno GPU (QnnGpu OpenCL) | *N/A* | - | - | - | *N/A* | *N/A* | Rejected: Adreno GPU driver restricted to floating-point ops (FP16/FP32) |
+| **MobileNetV4 W4A8** | Qualcomm Adreno GPU (QnnGpu OpenCL) | *N/A* | - | - | - | *N/A* | *N/A* | Rejected: Adreno GPU driver restricted to floating-point ops (FP16/FP32) |
 
 > Raw benchmark data archived in: [benchmark_snapdragon_pc_v4.csv](results/benchmark_snapdragon_pc_v4.csv) and [benchmark_snapdragon_v4_100_runs.csv](results/benchmark_snapdragon_v4_100_runs.csv).
 

@@ -101,8 +101,8 @@ MobileNetV5 INT8  NPU HTP     449.96 ms       428.69     504.22     16.04 ms    
 MobileNetV5 W4A8  NPU HTP     476.98 ms       439.93     573.52     23.26 ms     78.42%
 MobileNetV5 INT8  CPU Oryon   4135.08 ms      2863.09    5319.42    516.29 ms    79.87%
 MobileNetV5 W4A8  CPU Oryon   4326.60 ms      1243.54    5858.53    606.20 ms    78.42%
-MobileNetV5 INT8  GPU Adreno  N/A (Non supporté au niveau pilote)   -            79.87%
-MobileNetV5 W4A8  GPU Adreno  N/A (Non supporté au niveau pilote)   -            78.42%
+MobileNetV5 INT8  GPU Adreno  N/A (Non supporté au niveau pilote)   -            N/A
+MobileNetV5 W4A8  GPU Adreno  N/A (Non supporté au niveau pilote)   -            N/A
 --------------------------------------------------------------------------------
 
 RATIOS D'ACCELERATION MATERIELLE :
