@@ -38,7 +38,8 @@ bp <- barplot(means, names.arg = labels, col = bar_colors, border = NA,
               ylab = "Average Latency (ms / image - lower is better)",
               font.main = 2, col.lab = "#333333", col.axis = "#555555")
 grid(col = grid_color, lty = "dotted")
-barplot(means, names.arg = labels, col = bar_colors, border = NA, ylim = c(0, max(means) * 1.25), add = TRUE)
+barplot(means, names.arg = NA, col = bar_colors, border = NA, ylim = c(0, max(means) * 1.25), yaxt = "n", xaxt = "n", add = TRUE)
+
 
 fps <- round(1000 / means, 1)
 text(bp, means + 0.7, labels = paste0(round(means, 2), " ms\n(", fps, " fps)"), font = 2, cex = 0.9, col = "#222222")
@@ -123,8 +124,7 @@ bp_fps <- barplot(fps_vals, names.arg = c("NPU W4A8", "NPU INT8", "CPU INT8", "C
                   main = "1. Processing Throughput (Frames / Second)",
                   ylab = "Frames per Second (FPS)", font.main = 2)
 grid(col = grid_color, lty = "dotted")
-barplot(fps_vals, names.arg = c("NPU W4A8", "NPU INT8", "CPU INT8", "CPU W4A8"),
-        col = c(color_npu, "#1D3557", color_cpu, "#F4A261"), border = NA, ylim = c(0, max(fps_vals) * 1.2), add = TRUE)
+barplot(fps_vals, names.arg = NA, col = c(color_npu, "#1D3557", color_cpu, "#F4A261"), border = NA, ylim = c(0, max(fps_vals) * 1.2), yaxt = "n", xaxt = "n", add = TRUE)
 text(bp_fps, fps_vals + 20, labels = paste0(round(fps_vals, 0), " FPS"), font = 2, cex = 0.95, col = "#222222")
 
 # Panel 2: Acceleration speedups relative to CPU
@@ -139,8 +139,8 @@ bp_sp <- barplot(speedups, names.arg = c("W4A8 (NPU vs CPU)", "INT8 (NPU vs CPU)
                  main = "2. NPU Hardware Acceleration Factor",
                  ylab = "Speedup Factor (x)", font.main = 2)
 grid(col = grid_color, lty = "dotted")
-barplot(speedups, names.arg = c("W4A8 (NPU vs CPU)", "INT8 (NPU vs CPU)"),
-        col = c(color_npu, "#1D3557"), border = NA, ylim = c(0, max(speedups) * 1.3), add = TRUE)
+barplot(speedups, names.arg = NA, col = c(color_npu, "#1D3557"), border = NA, ylim = c(0, max(speedups) * 1.3), yaxt = "n", xaxt = "n", add = TRUE)
+
 text(bp_sp, speedups + 0.5, labels = paste0(round(speedups, 1), "x faster"), font = 2, cex = 0.95, col = "#222222")
 
 # Panel 3: Executive summary text & hardware specifications

@@ -133,7 +133,8 @@ y_ticks1 <- c(10, 50, 100, 200, 500, 1000, 2000, 5000, 10000)
 y_ticks1 <- y_ticks1[y_ticks1 >= y_min & y_ticks1 <= y_max]
 axis(2, at = y_ticks1, labels = y_ticks1, col.axis = text_muted, las = 1)
 grid(nx = NA, ny = NULL, col = grid_color, lty = "dotted")
-barplot(means_v5, names.arg = labels_v5, col = colors_v5, border = NA, log = "y", ylim = c(y_min, y_max), yaxt = "n", add = TRUE)
+barplot(means_v5, names.arg = NA, col = colors_v5, border = NA, log = "y", ylim = c(y_min, y_max), yaxt = "n", xaxt = "n", add = TRUE)
+
 
 text(
   bp1,
@@ -383,7 +384,8 @@ y_ticks3 <- c(5, 10, 20, 50, 100, 200, 500, 1000)
 y_ticks3 <- y_ticks3[y_ticks3 >= scale_y_min & y_ticks3 <= scale_y_max]
 axis(2, at = y_ticks3, labels = y_ticks3, col.axis = text_muted, las = 1)
 grid(nx = NA, ny = NULL, col = grid_color, lty = "dotted")
-barplot(scale_means, names.arg = scale_labels, col = scale_cols, border = NA, log = "y", ylim = c(scale_y_min, scale_y_max), yaxt = "n", add = TRUE)
+barplot(scale_means, names.arg = NA, col = scale_cols, border = NA, log = "y", ylim = c(scale_y_min, scale_y_max), yaxt = "n", xaxt = "n", add = TRUE)
+
 
 text(
   bp3,
@@ -534,7 +536,8 @@ y_ticks4 <- c(50, 100, 500, 1000, 5000, 10000, 25000, 50000)
 y_ticks4 <- y_ticks4[y_ticks4 >= p_y_min & y_ticks4 <= p_y_max]
 axis(2, at = y_ticks4, labels = y_ticks4, col.axis = text_muted, las = 1)
 grid(nx = NA, ny = NULL, col = grid_color, lty = "dotted")
-barplot(paradigm_means, names.arg = paradigm_labels, col = paradigm_cols, border = NA, log = "y", ylim = c(p_y_min, p_y_max), yaxt = "n", add = TRUE)
+barplot(paradigm_means, names.arg = NA, col = paradigm_cols, border = NA, log = "y", ylim = c(p_y_min, p_y_max), yaxt = "n", xaxt = "n", add = TRUE)
+
 
 text(
   bp4,
