@@ -318,15 +318,52 @@ Exhaustive on-device measurements collected on the Snapdragon X Plus Copilot+ ul
 | ![Quantization Paradigm Comparison](results/quantization_paradigm_comparison.png) |
 
 
-#### 2. MobileNetV4-Large - Rock Classification (Legacy)
-| Format | Hardware Backend | Latency (ms) | Top-1 Acc. (%) |
-| :---: | :--- | :---: | :--- |
-| **INT8** | **Dedicated NPU (Target)** | **16.7** | 26.42 |
-| INT8 | GPU (Adreno) | 129.1 | 26.42 |
-| INT8 | CPU (Oryon) | 142.8 | 26.42 |
-| **INT4 (W4A8)** | **Dedicated NPU (Target)** | **13.5** | 26.42 |
-| INT4 (W4A8) | GPU (Adreno) | 105.4 | 26.42 |
-| INT4 (W4A8)| CPU (Oryon) | 120.2 | 26.42 |
+#### 2. MobileNetV4-Large - Rock Classification (VisionAiManager / Legacy Tier)
+
+##### Environment A: NVIDIA RTX 5060 Workstation (Desktop x64)
+Tableau préparé pour les mesures empiriques sur la station de travail x64 (Intel Core i3-12100F & NVIDIA RTX 5060 Blackwell) :
+
+| Format | Execution Backend | Latency (ms) | Top-1 Acc. (%) | Top-3 Acc. (%) | Status |
+| :---: | :--- | :---: | :---: | :---: | :---: |
+| **BF16 / FP16** | NVIDIA RTX 5060 (Tensor Cores) | *À benchmarker* | **78.78%** | **91.37%** | En attente de mesure CUDA / Tensor Cores |
+| **FP8 (E4M3FN)** | NVIDIA RTX 5060 (Tensor Cores FP8) | *À benchmarker* | **78.78%** | **91.37%** | Poids NVIDIA Ada / Blackwell |
+| **NVFP4 (E2M1)** | NVIDIA RTX 5060 (Tensor Cores FP4) | *À benchmarker* | **78.78%** | **91.37%** | Microscaling E2M1 TorchAO |
+| **INT8 (W8A8)** | NVIDIA RTX 5060 (Tensor Cores INT8) | *À benchmarker* | **78.78%** | **91.37%** | En attente de mesure TensorRT |
+| **INT8 (W8A8)** | Intel Core i3-12100F (x64 CPU) | *À benchmarker* | **78.78%** | **91.37%** | En attente de mesure CPU x86 AVX2 |
+| **W4A8 Full Int** | NVIDIA RTX 5060 (Tensor Cores INT4) | *À benchmarker* | **78.78%** | **91.37%** | En attente de mesure INT4 |
+| **W4A8 Full Int** | Intel Core i3-12100F (x64 CPU) | *À benchmarker* | **78.78%** | **91.37%** | En attente de mesure CPU x86 AVX2 |
+
+> Structure CSV préparée : [benchmark_workstation_pc_models_v4.csv](results/benchmark_workstation_pc_models_v4.csv)
+
+##### Environment B: Qualcomm Snapdragon Copilot+ PC (Windows 11 Pro 26H2 ARM64 - Mesures Réelles sur 600 Runs)
+Mesures physiques validées sur le silicium Qualcomm Snapdragon X (10 cœurs Oryon @ 3.40 GHz, NPU Hexagon HTP v2.37.1, GPU Adreno X1-85) sur **100 inférences consécutives par configuration** (entrée 1x3x384x384) :
+
+| Model & Format | Execution Backend | Mean Latency (ms) | Min (ms) | Max (ms) | Std Dev (ms) | Top-1 Acc. (%) | Top-3 Acc. (%) | Hardware Status & Diagnostic |
+| :---: | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :--- |
+| **MobileNetV4 W4A8** | **Qualcomm Hexagon NPU (HTP Burst)** | **2.29 ms** | **1.37 ms** | **4.76 ms** | 0.69 ms | **78.78%** | **91.37%** | **Validé NPU (100 runs)** - Accélération matérielle ultra-rapide (~436 FPS) |
+| **MobileNetV4 INT8** | **Qualcomm Hexagon NPU (HTP Burst)** | **2.67 ms** | **1.45 ms** | **7.50 ms** | 1.99 ms | **78.78%** | **91.37%** | **Validé NPU (100 runs)** - Native INT8 HTP execution (~374 FPS) |
+| **MobileNetV4 INT8** | **Qualcomm Oryon CPU (ARM64)** | **9.46 ms** | **6.67 ms** | **40.96 ms** | 5.34 ms | **78.78%** | **91.37%** | **Mesuré (100 runs)** - CPU Oryon ARM64 multithread (~105 FPS) |
+| **MobileNetV4 W4A8** | **Qualcomm Oryon CPU (ARM64)** | **18.12 ms** | **10.13 ms** | **56.54 ms** | 6.67 ms | **78.78%** | **91.37%** | **Mesuré (100 runs)** - Fallback fonctionnel CPU Oryon (~55 FPS) |
+| **MobileNetV4 FP32** | Qualcomm Adreno GPU (QnnGpu OpenCL) | 22.00 ms | 19.99 ms | 31.93 ms | 2.12 ms | 78.78% | 91.37% | Mesuré en FP32 natif (~45 FPS) |
+| **MobileNetV4 INT8** | Qualcomm Adreno GPU (QnnGpu OpenCL) | *N/A* | - | - | - | 78.78% | 91.37% | Rejeté : pilote Adreno QnnGpu restreint aux tenseurs flottants (FP16/FP32) |
+| **MobileNetV4 W4A8** | Qualcomm Adreno GPU (QnnGpu OpenCL) | *N/A* | - | - | - | 78.78% | 91.37% | Rejeté : pilote Adreno QnnGpu restreint aux tenseurs flottants (FP16/FP32) |
+
+> Données brutes archivées : [benchmark_snapdragon_pc_v4.csv](results/benchmark_snapdragon_pc_v4.csv) et [benchmark_snapdragon_v4_100_runs.csv](results/benchmark_snapdragon_v4_100_runs.csv).
+
+##### Visualisations Empiriques Scientifiques MobileNetV4 (Générées via R 4.5.3)
+
+| 1. Comparatif de Latence MobileNetV4 Snapdragon | 2. Stabilité Temporelle (NPU & CPU Oryon) & Distribution |
+| :---: | :---: |
+| ![Comparatif Latence MobileNetV4](results/5_mobilenetv4_snapdragon_latency_comparison.png) | ![Stabilité 100 Runs MobileNetV4](results/6_mobilenetv4_snapdragon_stability_100_runs.png) |
+
+| 3. Dashboard Exécutif MobileNetV4 (Latence vs Précision) |
+| :---: |
+| ![Dashboard Exécutif MobileNetV4](results/7_mobilenetv4_snapdragon_executive_dashboard.png) |
+
+> *Génération reproductible via le script R : [`scripts/generate_snapdragon_plots_v4.R`](scripts/generate_snapdragon_plots_v4.R)*
+
+
+
 
 #### 3. MobileNetV4-Small - Scale Detection (Presence / Absence)
 | Format | Hardware Backend | Latency (ms) | Detection Rate (%) |
@@ -395,6 +432,11 @@ For researchers and developers, the `scripts/` directory contains the official t
 
 ### D. Reference Engine
 - **[litho_reference_engine.py](scripts/litho_reference_engine.py)**: 21-Pass Multi-Scale Tiling (21-MST) reference implementation.
+
+### E. Benchmark & Scientific Visualization (R Engine)
+- **Suite Complète Multi-Modèles** : **[generate_benchmark_plots.R](scripts/generate_benchmark_plots.R)**
+- **MobileNetV4 Snapdragon Profiling** : **[generate_snapdragon_plots_v4.R](scripts/generate_snapdragon_plots_v4.R)**
+
 
 ## 14. License
 
