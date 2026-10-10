@@ -176,15 +176,26 @@ input_int8 = (pixel_float * 255 - 128).astype(np.int8)
 ```
 
 ### C. Zero-FP32 Architectural Specifications
-All production models for MobileNetV5-300M adhere strictly to the **Zero-FP32 Hardware Constraint** (100% full integer arithmetics, 0 float32 tensors, pure QOperator ONNX and full-integer TFLite) to prevent NPU hardware partition rejection on Qualcomm Snapdragon Hexagon HTP:
+All production models for **MobileNetV5-300M** and **MobileNetV4-Large** adhere strictly to the **Zero-FP32 Hardware Constraint** (100% full integer arithmetics, 0 float32 tensors, pure QOperator ONNX and full-integer TFLite) to prevent NPU hardware partition rejection on Qualcomm Snapdragon Hexagon HTP:
 
-| Model File | Format | Quantization | Size | FP32 Tensor Count | NPU HTP Status |
+#### 1. MobileNetV5-300M (Rock Classification - Premium / Standard Tier)
+| Model File | Format | Quantization | Size (MB) | FP32 Tensor Count | NPU HTP Status |
 | :--- | :---: | :---: | :---: | :---: | :---: |
 | `best_mobilenetv5_rocks_int8.tflite` | TFLite | **INT8 (W8A8)** | 287.94 MB | **0 (0.0%)** | **100% Validated (0 fallback)** |
 | `best_mobilenetv5_rocks_w4a8.tflite` | TFLite | **W4A8 Full Int** | 148.05 MB | **0 (0.0%)** | **100% Validated (0 fallback)** |
 | `best_mobilenetv5_rocks_int8.onnx` | ONNX | **INT8 QOperator** | 284.29 MB | **0 (0.0%)** | **100% Validated (0 float Conv)** |
 | `best_mobilenetv5_rocks_w4a8.onnx` | ONNX | **W4A8 QOperator** | 284.84 MB | **0 (0.0%)** | **100% Validated (0 float Conv)** |
 | `best_mobilenetv5_rocks_w4a8_npu.onnx` | ONNX | **W4A8 NPU HTP** | 287.56 MB | **0 (0.0%)** | **100% Validated (HTP Native)** |
+
+#### 2. MobileNetV4-Large (Rock Classification - Balanced / Legacy Tier)
+| Model File | Format | Quantization | Size (MB) | FP32 Tensor Count | NPU HTP Status |
+| :--- | :---: | :---: | :---: | :---: | :---: |
+| `rock_model_w8a8_MobileNetV4.tflite` | TFLite | **INT8 (W8A8)** | 31.91 MB | **0 (0.0%)** | **100% Validated (0 fallback)** |
+| `rock_model_w4a8_MobileNetV4.tflite` | TFLite | **W4A8 Full Int** | 18.15 MB | **0 (0.0%)** | **100% Validated (0 fallback)** |
+| `rock_model_int8_MobileNetV4.onnx` | ONNX | **INT8 QOperator** | 30.05 MB | **0 (0.0%)** | **100% Validated (0 float Conv)** |
+| `rock_model_w4a8_MobileNetV4.onnx` | ONNX | **W4A8 QOperator** | 15.13 MB | **0 (0.0%)** | **100% Validated (0 float Conv)** |
+| `rock_model_int8_qdq.onnx` | ONNX | **INT8 QDQ** | 30.62 MB | 334 (38.1%) | Standard QDQ (CPU/DirectML) |
+| `rock_model_w4a8_qdq.onnx` | ONNX | **W4A8 QDQ** | 30.62 MB | 334 (38.1%) | Standard QDQ (CPU/DirectML) |
 
 
 ## 8. Scientific Benchmark & Hardware Profiling
