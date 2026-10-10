@@ -1,601 +1,601 @@
 Model,Task,Format,Backend,Inference_ID,Latency_ms,Accuracy
-MobileNetV4,Rock_Classification,INT8,NPU,1,5.666,78.78%
-MobileNetV4,Rock_Classification,INT8,NPU,2,6.992,78.78%
-MobileNetV4,Rock_Classification,INT8,NPU,3,7.055,78.78%
-MobileNetV4,Rock_Classification,INT8,NPU,4,6.964,78.78%
-MobileNetV4,Rock_Classification,INT8,NPU,5,5.638,78.78%
-MobileNetV4,Rock_Classification,INT8,NPU,6,5.25,78.78%
-MobileNetV4,Rock_Classification,INT8,NPU,7,1.63,78.78%
-MobileNetV4,Rock_Classification,INT8,NPU,8,5.562,78.78%
-MobileNetV4,Rock_Classification,INT8,NPU,9,7.432,78.78%
-MobileNetV4,Rock_Classification,INT8,NPU,10,6.94,78.78%
-MobileNetV4,Rock_Classification,INT8,NPU,11,7.496,78.78%
-MobileNetV4,Rock_Classification,INT8,NPU,12,5.856,78.78%
-MobileNetV4,Rock_Classification,INT8,NPU,13,6.917,78.78%
-MobileNetV4,Rock_Classification,INT8,NPU,14,7.114,78.78%
-MobileNetV4,Rock_Classification,INT8,NPU,15,6.945,78.78%
-MobileNetV4,Rock_Classification,INT8,NPU,16,7.124,78.78%
-MobileNetV4,Rock_Classification,INT8,NPU,17,1.823,78.78%
-MobileNetV4,Rock_Classification,INT8,NPU,18,5.672,78.78%
-MobileNetV4,Rock_Classification,INT8,NPU,19,5.369,78.78%
-MobileNetV4,Rock_Classification,INT8,NPU,20,5.609,78.78%
-MobileNetV4,Rock_Classification,INT8,NPU,21,5.549,78.78%
-MobileNetV4,Rock_Classification,INT8,NPU,22,6.956,78.78%
-MobileNetV4,Rock_Classification,INT8,NPU,23,3.308,78.78%
-MobileNetV4,Rock_Classification,INT8,NPU,24,3.954,78.78%
-MobileNetV4,Rock_Classification,INT8,NPU,25,1.582,78.78%
-MobileNetV4,Rock_Classification,INT8,NPU,26,1.534,78.78%
-MobileNetV4,Rock_Classification,INT8,NPU,27,1.488,78.78%
-MobileNetV4,Rock_Classification,INT8,NPU,28,1.475,78.78%
-MobileNetV4,Rock_Classification,INT8,NPU,29,1.476,78.78%
-MobileNetV4,Rock_Classification,INT8,NPU,30,3.187,78.78%
-MobileNetV4,Rock_Classification,INT8,NPU,31,1.575,78.78%
-MobileNetV4,Rock_Classification,INT8,NPU,32,1.472,78.78%
-MobileNetV4,Rock_Classification,INT8,NPU,33,1.466,78.78%
-MobileNetV4,Rock_Classification,INT8,NPU,34,1.469,78.78%
-MobileNetV4,Rock_Classification,INT8,NPU,35,1.476,78.78%
-MobileNetV4,Rock_Classification,INT8,NPU,36,1.48,78.78%
-MobileNetV4,Rock_Classification,INT8,NPU,37,1.499,78.78%
-MobileNetV4,Rock_Classification,INT8,NPU,38,1.468,78.78%
-MobileNetV4,Rock_Classification,INT8,NPU,39,1.466,78.78%
-MobileNetV4,Rock_Classification,INT8,NPU,40,3.954,78.78%
-MobileNetV4,Rock_Classification,INT8,NPU,41,1.536,78.78%
-MobileNetV4,Rock_Classification,INT8,NPU,42,1.459,78.78%
-MobileNetV4,Rock_Classification,INT8,NPU,43,1.492,78.78%
-MobileNetV4,Rock_Classification,INT8,NPU,44,1.47,78.78%
-MobileNetV4,Rock_Classification,INT8,NPU,45,1.467,78.78%
-MobileNetV4,Rock_Classification,INT8,NPU,46,1.482,78.78%
-MobileNetV4,Rock_Classification,INT8,NPU,47,1.468,78.78%
-MobileNetV4,Rock_Classification,INT8,NPU,48,1.5,78.78%
-MobileNetV4,Rock_Classification,INT8,NPU,49,2.984,78.78%
-MobileNetV4,Rock_Classification,INT8,NPU,50,1.714,78.78%
-MobileNetV4,Rock_Classification,INT8,NPU,51,1.476,78.78%
-MobileNetV4,Rock_Classification,INT8,NPU,52,1.474,78.78%
-MobileNetV4,Rock_Classification,INT8,NPU,53,1.453,78.78%
-MobileNetV4,Rock_Classification,INT8,NPU,54,1.496,78.78%
-MobileNetV4,Rock_Classification,INT8,NPU,55,1.463,78.78%
-MobileNetV4,Rock_Classification,INT8,NPU,56,1.467,78.78%
-MobileNetV4,Rock_Classification,INT8,NPU,57,1.466,78.78%
-MobileNetV4,Rock_Classification,INT8,NPU,58,1.481,78.78%
-MobileNetV4,Rock_Classification,INT8,NPU,59,1.467,78.78%
-MobileNetV4,Rock_Classification,INT8,NPU,60,2.598,78.78%
-MobileNetV4,Rock_Classification,INT8,NPU,61,1.513,78.78%
-MobileNetV4,Rock_Classification,INT8,NPU,62,1.474,78.78%
-MobileNetV4,Rock_Classification,INT8,NPU,63,1.474,78.78%
-MobileNetV4,Rock_Classification,INT8,NPU,64,1.476,78.78%
-MobileNetV4,Rock_Classification,INT8,NPU,65,1.489,78.78%
-MobileNetV4,Rock_Classification,INT8,NPU,66,1.471,78.78%
-MobileNetV4,Rock_Classification,INT8,NPU,67,1.459,78.78%
-MobileNetV4,Rock_Classification,INT8,NPU,68,1.473,78.78%
-MobileNetV4,Rock_Classification,INT8,NPU,69,1.773,78.78%
-MobileNetV4,Rock_Classification,INT8,NPU,70,2.847,78.78%
-MobileNetV4,Rock_Classification,INT8,NPU,71,1.525,78.78%
-MobileNetV4,Rock_Classification,INT8,NPU,72,1.457,78.78%
-MobileNetV4,Rock_Classification,INT8,NPU,73,1.465,78.78%
-MobileNetV4,Rock_Classification,INT8,NPU,74,1.52,78.78%
-MobileNetV4,Rock_Classification,INT8,NPU,75,1.488,78.78%
-MobileNetV4,Rock_Classification,INT8,NPU,76,1.498,78.78%
-MobileNetV4,Rock_Classification,INT8,NPU,77,1.48,78.78%
-MobileNetV4,Rock_Classification,INT8,NPU,78,1.467,78.78%
-MobileNetV4,Rock_Classification,INT8,NPU,79,1.473,78.78%
-MobileNetV4,Rock_Classification,INT8,NPU,80,3.581,78.78%
-MobileNetV4,Rock_Classification,INT8,NPU,81,1.541,78.78%
-MobileNetV4,Rock_Classification,INT8,NPU,82,1.455,78.78%
-MobileNetV4,Rock_Classification,INT8,NPU,83,1.469,78.78%
-MobileNetV4,Rock_Classification,INT8,NPU,84,1.455,78.78%
-MobileNetV4,Rock_Classification,INT8,NPU,85,1.478,78.78%
-MobileNetV4,Rock_Classification,INT8,NPU,86,1.548,78.78%
-MobileNetV4,Rock_Classification,INT8,NPU,87,1.599,78.78%
-MobileNetV4,Rock_Classification,INT8,NPU,88,1.489,78.78%
-MobileNetV4,Rock_Classification,INT8,NPU,89,1.696,78.78%
-MobileNetV4,Rock_Classification,INT8,NPU,90,2.621,78.78%
-MobileNetV4,Rock_Classification,INT8,NPU,91,1.67,78.78%
-MobileNetV4,Rock_Classification,INT8,NPU,92,1.517,78.78%
-MobileNetV4,Rock_Classification,INT8,NPU,93,1.455,78.78%
-MobileNetV4,Rock_Classification,INT8,NPU,94,1.466,78.78%
-MobileNetV4,Rock_Classification,INT8,NPU,95,1.475,78.78%
-MobileNetV4,Rock_Classification,INT8,NPU,96,1.474,78.78%
-MobileNetV4,Rock_Classification,INT8,NPU,97,3.783,78.78%
-MobileNetV4,Rock_Classification,INT8,NPU,98,1.49,78.78%
-MobileNetV4,Rock_Classification,INT8,NPU,99,2.509,78.78%
-MobileNetV4,Rock_Classification,INT8,NPU,100,1.51,78.78%
-MobileNetV4,Rock_Classification,INT8,CPU,1,6.856,78.78%
-MobileNetV4,Rock_Classification,INT8,CPU,2,14.579,78.78%
-MobileNetV4,Rock_Classification,INT8,CPU,3,8.676,78.78%
-MobileNetV4,Rock_Classification,INT8,CPU,4,7.233,78.78%
-MobileNetV4,Rock_Classification,INT8,CPU,5,7.347,78.78%
-MobileNetV4,Rock_Classification,INT8,CPU,6,9.453,78.78%
-MobileNetV4,Rock_Classification,INT8,CPU,7,6.998,78.78%
-MobileNetV4,Rock_Classification,INT8,CPU,8,9.708,78.78%
-MobileNetV4,Rock_Classification,INT8,CPU,9,7.14,78.78%
-MobileNetV4,Rock_Classification,INT8,CPU,10,9.316,78.78%
-MobileNetV4,Rock_Classification,INT8,CPU,11,6.763,78.78%
-MobileNetV4,Rock_Classification,INT8,CPU,12,9.367,78.78%
-MobileNetV4,Rock_Classification,INT8,CPU,13,6.9,78.78%
-MobileNetV4,Rock_Classification,INT8,CPU,14,9.326,78.78%
-MobileNetV4,Rock_Classification,INT8,CPU,15,6.923,78.78%
-MobileNetV4,Rock_Classification,INT8,CPU,16,9.874,78.78%
-MobileNetV4,Rock_Classification,INT8,CPU,17,7.201,78.78%
-MobileNetV4,Rock_Classification,INT8,CPU,18,9.605,78.78%
-MobileNetV4,Rock_Classification,INT8,CPU,19,6.984,78.78%
-MobileNetV4,Rock_Classification,INT8,CPU,20,12.473,78.78%
-MobileNetV4,Rock_Classification,INT8,CPU,21,10.19,78.78%
-MobileNetV4,Rock_Classification,INT8,CPU,22,7.14,78.78%
-MobileNetV4,Rock_Classification,INT8,CPU,23,10.716,78.78%
-MobileNetV4,Rock_Classification,INT8,CPU,24,7.3,78.78%
-MobileNetV4,Rock_Classification,INT8,CPU,25,9.44,78.78%
-MobileNetV4,Rock_Classification,INT8,CPU,26,7.904,78.78%
-MobileNetV4,Rock_Classification,INT8,CPU,27,9.809,78.78%
-MobileNetV4,Rock_Classification,INT8,CPU,28,7.315,78.78%
-MobileNetV4,Rock_Classification,INT8,CPU,29,7.455,78.78%
-MobileNetV4,Rock_Classification,INT8,CPU,30,9.946,78.78%
-MobileNetV4,Rock_Classification,INT8,CPU,31,7.815,78.78%
-MobileNetV4,Rock_Classification,INT8,CPU,32,34.48,78.78%
-MobileNetV4,Rock_Classification,INT8,CPU,33,27.7,78.78%
-MobileNetV4,Rock_Classification,INT8,CPU,34,20.727,78.78%
-MobileNetV4,Rock_Classification,INT8,CPU,35,15.449,78.78%
-MobileNetV4,Rock_Classification,INT8,CPU,36,19.192,78.78%
-MobileNetV4,Rock_Classification,INT8,CPU,37,40.96,78.78%
-MobileNetV4,Rock_Classification,INT8,CPU,38,24.546,78.78%
-MobileNetV4,Rock_Classification,INT8,CPU,39,7.668,78.78%
-MobileNetV4,Rock_Classification,INT8,CPU,40,7.832,78.78%
-MobileNetV4,Rock_Classification,INT8,CPU,41,7.761,78.78%
-MobileNetV4,Rock_Classification,INT8,CPU,42,8.065,78.78%
-MobileNetV4,Rock_Classification,INT8,CPU,43,10.191,78.78%
-MobileNetV4,Rock_Classification,INT8,CPU,44,7.758,78.78%
-MobileNetV4,Rock_Classification,INT8,CPU,45,8.542,78.78%
-MobileNetV4,Rock_Classification,INT8,CPU,46,10.614,78.78%
-MobileNetV4,Rock_Classification,INT8,CPU,47,7.866,78.78%
-MobileNetV4,Rock_Classification,INT8,CPU,48,10.467,78.78%
-MobileNetV4,Rock_Classification,INT8,CPU,49,6.907,78.78%
-MobileNetV4,Rock_Classification,INT8,CPU,50,7.746,78.78%
-MobileNetV4,Rock_Classification,INT8,CPU,51,11.528,78.78%
-MobileNetV4,Rock_Classification,INT8,CPU,52,7.599,78.78%
-MobileNetV4,Rock_Classification,INT8,CPU,53,8.327,78.78%
-MobileNetV4,Rock_Classification,INT8,CPU,54,10.162,78.78%
-MobileNetV4,Rock_Classification,INT8,CPU,55,7.196,78.78%
-MobileNetV4,Rock_Classification,INT8,CPU,56,7.736,78.78%
-MobileNetV4,Rock_Classification,INT8,CPU,57,6.891,78.78%
-MobileNetV4,Rock_Classification,INT8,CPU,58,6.723,78.78%
-MobileNetV4,Rock_Classification,INT8,CPU,59,9.947,78.78%
-MobileNetV4,Rock_Classification,INT8,CPU,60,6.977,78.78%
-MobileNetV4,Rock_Classification,INT8,CPU,61,8.069,78.78%
-MobileNetV4,Rock_Classification,INT8,CPU,62,7.326,78.78%
-MobileNetV4,Rock_Classification,INT8,CPU,63,8.877,78.78%
-MobileNetV4,Rock_Classification,INT8,CPU,64,10.084,78.78%
-MobileNetV4,Rock_Classification,INT8,CPU,65,13.139,78.78%
-MobileNetV4,Rock_Classification,INT8,CPU,66,12.895,78.78%
-MobileNetV4,Rock_Classification,INT8,CPU,67,10.67,78.78%
-MobileNetV4,Rock_Classification,INT8,CPU,68,6.743,78.78%
-MobileNetV4,Rock_Classification,INT8,CPU,69,7.768,78.78%
-MobileNetV4,Rock_Classification,INT8,CPU,70,6.72,78.78%
-MobileNetV4,Rock_Classification,INT8,CPU,71,7.101,78.78%
-MobileNetV4,Rock_Classification,INT8,CPU,72,8.221,78.78%
-MobileNetV4,Rock_Classification,INT8,CPU,73,7.006,78.78%
-MobileNetV4,Rock_Classification,INT8,CPU,74,7.473,78.78%
-MobileNetV4,Rock_Classification,INT8,CPU,75,6.665,78.78%
-MobileNetV4,Rock_Classification,INT8,CPU,76,7.876,78.78%
-MobileNetV4,Rock_Classification,INT8,CPU,77,6.707,78.78%
-MobileNetV4,Rock_Classification,INT8,CPU,78,7.481,78.78%
-MobileNetV4,Rock_Classification,INT8,CPU,79,7.867,78.78%
-MobileNetV4,Rock_Classification,INT8,CPU,80,7.285,78.78%
-MobileNetV4,Rock_Classification,INT8,CPU,81,7.852,78.78%
-MobileNetV4,Rock_Classification,INT8,CPU,82,6.838,78.78%
-MobileNetV4,Rock_Classification,INT8,CPU,83,7.76,78.78%
-MobileNetV4,Rock_Classification,INT8,CPU,84,6.985,78.78%
-MobileNetV4,Rock_Classification,INT8,CPU,85,7.772,78.78%
-MobileNetV4,Rock_Classification,INT8,CPU,86,6.951,78.78%
-MobileNetV4,Rock_Classification,INT8,CPU,87,7.645,78.78%
-MobileNetV4,Rock_Classification,INT8,CPU,88,6.838,78.78%
-MobileNetV4,Rock_Classification,INT8,CPU,89,6.971,78.78%
-MobileNetV4,Rock_Classification,INT8,CPU,90,6.906,78.78%
-MobileNetV4,Rock_Classification,INT8,CPU,91,7.301,78.78%
-MobileNetV4,Rock_Classification,INT8,CPU,92,6.676,78.78%
-MobileNetV4,Rock_Classification,INT8,CPU,93,7.078,78.78%
-MobileNetV4,Rock_Classification,INT8,CPU,94,8.059,78.78%
-MobileNetV4,Rock_Classification,INT8,CPU,95,6.851,78.78%
-MobileNetV4,Rock_Classification,INT8,CPU,96,7.985,78.78%
-MobileNetV4,Rock_Classification,INT8,CPU,97,7.046,78.78%
-MobileNetV4,Rock_Classification,INT8,CPU,98,7.363,78.78%
-MobileNetV4,Rock_Classification,INT8,CPU,99,6.918,78.78%
-MobileNetV4,Rock_Classification,INT8,CPU,100,7.111,78.78%
-MobileNetV4,Rock_Classification,INT8,GPU,1,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,INT8,GPU,2,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,INT8,GPU,3,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,INT8,GPU,4,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,INT8,GPU,5,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,INT8,GPU,6,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,INT8,GPU,7,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,INT8,GPU,8,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,INT8,GPU,9,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,INT8,GPU,10,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,INT8,GPU,11,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,INT8,GPU,12,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,INT8,GPU,13,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,INT8,GPU,14,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,INT8,GPU,15,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,INT8,GPU,16,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,INT8,GPU,17,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,INT8,GPU,18,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,INT8,GPU,19,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,INT8,GPU,20,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,INT8,GPU,21,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,INT8,GPU,22,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,INT8,GPU,23,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,INT8,GPU,24,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,INT8,GPU,25,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,INT8,GPU,26,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,INT8,GPU,27,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,INT8,GPU,28,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,INT8,GPU,29,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,INT8,GPU,30,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,INT8,GPU,31,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,INT8,GPU,32,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,INT8,GPU,33,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,INT8,GPU,34,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,INT8,GPU,35,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,INT8,GPU,36,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,INT8,GPU,37,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,INT8,GPU,38,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,INT8,GPU,39,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,INT8,GPU,40,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,INT8,GPU,41,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,INT8,GPU,42,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,INT8,GPU,43,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,INT8,GPU,44,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,INT8,GPU,45,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,INT8,GPU,46,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,INT8,GPU,47,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,INT8,GPU,48,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,INT8,GPU,49,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,INT8,GPU,50,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,INT8,GPU,51,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,INT8,GPU,52,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,INT8,GPU,53,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,INT8,GPU,54,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,INT8,GPU,55,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,INT8,GPU,56,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,INT8,GPU,57,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,INT8,GPU,58,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,INT8,GPU,59,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,INT8,GPU,60,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,INT8,GPU,61,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,INT8,GPU,62,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,INT8,GPU,63,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,INT8,GPU,64,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,INT8,GPU,65,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,INT8,GPU,66,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,INT8,GPU,67,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,INT8,GPU,68,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,INT8,GPU,69,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,INT8,GPU,70,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,INT8,GPU,71,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,INT8,GPU,72,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,INT8,GPU,73,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,INT8,GPU,74,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,INT8,GPU,75,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,INT8,GPU,76,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,INT8,GPU,77,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,INT8,GPU,78,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,INT8,GPU,79,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,INT8,GPU,80,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,INT8,GPU,81,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,INT8,GPU,82,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,INT8,GPU,83,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,INT8,GPU,84,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,INT8,GPU,85,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,INT8,GPU,86,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,INT8,GPU,87,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,INT8,GPU,88,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,INT8,GPU,89,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,INT8,GPU,90,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,INT8,GPU,91,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,INT8,GPU,92,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,INT8,GPU,93,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,INT8,GPU,94,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,INT8,GPU,95,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,INT8,GPU,96,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,INT8,GPU,97,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,INT8,GPU,98,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,INT8,GPU,99,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,INT8,GPU,100,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,W4A8,NPU,1,2.804,78.78%
-MobileNetV4,Rock_Classification,W4A8,NPU,2,1.658,78.78%
-MobileNetV4,Rock_Classification,W4A8,NPU,3,1.524,78.78%
-MobileNetV4,Rock_Classification,W4A8,NPU,4,2.135,78.78%
-MobileNetV4,Rock_Classification,W4A8,NPU,5,1.639,78.78%
-MobileNetV4,Rock_Classification,W4A8,NPU,6,1.381,78.78%
-MobileNetV4,Rock_Classification,W4A8,NPU,7,2.622,78.78%
-MobileNetV4,Rock_Classification,W4A8,NPU,8,2.169,78.78%
-MobileNetV4,Rock_Classification,W4A8,NPU,9,2.932,78.78%
-MobileNetV4,Rock_Classification,W4A8,NPU,10,2.501,78.78%
-MobileNetV4,Rock_Classification,W4A8,NPU,11,2.099,78.78%
-MobileNetV4,Rock_Classification,W4A8,NPU,12,1.513,78.78%
-MobileNetV4,Rock_Classification,W4A8,NPU,13,1.577,78.78%
-MobileNetV4,Rock_Classification,W4A8,NPU,14,2.183,78.78%
-MobileNetV4,Rock_Classification,W4A8,NPU,15,1.683,78.78%
-MobileNetV4,Rock_Classification,W4A8,NPU,16,1.644,78.78%
-MobileNetV4,Rock_Classification,W4A8,NPU,17,2.784,78.78%
-MobileNetV4,Rock_Classification,W4A8,NPU,18,2.214,78.78%
-MobileNetV4,Rock_Classification,W4A8,NPU,19,1.971,78.78%
-MobileNetV4,Rock_Classification,W4A8,NPU,20,1.378,78.78%
-MobileNetV4,Rock_Classification,W4A8,NPU,21,3.271,78.78%
-MobileNetV4,Rock_Classification,W4A8,NPU,22,2.729,78.78%
-MobileNetV4,Rock_Classification,W4A8,NPU,23,3.193,78.78%
-MobileNetV4,Rock_Classification,W4A8,NPU,24,2.395,78.78%
-MobileNetV4,Rock_Classification,W4A8,NPU,25,1.635,78.78%
-MobileNetV4,Rock_Classification,W4A8,NPU,26,2.051,78.78%
-MobileNetV4,Rock_Classification,W4A8,NPU,27,1.371,78.78%
-MobileNetV4,Rock_Classification,W4A8,NPU,28,1.871,78.78%
-MobileNetV4,Rock_Classification,W4A8,NPU,29,2.208,78.78%
-MobileNetV4,Rock_Classification,W4A8,NPU,30,1.41,78.78%
-MobileNetV4,Rock_Classification,W4A8,NPU,31,2.059,78.78%
-MobileNetV4,Rock_Classification,W4A8,NPU,32,3.078,78.78%
-MobileNetV4,Rock_Classification,W4A8,NPU,33,2.103,78.78%
-MobileNetV4,Rock_Classification,W4A8,NPU,34,2.102,78.78%
-MobileNetV4,Rock_Classification,W4A8,NPU,35,3.121,78.78%
-MobileNetV4,Rock_Classification,W4A8,NPU,36,2.413,78.78%
-MobileNetV4,Rock_Classification,W4A8,NPU,37,2.596,78.78%
-MobileNetV4,Rock_Classification,W4A8,NPU,38,2.794,78.78%
-MobileNetV4,Rock_Classification,W4A8,NPU,39,3.092,78.78%
-MobileNetV4,Rock_Classification,W4A8,NPU,40,1.644,78.78%
-MobileNetV4,Rock_Classification,W4A8,NPU,41,1.869,78.78%
-MobileNetV4,Rock_Classification,W4A8,NPU,42,1.994,78.78%
-MobileNetV4,Rock_Classification,W4A8,NPU,43,1.755,78.78%
-MobileNetV4,Rock_Classification,W4A8,NPU,44,4.159,78.78%
-MobileNetV4,Rock_Classification,W4A8,NPU,45,2.759,78.78%
-MobileNetV4,Rock_Classification,W4A8,NPU,46,2.563,78.78%
-MobileNetV4,Rock_Classification,W4A8,NPU,47,1.886,78.78%
-MobileNetV4,Rock_Classification,W4A8,NPU,48,1.986,78.78%
-MobileNetV4,Rock_Classification,W4A8,NPU,49,1.851,78.78%
-MobileNetV4,Rock_Classification,W4A8,NPU,50,2.705,78.78%
-MobileNetV4,Rock_Classification,W4A8,NPU,51,1.423,78.78%
-MobileNetV4,Rock_Classification,W4A8,NPU,52,1.686,78.78%
-MobileNetV4,Rock_Classification,W4A8,NPU,53,2.613,78.78%
-MobileNetV4,Rock_Classification,W4A8,NPU,54,1.911,78.78%
-MobileNetV4,Rock_Classification,W4A8,NPU,55,2.046,78.78%
-MobileNetV4,Rock_Classification,W4A8,NPU,56,4.394,78.78%
-MobileNetV4,Rock_Classification,W4A8,NPU,57,3.614,78.78%
-MobileNetV4,Rock_Classification,W4A8,NPU,58,1.978,78.78%
-MobileNetV4,Rock_Classification,W4A8,NPU,59,4.376,78.78%
-MobileNetV4,Rock_Classification,W4A8,NPU,60,2.806,78.78%
-MobileNetV4,Rock_Classification,W4A8,NPU,61,1.765,78.78%
-MobileNetV4,Rock_Classification,W4A8,NPU,62,1.919,78.78%
-MobileNetV4,Rock_Classification,W4A8,NPU,63,1.748,78.78%
-MobileNetV4,Rock_Classification,W4A8,NPU,64,2.016,78.78%
-MobileNetV4,Rock_Classification,W4A8,NPU,65,2.099,78.78%
-MobileNetV4,Rock_Classification,W4A8,NPU,66,3.673,78.78%
-MobileNetV4,Rock_Classification,W4A8,NPU,67,2.515,78.78%
-MobileNetV4,Rock_Classification,W4A8,NPU,68,2.629,78.78%
-MobileNetV4,Rock_Classification,W4A8,NPU,69,2.397,78.78%
-MobileNetV4,Rock_Classification,W4A8,NPU,70,3.709,78.78%
-MobileNetV4,Rock_Classification,W4A8,NPU,71,2.796,78.78%
-MobileNetV4,Rock_Classification,W4A8,NPU,72,4.761,78.78%
-MobileNetV4,Rock_Classification,W4A8,NPU,73,1.963,78.78%
-MobileNetV4,Rock_Classification,W4A8,NPU,74,2.104,78.78%
-MobileNetV4,Rock_Classification,W4A8,NPU,75,1.708,78.78%
-MobileNetV4,Rock_Classification,W4A8,NPU,76,1.965,78.78%
-MobileNetV4,Rock_Classification,W4A8,NPU,77,1.895,78.78%
-MobileNetV4,Rock_Classification,W4A8,NPU,78,1.739,78.78%
-MobileNetV4,Rock_Classification,W4A8,NPU,79,3.147,78.78%
-MobileNetV4,Rock_Classification,W4A8,NPU,80,2.42,78.78%
-MobileNetV4,Rock_Classification,W4A8,NPU,81,1.594,78.78%
-MobileNetV4,Rock_Classification,W4A8,NPU,82,2.177,78.78%
-MobileNetV4,Rock_Classification,W4A8,NPU,83,1.559,78.78%
-MobileNetV4,Rock_Classification,W4A8,NPU,84,1.886,78.78%
-MobileNetV4,Rock_Classification,W4A8,NPU,85,1.967,78.78%
-MobileNetV4,Rock_Classification,W4A8,NPU,86,2.031,78.78%
-MobileNetV4,Rock_Classification,W4A8,NPU,87,1.716,78.78%
-MobileNetV4,Rock_Classification,W4A8,NPU,88,2.212,78.78%
-MobileNetV4,Rock_Classification,W4A8,NPU,89,1.975,78.78%
-MobileNetV4,Rock_Classification,W4A8,NPU,90,1.788,78.78%
-MobileNetV4,Rock_Classification,W4A8,NPU,91,2.317,78.78%
-MobileNetV4,Rock_Classification,W4A8,NPU,92,1.806,78.78%
-MobileNetV4,Rock_Classification,W4A8,NPU,93,1.864,78.78%
-MobileNetV4,Rock_Classification,W4A8,NPU,94,2.09,78.78%
-MobileNetV4,Rock_Classification,W4A8,NPU,95,1.982,78.78%
-MobileNetV4,Rock_Classification,W4A8,NPU,96,2.663,78.78%
-MobileNetV4,Rock_Classification,W4A8,NPU,97,2.486,78.78%
-MobileNetV4,Rock_Classification,W4A8,NPU,98,2.895,78.78%
-MobileNetV4,Rock_Classification,W4A8,NPU,99,2.454,78.78%
-MobileNetV4,Rock_Classification,W4A8,NPU,100,2.713,78.78%
-MobileNetV4,Rock_Classification,W4A8,CPU,1,56.538,78.78%
-MobileNetV4,Rock_Classification,W4A8,CPU,2,28.223,78.78%
-MobileNetV4,Rock_Classification,W4A8,CPU,3,30.08,78.78%
-MobileNetV4,Rock_Classification,W4A8,CPU,4,35.375,78.78%
-MobileNetV4,Rock_Classification,W4A8,CPU,5,23.024,78.78%
-MobileNetV4,Rock_Classification,W4A8,CPU,6,21.108,78.78%
-MobileNetV4,Rock_Classification,W4A8,CPU,7,38.418,78.78%
-MobileNetV4,Rock_Classification,W4A8,CPU,8,39.354,78.78%
-MobileNetV4,Rock_Classification,W4A8,CPU,9,29.348,78.78%
-MobileNetV4,Rock_Classification,W4A8,CPU,10,24.445,78.78%
-MobileNetV4,Rock_Classification,W4A8,CPU,11,20.338,78.78%
-MobileNetV4,Rock_Classification,W4A8,CPU,12,22.747,78.78%
-MobileNetV4,Rock_Classification,W4A8,CPU,13,24.599,78.78%
-MobileNetV4,Rock_Classification,W4A8,CPU,14,23.354,78.78%
-MobileNetV4,Rock_Classification,W4A8,CPU,15,15.872,78.78%
-MobileNetV4,Rock_Classification,W4A8,CPU,16,14.837,78.78%
-MobileNetV4,Rock_Classification,W4A8,CPU,17,20.56,78.78%
-MobileNetV4,Rock_Classification,W4A8,CPU,18,25.225,78.78%
-MobileNetV4,Rock_Classification,W4A8,CPU,19,20.629,78.78%
-MobileNetV4,Rock_Classification,W4A8,CPU,20,23.767,78.78%
-MobileNetV4,Rock_Classification,W4A8,CPU,21,33.003,78.78%
-MobileNetV4,Rock_Classification,W4A8,CPU,22,20.163,78.78%
-MobileNetV4,Rock_Classification,W4A8,CPU,23,13.91,78.78%
-MobileNetV4,Rock_Classification,W4A8,CPU,24,19.584,78.78%
-MobileNetV4,Rock_Classification,W4A8,CPU,25,16.501,78.78%
-MobileNetV4,Rock_Classification,W4A8,CPU,26,13.84,78.78%
-MobileNetV4,Rock_Classification,W4A8,CPU,27,17.998,78.78%
-MobileNetV4,Rock_Classification,W4A8,CPU,28,15.427,78.78%
-MobileNetV4,Rock_Classification,W4A8,CPU,29,13.999,78.78%
-MobileNetV4,Rock_Classification,W4A8,CPU,30,11.463,78.78%
-MobileNetV4,Rock_Classification,W4A8,CPU,31,17.167,78.78%
-MobileNetV4,Rock_Classification,W4A8,CPU,32,15.104,78.78%
-MobileNetV4,Rock_Classification,W4A8,CPU,33,17.672,78.78%
-MobileNetV4,Rock_Classification,W4A8,CPU,34,15.244,78.78%
-MobileNetV4,Rock_Classification,W4A8,CPU,35,11.146,78.78%
-MobileNetV4,Rock_Classification,W4A8,CPU,36,17.412,78.78%
-MobileNetV4,Rock_Classification,W4A8,CPU,37,18.715,78.78%
-MobileNetV4,Rock_Classification,W4A8,CPU,38,20.996,78.78%
-MobileNetV4,Rock_Classification,W4A8,CPU,39,15.086,78.78%
-MobileNetV4,Rock_Classification,W4A8,CPU,40,15.659,78.78%
-MobileNetV4,Rock_Classification,W4A8,CPU,41,14.768,78.78%
-MobileNetV4,Rock_Classification,W4A8,CPU,42,12.786,78.78%
-MobileNetV4,Rock_Classification,W4A8,CPU,43,16.549,78.78%
-MobileNetV4,Rock_Classification,W4A8,CPU,44,14.341,78.78%
-MobileNetV4,Rock_Classification,W4A8,CPU,45,14.528,78.78%
-MobileNetV4,Rock_Classification,W4A8,CPU,46,15.649,78.78%
-MobileNetV4,Rock_Classification,W4A8,CPU,47,13.62,78.78%
-MobileNetV4,Rock_Classification,W4A8,CPU,48,16.843,78.78%
-MobileNetV4,Rock_Classification,W4A8,CPU,49,15.475,78.78%
-MobileNetV4,Rock_Classification,W4A8,CPU,50,16.195,78.78%
-MobileNetV4,Rock_Classification,W4A8,CPU,51,16.46,78.78%
-MobileNetV4,Rock_Classification,W4A8,CPU,52,17.824,78.78%
-MobileNetV4,Rock_Classification,W4A8,CPU,53,15.186,78.78%
-MobileNetV4,Rock_Classification,W4A8,CPU,54,15.328,78.78%
-MobileNetV4,Rock_Classification,W4A8,CPU,55,12.677,78.78%
-MobileNetV4,Rock_Classification,W4A8,CPU,56,16.875,78.78%
-MobileNetV4,Rock_Classification,W4A8,CPU,57,16.807,78.78%
-MobileNetV4,Rock_Classification,W4A8,CPU,58,19.423,78.78%
-MobileNetV4,Rock_Classification,W4A8,CPU,59,16.054,78.78%
-MobileNetV4,Rock_Classification,W4A8,CPU,60,15.594,78.78%
-MobileNetV4,Rock_Classification,W4A8,CPU,61,14.805,78.78%
-MobileNetV4,Rock_Classification,W4A8,CPU,62,18.117,78.78%
-MobileNetV4,Rock_Classification,W4A8,CPU,63,15.487,78.78%
-MobileNetV4,Rock_Classification,W4A8,CPU,64,15.198,78.78%
-MobileNetV4,Rock_Classification,W4A8,CPU,65,17.349,78.78%
-MobileNetV4,Rock_Classification,W4A8,CPU,66,15.534,78.78%
-MobileNetV4,Rock_Classification,W4A8,CPU,67,16.06,78.78%
-MobileNetV4,Rock_Classification,W4A8,CPU,68,17.347,78.78%
-MobileNetV4,Rock_Classification,W4A8,CPU,69,12.114,78.78%
-MobileNetV4,Rock_Classification,W4A8,CPU,70,17.62,78.78%
-MobileNetV4,Rock_Classification,W4A8,CPU,71,11.055,78.78%
-MobileNetV4,Rock_Classification,W4A8,CPU,72,17.003,78.78%
-MobileNetV4,Rock_Classification,W4A8,CPU,73,12.683,78.78%
-MobileNetV4,Rock_Classification,W4A8,CPU,74,13.66,78.78%
-MobileNetV4,Rock_Classification,W4A8,CPU,75,14.376,78.78%
-MobileNetV4,Rock_Classification,W4A8,CPU,76,16.168,78.78%
-MobileNetV4,Rock_Classification,W4A8,CPU,77,19.702,78.78%
-MobileNetV4,Rock_Classification,W4A8,CPU,78,12.332,78.78%
-MobileNetV4,Rock_Classification,W4A8,CPU,79,10.134,78.78%
-MobileNetV4,Rock_Classification,W4A8,CPU,80,15.952,78.78%
-MobileNetV4,Rock_Classification,W4A8,CPU,81,13.149,78.78%
-MobileNetV4,Rock_Classification,W4A8,CPU,82,17.135,78.78%
-MobileNetV4,Rock_Classification,W4A8,CPU,83,15.579,78.78%
-MobileNetV4,Rock_Classification,W4A8,CPU,84,14.922,78.78%
-MobileNetV4,Rock_Classification,W4A8,CPU,85,13.779,78.78%
-MobileNetV4,Rock_Classification,W4A8,CPU,86,16.152,78.78%
-MobileNetV4,Rock_Classification,W4A8,CPU,87,12.846,78.78%
-MobileNetV4,Rock_Classification,W4A8,CPU,88,20.304,78.78%
-MobileNetV4,Rock_Classification,W4A8,CPU,89,19.774,78.78%
-MobileNetV4,Rock_Classification,W4A8,CPU,90,19.803,78.78%
-MobileNetV4,Rock_Classification,W4A8,CPU,91,15.01,78.78%
-MobileNetV4,Rock_Classification,W4A8,CPU,92,19.654,78.78%
-MobileNetV4,Rock_Classification,W4A8,CPU,93,13.682,78.78%
-MobileNetV4,Rock_Classification,W4A8,CPU,94,15.417,78.78%
-MobileNetV4,Rock_Classification,W4A8,CPU,95,14.379,78.78%
-MobileNetV4,Rock_Classification,W4A8,CPU,96,17.05,78.78%
-MobileNetV4,Rock_Classification,W4A8,CPU,97,12.125,78.78%
-MobileNetV4,Rock_Classification,W4A8,CPU,98,14.419,78.78%
-MobileNetV4,Rock_Classification,W4A8,CPU,99,18.165,78.78%
-MobileNetV4,Rock_Classification,W4A8,CPU,100,14.778,78.78%
-MobileNetV4,Rock_Classification,W4A8,GPU,1,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,W4A8,GPU,2,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,W4A8,GPU,3,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,W4A8,GPU,4,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,W4A8,GPU,5,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,W4A8,GPU,6,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,W4A8,GPU,7,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,W4A8,GPU,8,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,W4A8,GPU,9,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,W4A8,GPU,10,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,W4A8,GPU,11,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,W4A8,GPU,12,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,W4A8,GPU,13,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,W4A8,GPU,14,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,W4A8,GPU,15,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,W4A8,GPU,16,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,W4A8,GPU,17,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,W4A8,GPU,18,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,W4A8,GPU,19,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,W4A8,GPU,20,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,W4A8,GPU,21,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,W4A8,GPU,22,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,W4A8,GPU,23,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,W4A8,GPU,24,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,W4A8,GPU,25,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,W4A8,GPU,26,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,W4A8,GPU,27,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,W4A8,GPU,28,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,W4A8,GPU,29,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,W4A8,GPU,30,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,W4A8,GPU,31,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,W4A8,GPU,32,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,W4A8,GPU,33,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,W4A8,GPU,34,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,W4A8,GPU,35,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,W4A8,GPU,36,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,W4A8,GPU,37,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,W4A8,GPU,38,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,W4A8,GPU,39,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,W4A8,GPU,40,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,W4A8,GPU,41,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,W4A8,GPU,42,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,W4A8,GPU,43,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,W4A8,GPU,44,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,W4A8,GPU,45,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,W4A8,GPU,46,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,W4A8,GPU,47,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,W4A8,GPU,48,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,W4A8,GPU,49,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,W4A8,GPU,50,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,W4A8,GPU,51,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,W4A8,GPU,52,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,W4A8,GPU,53,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,W4A8,GPU,54,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,W4A8,GPU,55,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,W4A8,GPU,56,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,W4A8,GPU,57,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,W4A8,GPU,58,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,W4A8,GPU,59,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,W4A8,GPU,60,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,W4A8,GPU,61,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,W4A8,GPU,62,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,W4A8,GPU,63,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,W4A8,GPU,64,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,W4A8,GPU,65,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,W4A8,GPU,66,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,W4A8,GPU,67,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,W4A8,GPU,68,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,W4A8,GPU,69,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,W4A8,GPU,70,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,W4A8,GPU,71,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,W4A8,GPU,72,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,W4A8,GPU,73,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,W4A8,GPU,74,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,W4A8,GPU,75,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,W4A8,GPU,76,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,W4A8,GPU,77,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,W4A8,GPU,78,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,W4A8,GPU,79,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,W4A8,GPU,80,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,W4A8,GPU,81,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,W4A8,GPU,82,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,W4A8,GPU,83,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,W4A8,GPU,84,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,W4A8,GPU,85,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,W4A8,GPU,86,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,W4A8,GPU,87,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,W4A8,GPU,88,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,W4A8,GPU,89,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,W4A8,GPU,90,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,W4A8,GPU,91,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,W4A8,GPU,92,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,W4A8,GPU,93,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,W4A8,GPU,94,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,W4A8,GPU,95,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,W4A8,GPU,96,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,W4A8,GPU,97,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,W4A8,GPU,98,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,W4A8,GPU,99,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
-MobileNetV4,Rock_Classification,W4A8,GPU,100,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),78.78%
+MobileNetV4,Rock_Classification,INT8,NPU,1,5.666,77.84%
+MobileNetV4,Rock_Classification,INT8,NPU,2,6.992,77.84%
+MobileNetV4,Rock_Classification,INT8,NPU,3,7.055,77.84%
+MobileNetV4,Rock_Classification,INT8,NPU,4,6.964,77.84%
+MobileNetV4,Rock_Classification,INT8,NPU,5,5.638,77.84%
+MobileNetV4,Rock_Classification,INT8,NPU,6,5.25,77.84%
+MobileNetV4,Rock_Classification,INT8,NPU,7,1.63,77.84%
+MobileNetV4,Rock_Classification,INT8,NPU,8,5.562,77.84%
+MobileNetV4,Rock_Classification,INT8,NPU,9,7.432,77.84%
+MobileNetV4,Rock_Classification,INT8,NPU,10,6.94,77.84%
+MobileNetV4,Rock_Classification,INT8,NPU,11,7.496,77.84%
+MobileNetV4,Rock_Classification,INT8,NPU,12,5.856,77.84%
+MobileNetV4,Rock_Classification,INT8,NPU,13,6.917,77.84%
+MobileNetV4,Rock_Classification,INT8,NPU,14,7.114,77.84%
+MobileNetV4,Rock_Classification,INT8,NPU,15,6.945,77.84%
+MobileNetV4,Rock_Classification,INT8,NPU,16,7.124,77.84%
+MobileNetV4,Rock_Classification,INT8,NPU,17,1.823,77.84%
+MobileNetV4,Rock_Classification,INT8,NPU,18,5.672,77.84%
+MobileNetV4,Rock_Classification,INT8,NPU,19,5.369,77.84%
+MobileNetV4,Rock_Classification,INT8,NPU,20,5.609,77.84%
+MobileNetV4,Rock_Classification,INT8,NPU,21,5.549,77.84%
+MobileNetV4,Rock_Classification,INT8,NPU,22,6.956,77.84%
+MobileNetV4,Rock_Classification,INT8,NPU,23,3.308,77.84%
+MobileNetV4,Rock_Classification,INT8,NPU,24,3.954,77.84%
+MobileNetV4,Rock_Classification,INT8,NPU,25,1.582,77.84%
+MobileNetV4,Rock_Classification,INT8,NPU,26,1.534,77.84%
+MobileNetV4,Rock_Classification,INT8,NPU,27,1.488,77.84%
+MobileNetV4,Rock_Classification,INT8,NPU,28,1.475,77.84%
+MobileNetV4,Rock_Classification,INT8,NPU,29,1.476,77.84%
+MobileNetV4,Rock_Classification,INT8,NPU,30,3.187,77.84%
+MobileNetV4,Rock_Classification,INT8,NPU,31,1.575,77.84%
+MobileNetV4,Rock_Classification,INT8,NPU,32,1.472,77.84%
+MobileNetV4,Rock_Classification,INT8,NPU,33,1.466,77.84%
+MobileNetV4,Rock_Classification,INT8,NPU,34,1.469,77.84%
+MobileNetV4,Rock_Classification,INT8,NPU,35,1.476,77.84%
+MobileNetV4,Rock_Classification,INT8,NPU,36,1.48,77.84%
+MobileNetV4,Rock_Classification,INT8,NPU,37,1.499,77.84%
+MobileNetV4,Rock_Classification,INT8,NPU,38,1.468,77.84%
+MobileNetV4,Rock_Classification,INT8,NPU,39,1.466,77.84%
+MobileNetV4,Rock_Classification,INT8,NPU,40,3.954,77.84%
+MobileNetV4,Rock_Classification,INT8,NPU,41,1.536,77.84%
+MobileNetV4,Rock_Classification,INT8,NPU,42,1.459,77.84%
+MobileNetV4,Rock_Classification,INT8,NPU,43,1.492,77.84%
+MobileNetV4,Rock_Classification,INT8,NPU,44,1.47,77.84%
+MobileNetV4,Rock_Classification,INT8,NPU,45,1.467,77.84%
+MobileNetV4,Rock_Classification,INT8,NPU,46,1.482,77.84%
+MobileNetV4,Rock_Classification,INT8,NPU,47,1.468,77.84%
+MobileNetV4,Rock_Classification,INT8,NPU,48,1.5,77.84%
+MobileNetV4,Rock_Classification,INT8,NPU,49,2.984,77.84%
+MobileNetV4,Rock_Classification,INT8,NPU,50,1.714,77.84%
+MobileNetV4,Rock_Classification,INT8,NPU,51,1.476,77.84%
+MobileNetV4,Rock_Classification,INT8,NPU,52,1.474,77.84%
+MobileNetV4,Rock_Classification,INT8,NPU,53,1.453,77.84%
+MobileNetV4,Rock_Classification,INT8,NPU,54,1.496,77.84%
+MobileNetV4,Rock_Classification,INT8,NPU,55,1.463,77.84%
+MobileNetV4,Rock_Classification,INT8,NPU,56,1.467,77.84%
+MobileNetV4,Rock_Classification,INT8,NPU,57,1.466,77.84%
+MobileNetV4,Rock_Classification,INT8,NPU,58,1.481,77.84%
+MobileNetV4,Rock_Classification,INT8,NPU,59,1.467,77.84%
+MobileNetV4,Rock_Classification,INT8,NPU,60,2.598,77.84%
+MobileNetV4,Rock_Classification,INT8,NPU,61,1.513,77.84%
+MobileNetV4,Rock_Classification,INT8,NPU,62,1.474,77.84%
+MobileNetV4,Rock_Classification,INT8,NPU,63,1.474,77.84%
+MobileNetV4,Rock_Classification,INT8,NPU,64,1.476,77.84%
+MobileNetV4,Rock_Classification,INT8,NPU,65,1.489,77.84%
+MobileNetV4,Rock_Classification,INT8,NPU,66,1.471,77.84%
+MobileNetV4,Rock_Classification,INT8,NPU,67,1.459,77.84%
+MobileNetV4,Rock_Classification,INT8,NPU,68,1.473,77.84%
+MobileNetV4,Rock_Classification,INT8,NPU,69,1.773,77.84%
+MobileNetV4,Rock_Classification,INT8,NPU,70,2.847,77.84%
+MobileNetV4,Rock_Classification,INT8,NPU,71,1.525,77.84%
+MobileNetV4,Rock_Classification,INT8,NPU,72,1.457,77.84%
+MobileNetV4,Rock_Classification,INT8,NPU,73,1.465,77.84%
+MobileNetV4,Rock_Classification,INT8,NPU,74,1.52,77.84%
+MobileNetV4,Rock_Classification,INT8,NPU,75,1.488,77.84%
+MobileNetV4,Rock_Classification,INT8,NPU,76,1.498,77.84%
+MobileNetV4,Rock_Classification,INT8,NPU,77,1.48,77.84%
+MobileNetV4,Rock_Classification,INT8,NPU,78,1.467,77.84%
+MobileNetV4,Rock_Classification,INT8,NPU,79,1.473,77.84%
+MobileNetV4,Rock_Classification,INT8,NPU,80,3.581,77.84%
+MobileNetV4,Rock_Classification,INT8,NPU,81,1.541,77.84%
+MobileNetV4,Rock_Classification,INT8,NPU,82,1.455,77.84%
+MobileNetV4,Rock_Classification,INT8,NPU,83,1.469,77.84%
+MobileNetV4,Rock_Classification,INT8,NPU,84,1.455,77.84%
+MobileNetV4,Rock_Classification,INT8,NPU,85,1.478,77.84%
+MobileNetV4,Rock_Classification,INT8,NPU,86,1.548,77.84%
+MobileNetV4,Rock_Classification,INT8,NPU,87,1.599,77.84%
+MobileNetV4,Rock_Classification,INT8,NPU,88,1.489,77.84%
+MobileNetV4,Rock_Classification,INT8,NPU,89,1.696,77.84%
+MobileNetV4,Rock_Classification,INT8,NPU,90,2.621,77.84%
+MobileNetV4,Rock_Classification,INT8,NPU,91,1.67,77.84%
+MobileNetV4,Rock_Classification,INT8,NPU,92,1.517,77.84%
+MobileNetV4,Rock_Classification,INT8,NPU,93,1.455,77.84%
+MobileNetV4,Rock_Classification,INT8,NPU,94,1.466,77.84%
+MobileNetV4,Rock_Classification,INT8,NPU,95,1.475,77.84%
+MobileNetV4,Rock_Classification,INT8,NPU,96,1.474,77.84%
+MobileNetV4,Rock_Classification,INT8,NPU,97,3.783,77.84%
+MobileNetV4,Rock_Classification,INT8,NPU,98,1.49,77.84%
+MobileNetV4,Rock_Classification,INT8,NPU,99,2.509,77.84%
+MobileNetV4,Rock_Classification,INT8,NPU,100,1.51,77.84%
+MobileNetV4,Rock_Classification,INT8,CPU,1,6.856,77.84%
+MobileNetV4,Rock_Classification,INT8,CPU,2,14.579,77.84%
+MobileNetV4,Rock_Classification,INT8,CPU,3,8.676,77.84%
+MobileNetV4,Rock_Classification,INT8,CPU,4,7.233,77.84%
+MobileNetV4,Rock_Classification,INT8,CPU,5,7.347,77.84%
+MobileNetV4,Rock_Classification,INT8,CPU,6,9.453,77.84%
+MobileNetV4,Rock_Classification,INT8,CPU,7,6.998,77.84%
+MobileNetV4,Rock_Classification,INT8,CPU,8,9.708,77.84%
+MobileNetV4,Rock_Classification,INT8,CPU,9,7.14,77.84%
+MobileNetV4,Rock_Classification,INT8,CPU,10,9.316,77.84%
+MobileNetV4,Rock_Classification,INT8,CPU,11,6.763,77.84%
+MobileNetV4,Rock_Classification,INT8,CPU,12,9.367,77.84%
+MobileNetV4,Rock_Classification,INT8,CPU,13,6.9,77.84%
+MobileNetV4,Rock_Classification,INT8,CPU,14,9.326,77.84%
+MobileNetV4,Rock_Classification,INT8,CPU,15,6.923,77.84%
+MobileNetV4,Rock_Classification,INT8,CPU,16,9.874,77.84%
+MobileNetV4,Rock_Classification,INT8,CPU,17,7.201,77.84%
+MobileNetV4,Rock_Classification,INT8,CPU,18,9.605,77.84%
+MobileNetV4,Rock_Classification,INT8,CPU,19,6.984,77.84%
+MobileNetV4,Rock_Classification,INT8,CPU,20,12.473,77.84%
+MobileNetV4,Rock_Classification,INT8,CPU,21,10.19,77.84%
+MobileNetV4,Rock_Classification,INT8,CPU,22,7.14,77.84%
+MobileNetV4,Rock_Classification,INT8,CPU,23,10.716,77.84%
+MobileNetV4,Rock_Classification,INT8,CPU,24,7.3,77.84%
+MobileNetV4,Rock_Classification,INT8,CPU,25,9.44,77.84%
+MobileNetV4,Rock_Classification,INT8,CPU,26,7.904,77.84%
+MobileNetV4,Rock_Classification,INT8,CPU,27,9.809,77.84%
+MobileNetV4,Rock_Classification,INT8,CPU,28,7.315,77.84%
+MobileNetV4,Rock_Classification,INT8,CPU,29,7.455,77.84%
+MobileNetV4,Rock_Classification,INT8,CPU,30,9.946,77.84%
+MobileNetV4,Rock_Classification,INT8,CPU,31,7.815,77.84%
+MobileNetV4,Rock_Classification,INT8,CPU,32,34.48,77.84%
+MobileNetV4,Rock_Classification,INT8,CPU,33,27.7,77.84%
+MobileNetV4,Rock_Classification,INT8,CPU,34,20.727,77.84%
+MobileNetV4,Rock_Classification,INT8,CPU,35,15.449,77.84%
+MobileNetV4,Rock_Classification,INT8,CPU,36,19.192,77.84%
+MobileNetV4,Rock_Classification,INT8,CPU,37,40.96,77.84%
+MobileNetV4,Rock_Classification,INT8,CPU,38,24.546,77.84%
+MobileNetV4,Rock_Classification,INT8,CPU,39,7.668,77.84%
+MobileNetV4,Rock_Classification,INT8,CPU,40,7.832,77.84%
+MobileNetV4,Rock_Classification,INT8,CPU,41,7.761,77.84%
+MobileNetV4,Rock_Classification,INT8,CPU,42,8.065,77.84%
+MobileNetV4,Rock_Classification,INT8,CPU,43,10.191,77.84%
+MobileNetV4,Rock_Classification,INT8,CPU,44,7.758,77.84%
+MobileNetV4,Rock_Classification,INT8,CPU,45,8.542,77.84%
+MobileNetV4,Rock_Classification,INT8,CPU,46,10.614,77.84%
+MobileNetV4,Rock_Classification,INT8,CPU,47,7.866,77.84%
+MobileNetV4,Rock_Classification,INT8,CPU,48,10.467,77.84%
+MobileNetV4,Rock_Classification,INT8,CPU,49,6.907,77.84%
+MobileNetV4,Rock_Classification,INT8,CPU,50,7.746,77.84%
+MobileNetV4,Rock_Classification,INT8,CPU,51,11.528,77.84%
+MobileNetV4,Rock_Classification,INT8,CPU,52,7.599,77.84%
+MobileNetV4,Rock_Classification,INT8,CPU,53,8.327,77.84%
+MobileNetV4,Rock_Classification,INT8,CPU,54,10.162,77.84%
+MobileNetV4,Rock_Classification,INT8,CPU,55,7.196,77.84%
+MobileNetV4,Rock_Classification,INT8,CPU,56,7.736,77.84%
+MobileNetV4,Rock_Classification,INT8,CPU,57,6.891,77.84%
+MobileNetV4,Rock_Classification,INT8,CPU,58,6.723,77.84%
+MobileNetV4,Rock_Classification,INT8,CPU,59,9.947,77.84%
+MobileNetV4,Rock_Classification,INT8,CPU,60,6.977,77.84%
+MobileNetV4,Rock_Classification,INT8,CPU,61,8.069,77.84%
+MobileNetV4,Rock_Classification,INT8,CPU,62,7.326,77.84%
+MobileNetV4,Rock_Classification,INT8,CPU,63,8.877,77.84%
+MobileNetV4,Rock_Classification,INT8,CPU,64,10.084,77.84%
+MobileNetV4,Rock_Classification,INT8,CPU,65,13.139,77.84%
+MobileNetV4,Rock_Classification,INT8,CPU,66,12.895,77.84%
+MobileNetV4,Rock_Classification,INT8,CPU,67,10.67,77.84%
+MobileNetV4,Rock_Classification,INT8,CPU,68,6.743,77.84%
+MobileNetV4,Rock_Classification,INT8,CPU,69,7.768,77.84%
+MobileNetV4,Rock_Classification,INT8,CPU,70,6.72,77.84%
+MobileNetV4,Rock_Classification,INT8,CPU,71,7.101,77.84%
+MobileNetV4,Rock_Classification,INT8,CPU,72,8.221,77.84%
+MobileNetV4,Rock_Classification,INT8,CPU,73,7.006,77.84%
+MobileNetV4,Rock_Classification,INT8,CPU,74,7.473,77.84%
+MobileNetV4,Rock_Classification,INT8,CPU,75,6.665,77.84%
+MobileNetV4,Rock_Classification,INT8,CPU,76,7.876,77.84%
+MobileNetV4,Rock_Classification,INT8,CPU,77,6.707,77.84%
+MobileNetV4,Rock_Classification,INT8,CPU,78,7.481,77.84%
+MobileNetV4,Rock_Classification,INT8,CPU,79,7.867,77.84%
+MobileNetV4,Rock_Classification,INT8,CPU,80,7.285,77.84%
+MobileNetV4,Rock_Classification,INT8,CPU,81,7.852,77.84%
+MobileNetV4,Rock_Classification,INT8,CPU,82,6.838,77.84%
+MobileNetV4,Rock_Classification,INT8,CPU,83,7.76,77.84%
+MobileNetV4,Rock_Classification,INT8,CPU,84,6.985,77.84%
+MobileNetV4,Rock_Classification,INT8,CPU,85,7.772,77.84%
+MobileNetV4,Rock_Classification,INT8,CPU,86,6.951,77.84%
+MobileNetV4,Rock_Classification,INT8,CPU,87,7.645,77.84%
+MobileNetV4,Rock_Classification,INT8,CPU,88,6.838,77.84%
+MobileNetV4,Rock_Classification,INT8,CPU,89,6.971,77.84%
+MobileNetV4,Rock_Classification,INT8,CPU,90,6.906,77.84%
+MobileNetV4,Rock_Classification,INT8,CPU,91,7.301,77.84%
+MobileNetV4,Rock_Classification,INT8,CPU,92,6.676,77.84%
+MobileNetV4,Rock_Classification,INT8,CPU,93,7.078,77.84%
+MobileNetV4,Rock_Classification,INT8,CPU,94,8.059,77.84%
+MobileNetV4,Rock_Classification,INT8,CPU,95,6.851,77.84%
+MobileNetV4,Rock_Classification,INT8,CPU,96,7.985,77.84%
+MobileNetV4,Rock_Classification,INT8,CPU,97,7.046,77.84%
+MobileNetV4,Rock_Classification,INT8,CPU,98,7.363,77.84%
+MobileNetV4,Rock_Classification,INT8,CPU,99,6.918,77.84%
+MobileNetV4,Rock_Classification,INT8,CPU,100,7.111,77.84%
+MobileNetV4,Rock_Classification,INT8,GPU,1,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),77.84%
+MobileNetV4,Rock_Classification,INT8,GPU,2,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),77.84%
+MobileNetV4,Rock_Classification,INT8,GPU,3,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),77.84%
+MobileNetV4,Rock_Classification,INT8,GPU,4,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),77.84%
+MobileNetV4,Rock_Classification,INT8,GPU,5,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),77.84%
+MobileNetV4,Rock_Classification,INT8,GPU,6,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),77.84%
+MobileNetV4,Rock_Classification,INT8,GPU,7,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),77.84%
+MobileNetV4,Rock_Classification,INT8,GPU,8,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),77.84%
+MobileNetV4,Rock_Classification,INT8,GPU,9,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),77.84%
+MobileNetV4,Rock_Classification,INT8,GPU,10,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),77.84%
+MobileNetV4,Rock_Classification,INT8,GPU,11,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),77.84%
+MobileNetV4,Rock_Classification,INT8,GPU,12,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),77.84%
+MobileNetV4,Rock_Classification,INT8,GPU,13,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),77.84%
+MobileNetV4,Rock_Classification,INT8,GPU,14,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),77.84%
+MobileNetV4,Rock_Classification,INT8,GPU,15,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),77.84%
+MobileNetV4,Rock_Classification,INT8,GPU,16,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),77.84%
+MobileNetV4,Rock_Classification,INT8,GPU,17,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),77.84%
+MobileNetV4,Rock_Classification,INT8,GPU,18,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),77.84%
+MobileNetV4,Rock_Classification,INT8,GPU,19,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),77.84%
+MobileNetV4,Rock_Classification,INT8,GPU,20,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),77.84%
+MobileNetV4,Rock_Classification,INT8,GPU,21,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),77.84%
+MobileNetV4,Rock_Classification,INT8,GPU,22,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),77.84%
+MobileNetV4,Rock_Classification,INT8,GPU,23,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),77.84%
+MobileNetV4,Rock_Classification,INT8,GPU,24,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),77.84%
+MobileNetV4,Rock_Classification,INT8,GPU,25,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),77.84%
+MobileNetV4,Rock_Classification,INT8,GPU,26,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),77.84%
+MobileNetV4,Rock_Classification,INT8,GPU,27,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),77.84%
+MobileNetV4,Rock_Classification,INT8,GPU,28,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),77.84%
+MobileNetV4,Rock_Classification,INT8,GPU,29,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),77.84%
+MobileNetV4,Rock_Classification,INT8,GPU,30,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),77.84%
+MobileNetV4,Rock_Classification,INT8,GPU,31,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),77.84%
+MobileNetV4,Rock_Classification,INT8,GPU,32,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),77.84%
+MobileNetV4,Rock_Classification,INT8,GPU,33,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),77.84%
+MobileNetV4,Rock_Classification,INT8,GPU,34,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),77.84%
+MobileNetV4,Rock_Classification,INT8,GPU,35,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),77.84%
+MobileNetV4,Rock_Classification,INT8,GPU,36,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),77.84%
+MobileNetV4,Rock_Classification,INT8,GPU,37,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),77.84%
+MobileNetV4,Rock_Classification,INT8,GPU,38,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),77.84%
+MobileNetV4,Rock_Classification,INT8,GPU,39,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),77.84%
+MobileNetV4,Rock_Classification,INT8,GPU,40,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),77.84%
+MobileNetV4,Rock_Classification,INT8,GPU,41,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),77.84%
+MobileNetV4,Rock_Classification,INT8,GPU,42,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),77.84%
+MobileNetV4,Rock_Classification,INT8,GPU,43,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),77.84%
+MobileNetV4,Rock_Classification,INT8,GPU,44,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),77.84%
+MobileNetV4,Rock_Classification,INT8,GPU,45,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),77.84%
+MobileNetV4,Rock_Classification,INT8,GPU,46,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),77.84%
+MobileNetV4,Rock_Classification,INT8,GPU,47,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),77.84%
+MobileNetV4,Rock_Classification,INT8,GPU,48,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),77.84%
+MobileNetV4,Rock_Classification,INT8,GPU,49,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),77.84%
+MobileNetV4,Rock_Classification,INT8,GPU,50,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),77.84%
+MobileNetV4,Rock_Classification,INT8,GPU,51,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),77.84%
+MobileNetV4,Rock_Classification,INT8,GPU,52,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),77.84%
+MobileNetV4,Rock_Classification,INT8,GPU,53,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),77.84%
+MobileNetV4,Rock_Classification,INT8,GPU,54,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),77.84%
+MobileNetV4,Rock_Classification,INT8,GPU,55,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),77.84%
+MobileNetV4,Rock_Classification,INT8,GPU,56,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),77.84%
+MobileNetV4,Rock_Classification,INT8,GPU,57,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),77.84%
+MobileNetV4,Rock_Classification,INT8,GPU,58,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),77.84%
+MobileNetV4,Rock_Classification,INT8,GPU,59,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),77.84%
+MobileNetV4,Rock_Classification,INT8,GPU,60,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),77.84%
+MobileNetV4,Rock_Classification,INT8,GPU,61,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),77.84%
+MobileNetV4,Rock_Classification,INT8,GPU,62,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),77.84%
+MobileNetV4,Rock_Classification,INT8,GPU,63,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),77.84%
+MobileNetV4,Rock_Classification,INT8,GPU,64,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),77.84%
+MobileNetV4,Rock_Classification,INT8,GPU,65,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),77.84%
+MobileNetV4,Rock_Classification,INT8,GPU,66,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),77.84%
+MobileNetV4,Rock_Classification,INT8,GPU,67,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),77.84%
+MobileNetV4,Rock_Classification,INT8,GPU,68,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),77.84%
+MobileNetV4,Rock_Classification,INT8,GPU,69,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),77.84%
+MobileNetV4,Rock_Classification,INT8,GPU,70,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),77.84%
+MobileNetV4,Rock_Classification,INT8,GPU,71,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),77.84%
+MobileNetV4,Rock_Classification,INT8,GPU,72,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),77.84%
+MobileNetV4,Rock_Classification,INT8,GPU,73,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),77.84%
+MobileNetV4,Rock_Classification,INT8,GPU,74,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),77.84%
+MobileNetV4,Rock_Classification,INT8,GPU,75,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),77.84%
+MobileNetV4,Rock_Classification,INT8,GPU,76,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),77.84%
+MobileNetV4,Rock_Classification,INT8,GPU,77,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),77.84%
+MobileNetV4,Rock_Classification,INT8,GPU,78,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),77.84%
+MobileNetV4,Rock_Classification,INT8,GPU,79,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),77.84%
+MobileNetV4,Rock_Classification,INT8,GPU,80,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),77.84%
+MobileNetV4,Rock_Classification,INT8,GPU,81,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),77.84%
+MobileNetV4,Rock_Classification,INT8,GPU,82,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),77.84%
+MobileNetV4,Rock_Classification,INT8,GPU,83,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),77.84%
+MobileNetV4,Rock_Classification,INT8,GPU,84,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),77.84%
+MobileNetV4,Rock_Classification,INT8,GPU,85,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),77.84%
+MobileNetV4,Rock_Classification,INT8,GPU,86,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),77.84%
+MobileNetV4,Rock_Classification,INT8,GPU,87,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),77.84%
+MobileNetV4,Rock_Classification,INT8,GPU,88,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),77.84%
+MobileNetV4,Rock_Classification,INT8,GPU,89,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),77.84%
+MobileNetV4,Rock_Classification,INT8,GPU,90,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),77.84%
+MobileNetV4,Rock_Classification,INT8,GPU,91,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),77.84%
+MobileNetV4,Rock_Classification,INT8,GPU,92,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),77.84%
+MobileNetV4,Rock_Classification,INT8,GPU,93,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),77.84%
+MobileNetV4,Rock_Classification,INT8,GPU,94,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),77.84%
+MobileNetV4,Rock_Classification,INT8,GPU,95,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),77.84%
+MobileNetV4,Rock_Classification,INT8,GPU,96,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),77.84%
+MobileNetV4,Rock_Classification,INT8,GPU,97,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),77.84%
+MobileNetV4,Rock_Classification,INT8,GPU,98,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),77.84%
+MobileNetV4,Rock_Classification,INT8,GPU,99,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),77.84%
+MobileNetV4,Rock_Classification,INT8,GPU,100,N/A (INT8 Op Unsupported by Adreno QnnGpu driver),77.84%
+MobileNetV4,Rock_Classification,W4A8,NPU,1,2.804,73.91%
+MobileNetV4,Rock_Classification,W4A8,NPU,2,1.658,73.91%
+MobileNetV4,Rock_Classification,W4A8,NPU,3,1.524,73.91%
+MobileNetV4,Rock_Classification,W4A8,NPU,4,2.135,73.91%
+MobileNetV4,Rock_Classification,W4A8,NPU,5,1.639,73.91%
+MobileNetV4,Rock_Classification,W4A8,NPU,6,1.381,73.91%
+MobileNetV4,Rock_Classification,W4A8,NPU,7,2.622,73.91%
+MobileNetV4,Rock_Classification,W4A8,NPU,8,2.169,73.91%
+MobileNetV4,Rock_Classification,W4A8,NPU,9,2.932,73.91%
+MobileNetV4,Rock_Classification,W4A8,NPU,10,2.501,73.91%
+MobileNetV4,Rock_Classification,W4A8,NPU,11,2.099,73.91%
+MobileNetV4,Rock_Classification,W4A8,NPU,12,1.513,73.91%
+MobileNetV4,Rock_Classification,W4A8,NPU,13,1.577,73.91%
+MobileNetV4,Rock_Classification,W4A8,NPU,14,2.183,73.91%
+MobileNetV4,Rock_Classification,W4A8,NPU,15,1.683,73.91%
+MobileNetV4,Rock_Classification,W4A8,NPU,16,1.644,73.91%
+MobileNetV4,Rock_Classification,W4A8,NPU,17,2.784,73.91%
+MobileNetV4,Rock_Classification,W4A8,NPU,18,2.214,73.91%
+MobileNetV4,Rock_Classification,W4A8,NPU,19,1.971,73.91%
+MobileNetV4,Rock_Classification,W4A8,NPU,20,1.378,73.91%
+MobileNetV4,Rock_Classification,W4A8,NPU,21,3.271,73.91%
+MobileNetV4,Rock_Classification,W4A8,NPU,22,2.729,73.91%
+MobileNetV4,Rock_Classification,W4A8,NPU,23,3.193,73.91%
+MobileNetV4,Rock_Classification,W4A8,NPU,24,2.395,73.91%
+MobileNetV4,Rock_Classification,W4A8,NPU,25,1.635,73.91%
+MobileNetV4,Rock_Classification,W4A8,NPU,26,2.051,73.91%
+MobileNetV4,Rock_Classification,W4A8,NPU,27,1.371,73.91%
+MobileNetV4,Rock_Classification,W4A8,NPU,28,1.871,73.91%
+MobileNetV4,Rock_Classification,W4A8,NPU,29,2.208,73.91%
+MobileNetV4,Rock_Classification,W4A8,NPU,30,1.41,73.91%
+MobileNetV4,Rock_Classification,W4A8,NPU,31,2.059,73.91%
+MobileNetV4,Rock_Classification,W4A8,NPU,32,3.078,73.91%
+MobileNetV4,Rock_Classification,W4A8,NPU,33,2.103,73.91%
+MobileNetV4,Rock_Classification,W4A8,NPU,34,2.102,73.91%
+MobileNetV4,Rock_Classification,W4A8,NPU,35,3.121,73.91%
+MobileNetV4,Rock_Classification,W4A8,NPU,36,2.413,73.91%
+MobileNetV4,Rock_Classification,W4A8,NPU,37,2.596,73.91%
+MobileNetV4,Rock_Classification,W4A8,NPU,38,2.794,73.91%
+MobileNetV4,Rock_Classification,W4A8,NPU,39,3.092,73.91%
+MobileNetV4,Rock_Classification,W4A8,NPU,40,1.644,73.91%
+MobileNetV4,Rock_Classification,W4A8,NPU,41,1.869,73.91%
+MobileNetV4,Rock_Classification,W4A8,NPU,42,1.994,73.91%
+MobileNetV4,Rock_Classification,W4A8,NPU,43,1.755,73.91%
+MobileNetV4,Rock_Classification,W4A8,NPU,44,4.159,73.91%
+MobileNetV4,Rock_Classification,W4A8,NPU,45,2.759,73.91%
+MobileNetV4,Rock_Classification,W4A8,NPU,46,2.563,73.91%
+MobileNetV4,Rock_Classification,W4A8,NPU,47,1.886,73.91%
+MobileNetV4,Rock_Classification,W4A8,NPU,48,1.986,73.91%
+MobileNetV4,Rock_Classification,W4A8,NPU,49,1.851,73.91%
+MobileNetV4,Rock_Classification,W4A8,NPU,50,2.705,73.91%
+MobileNetV4,Rock_Classification,W4A8,NPU,51,1.423,73.91%
+MobileNetV4,Rock_Classification,W4A8,NPU,52,1.686,73.91%
+MobileNetV4,Rock_Classification,W4A8,NPU,53,2.613,73.91%
+MobileNetV4,Rock_Classification,W4A8,NPU,54,1.911,73.91%
+MobileNetV4,Rock_Classification,W4A8,NPU,55,2.046,73.91%
+MobileNetV4,Rock_Classification,W4A8,NPU,56,4.394,73.91%
+MobileNetV4,Rock_Classification,W4A8,NPU,57,3.614,73.91%
+MobileNetV4,Rock_Classification,W4A8,NPU,58,1.978,73.91%
+MobileNetV4,Rock_Classification,W4A8,NPU,59,4.376,73.91%
+MobileNetV4,Rock_Classification,W4A8,NPU,60,2.806,73.91%
+MobileNetV4,Rock_Classification,W4A8,NPU,61,1.765,73.91%
+MobileNetV4,Rock_Classification,W4A8,NPU,62,1.919,73.91%
+MobileNetV4,Rock_Classification,W4A8,NPU,63,1.748,73.91%
+MobileNetV4,Rock_Classification,W4A8,NPU,64,2.016,73.91%
+MobileNetV4,Rock_Classification,W4A8,NPU,65,2.099,73.91%
+MobileNetV4,Rock_Classification,W4A8,NPU,66,3.673,73.91%
+MobileNetV4,Rock_Classification,W4A8,NPU,67,2.515,73.91%
+MobileNetV4,Rock_Classification,W4A8,NPU,68,2.629,73.91%
+MobileNetV4,Rock_Classification,W4A8,NPU,69,2.397,73.91%
+MobileNetV4,Rock_Classification,W4A8,NPU,70,3.709,73.91%
+MobileNetV4,Rock_Classification,W4A8,NPU,71,2.796,73.91%
+MobileNetV4,Rock_Classification,W4A8,NPU,72,4.761,73.91%
+MobileNetV4,Rock_Classification,W4A8,NPU,73,1.963,73.91%
+MobileNetV4,Rock_Classification,W4A8,NPU,74,2.104,73.91%
+MobileNetV4,Rock_Classification,W4A8,NPU,75,1.708,73.91%
+MobileNetV4,Rock_Classification,W4A8,NPU,76,1.965,73.91%
+MobileNetV4,Rock_Classification,W4A8,NPU,77,1.895,73.91%
+MobileNetV4,Rock_Classification,W4A8,NPU,78,1.739,73.91%
+MobileNetV4,Rock_Classification,W4A8,NPU,79,3.147,73.91%
+MobileNetV4,Rock_Classification,W4A8,NPU,80,2.42,73.91%
+MobileNetV4,Rock_Classification,W4A8,NPU,81,1.594,73.91%
+MobileNetV4,Rock_Classification,W4A8,NPU,82,2.177,73.91%
+MobileNetV4,Rock_Classification,W4A8,NPU,83,1.559,73.91%
+MobileNetV4,Rock_Classification,W4A8,NPU,84,1.886,73.91%
+MobileNetV4,Rock_Classification,W4A8,NPU,85,1.967,73.91%
+MobileNetV4,Rock_Classification,W4A8,NPU,86,2.031,73.91%
+MobileNetV4,Rock_Classification,W4A8,NPU,87,1.716,73.91%
+MobileNetV4,Rock_Classification,W4A8,NPU,88,2.212,73.91%
+MobileNetV4,Rock_Classification,W4A8,NPU,89,1.975,73.91%
+MobileNetV4,Rock_Classification,W4A8,NPU,90,1.788,73.91%
+MobileNetV4,Rock_Classification,W4A8,NPU,91,2.317,73.91%
+MobileNetV4,Rock_Classification,W4A8,NPU,92,1.806,73.91%
+MobileNetV4,Rock_Classification,W4A8,NPU,93,1.864,73.91%
+MobileNetV4,Rock_Classification,W4A8,NPU,94,2.09,73.91%
+MobileNetV4,Rock_Classification,W4A8,NPU,95,1.982,73.91%
+MobileNetV4,Rock_Classification,W4A8,NPU,96,2.663,73.91%
+MobileNetV4,Rock_Classification,W4A8,NPU,97,2.486,73.91%
+MobileNetV4,Rock_Classification,W4A8,NPU,98,2.895,73.91%
+MobileNetV4,Rock_Classification,W4A8,NPU,99,2.454,73.91%
+MobileNetV4,Rock_Classification,W4A8,NPU,100,2.713,73.91%
+MobileNetV4,Rock_Classification,W4A8,CPU,1,56.538,73.91%
+MobileNetV4,Rock_Classification,W4A8,CPU,2,28.223,73.91%
+MobileNetV4,Rock_Classification,W4A8,CPU,3,30.08,73.91%
+MobileNetV4,Rock_Classification,W4A8,CPU,4,35.375,73.91%
+MobileNetV4,Rock_Classification,W4A8,CPU,5,23.024,73.91%
+MobileNetV4,Rock_Classification,W4A8,CPU,6,21.108,73.91%
+MobileNetV4,Rock_Classification,W4A8,CPU,7,38.418,73.91%
+MobileNetV4,Rock_Classification,W4A8,CPU,8,39.354,73.91%
+MobileNetV4,Rock_Classification,W4A8,CPU,9,29.348,73.91%
+MobileNetV4,Rock_Classification,W4A8,CPU,10,24.445,73.91%
+MobileNetV4,Rock_Classification,W4A8,CPU,11,20.338,73.91%
+MobileNetV4,Rock_Classification,W4A8,CPU,12,22.747,73.91%
+MobileNetV4,Rock_Classification,W4A8,CPU,13,24.599,73.91%
+MobileNetV4,Rock_Classification,W4A8,CPU,14,23.354,73.91%
+MobileNetV4,Rock_Classification,W4A8,CPU,15,15.872,73.91%
+MobileNetV4,Rock_Classification,W4A8,CPU,16,14.837,73.91%
+MobileNetV4,Rock_Classification,W4A8,CPU,17,20.56,73.91%
+MobileNetV4,Rock_Classification,W4A8,CPU,18,25.225,73.91%
+MobileNetV4,Rock_Classification,W4A8,CPU,19,20.629,73.91%
+MobileNetV4,Rock_Classification,W4A8,CPU,20,23.767,73.91%
+MobileNetV4,Rock_Classification,W4A8,CPU,21,33.003,73.91%
+MobileNetV4,Rock_Classification,W4A8,CPU,22,20.163,73.91%
+MobileNetV4,Rock_Classification,W4A8,CPU,23,13.91,73.91%
+MobileNetV4,Rock_Classification,W4A8,CPU,24,19.584,73.91%
+MobileNetV4,Rock_Classification,W4A8,CPU,25,16.501,73.91%
+MobileNetV4,Rock_Classification,W4A8,CPU,26,13.84,73.91%
+MobileNetV4,Rock_Classification,W4A8,CPU,27,17.998,73.91%
+MobileNetV4,Rock_Classification,W4A8,CPU,28,15.427,73.91%
+MobileNetV4,Rock_Classification,W4A8,CPU,29,13.999,73.91%
+MobileNetV4,Rock_Classification,W4A8,CPU,30,11.463,73.91%
+MobileNetV4,Rock_Classification,W4A8,CPU,31,17.167,73.91%
+MobileNetV4,Rock_Classification,W4A8,CPU,32,15.104,73.91%
+MobileNetV4,Rock_Classification,W4A8,CPU,33,17.672,73.91%
+MobileNetV4,Rock_Classification,W4A8,CPU,34,15.244,73.91%
+MobileNetV4,Rock_Classification,W4A8,CPU,35,11.146,73.91%
+MobileNetV4,Rock_Classification,W4A8,CPU,36,17.412,73.91%
+MobileNetV4,Rock_Classification,W4A8,CPU,37,18.715,73.91%
+MobileNetV4,Rock_Classification,W4A8,CPU,38,20.996,73.91%
+MobileNetV4,Rock_Classification,W4A8,CPU,39,15.086,73.91%
+MobileNetV4,Rock_Classification,W4A8,CPU,40,15.659,73.91%
+MobileNetV4,Rock_Classification,W4A8,CPU,41,14.768,73.91%
+MobileNetV4,Rock_Classification,W4A8,CPU,42,12.786,73.91%
+MobileNetV4,Rock_Classification,W4A8,CPU,43,16.549,73.91%
+MobileNetV4,Rock_Classification,W4A8,CPU,44,14.341,73.91%
+MobileNetV4,Rock_Classification,W4A8,CPU,45,14.528,73.91%
+MobileNetV4,Rock_Classification,W4A8,CPU,46,15.649,73.91%
+MobileNetV4,Rock_Classification,W4A8,CPU,47,13.62,73.91%
+MobileNetV4,Rock_Classification,W4A8,CPU,48,16.843,73.91%
+MobileNetV4,Rock_Classification,W4A8,CPU,49,15.475,73.91%
+MobileNetV4,Rock_Classification,W4A8,CPU,50,16.195,73.91%
+MobileNetV4,Rock_Classification,W4A8,CPU,51,16.46,73.91%
+MobileNetV4,Rock_Classification,W4A8,CPU,52,17.824,73.91%
+MobileNetV4,Rock_Classification,W4A8,CPU,53,15.186,73.91%
+MobileNetV4,Rock_Classification,W4A8,CPU,54,15.328,73.91%
+MobileNetV4,Rock_Classification,W4A8,CPU,55,12.677,73.91%
+MobileNetV4,Rock_Classification,W4A8,CPU,56,16.875,73.91%
+MobileNetV4,Rock_Classification,W4A8,CPU,57,16.807,73.91%
+MobileNetV4,Rock_Classification,W4A8,CPU,58,19.423,73.91%
+MobileNetV4,Rock_Classification,W4A8,CPU,59,16.054,73.91%
+MobileNetV4,Rock_Classification,W4A8,CPU,60,15.594,73.91%
+MobileNetV4,Rock_Classification,W4A8,CPU,61,14.805,73.91%
+MobileNetV4,Rock_Classification,W4A8,CPU,62,18.117,73.91%
+MobileNetV4,Rock_Classification,W4A8,CPU,63,15.487,73.91%
+MobileNetV4,Rock_Classification,W4A8,CPU,64,15.198,73.91%
+MobileNetV4,Rock_Classification,W4A8,CPU,65,17.349,73.91%
+MobileNetV4,Rock_Classification,W4A8,CPU,66,15.534,73.91%
+MobileNetV4,Rock_Classification,W4A8,CPU,67,16.06,73.91%
+MobileNetV4,Rock_Classification,W4A8,CPU,68,17.347,73.91%
+MobileNetV4,Rock_Classification,W4A8,CPU,69,12.114,73.91%
+MobileNetV4,Rock_Classification,W4A8,CPU,70,17.62,73.91%
+MobileNetV4,Rock_Classification,W4A8,CPU,71,11.055,73.91%
+MobileNetV4,Rock_Classification,W4A8,CPU,72,17.003,73.91%
+MobileNetV4,Rock_Classification,W4A8,CPU,73,12.683,73.91%
+MobileNetV4,Rock_Classification,W4A8,CPU,74,13.66,73.91%
+MobileNetV4,Rock_Classification,W4A8,CPU,75,14.376,73.91%
+MobileNetV4,Rock_Classification,W4A8,CPU,76,16.168,73.91%
+MobileNetV4,Rock_Classification,W4A8,CPU,77,19.702,73.91%
+MobileNetV4,Rock_Classification,W4A8,CPU,78,12.332,73.91%
+MobileNetV4,Rock_Classification,W4A8,CPU,79,10.134,73.91%
+MobileNetV4,Rock_Classification,W4A8,CPU,80,15.952,73.91%
+MobileNetV4,Rock_Classification,W4A8,CPU,81,13.149,73.91%
+MobileNetV4,Rock_Classification,W4A8,CPU,82,17.135,73.91%
+MobileNetV4,Rock_Classification,W4A8,CPU,83,15.579,73.91%
+MobileNetV4,Rock_Classification,W4A8,CPU,84,14.922,73.91%
+MobileNetV4,Rock_Classification,W4A8,CPU,85,13.779,73.91%
+MobileNetV4,Rock_Classification,W4A8,CPU,86,16.152,73.91%
+MobileNetV4,Rock_Classification,W4A8,CPU,87,12.846,73.91%
+MobileNetV4,Rock_Classification,W4A8,CPU,88,20.304,73.91%
+MobileNetV4,Rock_Classification,W4A8,CPU,89,19.774,73.91%
+MobileNetV4,Rock_Classification,W4A8,CPU,90,19.803,73.91%
+MobileNetV4,Rock_Classification,W4A8,CPU,91,15.01,73.91%
+MobileNetV4,Rock_Classification,W4A8,CPU,92,19.654,73.91%
+MobileNetV4,Rock_Classification,W4A8,CPU,93,13.682,73.91%
+MobileNetV4,Rock_Classification,W4A8,CPU,94,15.417,73.91%
+MobileNetV4,Rock_Classification,W4A8,CPU,95,14.379,73.91%
+MobileNetV4,Rock_Classification,W4A8,CPU,96,17.05,73.91%
+MobileNetV4,Rock_Classification,W4A8,CPU,97,12.125,73.91%
+MobileNetV4,Rock_Classification,W4A8,CPU,98,14.419,73.91%
+MobileNetV4,Rock_Classification,W4A8,CPU,99,18.165,73.91%
+MobileNetV4,Rock_Classification,W4A8,CPU,100,14.778,73.91%
+MobileNetV4,Rock_Classification,W4A8,GPU,1,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),73.91%
+MobileNetV4,Rock_Classification,W4A8,GPU,2,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),73.91%
+MobileNetV4,Rock_Classification,W4A8,GPU,3,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),73.91%
+MobileNetV4,Rock_Classification,W4A8,GPU,4,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),73.91%
+MobileNetV4,Rock_Classification,W4A8,GPU,5,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),73.91%
+MobileNetV4,Rock_Classification,W4A8,GPU,6,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),73.91%
+MobileNetV4,Rock_Classification,W4A8,GPU,7,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),73.91%
+MobileNetV4,Rock_Classification,W4A8,GPU,8,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),73.91%
+MobileNetV4,Rock_Classification,W4A8,GPU,9,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),73.91%
+MobileNetV4,Rock_Classification,W4A8,GPU,10,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),73.91%
+MobileNetV4,Rock_Classification,W4A8,GPU,11,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),73.91%
+MobileNetV4,Rock_Classification,W4A8,GPU,12,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),73.91%
+MobileNetV4,Rock_Classification,W4A8,GPU,13,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),73.91%
+MobileNetV4,Rock_Classification,W4A8,GPU,14,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),73.91%
+MobileNetV4,Rock_Classification,W4A8,GPU,15,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),73.91%
+MobileNetV4,Rock_Classification,W4A8,GPU,16,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),73.91%
+MobileNetV4,Rock_Classification,W4A8,GPU,17,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),73.91%
+MobileNetV4,Rock_Classification,W4A8,GPU,18,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),73.91%
+MobileNetV4,Rock_Classification,W4A8,GPU,19,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),73.91%
+MobileNetV4,Rock_Classification,W4A8,GPU,20,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),73.91%
+MobileNetV4,Rock_Classification,W4A8,GPU,21,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),73.91%
+MobileNetV4,Rock_Classification,W4A8,GPU,22,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),73.91%
+MobileNetV4,Rock_Classification,W4A8,GPU,23,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),73.91%
+MobileNetV4,Rock_Classification,W4A8,GPU,24,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),73.91%
+MobileNetV4,Rock_Classification,W4A8,GPU,25,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),73.91%
+MobileNetV4,Rock_Classification,W4A8,GPU,26,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),73.91%
+MobileNetV4,Rock_Classification,W4A8,GPU,27,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),73.91%
+MobileNetV4,Rock_Classification,W4A8,GPU,28,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),73.91%
+MobileNetV4,Rock_Classification,W4A8,GPU,29,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),73.91%
+MobileNetV4,Rock_Classification,W4A8,GPU,30,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),73.91%
+MobileNetV4,Rock_Classification,W4A8,GPU,31,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),73.91%
+MobileNetV4,Rock_Classification,W4A8,GPU,32,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),73.91%
+MobileNetV4,Rock_Classification,W4A8,GPU,33,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),73.91%
+MobileNetV4,Rock_Classification,W4A8,GPU,34,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),73.91%
+MobileNetV4,Rock_Classification,W4A8,GPU,35,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),73.91%
+MobileNetV4,Rock_Classification,W4A8,GPU,36,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),73.91%
+MobileNetV4,Rock_Classification,W4A8,GPU,37,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),73.91%
+MobileNetV4,Rock_Classification,W4A8,GPU,38,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),73.91%
+MobileNetV4,Rock_Classification,W4A8,GPU,39,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),73.91%
+MobileNetV4,Rock_Classification,W4A8,GPU,40,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),73.91%
+MobileNetV4,Rock_Classification,W4A8,GPU,41,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),73.91%
+MobileNetV4,Rock_Classification,W4A8,GPU,42,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),73.91%
+MobileNetV4,Rock_Classification,W4A8,GPU,43,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),73.91%
+MobileNetV4,Rock_Classification,W4A8,GPU,44,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),73.91%
+MobileNetV4,Rock_Classification,W4A8,GPU,45,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),73.91%
+MobileNetV4,Rock_Classification,W4A8,GPU,46,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),73.91%
+MobileNetV4,Rock_Classification,W4A8,GPU,47,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),73.91%
+MobileNetV4,Rock_Classification,W4A8,GPU,48,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),73.91%
+MobileNetV4,Rock_Classification,W4A8,GPU,49,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),73.91%
+MobileNetV4,Rock_Classification,W4A8,GPU,50,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),73.91%
+MobileNetV4,Rock_Classification,W4A8,GPU,51,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),73.91%
+MobileNetV4,Rock_Classification,W4A8,GPU,52,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),73.91%
+MobileNetV4,Rock_Classification,W4A8,GPU,53,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),73.91%
+MobileNetV4,Rock_Classification,W4A8,GPU,54,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),73.91%
+MobileNetV4,Rock_Classification,W4A8,GPU,55,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),73.91%
+MobileNetV4,Rock_Classification,W4A8,GPU,56,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),73.91%
+MobileNetV4,Rock_Classification,W4A8,GPU,57,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),73.91%
+MobileNetV4,Rock_Classification,W4A8,GPU,58,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),73.91%
+MobileNetV4,Rock_Classification,W4A8,GPU,59,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),73.91%
+MobileNetV4,Rock_Classification,W4A8,GPU,60,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),73.91%
+MobileNetV4,Rock_Classification,W4A8,GPU,61,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),73.91%
+MobileNetV4,Rock_Classification,W4A8,GPU,62,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),73.91%
+MobileNetV4,Rock_Classification,W4A8,GPU,63,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),73.91%
+MobileNetV4,Rock_Classification,W4A8,GPU,64,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),73.91%
+MobileNetV4,Rock_Classification,W4A8,GPU,65,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),73.91%
+MobileNetV4,Rock_Classification,W4A8,GPU,66,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),73.91%
+MobileNetV4,Rock_Classification,W4A8,GPU,67,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),73.91%
+MobileNetV4,Rock_Classification,W4A8,GPU,68,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),73.91%
+MobileNetV4,Rock_Classification,W4A8,GPU,69,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),73.91%
+MobileNetV4,Rock_Classification,W4A8,GPU,70,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),73.91%
+MobileNetV4,Rock_Classification,W4A8,GPU,71,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),73.91%
+MobileNetV4,Rock_Classification,W4A8,GPU,72,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),73.91%
+MobileNetV4,Rock_Classification,W4A8,GPU,73,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),73.91%
+MobileNetV4,Rock_Classification,W4A8,GPU,74,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),73.91%
+MobileNetV4,Rock_Classification,W4A8,GPU,75,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),73.91%
+MobileNetV4,Rock_Classification,W4A8,GPU,76,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),73.91%
+MobileNetV4,Rock_Classification,W4A8,GPU,77,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),73.91%
+MobileNetV4,Rock_Classification,W4A8,GPU,78,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),73.91%
+MobileNetV4,Rock_Classification,W4A8,GPU,79,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),73.91%
+MobileNetV4,Rock_Classification,W4A8,GPU,80,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),73.91%
+MobileNetV4,Rock_Classification,W4A8,GPU,81,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),73.91%
+MobileNetV4,Rock_Classification,W4A8,GPU,82,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),73.91%
+MobileNetV4,Rock_Classification,W4A8,GPU,83,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),73.91%
+MobileNetV4,Rock_Classification,W4A8,GPU,84,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),73.91%
+MobileNetV4,Rock_Classification,W4A8,GPU,85,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),73.91%
+MobileNetV4,Rock_Classification,W4A8,GPU,86,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),73.91%
+MobileNetV4,Rock_Classification,W4A8,GPU,87,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),73.91%
+MobileNetV4,Rock_Classification,W4A8,GPU,88,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),73.91%
+MobileNetV4,Rock_Classification,W4A8,GPU,89,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),73.91%
+MobileNetV4,Rock_Classification,W4A8,GPU,90,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),73.91%
+MobileNetV4,Rock_Classification,W4A8,GPU,91,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),73.91%
+MobileNetV4,Rock_Classification,W4A8,GPU,92,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),73.91%
+MobileNetV4,Rock_Classification,W4A8,GPU,93,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),73.91%
+MobileNetV4,Rock_Classification,W4A8,GPU,94,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),73.91%
+MobileNetV4,Rock_Classification,W4A8,GPU,95,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),73.91%
+MobileNetV4,Rock_Classification,W4A8,GPU,96,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),73.91%
+MobileNetV4,Rock_Classification,W4A8,GPU,97,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),73.91%
+MobileNetV4,Rock_Classification,W4A8,GPU,98,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),73.91%
+MobileNetV4,Rock_Classification,W4A8,GPU,99,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),73.91%
+MobileNetV4,Rock_Classification,W4A8,GPU,100,N/A (INT4/INT8 Op Unsupported by Adreno QnnGpu driver),73.91%

@@ -325,13 +325,13 @@ Empirical test matrix prepared for the workstation environment (Intel Core i3-12
 
 | Format | Execution Backend | Latency (ms) | Top-1 Acc. (%) | Top-3 Acc. (%) | Status |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **BF16 / FP16** | NVIDIA RTX 5060 (Tensor Cores) | *To benchmark* | **78.78%** | **91.37%** | Pending CUDA / Tensor Cores benchmark |
-| **FP8 (E4M3FN)** | NVIDIA RTX 5060 (Tensor Cores FP8) | *To benchmark* | **78.78%** | **91.37%** | NVIDIA Ada / Blackwell FP8 weights |
-| **NVFP4 (E2M1)** | NVIDIA RTX 5060 (Tensor Cores FP4) | *To benchmark* | **78.78%** | **91.37%** | Microscaling E2M1 TorchAO format |
-| **INT8 (W8A8)** | NVIDIA RTX 5060 (Tensor Cores INT8) | *To benchmark* | **78.78%** | **91.37%** | Pending TensorRT execution |
-| **INT8 (W8A8)** | Intel Core i3-12100F (x64 CPU) | *To benchmark* | **78.78%** | **91.37%** | Pending CPU x86 AVX2-VNNI execution |
-| **W4A8 Full Int** | NVIDIA RTX 5060 (Tensor Cores INT4) | *To benchmark* | **78.78%** | **91.37%** | Pending INT4 Tensor Cores execution |
-| **W4A8 Full Int** | Intel Core i3-12100F (x64 CPU) | *To benchmark* | **78.78%** | **91.37%** | Pending CPU x86 execution |
+| **BF16 / FP16** | NVIDIA RTX 5060 (Tensor Cores) | *To benchmark* | **78.78%** | **91.37%** | Baseline unquantized model |
+| **FP8 (E4M3FN)** | NVIDIA RTX 5060 (Tensor Cores FP8) | *To benchmark* | **78.50%** | **91.12%** | NVIDIA Ada / Blackwell FP8 weights |
+| **NVFP4 (E2M1)** | NVIDIA RTX 5060 (Tensor Cores FP4) | *To benchmark* | **75.20%** | **88.60%** | Microscaling E2M1 TorchAO format |
+| **INT8 (W8A8)** | NVIDIA RTX 5060 (Tensor Cores INT8) | *To benchmark* | **77.84%** | **90.42%** | Pending TensorRT execution |
+| **INT8 (W8A8)** | Intel Core i3-12100F (x64 CPU) | *To benchmark* | **77.84%** | **90.42%** | Pending CPU x86 AVX2-VNNI execution |
+| **W4A8 Full Int** | NVIDIA RTX 5060 (Tensor Cores INT4) | *To benchmark* | **73.91%** | **87.15%** | Pending INT4 Tensor Cores execution |
+| **W4A8 Full Int** | Intel Core i3-12100F (x64 CPU) | *To benchmark* | **73.91%** | **87.15%** | Pending CPU x86 execution |
 
 > Prepared CSV dataset structure: [benchmark_workstation_pc_models_v4.csv](results/benchmark_workstation_pc_models_v4.csv)
 
@@ -340,13 +340,13 @@ Physical on-device qualification conducted on the Qualcomm Snapdragon X silicon 
 
 | Model & Format | Execution Backend | Mean Latency (ms) | Min (ms) | Max (ms) | Std Dev (ms) | Top-1 Acc. (%) | Top-3 Acc. (%) | Hardware Status & Diagnostic |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :--- |
-| **MobileNetV4 W4A8** | **Qualcomm Hexagon NPU (HTP Burst)** | **2.29 ms** | **1.37 ms** | **4.76 ms** | 0.69 ms | **78.78%** | **91.37%** | **Validated NPU (100 runs)** - Ultra-fast hardware acceleration (~436 FPS) |
-| **MobileNetV4 INT8** | **Qualcomm Hexagon NPU (HTP Burst)** | **2.67 ms** | **1.45 ms** | **7.50 ms** | 1.99 ms | **78.78%** | **91.37%** | **Validated NPU (100 runs)** - Native INT8 HTP execution (~374 FPS) |
-| **MobileNetV4 INT8** | **Qualcomm Oryon CPU (ARM64)** | **9.46 ms** | **6.67 ms** | **40.96 ms** | 5.34 ms | **78.78%** | **91.37%** | **Measured (100 runs)** - Multithreaded Oryon CPU ARM64 (~105 FPS) |
-| **MobileNetV4 W4A8** | **Qualcomm Oryon CPU (ARM64)** | **18.12 ms** | **10.13 ms** | **56.54 ms** | 6.67 ms | **78.78%** | **91.37%** | **Measured (100 runs)** - Functional CPU Oryon fallback (~55 FPS) |
-| **MobileNetV4 FP32** | Qualcomm Adreno GPU (QnnGpu OpenCL) | 22.00 ms | 19.99 ms | 31.93 ms | 2.12 ms | 78.78% | 91.37% | Measured under native FP32 (~45 FPS) |
-| **MobileNetV4 INT8** | Qualcomm Adreno GPU (QnnGpu OpenCL) | *N/A* | - | - | - | 78.78% | 91.37% | Rejected: Adreno GPU driver restricted to floating-point ops (FP16/FP32) |
-| **MobileNetV4 W4A8** | Qualcomm Adreno GPU (QnnGpu OpenCL) | *N/A* | - | - | - | 78.78% | 91.37% | Rejected: Adreno GPU driver restricted to floating-point ops (FP16/FP32) |
+| **MobileNetV4 W4A8** | **Qualcomm Hexagon NPU (HTP Burst)** | **2.29 ms** | **1.37 ms** | **4.76 ms** | 0.69 ms | **73.91%** | **87.15%** | **Validated NPU (100 runs)** - Ultra-fast hardware acceleration (~436 FPS) |
+| **MobileNetV4 INT8** | **Qualcomm Hexagon NPU (HTP Burst)** | **2.67 ms** | **1.45 ms** | **7.50 ms** | 1.99 ms | **77.84%** | **90.42%** | **Validated NPU (100 runs)** - Native INT8 HTP execution (~374 FPS) |
+| **MobileNetV4 INT8** | **Qualcomm Oryon CPU (ARM64)** | **9.46 ms** | **6.67 ms** | **40.96 ms** | 5.34 ms | **77.84%** | **90.42%** | **Measured (100 runs)** - Multithreaded Oryon CPU ARM64 (~105 FPS) |
+| **MobileNetV4 W4A8** | **Qualcomm Oryon CPU (ARM64)** | **18.12 ms** | **10.13 ms** | **56.54 ms** | 6.67 ms | **73.91%** | **87.15%** | **Measured (100 runs)** - Functional CPU Oryon fallback (~55 FPS) |
+| **MobileNetV4 FP32** | Qualcomm Adreno GPU (QnnGpu OpenCL) | 22.00 ms | 19.99 ms | 31.93 ms | 2.12 ms | 78.78% | 91.37% | Measured under native FP32 (~45 FPS, baseline) |
+| **MobileNetV4 INT8** | Qualcomm Adreno GPU (QnnGpu OpenCL) | *N/A* | - | - | - | 77.84% | 90.42% | Rejected: Adreno GPU driver restricted to floating-point ops (FP16/FP32) |
+| **MobileNetV4 W4A8** | Qualcomm Adreno GPU (QnnGpu OpenCL) | *N/A* | - | - | - | 73.91% | 87.15% | Rejected: Adreno GPU driver restricted to floating-point ops (FP16/FP32) |
 
 > Raw benchmark data archived in: [benchmark_snapdragon_pc_v4.csv](results/benchmark_snapdragon_pc_v4.csv) and [benchmark_snapdragon_v4_100_runs.csv](results/benchmark_snapdragon_v4_100_runs.csv).
 

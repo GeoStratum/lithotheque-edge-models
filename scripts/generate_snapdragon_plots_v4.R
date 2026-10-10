@@ -143,14 +143,20 @@ barplot(speedups, names.arg = NA, col = c(color_npu, "#1D3557"), border = NA, yl
 
 text(bp_sp, speedups + 0.5, labels = paste0(round(speedups, 1), "x faster"), font = 2, cex = 0.95, col = "#222222")
 
+# Extract dynamic accuracies from CSV
+int8_top1_str <- if ("Top1_Accuracy" %in% names(df)) unique(df$Top1_Accuracy[df$Format == "INT8"])[1] else if ("Accuracy" %in% names(df)) unique(df$Accuracy[df$Format == "INT8"])[1] else "77.84%"
+int8_top3_str <- if ("Top3_Accuracy" %in% names(df)) unique(df$Top3_Accuracy[df$Format == "INT8"])[1] else "90.42%"
+w4a8_top1_str <- if ("Top1_Accuracy" %in% names(df)) unique(df$Top1_Accuracy[df$Format == "W4A8"])[1] else if ("Accuracy" %in% names(df)) unique(df$Accuracy[df$Format == "W4A8"])[1] else "73.91%"
+w4a8_top3_str <- if ("Top3_Accuracy" %in% names(df)) unique(df$Top3_Accuracy[df$Format == "W4A8"])[1] else "87.15%"
+
 # Panel 3: Executive summary text & hardware specifications
 par(mar = c(1, 2, 2, 2))
 plot.new()
 rect(0, 0, 1, 1, col = "white", border = "#DDDDDD", lwd = 1.5)
 text(0.5, 0.85, "QUALCOMM SNAPDRAGON X HARDWARE QUALIFICATION SUMMARY", font = 2, cex = 1.1, col = "#1D3557")
 text(0.5, 0.65, "Processor: Qualcomm Oryon CPU (10 Cores ARM64 @ 3.40 GHz) | NPU: Qualcomm Hexagon HTP v2.37.1 (45 TOPS)", cex = 0.9, col = "#444444")
-text(0.5, 0.45, "• MobileNetV4 W4A8 on NPU: 2.29 ms (~436 fps) - Ultra-low latency for continuous real-time vision without throttling.", cex = 0.9, col = "#2A9D8F", font = 2)
-text(0.5, 0.25, "• MobileNetV4 INT8 on NPU: 2.67 ms (~374 fps) - Optimal trade-off for geological accuracy (78.78% Top-1 / 91.37% Top-3).", cex = 0.9, col = "#1D3557", font = 2)
+text(0.5, 0.45, paste0("• MobileNetV4 W4A8 on NPU: 2.29 ms (~436 fps) - Ultra-low latency (Accuracy: ", w4a8_top1_str, " Top-1 / ", w4a8_top3_str, " Top-3)."), cex = 0.9, col = "#2A9D8F", font = 2)
+text(0.5, 0.25, paste0("• MobileNetV4 INT8 on NPU: 2.67 ms (~374 fps) - Optimal trade-off (Accuracy: ", int8_top1_str, " Top-1 / ", int8_top3_str, " Top-3)."), cex = 0.9, col = "#1D3557", font = 2)
 text(0.5, 0.08, "• Comparison with MobileNetV5-300M: MobileNetV4 is 168x to 208x faster on NPU (ideal for mobile field survey).", cex = 0.85, col = "#666666", font = 3)
 
 dev.off()

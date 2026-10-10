@@ -179,8 +179,11 @@ png("results/2_mobilenetv5_pareto_accuracy_vs_latency.png", width = 1600, height
 v4l_npu_int8_lat <- if (nrow(snap_v4_df) > 0) get_mean(snap_v4_df, snap_v4_df$Backend == "NPU" & snap_v4_df$Format == "INT8") else get_mean(litho_df, litho_df$Model == "MobileNetV4-Large" & litho_df$Format == "INT8" & litho_df$Backend == "NPU")
 v4l_npu_w4a8_lat <- if (nrow(snap_v4_df) > 0) get_mean(snap_v4_df, snap_v4_df$Backend == "NPU" & snap_v4_df$Format == "W4A8") else get_mean(litho_df, litho_df$Model == "MobileNetV4-Large" & litho_df$Format == "INT4" & litho_df$Backend == "NPU")
 
-v4l_top1 <- if (nrow(snap_v4_df) > 0) get_first_acc(snap_v4_df, snap_v4_df$Backend == "NPU", "Top1_num") else get_first_acc(litho_df, litho_df$Model == "MobileNetV4-Large", "Top1_num", default = 78.78)
-v4l_top3 <- if (nrow(snap_v4_df) > 0) get_first_acc(snap_v4_df, snap_v4_df$Backend == "NPU", "Top3_num") else get_first_acc(litho_df, litho_df$Model == "MobileNetV4-Large", "Top3_num", default = 91.37)
+v4l_int8_top1 <- if (nrow(snap_v4_df) > 0) get_first_acc(snap_v4_df, snap_v4_df$Backend == "NPU" & snap_v4_df$Format == "INT8", "Top1_num") else get_first_acc(litho_df, litho_df$Model == "MobileNetV4-Large" & litho_df$Format == "INT8", "Top1_num", default = 77.84)
+v4l_int8_top3 <- if (nrow(snap_v4_df) > 0) get_first_acc(snap_v4_df, snap_v4_df$Backend == "NPU" & snap_v4_df$Format == "INT8", "Top3_num") else get_first_acc(litho_df, litho_df$Model == "MobileNetV4-Large" & litho_df$Format == "INT8", "Top3_num", default = 90.42)
+
+v4l_w4a8_top1 <- if (nrow(snap_v4_df) > 0) get_first_acc(snap_v4_df, snap_v4_df$Backend == "NPU" & snap_v4_df$Format == "W4A8", "Top1_num") else get_first_acc(litho_df, litho_df$Model == "MobileNetV4-Large" & litho_df$Format %in% c("W4A8", "INT4"), "Top1_num", default = 73.91)
+v4l_w4a8_top3 <- if (nrow(snap_v4_df) > 0) get_first_acc(snap_v4_df, snap_v4_df$Backend == "NPU" & snap_v4_df$Format == "W4A8", "Top3_num") else get_first_acc(litho_df, litho_df$Model == "MobileNetV4-Large" & litho_df$Format %in% c("W4A8", "INT4"), "Top3_num", default = 87.15)
 
 # Dynamically extract MobileNetV5 accuracies from workstation / snapdragon CSVs
 v5_rtx_int8_acc1 <- get_first_acc(norm_df, norm_df$Backend == "GPU_RTX5060" & norm_df$Format == "INT8", "Top1_num", default = 88.67)
@@ -223,14 +226,14 @@ rock_pareto <- data.frame(
     v5_npu_int8_acc1, v5_npu_w4a8_acc1,
     v5_cpu_int8_acc1, v5_cpu_w4a8_acc1,
     v5_arm_int8_acc1, v5_arm_w4a8_acc1,
-    v4l_top1, v4l_top1
+    v4l_int8_top1, v4l_w4a8_top1
   ),
   Top3 = c(
     v5_rtx_int8_acc3, v5_rtx_w4a8_acc3,
     v5_npu_int8_acc3, v5_npu_w4a8_acc3,
     v5_cpu_int8_acc3, v5_cpu_w4a8_acc3,
     v5_arm_int8_acc3, v5_arm_w4a8_acc3,
-    v4l_top3, v4l_top3
+    v4l_int8_top3, v4l_w4a8_top3
   ),
   Color = c(
     "#2A9D8F", "#3BB3A2", "#1D3557", "#2D5482", "#E9C46A", "#F4A261", "#E76F51", "#F28482",
