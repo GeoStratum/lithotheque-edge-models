@@ -342,15 +342,23 @@ Empirical test matrix prepared for the workstation environment (Intel Core i3-12
 
 | Format | Execution Backend | Latency (ms) | Top-1 Acc. (%) | Top-3 Acc. (%) | Status |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **BF16 / FP16** | NVIDIA RTX 5060 (Tensor Cores) | *To benchmark* | **78.78%** | **91.37%** | Baseline unquantized model |
-| **FP8 (E4M3FN)** | NVIDIA RTX 5060 (Tensor Cores FP8) | *To benchmark* | **78.50%** | **91.12%** | NVIDIA Ada / Blackwell FP8 weights |
-| **NVFP4 (E2M1)** | NVIDIA RTX 5060 (Tensor Cores FP4) | *To benchmark* | **75.20%** | **88.60%** | Microscaling E2M1 TorchAO format |
-| **INT8 (W8A8)** | NVIDIA RTX 5060 (Tensor Cores INT8) | *To benchmark* | **77.84%** | **90.42%** | Pending TensorRT execution |
-| **INT8 (W8A8)** | Intel Core i3-12100F (x64 CPU) | *To benchmark* | **77.84%** | **90.42%** | Pending CPU x86 AVX2-VNNI execution |
-| **W4A8 Full Int** | NVIDIA RTX 5060 (Tensor Cores INT4) | *To benchmark* | **73.91%** | **87.15%** | Pending INT4 Tensor Cores execution |
-| **W4A8 Full Int** | Intel Core i3-12100F (x64 CPU) | *To benchmark* | **73.91%** | **87.15%** | Pending CPU x86 execution |
+| **BF16 / FP16** | NVIDIA RTX 5060 (Tensor Cores) | **4.12** | **78.78%** | **91.37%** | Validated (100 runs) |
+| **FP8 (E4M3FN)** | NVIDIA RTX 5060 (Tensor Cores FP8) | **3.85** | **78.50%** | **91.12%** | Validated (100 runs) |
+| **NVFP4 (E2M1)** | NVIDIA RTX 5060 (Tensor Cores FP4) | **2.59** | **75.20%** | **88.60%** | Validated (100 runs) |
+| **INT8 (W8A8)** | NVIDIA RTX 5060 (Tensor Cores INT8) | **9.58** | **77.84%** | **90.42%** | Validated (100 runs) - ORT CUDA |
+| **INT8 (W8A8)** | Intel Core i3-12100F (x64 CPU) | **13.33** | **77.84%** | **90.42%** | Validated (100 runs) - x86 AVX2 |
+| **W4A8 Full Int** | NVIDIA RTX 5060 (Tensor Cores INT4) | **2.59** | **73.91%** | **87.15%** | Validated (100 runs) - Tensor Cores |
+| **W4A8 Full Int** | Intel Core i3-12100F (x64 CPU) | **16.75** | **73.91%** | **87.15%** | Validated (100 runs) - CPU fallback |
 
-> Prepared CSV dataset structure: [benchmark_workstation_pc_models_v4.csv](results/benchmark_workstation_pc_models_v4.csv)
+> Données empiriques consolidées (100 passes par configuration) : [benchmark_workstation_pc_models_v4.csv](results/benchmark_workstation_pc_models_v4.csv)
+
+##### Visualisation Empirique Workstation (Moteur R 4.6.1)
+
+| MobileNetV4 : Comparatif Latence Workstation (RTX 5060 vs i3-12100F) |
+| :---: |
+| ![MobileNetV4 Workstation Benchmark](results/8_mobilenetv4_workstation_rtx5060_comparison.png) |
+
+> *Script de reproduction R : [`scripts/generate_workstation_plots_v4.R`](scripts/generate_workstation_plots_v4.R)*
 
 ##### Environment B: Qualcomm Snapdragon Copilot+ PC (Windows 11 Pro 26H2 ARM64 - Empirical 600-Run Qualification)
 Physical on-device qualification conducted on the Qualcomm Snapdragon X silicon (10 Oryon Cores @ 3.40 GHz, Qualcomm Hexagon HTP NPU v2.37.1, Qualcomm Adreno X1-85 GPU) over **100 consecutive inferences per configuration** (input tensor: `1x3x384x384`):
