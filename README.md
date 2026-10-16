@@ -132,21 +132,27 @@ To achieve extreme accuracy across 104 geological classes, the model was fine-tu
 ## 4. Inference Engine & Hardware Fallback
 To prevent thermal throttling during the intensive 21-pass analysis, all image preprocessing (resizing, normalization) is written in **Native C++ utilizing C++23 auto-vectorization (supporting ARMv8-A NEON SIMD and AVX2)**, yielding a 5x to 10x speedup over standard interpreter pipelines with minimal memory overhead.
 
-Inference is powered by **LiteRT Standalone (2.1.4)** with a 100% NPU-compliant execution graph, fully aligned with **Android 15 (16 KB memory pages)** requirements:
-1. **Dedicated NPU Hardware Engine**: 100% graph delegation on mobile NPUs (Qualcomm Hexagon QNN, Samsung Exynos NPU via `eden-drv`, Google Tensor TPU).
+Inference is powered by **LiteRT Standalone (2.1.4)** with a 100% NPU-compliant execution graph, fully aligned with **Android 12 to Android 17 (16 KB memory pages)** requirements:
+1. **Dedicated NPU Hardware Engine**: 100% graph delegation on mobile NPUs and TPUs:
    * **Full NPU Driver Compliance**: FullyConnected classification heads are strictly quantized **per-tensor** (`TENSOR_QUANT8_ASYMM_SIGNED`) rather than per-channel, and explicit standalone `PAD` operations are fused into convolutions with `SAME` padding. This resolves mobile NPU driver rejections (`ANEURALNETWORKS_BAD_DATA`) and ensures complete hardware offload without falling back to CPU or GPU.
+   * **Hardware-Targeted Compilation Paradigms (AOT vs. JIT)**:
+     * **Qualcomm Snapdragon (Ahead-Of-Time / AOT via QAIRT)**: Precompiled native HTP binaries (`.bin`) targeting specific Hexagon architectures:
+       - **HTP v69 & v73 (INT8 Only)**: Snapdragon 888 / 888+, 8 Gen 1, 778G, 695. These NPU generations lack sub-byte INT4 hardware decompression units; models are exclusively served as **Standard INT8**, **Legacy INT8**, and **SESR** (3 packs per HTP target = 6 packs).
+       - **HTP v75, v79, v81, v85, v89 (Native INT4 / W4A8)**: Snapdragon 8 Gen 2, 8s Gen 3, 8 Gen 3, 7 Gen 3, 7+ Gen 3, 6 Gen 3, X Elite, X2, 8 Elite / 8 Elite Gen 5. With full hardware sub-byte execution enabled, these architectures skip redundant INT8 weights and natively deploy **Premium W4A8**, **Balanced W4A8**, and **SESR** (3 packs per HTP target = 15 packs).
+     * **Google Tensor (Ahead-Of-Time / AOT TPU Metadata)**: Covering Pixel 6 through Pixel 11 across **Android 12 to Android 17** (`Tensor_G1` to `Tensor_G6`). Google Tensor TPUs natively accelerate signed **per-tensor INT8** without hardware sub-byte INT4 unpacking. Consequently, all Tensor targets are deployed in **pure INT8** (`recognition_tensor_gX`) accompanied by a dedicated Super-Resolution AOT package (`super_resolution_tensor_gX`) for every Tensor G generation (12 packs total).
+     * **Samsung Exynos & MediaTek Dimensity (Just-In-Time / JIT NPU)**: Deployed via universal TFLite graphs with per-tensor quantization and fused padding. On-device runtimes (Samsung Eden/NCP NPU driver and MediaTek NeuroPilot) perform Just-In-Time compilation directly to their respective neural engines without CPU/GPU fallback.
 2. **GPU ML Acceleration**: OpenCL / Vulkan shader delegate fallback for devices without compatible NPU drivers.
 3. **XNNPACK**: Highly optimized CPU fallback utilizing ARMv8 NEON and ARMv9 SVE2 SIMD instructions.
 
-## 5. Deployment Strategy (AI Tiers)
-Models are aggressively quantized and delivered dynamically based on the device's hardware profile upon first launch:
+## 5. Deployment Strategy (AI Tiers & Hardware Packs)
+Models are quantized and delivered dynamically via **Play Asset Delivery (PAD)** modular packages, ensuring zero download of incompatible architecture binaries:
 
-| Tier | Hardware Criteria | Quantization | Base Architecture |
-| :--- | :--- | :---: | :--- |
-| **Premium** | RAM > 6GB + Modern NPU | **INT4 (W4A8)** | MobileNetV5 (300M) & V4-S |
-| **Balanced** | RAM < 6GB + Modern NPU | **INT4 (W4A8)** | MobileNetV4-L & V4-S |
-| **Standard** | RAM > 6GB | **INT8** | MobileNetV5 (300M) & V4-S |
-| **Legacy** | RAM < 4GB / Entry-level | **INT8** | MobileNetV4-L & V4-S |
+| Hardware Family | Architecture / SoC Targets | Active Quantization | Pack Structure | Compilation |
+| :--- | :--- | :---: | :--- | :---: |
+| **Qualcomm (Modern)** | HTP v75, v79, v81, v85, v89 *(8G2/3, 8 Elite, 7G3, X Elite/X2)* | **W4A8 (INT4)** | Premium W4A8, Balanced W4A8, SESR | Native AOT (`.bin`) |
+| **Qualcomm (Legacy)** | HTP v69, v73 *(888, 8G1, 778G, 695)* | **INT8** | Standard INT8, Legacy INT8, SESR | Native AOT (`.bin`) |
+| **Google Tensor** | Tensor G1 à G6 *(Pixel 6 à 11 / Android 12 à 17)* | **INT8** *(No INT4)* | Recognition INT8, SESR AOT | AOT FlatBuffer TPU |
+| **Universal Generic** | Samsung Exynos, MediaTek Dimensity, Others | **W4A8 & INT8** | 5 Generic Fallback Packs (TFLite) | On-Device JIT NPU |
 
 ## 6. W4A8 Quantization Methodology
 Quantizing the **MobileNetV5** architecture (technically analogous to the vision encoder found in **Gemma 3 Nano**) to a **W4A8 Full Integer** format presents significant mathematical and architectural challenges. Standard quantization pipelines often fail to maintain bit-accurate I/O alignment on Snapdragon NPUs when dealing with complex activations like `Erf` or `Gelu`.
