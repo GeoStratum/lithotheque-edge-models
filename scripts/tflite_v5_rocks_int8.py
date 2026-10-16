@@ -44,13 +44,28 @@ def quantize_v5_rocks_int8(model_path, calib_path, output_path):
     print(f"Quantizing to INT8: {output_path}")
     q = Quantizer(temp_float)
     
-    # Configure INT8
+    # Configure INT8 - Convolutions Channelwise, Dense/Head Tensorwise for NPU Driver Compliance
     q.add_static_config(
         regex=".*",
-        operation_name=TFLOperationName.ALL_SUPPORTED,
+        operation_name=TFLOperationName.CONV_2D,
         activation_num_bits=8,
         weight_num_bits=8,
         weight_granularity=QuantGranularity.CHANNELWISE,
+    )
+    q.add_static_config(
+        regex=".*",
+        operation_name=TFLOperationName.DEPTHWISE_CONV_2D,
+        activation_num_bits=8,
+        weight_num_bits=8,
+        weight_granularity=QuantGranularity.CHANNELWISE,
+    )
+    # 100% NPU Hardware Compliance (Exynos Eden NCP 24/25, Google Tensor, Qualcomm Hexagon)
+    q.add_static_config(
+        regex=".*",
+        operation_name=TFLOperationName.FULLY_CONNECTED,
+        activation_num_bits=8,
+        weight_num_bits=8,
+        weight_granularity=QuantGranularity.TENSORWISE,
     )
 
     # Calibration data

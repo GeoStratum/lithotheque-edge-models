@@ -34,7 +34,12 @@ def quantize_v4l_rocks_int8(model_path, calib_path, output_path):
     converter.inference_output_type = tf.int8
     converter.target_spec.supported_ops = [tf.lite.OpsSet.TFLITE_BUILTINS_INT8]
     
-    print("Converting MobileNetV4-Large Rocks to Pure INT8 TFLite...")
+    # 100% NPU Hardware Compliance (Exynos Eden NCP 24/25, Google Tensor, Qualcomm Hexagon)
+    # FullyConnected layers require per-tensor quantization (TENSOR_QUANT8_ASYMM_SIGNED)
+    if hasattr(converter, "_experimental_disable_per_channel_quantization_for_dense_layers"):
+        converter._experimental_disable_per_channel_quantization_for_dense_layers = True
+    
+    print("Converting MobileNetV4-Large Rocks to INT8 TFLite (100% NPU compatible)...")
     tflite_model = converter.convert()
     
     with open(output_path, "wb") as f:

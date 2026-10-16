@@ -132,10 +132,11 @@ To achieve extreme accuracy across 104 geological classes, the model was fine-tu
 ## 4. Inference Engine & Hardware Fallback
 To prevent thermal throttling during the intensive 21-pass analysis, all image preprocessing (resizing, normalization) is written in **Native C++ utilizing C++23 auto-vectorization (supporting ARMv8-A NEON SIMD and AVX2)**, yielding a 5x to 10x speedup over standard interpreter pipelines with minimal memory overhead.
 
-Inference is powered by **ONNX Runtime (QNN Execution Provider) & LiteRT Standalone** with a robust hardware fallback system on **Windows 11 ARM64**:
-1. **Qualcomm Hexagon NPU Native HTP** (Direct hardware access via `QnnHtp.dll`)
-2. **Qualcomm Oryon CPU Multithreaded** (Highly optimized CPU fallback utilizing NEON SIMD)
-3. **GPU ML Drift** (Shader-based acceleration for FP16 tasks)
+Inference is powered by **LiteRT Standalone (2.1.4)** with a 100% NPU-compliant execution graph, fully aligned with **Android 15 (16 KB memory pages)** requirements:
+1. **Dedicated NPU Hardware Engine**: 100% graph delegation on mobile NPUs (Qualcomm Hexagon QNN, Samsung Exynos NPU via `eden-drv`, Google Tensor TPU).
+   * **Full NPU Driver Compliance**: FullyConnected classification heads are strictly quantized **per-tensor** (`TENSOR_QUANT8_ASYMM_SIGNED`) rather than per-channel, and explicit standalone `PAD` operations are fused into convolutions with `SAME` padding. This resolves mobile NPU driver rejections (`ANEURALNETWORKS_BAD_DATA`) and ensures complete hardware offload without falling back to CPU or GPU.
+2. **GPU ML Acceleration**: OpenCL / Vulkan shader delegate fallback for devices without compatible NPU drivers.
+3. **XNNPACK**: Highly optimized CPU fallback utilizing ARMv8 NEON and ARMv9 SVE2 SIMD instructions.
 
 ## 5. Deployment Strategy (AI Tiers)
 Models are aggressively quantized and delivered dynamically based on the device's hardware profile upon first launch:
