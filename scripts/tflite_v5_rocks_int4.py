@@ -64,12 +64,9 @@ def quantize_v5_rocks_int4(model_path, calib_path, output_path):
     
     calib_dict = {sig: [{inp_k: raw[i:i+1]} for i in range(min(100, len(raw)))]}
     
-    result = q.quantize(q.calibrate(calib_dict))
+    result = q.quantize(q.calibrate(calib_dict), serialize_to_path=output_path)
     
-    with open(output_path, "wb") as f:
-        f.write(result.quantized_model)
-    
-    print(f"Successfully saved INT4 model to {output_path}")
+    print(f"Successfully saved INT4 model to {output_path} ({os.path.getsize(output_path)/(1024*1024):.2f} MB)")
     if os.path.exists(temp_float): os.remove(temp_float)
 
 if __name__ == "__main__":
