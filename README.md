@@ -2,7 +2,6 @@
 **Technical showcase of the Edge AI architecture powering the Lithotheque offline application.**
 
 [![Offline](https://img.shields.io/badge/Inference-100%25_Offline-success)](https://www.geostratum.eu/lithotheque)
-[![Languages](https://img.shields.io/badge/Supported_Languages-55-blue)](https://www.geostratum.eu/lithotheque)
 [![Engine](https://img.shields.io/badge/Engine-LiteRT_Standalone-orange)](https://ai.google.dev/edge/litert)
 [![C++](https://img.shields.io/badge/Native_Core-C%2B%2B_23-00599C?logo=c%2B%2B)](https://en.cppreference.com/w/cpp/23)
 [![Windows](https://img.shields.io/badge/Platform-Windows_11_ARM64-0078D4?logo=windows)](https://www.microsoft.com/windows)
@@ -34,6 +33,7 @@
   - [8.B Benchmark & Validation Environment (Machine 2)](#8b-benchmark--validation-environment-machine-2)
   - [8.C Memory Footprint & Initialization (Cold Start)](#8c-memory-footprint--initialization-cold-start)
   - [8.D Inference Latency & Accuracy (Avg over 100 runs)](#8d-inference-latency--accuracy-avg-over-100-runs)
+  - [8.E Native AOT Snapdragon X NPU Binaries Qualification (Machine 2 - Surface Pro 11)](#8e-native-aot-snapdragon-x-npu-binaries-qualification-machine-2---surface-pro-11)
 - [9. Hardware Strategy & Analysis](#9-hardware-strategy--analysis)
 - [10. Model Card (Technical Specs)](#10-model-card-technical-specs)
 - [11. Deployment & Application](#11-deployment--application)
@@ -62,7 +62,7 @@ The application utilizes two distinct neural networks, fine-tuned specifically f
   * **16 Fine Passes (4x4 Grid):** Micro-detail and mineral extraction.
   *(Scores are aggregated via weighted average for the final prediction).*
 
-![Rock Detection AI in Action](results/rock_detection_demo.gif)
+![Rock Detection AI in Action](results/consolidated/images/rock_detection_demo.gif)
 > **Figure 1: Real-time Rock Detection** - Demonstration of the 21-MST engine classifying lithological samples with high confidence on a Galaxy Z Fold 7 via Remote Test Lab.
 
 ### Dataset Categorization (104 Classes)
@@ -318,27 +318,27 @@ Exhaustive on-device measurements collected on the Snapdragon X Plus Copilot+ ul
 >    - The Qualcomm HTP compiler previously failed during low-level microcode generation due to a layout transformation conflict (`com.ms.internal.nhwc`) and dynamic `/msfa/Resize` node dimensions.
 >    - Applying the session configuration flag `optimization.enable_qnn_nhwc_layout: 0` and assembling the 282 convolutions with Little-Endian scale tables (`best_mobilenetv5_rocks_w4a8_npu.onnx`) enabled successful finalization of all 128 hardware micro-partitions.
 > 3. **Qualcomm Adreno GPU Behavior on INT8/W4A8**: The Qualcomm Adreno runtime (`QnnGpu.dll`) is strictly architected for floating-point tensors (FP16/FP32). Quantized integer primitives (`QuantizeLinear`, `QLinearConv`) are intentionally rejected at graph partitioning, designating the Hexagon NPU as the dedicated accelerator for quantized neural networks.
-> 4. **Standardized CSV Export & Documentation**: The raw data points (600 runs per platform) are archived in [benchmark_snapdragon_pc.csv](results/benchmark_snapdragon_pc.csv), [benchmark_workstation_pc_models_normaux.csv](results/benchmark_workstation_pc_models_normaux.csv), and [benchmark_workstation_pc_models_zero_fp32.csv](results/benchmark_workstation_pc_models_zero_fp32.csv), with engineering field logs detailed in [RAPPORT_BENCHMARK_NPU_SNAPDRAGON.txt](docs/RAPPORT_BENCHMARK_NPU_SNAPDRAGON.txt).
+> 4. **Standardized CSV Export & Documentation**: The raw data points (600 runs per platform) are archived in [benchmark_machine_2_v5.csv](results/MobileNetV5/machine_2/benchmark_machine_2_v5.csv), [benchmark_machine_1_v5_standard.csv](results/MobileNetV5/machine_1/benchmark_machine_1_v5_standard.csv), and [benchmark_machine_1_v5_zero_fp32.csv](results/MobileNetV5/machine_1/benchmark_machine_1_v5_zero_fp32.csv), with engineering field logs detailed in [RAPPORT_BENCHMARK_NPU_SNAPDRAGON.txt](docs/RAPPORT_BENCHMARK_NPU_SNAPDRAGON.txt).
 
 ##### Scientific Empirical Visualization (Generated via R 4.5.3 Engine)
 
 | 1. Cross-Hardware Latency Scaling (V5) | 2. Rock Classification Pareto Frontier (V5 & V4-Large) |
 | :---: | :---: |
-| ![Hardware Latency Comparison](results/1_mobilenetv5_hardware_latency_comparison.png) | ![Pareto Accuracy vs Latency](results/2_mobilenetv5_pareto_accuracy_vs_latency.png) |
+| ![Hardware Latency Comparison](results/MobileNetV5/machine_2/mobilenetv5_machine_2_hardware_latency_comparison.png) | ![Pareto Accuracy vs Latency](results/MobileNetV5/machine_2/mobilenetv5_machine_2_pareto_accuracy_vs_latency.png) |
 
-| 3. Geological Scale Detection (V4-Small) | 4. Qualcomm Hexagon NPU Stability (100 Runs) |
+| 3. Geological Scale Detection (V4-Small) | 4. Machine 2 Qualcomm Hexagon NPU Stability (100 Runs) |
 | :---: | :---: |
-| ![Geological Scale Detection](results/3_scale_metrology_detection_profiling.png) | ![Qualcomm Hexagon NPU Stability](results/4_mobilenetv5_snapdragon_npu_stability_distribution.png) |
+| ![Geological Scale Detection](results/ScaleDetection/machine_2/scale_metrology_detection_profiling.png) | ![Qualcomm Hexagon NPU Stability](results/MobileNetV5/machine_2/mobilenetv5_machine_2_npu_stability_distribution.png) |
 
 | 5. QDQ vs. Zero-FP32 Architectural Impact |
 | :---: |
-| ![Quantization Paradigm Comparison](results/5_mobilenetv5_quantization_paradigm_comparison.png) |
+| ![Quantization Paradigm Comparison](results/MobileNetV5/machine_2/mobilenetv5_machine_2_quantization_paradigm_comparison.png) |
 
 
 #### 2. MobileNetV4-Large - Rock Classification (VisionAiManager / Legacy Tier)
 
-##### Environment A: NVIDIA RTX 5060 Workstation (Desktop x64)
-Empirical test matrix prepared for the workstation environment (Intel Core i3-12100F & NVIDIA RTX 5060 Blackwell):
+##### Environment A: Machine 1 (Workstation Desktop x64 - Intel Core i3-12100F & RTX 5060)
+Empirical test matrix prepared for Machine 1 (Intel Core i3-12100F & NVIDIA RTX 5060 Blackwell):
 
 | Format | Execution Backend | Latency (ms) | Top-1 Acc. (%) | Top-3 Acc. (%) | Status |
 | :---: | :--- | :---: | :---: | :---: | :---: |
@@ -350,18 +350,18 @@ Empirical test matrix prepared for the workstation environment (Intel Core i3-12
 | **W4A8 Full Int** | NVIDIA RTX 5060 (Tensor Cores INT4) | **2.59** | **73.91%** | **87.15%** | Validated (100 runs) - Tensor Cores |
 | **W4A8 Full Int** | Intel Core i3-12100F (x64 CPU) | **16.75** | **73.91%** | **87.15%** | Validated (100 runs) - CPU fallback |
 
-> Données empiriques consolidées (100 passes par configuration) : [benchmark_workstation_pc_models_v4.csv](results/benchmark_workstation_pc_models_v4.csv)
+> Consolidated empirical benchmark data (100 passes per configuration): [benchmark_machine_1_v4.csv](results/MobileNetV4/machine_1/benchmark_machine_1_v4.csv)
 
-##### Visualisation Empirique Workstation (Moteur R 4.6.1)
+##### Empirical Visualization for Machine 1 (R 4.6.1 Engine)
 
-| MobileNetV4 : Comparatif Latence Workstation (RTX 5060 vs i3-12100F) |
+| MobileNetV4: Machine 1 Workstation Latency Comparison (RTX 5060 vs i3-12100F) |
 | :---: |
-| ![MobileNetV4 Workstation Benchmark](results/8_mobilenetv4_workstation_rtx5060_comparison.png) |
+| ![MobileNetV4 Workstation Benchmark](results/MobileNetV4/machine_1/mobilenetv4_machine_1_comparison.png) |
 
-> *Script de reproduction R : [`scripts/generate_workstation_plots_v4.R`](scripts/generate_workstation_plots_v4.R)*
+> *Reproducible R script: [`scripts/generate_workstation_plots_v4.R`](scripts/generate_workstation_plots_v4.R)*
 
-##### Environment B: Qualcomm Snapdragon Copilot+ PC (Windows 11 Pro 26H2 ARM64 - Empirical 600-Run Qualification)
-Physical on-device qualification conducted on the Qualcomm Snapdragon X silicon (10 Oryon Cores @ 3.40 GHz, Qualcomm Hexagon HTP NPU v2.37.1, Qualcomm Adreno X1-85 GPU) over **100 consecutive inferences per configuration** (input tensor: `1x3x384x384`):
+##### Environment B: Machine 2 (Surface Pro 11 - Qualcomm Snapdragon X Plus ARM64 - Empirical 600-Run Qualification)
+Physical on-device qualification conducted on Machine 2 (Snapdragon X silicon: 10 Oryon Cores @ 3.40 GHz, Qualcomm Hexagon HTP NPU v2.37.1, Qualcomm Adreno X1-85 GPU) over **100 consecutive inferences per configuration** (input tensor: `1x3x384x384`):
 
 | Model & Format | Execution Backend | Mean Latency (ms) | Min (ms) | Max (ms) | Std Dev (ms) | Top-1 Acc. (%) | Top-3 Acc. (%) | Hardware Status & Diagnostic |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :--- |
@@ -373,17 +373,17 @@ Physical on-device qualification conducted on the Qualcomm Snapdragon X silicon 
 | **MobileNetV4 INT8** | Qualcomm Adreno GPU (QnnGpu OpenCL) | *N/A* | - | - | - | *N/A* | *N/A* | Rejected: Adreno GPU driver restricted to floating-point ops (FP16/FP32) |
 | **MobileNetV4 W4A8** | Qualcomm Adreno GPU (QnnGpu OpenCL) | *N/A* | - | - | - | *N/A* | *N/A* | Rejected: Adreno GPU driver restricted to floating-point ops (FP16/FP32) |
 
-> Raw benchmark data archived in: [benchmark_snapdragon_pc_v4.csv](results/benchmark_snapdragon_pc_v4.csv) and [benchmark_snapdragon_v4_100_runs.csv](results/benchmark_snapdragon_v4_100_runs.csv).
+> Raw benchmark data archived in: [benchmark_machine_2_v4.csv](results/MobileNetV4/machine_2/benchmark_machine_2_v4.csv) and [benchmark_machine_2_v4_100_runs.csv](results/MobileNetV4/machine_2/benchmark_machine_2_v4_100_runs.csv).
 
 ##### Scientific Empirical Visualization (Generated via R 4.5.3 Engine)
 
-| 1. Snapdragon Latency Comparison (V4) | 2. Temporal Stability (NPU & Oryon CPU) & Distribution |
+| 1. Machine 2 Latency Comparison (V4) | 2. Temporal Stability (NPU & Oryon CPU) & Distribution |
 | :---: | :---: |
-| ![MobileNetV4 Latency Comparison](results/5_mobilenetv4_snapdragon_latency_comparison.png) | ![MobileNetV4 100 Runs Stability](results/6_mobilenetv4_snapdragon_stability_100_runs.png) |
+| ![MobileNetV4 Latency Comparison](results/MobileNetV4/machine_2/mobilenetv4_machine_2_latency_comparison.png) | ![MobileNetV4 100 Runs Stability](results/MobileNetV4/machine_2/mobilenetv4_machine_2_stability_100_runs.png) |
 
 | 3. Executive Dashboard (Latency vs Accuracy) |
 | :---: |
-| ![MobileNetV4 Executive Dashboard](results/7_mobilenetv4_snapdragon_executive_dashboard.png) |
+| ![MobileNetV4 Executive Dashboard](results/MobileNetV4/machine_2/mobilenetv4_machine_2_executive_dashboard.png) |
 
 > *Reproducible execution script: [`scripts/generate_snapdragon_plots_v4.R`](scripts/generate_snapdragon_plots_v4.R)*
 
@@ -391,15 +391,88 @@ Physical on-device qualification conducted on the Qualcomm Snapdragon X silicon 
 
 
 
-#### 3. MobileNetV4-Small - Scale Detection (Presence / Absence)
-| Format | Hardware Backend | Latency (ms) | Detection Rate (%) |
-| :---: | :--- | :---: | :--- |
-| **INT8** | **Dedicated NPU (Target)** | **18.5** | 77.14 |
-| INT8 | GPU (Adreno) | 115.4 | 77.14 |
-| INT8 | CPU (Oryon) | 115.4 | 77.14 |
-| **INT4 (W4A8)** | **Dedicated NPU (Target)** | **12.1** | 77.14 |
-| INT4 (W4A8) | GPU (Adreno) | 25.4 | 77.14 |
-| INT4 (W4A8) | CPU (Oryon) | 412.3 | 77.14 |
+#### 3. MobileNetV4-Small - Scale Detection (Presence / Absence - 1024x1024)
+
+##### Environment A: Machine 1 (Workstation Desktop x64 - Intel Core i3-12100F & RTX 5060)
+Empirical test matrix executed on Machine 1 over **100 consecutive inferences per configuration** (input tensor: `1x1024x1024x3`):
+
+| Format | Execution Backend | Mean Latency (ms) | Min (ms) | Max (ms) | p95 Latency (ms) | FPS | Accuracy | Status |
+| :---: | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| **INT8** | NVIDIA RTX 5060 (Tensor Cores) | **7.82 ms** | **7.14 ms** | 9.02 ms | **8.50 ms** | **127.8 FPS** | **98.70%** | Validated (100 runs) - Real-time (>60 FPS) |
+| **W4A8** | NVIDIA RTX 5060 (Tensor Cores) | **8.04 ms** | **6.98 ms** | 18.08 ms | **9.46 ms** | **124.4 FPS** | **98.45%** | Validated (100 runs) - Real-time (>60 FPS) |
+| **INT8** | Intel Core i3-12100F (x64 CPU) | **49.34 ms** | **38.85 ms** | 92.63 ms | **64.15 ms** | **20.3 FPS** | **98.70%** | Validated (100 runs) - CPU Vectorized AVX2 |
+| **W4A8** | Intel Core i3-12100F (x64 CPU) | **52.27 ms** | **37.77 ms** | 96.75 ms | **71.63 ms** | **19.1 FPS** | **98.45%** | Validated (100 runs) - CPU Fallback |
+
+> Consolidated empirical benchmark dataset: [benchmark_machine_1_scale.csv](results/ScaleDetection/machine_1/benchmark_machine_1_scale.csv)
+
+##### Empirical Visualization for Machine 1 (R 4.6.1 Engine)
+
+| ScaleDetection (1024x1024): Machine 1 Workstation Latency Comparison (RTX 5060 vs i3-12100F) |
+| :---: |
+| ![ScaleDetection Workstation Benchmark](results/ScaleDetection/machine_1/scaledetection_machine_1_comparison.png) |
+
+> *Reproducible R script: [`scripts/generate_workstation_plots_scale.R`](scripts/generate_workstation_plots_scale.R)*
+
+##### Environment B: Machine 2 (Surface Pro 11 - Qualcomm Snapdragon X Plus ARM64)
+Empirical on-device qualification conducted on the physical Snapdragon X Plus silicon (input tensor: `1x1024x1024x3`):
+
+| Format | Hardware Backend | Latency (ms) | Detection Rate (%) | Hardware Status |
+| :---: | :--- | :---: | :---: | :--- |
+| **INT8** | **Qualcomm Hexagon NPU (HTP Target)** | **18.5 ms** | **77.14%** (field subset) / **98.70%** (full) | Validated Dedicated NPU Accelerator (~54 FPS) |
+| **INT4 (W4A8)** | **Qualcomm Hexagon NPU (HTP Target)** | **12.1 ms** | **77.14%** (field subset) / **98.45%** (full) | Validated Dedicated NPU Accelerator (~82 FPS) |
+| INT4 (W4A8) | Qualcomm Adreno GPU (OpenCL) | 25.4 ms | 77.14% | Adreno Hardware Execution (~39 FPS) |
+| INT8 | Qualcomm Adreno GPU (OpenCL) | 115.4 ms | 77.14% | Unfused Shader Execution |
+| INT8 | Qualcomm Oryon CPU (ARM64) | 115.4 ms | 77.14% | Multithreaded Oryon CPU Fallback |
+| INT4 (W4A8) | Qualcomm Oryon CPU (ARM64) | 412.3 ms | 77.14% | Emulated Integer CPU Fallback |
+
+> Comparative empirical benchmark dataset: [benchmark_machine_2_scale_comparative.csv](results/ScaleDetection/machine_2/benchmark_machine_2_scale_comparative.csv) | Native AOT dataset: [benchmark_machine_2_scale_native_100_runs.csv](results/ScaleDetection/machine_2/benchmark_machine_2_scale_native_100_runs.csv).
+
+---
+
+### 8.E Native AOT Snapdragon X NPU Binaries Qualification (Machine 2 - Surface Pro 11)
+
+To eliminate any runtime JIT compilation overhead, graph lowering latency, or dynamic driver translation on mobile and edge devices, the entire neural architecture suite was pre-compiled **Ahead-Of-Time (AOT)** into native Qualcomm Hexagon Tensor Processor hardware memory cache binaries (`.bin`). 
+
+Qualification was conducted directly on the physical **Qualcomm Snapdragon® X Plus Copilot+ PC (Surface Pro 11 ARM64 - Machine 2)** across **100 consecutive empirical execution passes per model variant (600 total inferences)** using the native ARM64 Qualcomm QAIRT 2.51 toolchain (`qnn-net-run.exe`, `QnnHtp.dll` in `--perf_profile burst` mode) over validated field test images from the geological dataset:
+
+| Model Architecture | Task | Quantization Format | Target Accelerator | Native Binary File | Steady-State Silicon Latency (RAM) | Standalone CLI Latency (Process + Disk I/O) | Min CLI (ms) | Max CLI (ms) | Top-1 Accuracy | Execution Status |
+| :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :--- |
+| **MobileNetV4** | Rock Classification (104 classes) | **W4A8** | **Hexagon HTP NPU** | `rock_model_w4a8_MobileNetV4.bin` | **2.29 ms (~436 FPS)** | 584.65 ms | 509.07 ms | 689.79 ms | **91.20%** | **Native Hexagon HTP AOT Hardware Accelerated (100 runs)** |
+| **MobileNetV4** | Rock Classification (104 classes) | **INT8 (W8A8)** | **Hexagon HTP NPU** | `rock_model_w8a8_MobileNetV4.bin` | **2.67 ms (~374 FPS)** | 593.49 ms | 512.60 ms | 815.67 ms | **91.80%** | **Native Hexagon HTP AOT Hardware Accelerated (100 runs)** |
+| **ScaleDetection V4** | Scale Metrology (1024x1024) | **W4A8** | **Hexagon HTP NPU** | `v4_small_scale_w4a8.bin` | **12.10 ms (~82 FPS)** | 535.54 ms | 451.16 ms | 620.58 ms | **98.45%** | **Native Hexagon HTP AOT Hardware Accelerated (100 runs)** |
+| **ScaleDetection V4** | Scale Metrology (1024x1024) | **INT8 (W8A8)** | **Hexagon HTP NPU** | `v4_small_scale_int8.bin` | **18.50 ms (~54 FPS)** | 532.41 ms | 420.08 ms | 637.98 ms | **98.70%** | **Native Hexagon HTP AOT Hardware Accelerated (100 runs)** |
+| **MobileNetV5** | Rock Classification (512x512) | **W4A8** | **Hexagon HTP NPU** | `rock_model_w4a8_MobileNetV5.bin` | **476.98 ms (~2.1 FPS)** | 2,015.94 ms | 1,883.28 ms | 2,354.14 ms | **80.33%** | **Native Hexagon HTP AOT Hardware Accelerated (100 runs)** |
+| **MobileNetV5** | Rock Classification (512x512) | **INT8 (W8A8)** | **Hexagon HTP NPU** | `rock_model_w8a8_MobileNetV5.bin` | **449.96 ms (~2.2 FPS)** | 1,974.22 ms | 1,864.09 ms | 2,099.61 ms | **83.33%** | **Native Hexagon HTP AOT Hardware Accelerated (100 runs)** |
+
+> [!IMPORTANT]
+> **Methodological Latency Clarification (Steady-State vs. Standalone CLI Overhead):**
+> - **Steady-State Silicon Latency (In-Memory)**: Measures the pure hardware execution time inside the Qualcomm Hexagon NPU tensor cores (VTCM cache) once loaded in memory by a persistent application runtime (e.g. Flutter mobile app, C++ daemon, or resident ONNX/QNN session). Under this deployment mode, **MobileNetV4 runs at ~2.3 - 2.7 ms (~400 FPS)**.
+> - **Standalone CLI Latency (`qnn-net-run.exe`)**: Measures cold execution including Windows ARM64 process spawning, DLL linking (`QnnHtp.dll`), context memory mapping from SSD, disk tensor reading (`.raw`), and file writing. This represents the total CLI turnaround time (~530 ms system overhead per cold CLI invocation).
+
+> **Key Architectural Observations for Native Hexagon Binaries:**
+> 1. **Quantization & AOT Compilation Toolchain**: 
+>    - Quantization and AOT compilation were conducted using **Qualcomm AI Engine Direct SDK (QAIRT) v2.51.0.260929** (`snpe-onnx-to-dlc`, `snpe-dlc-quant`, `snpe-dlc-graph-prepare`).
+>    - The portable multi-architecture compilation scripts are available in [`scripts/compile_qairt_aot.py`](scripts/compile_qairt_aot.py) and [`scripts/build_all_qairt_models.py`](scripts/build_all_qairt_models.py).
+> 2. **Physical On-Device Benchmark Harness (SSH Surface Pro 11)**:
+>    - Empirical profiling was executed on the physical Snapdragon X Plus silicon using the native ARM64 runner [`scripts/benchmark_snapdragon_native_binaries.py`](scripts/benchmark_snapdragon_native_binaries.py) interfacing with `qnn-net-run.exe` and `QnnHtp.dll` (v73 DSP Skel).
+> 3. **Complete JIT Bypass**: Context loading directly registers pre-allocated VLIW instructions and 1024-bit VTCM memory maps into the DSP driver (`QnnHtpV73.so` / `v73` skels), achieving instantaneous hardware warm-up without runtime code generation.
+> 4. **Precision vs Throughput Balance**: The W4A8 quantization achieves parity in execution latency while shrinking model memory consumption by **50%**, preserving identical classification rankings across complex mineralogical textures.
+> 5. **Segmented Empirical Datasets & Visualizations (R Engine)**:
+>    - 🪨 **MobileNetV4 (Legacy / Balanced Tier)** : CSV [`results/MobileNetV4/machine_2/benchmark_machine_2_v4_native_100_runs.csv`](results/MobileNetV4/machine_2/benchmark_machine_2_v4_native_100_runs.csv) | Stability Plot: `results/MobileNetV4/machine_2/mobilenetv4_machine_2_native_stability.png`
+>    - 💎 **MobileNetV5 (Premium Tier)** : CSV [`results/MobileNetV5/machine_2/benchmark_machine_2_v5_native_100_runs.csv`](results/MobileNetV5/machine_2/benchmark_machine_2_v5_native_100_runs.csv) | Stability Plot: `results/MobileNetV5/machine_2/mobilenetv5_machine_2_native_stability.png`
+>    - 📐 **ScaleDetection V4 (Metrology Tier)** : CSV [`results/ScaleDetection/machine_2/benchmark_machine_2_scale_native_100_runs.csv`](results/ScaleDetection/machine_2/benchmark_machine_2_scale_native_100_runs.csv) | Stability Plot: `results/ScaleDetection/machine_2/scaledetection_machine_2_native_stability.png`
+>    - 📊 **Consolidated Dataset & Global Chart** : CSV [`results/consolidated/csv/benchmark_machine_2_native_binaries_100_runs.csv`](results/consolidated/csv/benchmark_machine_2_native_binaries_100_runs.csv) | Global Comparison: `results/consolidated/images/machine_2_native_binaries_comparison.png`
+>    - 📈 *R Plot Generation Script* : [`scripts/generate_snapdragon_native_plots.R`](scripts/generate_snapdragon_native_plots.R) (Supports `LITHO_RESULTS_DIR` environment variable).
+
+##### Native Snapdragon Hexagon NPU Empirical Plots (Generated via R 4.6.1 Engine - 100 Runs per Model)
+
+| 1. Cross-Model Native Latency (Hexagon NPU) | 2. MobileNetV4 Native Stability (100 Runs) |
+| :---: | :---: |
+| ![Snapdragon Native Comparison](results/consolidated/images/machine_2_native_binaries_comparison.png) | ![MobileNetV4 Native Stability](results/MobileNetV4/machine_2/mobilenetv4_machine_2_native_stability.png) |
+
+| 3. MobileNetV5 Native Stability (100 Runs) | 4. ScaleDetection V4 Native Stability (100 Runs) |
+| :---: | :---: |
+| ![MobileNetV5 Native Stability](results/MobileNetV5/machine_2/mobilenetv5_machine_2_native_stability.png) | ![ScaleDetection Native Stability](results/ScaleDetection/machine_2/scaledetection_machine_2_native_stability.png) |
 
 ## 9. Hardware Strategy & Analysis
 
@@ -469,10 +542,10 @@ For researchers and developers, the `scripts/` directory contains the official t
 
 This repository utilizes a dual-licensing structure to balance scientific openness with the protection of commercial intellectual property:
 
-*   **Documentation & Metadata**: All architectural documentation, methodology descriptions (`methodologie.md`), model cards (`MODEL_CARD.md`), and metadata remain the exclusive intellectual property of GeoStratum and are licensed under **Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International (CC-BY-NC-ND 4.0)**.
+*   **Documentation & Metadata**: All architectural documentation, methodology descriptions ([`METHODOLOGY.md`](METHODOLOGY.md)), model cards ([`MODEL_CARD.md`](MODEL_CARD.md)), and metadata remain the exclusive intellectual property of GeoStratum and are licensed under **Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International (CC-BY-NC-ND 4.0)**.
 *   **Reproduction Scripts**: The technical automation scripts located in the [`scripts/`](scripts/) directory are provided under the **MIT License**, allowing for permissive redistribution and modification for research and development purposes.
 
-*Refer to the [LICENCE](LICENCE) file for the full text of the CC-BY-NC-ND license.*
+*Refer to the [LICENSE](LICENSE) file for the full text of the CC-BY-NC-ND license.*
 
 ## 15. Contact
 For technical inquiries, enterprise deployment information, or academic collaboration opportunities, please reach out to GeoStratum.
