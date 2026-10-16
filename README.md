@@ -189,41 +189,15 @@ On Qualcomm Hexagon Tensor Processors (HTP), on-device graph compilation is comp
 ##### Architectural Bifurcation: HTP v69/v73 (INT8) vs. HTP v75–v89 (W4A8)
 Qualcomm's Hexagon Tensor Processor underwent a fundamental micro-architectural transition between HTP v73 and HTP v75:
 
-```
-┌──────────────────────────────────────────────────────────────────────────────────┐
-│                   QUALCOMM HEXAGON NPU GENERATION MAPPING                         │
-├───────────────┬──────────────────────────────────┬─────────────────┬─────────────┤
-│ HTP Version   │ Representative SoCs              │ Quantization    │ Delivered   │
-│               │                                  │ Capability      │ Packages    │
-├───────────────┼──────────────────────────────────┼─────────────────┼─────────────┤
-│ HTP v69       │ Snapdragon 888, 888+ (SM8350),   │ Pure INT8 Only  │ Standard,   │
-│               │ 778G, 780G, 778G+, 695 (SM6375)  │ (No sub-byte)   │ Legacy, SESR│
-├───────────────┼──────────────────────────────────┼─────────────────┼─────────────┤
-│ HTP v73       │ Snapdragon 8 Gen 1 (SM8450),     │ Pure INT8 Only  │ Standard,   │
-│               │ 8+ Gen 1 (SM8475), 7+ Gen 2      │ (No sub-byte)   │ Legacy, SESR│
-│               │ (SM7475), 6 Gen 1 (SM6450)       │                 │             │
-├───────────────┼──────────────────────────────────┼─────────────────┼─────────────┤
-│ HTP v75       │ Snapdragon 8 Gen 2 (SM8550),     │ Native W4A8     │ Premium,    │
-│               │ Snapdragon 8 Gen 3 (SM8650)      │ + INT8          │ Balanced,   │
-│               │                                  │                 │ SESR        │
-├───────────────┼──────────────────────────────────┼─────────────────┼─────────────┤
-│ HTP v79       │ Snapdragon 8s Gen 3 (SM8635),    │ Native W4A8     │ Premium,    │
-│               │ 7 Gen 3 (SM7550), 7+ Gen 3       │ + INT8          │ Balanced,   │
-│               │ (SM7675), 6 Gen 3                │                 │ SESR        │
-├───────────────┼──────────────────────────────────┼─────────────────┼─────────────┤
-│ HTP v81       │ Snapdragon X Elite (X1E Series), │ Native W4A8     │ Premium,    │
-│               │ Snapdragon X Plus (X1P Series)   │ + INT8          │ Balanced,   │
-│               │                                  │                 │ SESR        │
-├───────────────┼──────────────────────────────────┼─────────────────┼─────────────┤
-│ HTP v85       │ Snapdragon 8 Elite (SM8750),     │ Native W4A8     │ Premium,    │
-│               │ Snapdragon X2                    │ + INT8          │ Balanced,   │
-│               │                                  │                 │ SESR        │
-├───────────────┼──────────────────────────────────┼─────────────────┼─────────────┤
-│ HTP v89       │ Snapdragon 8 Elite Gen 5 (SM8850)│ Native W4A8     │ Premium,    │
-│               │                                  │ + INT8          │ Balanced,   │
-│               │                                  │                 │ SESR        │
-└───────────────┴──────────────────────────────────┴─────────────────┴─────────────┘
-```
+| HTP Architecture | Representative SoCs & Chipsets | Quantization Capability | Hardware Execution Pipeline | Delivered AIPacks |
+| :--- | :--- | :---: | :---: | :--- |
+| **HTP v69** | Snapdragon 888, 888+ (`SM8350`), 778G, 780G, 778G+, 695 (`SM6375`) | **Pure INT8 Only**<br>*(No sub-byte unit)* | Native AOT (`.bin`) via QAIRT | 1. Standard INT8 (`V5-INT8` + `Scale-INT8`)<br>2. Legacy INT8 (`V4-INT8` + `Scale-INT8`)<br>3. Super-Resolution (`SESR-M5`) |
+| **HTP v73** | Snapdragon 8 Gen 1 (`SM8450`), 8+ Gen 1 (`SM8475`), 7+ Gen 2 (`SM7475`), 6 Gen 1 (`SM6450`) | **Pure INT8 Only**<br>*(No sub-byte unit)* | Native AOT (`.bin`) via QAIRT | 1. Standard INT8 (`V5-INT8` + `Scale-INT8`)<br>2. Legacy INT8 (`V4-INT8` + `Scale-INT8`)<br>3. Super-Resolution (`SESR-M5`) |
+| **HTP v75** | Snapdragon 8 Gen 2 (`SM8550`), Snapdragon 8 Gen 3 (`SM8650`) | **Native W4A8**<br>*(On-the-fly HMX unpacker)* | Native AOT (`.bin`) via QAIRT | 1. Premium W4A8 (`V5-W4A8` + `Scale-INT4`)<br>2. Balanced W4A8 (`V4-W4A8` + `Scale-INT4`)<br>3. Super-Resolution (`SESR-M5`) |
+| **HTP v79** | Snapdragon 8s Gen 3 (`SM8635`), 7 Gen 3 (`SM7550`), 7+ Gen 3 (`SM7675`), 6 Gen 3 | **Native W4A8**<br>*(On-the-fly HMX unpacker)* | Native AOT (`.bin`) via QAIRT | 1. Premium W4A8 (`V5-W4A8` + `Scale-INT4`)<br>2. Balanced W4A8 (`V4-W4A8` + `Scale-INT4`)<br>3. Super-Resolution (`SESR-M5`) |
+| **HTP v81** | Snapdragon X Elite (`X1E-84/80/78-100`), Snapdragon X Plus (`X1P`) | **Native W4A8**<br>*(On-the-fly HMX unpacker)* | Native AOT (`.bin`) via QAIRT | 1. Premium W4A8 (`V5-W4A8` + `Scale-INT4`)<br>2. Balanced W4A8 (`V4-W4A8` + `Scale-INT4`)<br>3. Super-Resolution (`SESR-M5`) |
+| **HTP v85** | Snapdragon 8 Elite (`SM8750`), Snapdragon X2 | **Native W4A8**<br>*(On-the-fly HMX unpacker)* | Native AOT (`.bin`) via QAIRT | 1. Premium W4A8 (`V5-W4A8` + `Scale-INT4`)<br>2. Balanced W4A8 (`V4-W4A8` + `Scale-INT4`)<br>3. Super-Resolution (`SESR-M5`) |
+| **HTP v89** | Snapdragon 8 Elite Gen 5 (`SM8850`) | **Native W4A8**<br>*(On-the-fly HMX unpacker)* | Native AOT (`.bin`) via QAIRT | 1. Premium W4A8 (`V5-W4A8` + `Scale-INT4`)<br>2. Balanced W4A8 (`V4-W4A8` + `Scale-INT4`)<br>3. Super-Resolution (`SESR-M5`) |
 
 * **HTP v69 & v73 (SoCs INT8 Pur — 6 AIPacks Total)**:
   * *Micro-Architectural Constraint*: The Hexagon Vector eXtensions (HVX) and Hexagon Matrix eXtensions (HMX) compute blocks in v69 and v73 are hardwired strictly for 8-bit $\times$ 8-bit integer multiply-accumulate operations with a 32-bit accumulator. They possess **zero dedicated sub-byte bit-manipulation hardware** for 4-bit integer weights.
@@ -305,28 +279,13 @@ Standard TensorFlow Lite and PyTorch quantization pipelines produce graphs that 
 
 To completely eliminate storage bloat and bandwidth waste, the Lithotheque edge distribution is organized into **38 specialized Play Asset Delivery (PAD) packs**. At application startup, the Android client detects the exact SoC vendor, architecture generation, and RAM capacity, requesting only the specific binary package engineered for that device:
 
-```
-┌─────────────────────────────────────────────────────────────────────────────────────────┐
-│                        38 PLAY ASSET DELIVERY (PAD) PACKS MATRIX                        │
-├───────────────────────┬───────────────────────────────┬────────────┬───────┬────────────┤
-│ Hardware Category     │ Target Chips / Architectures  │ Precision  │ Packs │ Delivery   │
-│                       │                               │            │ Count │ Pipeline   │
-├───────────────────────┼───────────────────────────────┼────────────┼───────┼────────────┤
-│ Qualcomm Modern       │ HTP v75, v79, v81, v85, v89   │ W4A8       │ 15    │ Native AOT │
-│                       │ (8G2/G3, 8 Elite, 7G3, X, X2) │ (INT4)     │       │ (.bin)     │
-├───────────────────────┼───────────────────────────────┼────────────┼───────┼────────────┤
-│ Qualcomm Legacy       │ HTP v69, v73                  │ Pure INT8  │ 6     │ Native AOT │
-│                       │ (888, 8G1, 778G, 695, 6G1)    │ (No INT4)  │       │ (.bin)     │
-├───────────────────────┼───────────────────────────────┼────────────┼───────┼────────────┤
-│ Google Tensor         │ Tensor G1 to G6               │ Pure INT8  │ 12    │ AOT TPU    │
-│                       │ (Pixel 6 to 11 / Android 12-17│ (No INT4)  │       │ FlatBuffer │
-├───────────────────────┼───────────────────────────────┼────────────┼───────┼────────────┤
-│ Universal Fallback    │ Samsung Exynos, MediaTek,     │ W4A8 &     │ 5     │ On-Device  │
-│ (Generic TFLite)      │ UniSoC, Unknown SoCs          │ INT8       │       │ JIT Driver │
-├───────────────────────┴───────────────────────────────┴────────────┼───────┴────────────┤
-│ TOTAL PLAY ASSET DELIVERY PACKS PRODUCED                           │ 38 PACKS           │
-└────────────────────────────────────────────────────────────────────┴────────────────────┘
-```
+| Hardware Category | Target Chips / Architectures | Target Precision | Delivered Packs Count | Execution Pipeline |
+| :--- | :--- | :---: | :---: | :--- |
+| **Qualcomm Modern** | HTP v75, v79, v81, v85, v89<br>*(8 Gen 2/3, 8 Elite, 7 Gen 3, X Elite, X2)* | **W4A8 (INT4)** | **15 packs** | Native Ahead-Of-Time (`.bin`) via QAIRT |
+| **Qualcomm Legacy** | HTP v69, v73<br>*(888/888+, 8 Gen 1, 778G, 695, 6 Gen 1)* | **Pure INT8 Only**<br>*(No sub-byte unit)* | **6 packs** | Native Ahead-Of-Time (`.bin`) via QAIRT |
+| **Google Tensor** | Tensor G1 to G6<br>*(Pixel 6 through Pixel 11 / Android 12 to 17)* | **Pure INT8 Only**<br>*(INT4 strictly rejected)* | **12 packs** | Ahead-Of-Time EdgeTPU FlatBuffer Metadata |
+| **Universal Fallback** | Samsung Exynos, MediaTek Dimensity, UniSoC, Others | **W4A8 & INT8** | **5 packs** | On-Device Just-In-Time (JIT) NPU Driver |
+| **TOTAL PACKS** | **Comprehensive Mobile Ecosystem** | **Full Multi-Precision** | **38 PACKS** | **Zero-CPU Fallback Deployment** |
 
 ### Detailed Distribution Matrix
 
