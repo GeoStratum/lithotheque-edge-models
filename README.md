@@ -725,21 +725,14 @@ Offline Ahead-Of-Time compilation suite converting quantized ONNX models into na
 * **[`compile_qairt_aot.py`](scripts/compile_qairt_aot.py)**: Core compilation engine interfacing with Qualcomm QAIRT SDK (`snpe-onnx-to-dlc`, `snpe-dlc-quant`, `snpe-dlc-graph-prepare`). Supports selective HTP targeting across all 7 generations (`v69`, `v73`, `v75`, `v79`, `v81`, `v85`, `v89`).
 * **[`build_all_qairt_models.py`](scripts/build_all_qairt_models.py)**: End-to-end batch orchestrator automating AOT conversion, DLC quantization, and context binary generation for MobileNetV5, MobileNetV4, and Scale Metrology models.
 
-### E. Play Asset Delivery (PAD) 38-Pack Generation
-* **[`build_all_38_aipacks.py`](scripts/build_all_38_aipacks.py)**: Automated packager assembling the complete matrix of **38 specialized `.aipack` archives**:
-  * 5 Universal Generic packs (LiteRT TFLite for Exynos & MediaTek JIT compilation)
-  * 6 Qualcomm Legacy packs (HTP v69 & v73 — Pure INT8 AOT binaries)
-  * 15 Qualcomm Modern packs (HTP v75 to v89 — Native W4A8 AOT binaries)
-  * 12 Google Tensor packs (Tensor G1 to G6 — Pure INT8 TPU FlatBuffers + dedicated SESR)
-
-### F. Multi-Scale Edge Inference Engine
+### E. Multi-Scale Edge Inference Engine
 * **[`litho_reference_engine.py`](scripts/litho_reference_engine.py)**: Ground-truth reference implementation of the **21-Pass Multi-Scale Tiling (21-MST)** pipeline, including dynamic tile coordinate generation, border padding, overlap merging, and top-3 consensus voting.
 
-### G. Hardware Benchmarking & Validation
+### F. Hardware Benchmarking & Validation
 * **[`benchmark_snapdragon_native_binaries.py`](scripts/benchmark_snapdragon_native_binaries.py)**: Benchmarks execution speed, memory throughput, and inference latency of native QAIRT `.bin` context binaries directly on Qualcomm Hexagon NPU hardware.
 * **[`benchmark_scale_machine_1.py`](scripts/benchmark_scale_machine_1.py)**: Automated precision and inference validator for geological scale detection models.
 
-### H. Scientific Visualization & Publication Graphics (R & Python)
+### G. Scientific Visualization & Publication Graphics (R & Python)
 * **[`generate_scientific_graphs.py`](scripts/generate_scientific_graphs.py)**: Generates publication-ready confusion matrices, Top-1/Top-3 ROC curves, and class-by-class accuracy distribution plots.
 * **[`generate_benchmark_plots_v5.R`](scripts/generate_benchmark_plots_v5.R)**: R ggplot2 visualization suite comparing MobileNetV5 across GPU, CPU NEON, LiteRT NPU, and QAIRT backends.
 * **[`generate_snapdragon_native_plots.R`](scripts/generate_snapdragon_native_plots.R)**: Generates comparative bar charts and radar plots of Qualcomm Hexagon native AOT execution metrics.
@@ -753,9 +746,8 @@ Offline Ahead-Of-Time compilation suite converting quantized ONNX models into na
 
 | Script Name | Primary Task | Target Architecture / Model | Output Artifact | Execution Environment |
 | :--- | :--- | :--- | :--- | :---: |
-| **[`compile_qairt_aot.py`](scripts/compile_qairt_aot.py)** | AOT NPU Compilation | Qualcomm HTP v69 to v89 | `.bin` Context Binaries | QAIRT SDK 2.51+ |
+| **[`compile_qairt_aot.py`](scripts/compile_qairt_aot.py)** | AOT NPU Compilation | Qualcomm HTP v69 à v89 | `.bin` Context Binaries | QAIRT SDK 2.51+ |
 | **[`build_all_qairt_models.py`](scripts/build_all_qairt_models.py)** | Batch AOT Orchestration | MobileNetV4 / V5 / Scale | Full `.bin` Suite | QAIRT SDK 2.51+ |
-| **[`build_all_38_aipacks.py`](scripts/build_all_38_aipacks.py)** | Asset Pack Generation | Universal, Snapdragon, Tensor | 38 `.aipack` Archives | Python 3.10+ |
 | **[`tflite_v5_rocks_int8.py`](scripts/tflite_v5_rocks_int8.py)** | LiteRT Quantization | MobileNetV5-300M (INT8) | `.tflite` (Zero-Fallback) | TensorFlow 2.18+ / LiteRT |
 | **[`tflite_v5_rocks_int4.py`](scripts/tflite_v5_rocks_int4.py)** | LiteRT Quantization | MobileNetV5-300M (W4A8) | `.tflite` (Sub-Byte NPU) | TensorFlow 2.18+ / LiteRT |
 | **[`tflite_v4l_rocks_int8.py`](scripts/tflite_v4l_rocks_int8.py)** | LiteRT Quantization | MobileNetV4-Large (INT8) | `.tflite` (Zero-Fallback) | TensorFlow 2.18+ / LiteRT |
