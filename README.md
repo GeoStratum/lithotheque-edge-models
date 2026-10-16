@@ -12,11 +12,14 @@
 
 > [!IMPORTANT]
 > **Note on Artifact Availability & IP**
-> To protect our proprietary metrology datasets and commercial intellectual property, the compiled `.tflite` and `.onnx` model artifacts, alongside the FP32 source weights, are not publicly distributed in this repository. 
+> 
+> To protect our proprietary metrology datasets and commercial intellectual property, the compiled .tflite and .onnx model artifacts, alongside the FP32 source weights, are not publicly distributed in this repository.
 > 
 > The core purpose of this scientific repository is to openly share the **engineering methodology**, the **W4A8 Full Integer quantization pipeline**, and the **mathematical architectural strategies** (such as the 21-Pass Multi-Scale Tiling) used to achieve real-time inference on **mobile Edge NPUs (e.g., Qualcomm Hexagon, Google Tensor Edge TPU)**.
+
 > [!TIP]
 > **New to Edge AI?**
+> 
 > For developers and researchers new to AI and quantization, we highly recommend consulting our **[Detailed Methodology](docs/DETAILED_METHODOLOGY.md)**. It provides a pedagogical introduction to fundamental concepts, numerical precision (INT8/INT4), and hardware acceleration architectures.
 
 
@@ -65,24 +68,24 @@ The application utilizes two distinct neural networks, fine-tuned specifically f
 ![Rock Detection AI in Action](results/consolidated/images/rock_detection_demo.gif)
 > **Figure 1: Real-time Rock Detection** - Demonstration of the 21-MST engine classifying lithological samples with high confidence on a Galaxy Z Fold 7 via Remote Test Lab.
 
-### Dataset Categorization (104 Classes)
+### Dataset Categorization (104 Model Output Logits / 96 Unique Lithological Taxa)
 
-The model is trained on a diverse set of 104 geological structures, categorized below by their primary genetic classification.
+The model output layer exposes **104 classification logits**, mapped directly to the concatenated multi-source training datasets (Udayl & Stealth). Due to origin-dataset labeling artifacts, 8 classes exist as formatting duplicates across the dataset merge (e.g. `Shale (Mudstone)` vs. `Shale-(Mudstone)`, `Olivine basalt` vs. `Olivine-basalt`, and dual entries for `Dacite`, `Granite`, `Marble`, `Quartzite`, `Copper`, `Oolitic Limestone` / `Dolomites`), representing **96 unique geoscientific taxa** grouped below by primary genetic classification:
 
 #### 1. Sedimentary (Sed)
-> Bauxite, Caliche, Chalk, Chert, Clay, Coal, Conglomerate, Coquine, Diatomite, Dolomitic Limestone, Dolomites, Flint, Fossiliferous Limestone, Gypsum, Halite, Limestone, Novaculite, Oolitic Limestone, Phosphate, Potash, Sandstone, Shale (Mudstone), Shale-(Mudstone), Siliceous-sinter, Siltstone, Sodium carbonate, Tufa.
+> Bauxite, Caliche, Chalk, Chert, Clay, Coal, Conglomerate, Coquina, Diatomite, Dolomitic Limestone, Dolomites, Flint, Fossiliferous Limestone, Gypsum, Halite, Limestone, Novaculite, Oolitic Limestone, Phosphate, Potash, Sandstone, Shale (Mudstone) *(dual-dataset entry)*, Siliceous Sinter, Siltstone, Sodium Carbonate, Tufa.
 
 #### 2. Magmatic / Plutonic (Mag)
-> Anorthosite, Aplite, Diorite, Dolerite, Dunite, Essexite, Gabbro, Granite, Granodiorite, Norite, Pegmatite, Syenite.
+> Anorthosite, Aplite, Diorite, Dolerite, Dunite, Essexite, Gabbro, Granite *(dual-dataset entry)*, Granodiorite, Norite, Pegmatite, Syenite.
 
 #### 3. Volcanic / Extrusive (Volc)
-> Andesite, Basalt, Dacite, Ignimbrite, Komatiite, Obsidian, Olivine basalt, Olivine-basalt, Phonolite, Pillow (Lava), Pumice, Rhyolite, Tephrite, Trachyte, Tuff, Volcanic bombs.
+> Andesite, Basalt, Dacite *(dual-dataset entry)*, Ignimbrite, Komatiite, Obsidian, Olivine Basalt *(dual-dataset entry)*, Phonolite, Pillow Lava, Pumice, Rhyolite, Tephrite, Trachyte, Tuff, Volcanic Bombs.
 
 #### 4. Metamorphic (Meta)
-> Anthracite, Breccia (Tectonic/Fault), Gneiss, Hornfels, Lapis lazuli, Marble, Phyllite, Quartzite, Schists, Serpentine, Skarn, Slate.
+> Anthracite, Breccia (Tectonic/Fault), Gneiss, Hornfels, Lapis Lazuli, Marble *(dual-dataset entry)*, Phyllite, Quartzite *(dual-dataset entry)*, Schists, Serpentine, Skarn, Slate.
 
 #### 5. Native Elements, Minerals & Ores
-> Bornite, Calcite, Chromite, Cobalt, Columbite-tantalite, Copper, Feldspar, Fluorite, Gold, Iron ore, Labradorite, Lead, Lithium, Magnetite, Malachite, Mariposite, Mica, Molybdenum, Nickel, Platinum, Pyrite, Quartz, Silica, Silver, Sodalite, Stibnite, Sulfur, Tantalum, Tungsten, Uranium, Vanadium, Zeolite, Zinc.
+> Bornite, Calcite, Chromite, Cobalt, Columbite-Tantalite, Copper *(dual-dataset entry)*, Feldspar, Fluorite, Gold, Iron Ore, Labradorite, Lead, Lithium, Magnetite, Malachite, Mariposite, Mica, Molybdenum, Nickel, Platinum, Pyrite, Quartz, Silica, Silver, Sodalite, Stibnite, Sulfur, Tantalum, Tungsten, Uranium, Vanadium, Zeolite, Zinc.
 
 ```mermaid
 graph TD
@@ -159,14 +162,25 @@ To contribute to the Edge AI scientific community, we have published our compreh
 To ensure bit-accurate inference on the Snapdragon Hexagon NPU, all models utilize **Full Integer I/O (INT8)**.
 
 ### A. Input Shapes & Axis Order
-| Model Task | Format | Architecture | Input Shape | Axis Order |
-| :--- | :---: | :--- | :---: | :---: |
-| **Rock Classification** | TFLite | MobileNetV5-300M | `[1, 256, 3, 256]` | NHCW |
-| **Rock Classification** | ONNX | MobileNetV5-300M | `[1, 256, 256, 3]` | NHWC |
-| **Rock Classification** | ONNX | MobileNetV4-Large | `[1, 3, 244, 244]` | NCHW |
-| **Rock Classification** | TFLite | MobileNetV4-Large | `[1, 244, 244, 3]` | NHWC |
-| **Scale Metrology** | ONNX | MobileNetV4-Small | `[1, 3, 1024, 1024]` | NCHW |
-| **Scale Metrology** | TFLite | MobileNetV4-Small | `[1, 1024, 1024, 3]` | NHWC |
+| Model Task | Format | Architecture | Native Deployment Shape | Axis Order | Multi-Scale Pipeline Integration |
+| :--- | :---: | :--- | :---: | :---: | :--- |
+| **Rock Classification** | TFLite | MobileNetV5-300M | `[1, 256, 256, 3]` | NHWC | 21-Pass MST Tiling (256x256 crops) & LiteRT NPU |
+| **Rock Classification** | ONNX | MobileNetV5-300M | `[1, 256, 256, 3]` | NHWC | DirectML / QNN HTP (512x512 full-pass qualified) |
+| **Rock Classification** | ONNX | MobileNetV4-Large | `[1, 3, 384, 384]` | NCHW | Standard Timm NCHW (256x256 tiles & 384x384 full) |
+| **Rock Classification** | TFLite | MobileNetV4-Large | `[1, 256, 256, 3]` | NHWC | 21-Pass MST Mobile Execution (256x256 tiles) |
+| **Scale Metrology** | ONNX | MobileNetV4-Small | `[1, 3, 1024, 1024]` | NCHW | High-Resolution Precision Anchoring (NCHW) |
+| **Scale Metrology** | TFLite | MobileNetV4-Small | `[1, 1024, 1024, 3]` | NHWC | High-Resolution Precision Anchoring (NHWC) |
+
+> [!NOTE]
+> **Resolution, Axis Order & Dual-Pipeline Rationale**:
+> - **MobileNetV4 Dual Resolution (`384x384 NCHW` vs. `256x256 NHWC`)**:
+>   - **`[1, 3, 384, 384]` (NCHW)** corresponds to the native pre-trained upstream backbone from Timm (`mobilenetv4_conv_large.e500_r384_in1k`), preserved during PyTorch and ONNX export for workstation calibration and desktop GPU/CPU direct comparison.
+>   - **`[1, 256, 256, 3]` (NHWC)** corresponds to the edge-deployed LiteRT / TFLite artifact, resized and transposed to match the 21-Pass Multi-Scale Tiling (21-MST) mobile engine on Android/ARM64.
+> - **MobileNetV5 Dual Resolution (`256x256` vs. `512x512`)**:
+>   - **`256x256` (NHWC)** is the runtime resolution for real-time mobile classification passes.
+>   - **`512x512`** is the high-fidelity qualification resolution used for Qualcomm HTP NPU AOT compilation and stress testing.
+> - **Scale Metrology (`1024x1024`)**:
+>   - High-resolution single-pass anchoring to detect millimeter coin and scale features without losing edge contours.
 
 ### B. Normalization Logic
 All inputs are expected as **INT8** tensors in the range `[-128, 127]`.
@@ -189,6 +203,11 @@ All production models for **MobileNetV5-300M** and **MobileNetV4-Large** adhere 
 | `best_mobilenetv5_rocks_int8.onnx` | ONNX | **INT8 QOperator** | 284.29 MB | **0 (0.0%)** | 100% Validated NPU (0 float Conv) |
 | `best_mobilenetv5_rocks_w4a8.onnx` | ONNX | **W4A8 QOperator** | 284.84 MB | **0 (0.0%)** | 100% Validated NPU (0 float Conv) |
 | `best_mobilenetv5_rocks_w4a8_npu.onnx` | ONNX | **W4A8 NPU HTP** | 287.56 MB | **0 (0.0%)** | 100% Validated (HTP Native) |
+
+> [!NOTE]
+> **ONNX W4A8 Container Packaging vs. TFLite Bit-Packing**:
+> - In **TFLite (`.tflite`)**, W4A8 quantization packs two 4-bit nibbles into a single byte (`uint8`), immediately cutting weight tensor storage in half (from **287.94 MB** down to **148.05 MB**).
+> - In **ONNX QOperator (`.onnx`)**, 4-bit quantized weights are stored as unpacked byte-aligned integers within 8-bit containers (`int8` / `uint8` with clipped `[-8, 7]` dynamic range) alongside dedicated scale/zero-point lookup tables for DirectML and QNN compatibility. Consequently, the ONNX file size remains at **284.84 MB** on disk, while executing on the NPU with genuine 4-bit arithmetic throughput and 50% VTCM cache reduction once loaded into silicon memory.
 
 #### 2. MobileNetV4-Large (Rock Classification - Balanced / Legacy Tier)
 | Model File | Format | Quantization / Precision | Size (MB) | FP32 Tensor Count | Hardware Execution Target |
@@ -320,7 +339,7 @@ Exhaustive on-device measurements collected on the Snapdragon X Plus Copilot+ ul
 > 3. **Qualcomm Adreno GPU Behavior on INT8/W4A8**: The Qualcomm Adreno runtime (`QnnGpu.dll`) is strictly architected for floating-point tensors (FP16/FP32). Quantized integer primitives (`QuantizeLinear`, `QLinearConv`) are intentionally rejected at graph partitioning, designating the Hexagon NPU as the dedicated accelerator for quantized neural networks.
 > 4. **Standardized CSV Export & Documentation**: The raw data points (600 runs per platform) are archived in [benchmark_machine_2_v5.csv](results/MobileNetV5/machine_2/benchmark_machine_2_v5.csv), [benchmark_machine_1_v5_standard.csv](results/MobileNetV5/machine_1/benchmark_machine_1_v5_standard.csv), and [benchmark_machine_1_v5_zero_fp32.csv](results/MobileNetV5/machine_1/benchmark_machine_1_v5_zero_fp32.csv), with engineering field logs detailed in [RAPPORT_BENCHMARK_NPU_SNAPDRAGON.txt](docs/RAPPORT_BENCHMARK_NPU_SNAPDRAGON.txt).
 
-##### Scientific Empirical Visualization (Generated via R 4.5.3 Engine)
+##### Scientific Empirical Visualization (Generated via R 4.6.1 Engine)
 
 | 1. Cross-Hardware Latency Scaling (V5) | 2. Rock Classification Pareto Frontier (V5 & V4-Large) |
 | :---: | :---: |
@@ -375,7 +394,7 @@ Physical on-device qualification conducted on Machine 2 (Snapdragon X silicon: 1
 
 > Raw benchmark data archived in: [benchmark_machine_2_v4.csv](results/MobileNetV4/machine_2/benchmark_machine_2_v4.csv) and [benchmark_machine_2_v4_100_runs.csv](results/MobileNetV4/machine_2/benchmark_machine_2_v4_100_runs.csv).
 
-##### Scientific Empirical Visualization (Generated via R 4.5.3 Engine)
+##### Scientific Empirical Visualization (Generated via R 4.6.1 Engine)
 
 | 1. Machine 2 Latency Comparison (V4) | 2. Temporal Stability (NPU & Oryon CPU) & Distribution |
 | :---: | :---: |
@@ -435,12 +454,12 @@ To eliminate any runtime JIT compilation overhead, graph lowering latency, or dy
 
 Qualification was conducted directly on the physical **Qualcomm Snapdragon® X Plus Copilot+ PC (Surface Pro 11 ARM64 - Machine 2)** across **100 consecutive empirical execution passes per model variant (600 total inferences)** using the native ARM64 Qualcomm QAIRT 2.51 toolchain (`qnn-net-run.exe`, `QnnHtp.dll` in `--perf_profile burst` mode) over validated field test images from the geological dataset:
 
-| Model Architecture | Task | Quantization Format | Target Accelerator | Native Binary File | Steady-State Silicon Latency (RAM) | Standalone CLI Latency (Process + Disk I/O) | Min CLI (ms) | Max CLI (ms) | Top-1 Accuracy | Execution Status |
+| Model Architecture | Task | Quantization Format | Target Accelerator | Native Binary File | Steady-State Silicon Latency (RAM) | Standalone CLI Latency (Process + Disk I/O) | Min CLI (ms) | Max CLI (ms) | Top-1 Accuracy (Full Test / Field Subset) | Execution Status |
 | :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :--- |
-| **MobileNetV4** | Rock Classification (104 classes) | **W4A8** | **Hexagon HTP NPU** | `rock_model_w4a8_MobileNetV4.bin` | **2.29 ms (~436 FPS)** | 584.65 ms | 509.07 ms | 689.79 ms | **91.20%** | **Native Hexagon HTP AOT Hardware Accelerated (100 runs)** |
-| **MobileNetV4** | Rock Classification (104 classes) | **INT8 (W8A8)** | **Hexagon HTP NPU** | `rock_model_w8a8_MobileNetV4.bin` | **2.67 ms (~374 FPS)** | 593.49 ms | 512.60 ms | 815.67 ms | **91.80%** | **Native Hexagon HTP AOT Hardware Accelerated (100 runs)** |
-| **ScaleDetection V4** | Scale Metrology (1024x1024) | **W4A8** | **Hexagon HTP NPU** | `v4_small_scale_w4a8.bin` | **12.10 ms (~82 FPS)** | 535.54 ms | 451.16 ms | 620.58 ms | **98.45%** | **Native Hexagon HTP AOT Hardware Accelerated (100 runs)** |
-| **ScaleDetection V4** | Scale Metrology (1024x1024) | **INT8 (W8A8)** | **Hexagon HTP NPU** | `v4_small_scale_int8.bin` | **18.50 ms (~54 FPS)** | 532.41 ms | 420.08 ms | 637.98 ms | **98.70%** | **Native Hexagon HTP AOT Hardware Accelerated (100 runs)** |
+| **MobileNetV4** | Rock Classification (104 classes) | **W4A8** | **Hexagon HTP NPU** | `rock_model_w4a8_MobileNetV4.bin` | **2.29 ms (~436 FPS)** | 584.65 ms | 509.07 ms | 689.79 ms | **73.91%** *(91.20% field subset)* | **Native Hexagon HTP AOT Hardware Accelerated (100 runs)** |
+| **MobileNetV4** | Rock Classification (104 classes) | **INT8 (W8A8)** | **Hexagon HTP NPU** | `rock_model_w8a8_MobileNetV4.bin` | **2.67 ms (~374 FPS)** | 593.49 ms | 512.60 ms | 815.67 ms | **77.84%** *(91.80% field subset)* | **Native Hexagon HTP AOT Hardware Accelerated (100 runs)** |
+| **ScaleDetection V4** | Scale Metrology (1024x1024) | **W4A8** | **Hexagon HTP NPU** | `v4_small_scale_w4a8.bin` | **12.10 ms (~82 FPS)** | 535.54 ms | 451.16 ms | 620.58 ms | **98.45%** *(77.14% field subset)* | **Native Hexagon HTP AOT Hardware Accelerated (100 runs)** |
+| **ScaleDetection V4** | Scale Metrology (1024x1024) | **INT8 (W8A8)** | **Hexagon HTP NPU** | `v4_small_scale_int8.bin` | **18.50 ms (~54 FPS)** | 532.41 ms | 420.08 ms | 637.98 ms | **98.70%** *(77.14% field subset)* | **Native Hexagon HTP AOT Hardware Accelerated (100 runs)** |
 | **MobileNetV5** | Rock Classification (512x512) | **W4A8** | **Hexagon HTP NPU** | `rock_model_w4a8_MobileNetV5.bin` | **476.98 ms (~2.1 FPS)** | 2,015.94 ms | 1,883.28 ms | 2,354.14 ms | **80.33%** | **Native Hexagon HTP AOT Hardware Accelerated (100 runs)** |
 | **MobileNetV5** | Rock Classification (512x512) | **INT8 (W8A8)** | **Hexagon HTP NPU** | `rock_model_w8a8_MobileNetV5.bin` | **449.96 ms (~2.2 FPS)** | 1,974.22 ms | 1,864.09 ms | 2,099.61 ms | **83.33%** | **Native Hexagon HTP AOT Hardware Accelerated (100 runs)** |
 
@@ -448,6 +467,11 @@ Qualification was conducted directly on the physical **Qualcomm Snapdragon® X P
 > **Methodological Latency Clarification (Steady-State vs. Standalone CLI Overhead):**
 > - **Steady-State Silicon Latency (In-Memory)**: Measures the pure hardware execution time inside the Qualcomm Hexagon NPU tensor cores (VTCM cache) once loaded in memory by a persistent application runtime (e.g. Flutter mobile app, C++ daemon, or resident ONNX/QNN session). Under this deployment mode, **MobileNetV4 runs at ~2.3 - 2.7 ms (~400 FPS)**.
 > - **Standalone CLI Latency (`qnn-net-run.exe`)**: Measures cold execution including Windows ARM64 process spawning, DLL linking (`QnnHtp.dll`), context memory mapping from SSD, disk tensor reading (`.raw`), and file writing. This represents the total CLI turnaround time (~530 ms system overhead per cold CLI invocation).
+> - **Resolution vs Latency Dynamics (MobileNetV4 vs ScaleDetection)**: ScaleDetection V4 exhibits higher execution latency (12.1 - 18.5 ms) compared to MobileNetV4 Large (2.29 - 2.67 ms) despite having a smaller backbone (MobileNetV4-Small vs Large). This is caused by the **1024x1024 spatial resolution** required for sub-millimeter metrology, generating 1,048,576 input pixels (7.1x more spatial data than MobileNetV4 at 384x384 / 147,456 pixels) and saturating early convolutional stages.
+>
+> **Top-1 Accuracy Clarification (Global Reference vs. Field Test Subset):**
+> - **Global Reference Benchmark (73.91% W4A8 / 77.84% INT8)**: Evaluated across the complete, highly rigorous multi-source validation set covering all **104 geological classes**. This benchmark encompasses difficult macroscopical boundary pairs (e.g., *Siltstone* vs *Shale*, *Dolomite* vs *Limestone*, weathered volcanic facies) across museum specimens, polished slabs, drilled core samples, and natural outcrops. Over 90% of samples fall within the Top-3 prediction set.
+> - **Field Test Subset (91.20% W4A8 / 91.80% INT8)**: Measured over a contiguous sequence of 100 in-situ field acquisitions representing the dominant lithologies encountered during field expeditions (granites, fresh basalts, quartz sandstones, banded gneisses). The higher Top-1 accuracy reflects consistent outdoor daylight conditions and the absence of laboratory edge-cases. Across both evaluation protocols, the INT4 (W4A8) compression incurs less than 1% to 3.9% relative accuracy loss compared to INT8.
 
 > **Key Architectural Observations for Native Hexagon Binaries:**
 > 1. **Quantization & AOT Compilation Toolchain**: 
@@ -476,9 +500,9 @@ Qualification was conducted directly on the physical **Qualcomm Snapdragon® X P
 
 ## 9. Hardware Strategy & Analysis
 
-The empirical results collected via the Qualcomm QAIRT 2.45 SDK validate several critical operational hypotheses regarding the Lithotheque Edge architecture:
+The empirical results collected across the Qualcomm QAIRT toolchain (QAIRT 2.37.1 runtime engine for ONNX Runtime QNN and QAIRT 2.51.0 for native Ahead-Of-Time Hexagon HTP compilation) validate several critical operational hypotheses regarding the Lithotheque Edge architecture:
 
-*   **NPU Efficiency & Thermal Management (The Hexagon Advantage):** Dedicated AI silicon remains the optimal choice for the **Premium (INT4)** and **Legacy (INT8)** tiers. By offloading these tasks to the NPU, the SOC preserves the thermal headroom and unlock **speed** performance in the Legacy tier (16.7 ms), an 8.5x increase over CPU fallback.
+*   **NPU Efficiency & Thermal Management (The Hexagon Advantage):** Dedicated AI silicon remains the optimal choice for the **Premium (INT4)** and **Legacy (INT8)** tiers. By offloading these tasks to the NPU, the SoC preserves thermal headroom and unlocks **speed** performance in the Legacy tier (16.7 ms), an 8.5x increase over CPU fallback.
 *   **Superior NPU Scaling (Eliminating Flex Ops):** While previous iterations suffered from a "Hardware Precision Sandwich" effect (triggering expensive CPU/GPU fallbacks for Flex operators), our **Full Integer I/O** and **No-Flex** optimization ensures that the entire graph remains in the integer domain. This unlocks the true potential of the Hexagon HTP backend, allowing the NPU to outperform the GPU even in the **Standard (INT8)** tier (24.1 ms vs. 54.2 ms), yielding a 2.2x speedup and significantly lower power consumption.
 *   **Surgical Graph Optimization:** Our success in unlocking hardware acceleration (NPU/GPU) relied on subgraph substitution (`x * sigmoid(1.702 * x)`). This proves that architectural driver limitations can be bypassed through targeted graph optimization without degrading mineralogical accuracy.
 *   **Operational Impact for the Geologist:** Shifting from CPU (7 FPS) to accelerated NPU/GPU tiers (>50 FPS) fundamentally transforms the user experience. This optimization ensures near-instantaneous analysis while drastically reducing battery consumption, thereby extending operational autonomy during field missions.
@@ -498,13 +522,13 @@ The raw weights, data preprocessing pipelines, and FP32 source models remain pro
 This repository is designed as an **Engineering Blueprint** for Edge AI optimization. It follows a **"Bring Your Own Model" (BYOM)** philosophy: GeoStratum provides the advanced optimization methodology (the "how"), while researchers provide their own weights and architectures (the "what").
 
 ### Arbitrary Specifications & Template Nature
-The technical parameters used throughout this repository—such as the **256x256** or **1024x1024** resolutions, specific axis orderings (NHWC/NHCW), and normalization constants—are **arbitrary defaults** tailored specifically for the GeoStratum Lithotheque engine.
+The technical parameters used throughout this repository—such as the **256x256** or **1024x1024** resolutions, specific axis orderings (NHWC/NCHW), and normalization constants—are **arbitrary defaults** tailored specifically for the GeoStratum Lithotheque engine.
 
 ### Mandatory Adaptation
 Users are expected to **adapt the provided scripts** to their specific use cases. To successfully utilize this pipeline with your own models, you must:
 - **Modify Dimensions**: Update the input shapes in the `scripts/*.py` files to match your source model's requirements.
 - **Adjust Normalization**: Fine-tune the normalization logic in `prepare_calibration.py` to align with your training domain.
-- **Verify Architecture Compatibility**: Ensure your model's operator set is compatible (e.g., if using MobileNetV5, the `SELECT_TF_OPS` configuration must be maintained to handle GELU/Erf activations).
+- **Verify Architecture Compatibility**: Ensure your model's operator set is compatible with pure NPU execution (e.g. replacing non-standard `Erf`/`Gelu` kernels with polynomial or `x * sigmoid(1.702 * x)` subgraphs to strictly eliminate `SELECT_TF_OPS` / Flex delegates and achieve 100% NPU graph residency).
 - **Domain-Specific Calibration**: Run the calibration routines on a dataset representing *your* specific field of study (~100 images) to ensure accurate INT8 min-max calculation.
 
 ### Source Model Architectures
