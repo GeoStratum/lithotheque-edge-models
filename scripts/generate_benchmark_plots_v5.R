@@ -8,23 +8,51 @@
 
 options(warn = -1)
 
-# Ensure output directory exists relative to current working directory
-if (!dir.exists("results")) {
-  dir.create("results", recursive = TRUE)
+# Configure R_HOME if present
+if (Sys.getenv("R_HOME") == "" && dir.exists("E:/R/R/R-4.6.1")) {
+  Sys.setenv(R_HOME = "E:/R/R/R-4.6.1")
 }
 
+# Resolve results directory from environment variable or local structure
+results_base <- Sys.getenv("LITHO_RESULTS_DIR", unset = "results")
+if (!dir.exists(results_base) && dir.exists("E:/fine tuning/rock identifier/lithotheque-edge-models/results")) {
+  results_base <- "E:/fine tuning/rock identifier/lithotheque-edge-models/results"
+}
+
+out_v5_dir    <- file.path(results_base, "MobileNetV5/machine_2")
+out_scale_dir <- file.path(results_base, "ScaleDetection/machine_2")
+out_cons_dir  <- file.path(results_base, "consolidated/images")
+dir.create(out_v5_dir, recursive = TRUE, showWarnings = FALSE)
+dir.create(out_scale_dir, recursive = TRUE, showWarnings = FALSE)
+dir.create(out_cons_dir, recursive = TRUE, showWarnings = FALSE)
+
 # 1. Dynamic Dataset Loading
-snap_path     <- "results/benchmark_snapdragon_pc.csv"
-snap_v4_path  <- "results/benchmark_snapdragon_pc_v4.csv"
-norm_path     <- "results/benchmark_workstation_pc_models_normaux.csv"
-zero_path     <- "results/benchmark_workstation_pc_models_zero_fp32.csv"
-litho_path    <- "results/lithotheque_scientific_analysis.csv"
+snap_path    <- file.path(results_base, "MobileNetV5/machine_2/benchmark_machine_2_v5.csv")
+if (!file.exists(snap_path)) snap_path <- file.path(results_base, "benchmark_snapdragon_pc.csv")
+
+snap_v4_path <- file.path(results_base, "MobileNetV4/machine_2/benchmark_machine_2_v4.csv")
+if (!file.exists(snap_v4_path)) snap_v4_path <- file.path(results_base, "benchmark_snapdragon_pc_v4.csv")
+
+norm_path    <- file.path(results_base, "consolidated/csv/benchmark_machine_1_models_standard.csv")
+if (!file.exists(norm_path)) norm_path <- file.path(results_base, "consolidated/csv/benchmark_workstation_pc_models_normaux.csv")
+if (!file.exists(norm_path)) norm_path <- file.path(results_base, "benchmark_workstation_pc_models_normaux.csv")
+
+zero_path    <- file.path(results_base, "consolidated/csv/benchmark_machine_1_models_zero_fp32.csv")
+if (!file.exists(zero_path)) zero_path <- file.path(results_base, "consolidated/csv/benchmark_workstation_pc_models_zero_fp32.csv")
+if (!file.exists(zero_path)) zero_path <- file.path(results_base, "benchmark_workstation_pc_models_zero_fp32.csv")
+
+litho_path   <- file.path(results_base, "consolidated/csv/lithotheque_scientific_analysis.csv")
+if (!file.exists(litho_path)) litho_path <- file.path(results_base, "lithotheque_scientific_analysis.csv")
+
+scale_path   <- file.path(results_base, "ScaleDetection/machine_2/benchmark_machine_2_scale_comparative.csv")
+if (!file.exists(scale_path)) scale_path <- litho_path
 
 snap_df     <- if (file.exists(snap_path))     read.csv(snap_path, stringsAsFactors = FALSE)     else data.frame()
 snap_v4_df  <- if (file.exists(snap_v4_path))  read.csv(snap_v4_path, stringsAsFactors = FALSE)  else data.frame()
 norm_df     <- if (file.exists(norm_path))     read.csv(norm_path, stringsAsFactors = FALSE)     else data.frame()
 zero_df     <- if (file.exists(zero_path))     read.csv(zero_path, stringsAsFactors = FALSE)     else data.frame()
 litho_df    <- if (file.exists(litho_path))    read.csv(litho_path, stringsAsFactors = FALSE)    else data.frame()
+scale_df    <- if (file.exists(scale_path))    read.csv(scale_path, stringsAsFactors = FALSE)    else litho_df
 
 # Clean numeric latencies dynamically
 clean_num <- function(df, col) {
@@ -66,6 +94,11 @@ if (nrow(litho_df) > 0) {
   litho_df$Top1_num    <- parse_acc(litho_df$Accuracy)
 }
 
+if (nrow(scale_df) > 0) {
+  scale_df$Latency_num <- clean_num(scale_df, "Latency_ms")
+  scale_df$Top1_num    <- parse_acc(scale_df$Accuracy)
+}
+
 # Helper to get dynamic mean safely
 get_mean <- function(df, cond, col = "Latency_num", default = NA) {
   sub <- df[cond, col]
@@ -89,8 +122,9 @@ border_box  <- "#CCCCCC"
 # ------------------------------------------------------------------------------
 # GRAPH 1: MobileNetV5 Hardware Latency Comparison Across Edge Backends
 # ------------------------------------------------------------------------------
-cat("[1/5] Generating results/1_mobilenetv5_hardware_latency_comparison.png...\n")
-png("results/1_mobilenetv5_hardware_latency_comparison.png", width = 1500, height = 900, res = 130)
+out_p1 <- file.path(out_v5_dir, "mobilenetv5_machine_2_hardware_latency_comparison.png")
+cat("[1/5] Generating", out_p1, "...\n")
+png(out_p1, width = 1500, height = 900, res = 130)
 
 par(mar = c(6.5, 6, 6, 2), bg = bg_main, col.axis = text_muted, col.lab = text_dark, col.main = text_dark)
 
@@ -172,8 +206,9 @@ dev.off()
 # ------------------------------------------------------------------------------
 # GRAPH 2: Rock Classification Pareto Frontier (MobileNetV5 vs MobileNetV4-Large)
 # ------------------------------------------------------------------------------
-cat("[2/5] Generating results/2_mobilenetv5_pareto_accuracy_vs_latency.png...\n")
-png("results/2_mobilenetv5_pareto_accuracy_vs_latency.png", width = 1600, height = 950, res = 130)
+out_p2 <- file.path(out_v5_dir, "mobilenetv5_machine_2_pareto_accuracy_vs_latency.png")
+cat("[2/5] Generating", out_p2, "...\n")
+png(out_p2, width = 1600, height = 950, res = 130)
 
 # Dynamically extract MobileNetV4-Large metrics from benchmark_snapdragon_pc_v4.csv (with fallback to litho_df)
 v4l_npu_int8_lat <- if (nrow(snap_v4_df) > 0) get_mean(snap_v4_df, snap_v4_df$Backend == "NPU" & snap_v4_df$Format == "INT8") else get_mean(litho_df, litho_df$Model == "MobileNetV4-Large" & litho_df$Format == "INT8" & litho_df$Backend == "NPU")
@@ -344,8 +379,9 @@ dev.off()
 # ------------------------------------------------------------------------------
 # GRAPH 3: Geological Scale Detection Profiling (MobileNetV4-Small)
 # ------------------------------------------------------------------------------
-cat("[3/5] Generating results/3_scale_metrology_detection_profiling.png...\n")
-png("results/3_scale_metrology_detection_profiling.png", width = 1500, height = 900, res = 130)
+out_p3 <- file.path(out_scale_dir, "scale_metrology_detection_profiling.png")
+cat("[3/5] Generating", out_p3, "...\n")
+png(out_p3, width = 1500, height = 900, res = 130)
 
 par(mar = c(6.5, 6, 6, 2), bg = bg_main, col.axis = text_muted, col.lab = text_dark, col.main = text_dark)
 
@@ -356,20 +392,20 @@ scale_labels <- c(
   "Oryon CPU\n(INT8)", "Oryon CPU\n(INT4)"
 )
 
-# Dynamically extract all MobileNetV4-Small latencies from lithotheque_scientific_analysis.csv
+# Dynamically extract all MobileNetV4-Small latencies from segmented scale_df
 scale_means <- c(
-  get_mean(litho_df, litho_df$Model == "MobileNetV4-Small" & litho_df$Backend == "GPU" & litho_df$Format == "INT8", default = 7.85),
-  get_mean(litho_df, litho_df$Model == "MobileNetV4-Small" & litho_df$Backend == "GPU" & litho_df$Format == "INT4", default = 6.42),
-  get_mean(litho_df, litho_df$Model == "MobileNetV4-Small" & litho_df$Backend == "NPU" & litho_df$Format == "INT8", default = 18.52),
-  get_mean(litho_df, litho_df$Model == "MobileNetV4-Small" & litho_df$Backend == "NPU" & litho_df$Format == "INT4", default = 11.98),
-  get_mean(litho_df, litho_df$Model == "MobileNetV4-Small" & litho_df$Backend == "CPU" & litho_df$Format == "INT8", default = 47.19),
-  get_mean(litho_df, litho_df$Model == "MobileNetV4-Small" & litho_df$Backend == "CPU" & litho_df$Format == "INT4", default = 49.62),
-  get_mean(litho_df, litho_df$Model == "MobileNetV4-Small" & litho_df$Backend == "Oryon" & litho_df$Format == "INT8", default = 115.40),
-  get_mean(litho_df, litho_df$Model == "MobileNetV4-Small" & litho_df$Backend == "Oryon" & litho_df$Format == "INT4", default = 412.30)
+  get_mean(scale_df, scale_df$Backend == "GPU" & scale_df$Format == "INT8", default = 7.85),
+  get_mean(scale_df, scale_df$Backend == "GPU" & scale_df$Format == "INT4", default = 6.42),
+  get_mean(scale_df, scale_df$Backend == "NPU" & scale_df$Format == "INT8", default = 18.52),
+  get_mean(scale_df, scale_df$Backend == "NPU" & scale_df$Format == "INT4", default = 11.98),
+  get_mean(scale_df, scale_df$Backend == "CPU" & scale_df$Format == "INT8", default = 47.19),
+  get_mean(scale_df, scale_df$Backend == "CPU" & scale_df$Format == "INT4", default = 49.62),
+  get_mean(scale_df, scale_df$Backend == "Oryon" & scale_df$Format == "INT8", default = 115.40),
+  get_mean(scale_df, scale_df$Backend == "Oryon" & scale_df$Format == "INT4", default = 412.30)
 )
 
 # Extract dynamic detection accuracy from CSV
-v4s_acc <- get_first_acc(litho_df, litho_df$Model == "MobileNetV4-Small", "Top1_num", default = 77.14)
+v4s_acc <- if ("Accuracy" %in% names(scale_df)) parse_acc(scale_df$Accuracy[1]) else get_first_acc(scale_df, TRUE, "Top1_num", default = 77.14)
 
 scale_cols <- c(
   "#2A9D8F", "#3BB3A2",  # Green/Teal: GPU
@@ -441,8 +477,9 @@ dev.off()
 # ------------------------------------------------------------------------------
 # GRAPH 4: MobileNetV5 Qualcomm Hexagon NPU Stability (100 Runs)
 # ------------------------------------------------------------------------------
-cat("[4/5] Generating results/4_mobilenetv5_snapdragon_npu_stability_distribution.png...\n")
-png("results/4_mobilenetv5_snapdragon_npu_stability_distribution.png", width = 1500, height = 900, res = 130)
+out_p4 <- file.path(out_v5_dir, "mobilenetv5_machine_2_npu_stability_distribution.png")
+cat("[4/5] Generating", out_p4, "...\n")
+png(out_p4, width = 1500, height = 900, res = 130)
 
 par(mar = c(5.5, 5.5, 5.5, 2.5), bg = bg_main, col.axis = text_muted, col.lab = text_dark, col.main = text_dark)
 
@@ -506,14 +543,15 @@ dev.off()
 # ------------------------------------------------------------------------------
 # GRAPH 5: Quantization Architectural Paradigm Impact: QDQ vs Zero-FP32
 # ------------------------------------------------------------------------------
-cat("[5/5] Generating results/5_mobilenetv5_quantization_paradigm_comparison.png...\n")
-png("results/5_mobilenetv5_quantization_paradigm_comparison.png", width = 1500, height = 900, res = 130)
+out_p5 <- file.path(out_v5_dir, "mobilenetv5_machine_2_quantization_paradigm_comparison.png")
+cat("[5/5] Generating", out_p5, "...\n")
+png(out_p5, width = 1500, height = 900, res = 130)
 
 par(mar = c(6.5, 6, 6, 2), bg = bg_main, col.axis = text_muted, col.lab = text_dark, col.main = text_dark)
 
 paradigm_labels <- c(
-  "RTX 5060\nQDQ (Normaux)", "RTX 5060\nZero-FP32 (QOp)",
-  "i3-12100F\nQDQ (Normaux)", "i3-12100F\nZero-FP32 (QOp)",
+  "RTX 5060\nQDQ (Standard)", "RTX 5060\nZero-FP32 (QOp)",
+  "i3-12100F\nQDQ (Standard)", "i3-12100F\nZero-FP32 (QOp)",
   "Hexagon NPU\nZero-FP32 (HTP)"
 )
 
@@ -580,11 +618,12 @@ legend(
 
 dev.off()
 
-# Backwards compatibility: also update original filenames with white theme
-file.copy("results/1_mobilenetv5_hardware_latency_comparison.png", "results/hardware_latency_comparison.png", overwrite = TRUE)
-file.copy("results/2_mobilenetv5_pareto_accuracy_vs_latency.png", "results/pareto_accuracy_vs_latency.png", overwrite = TRUE)
-file.copy("results/3_scale_metrology_detection_profiling.png", "results/scale_metrology_detection_profiling.png", overwrite = TRUE)
-file.copy("results/4_mobilenetv5_snapdragon_npu_stability_distribution.png", "results/snapdragon_npu_stability_distribution.png", overwrite = TRUE)
-file.copy("results/5_mobilenetv5_quantization_paradigm_comparison.png", "results/quantization_paradigm_comparison.png", overwrite = TRUE)
+# Export clean copies into consolidated/images
+file.copy(out_p1, file.path(out_cons_dir, "hardware_latency_comparison.png"), overwrite = TRUE)
+file.copy(out_p2, file.path(out_cons_dir, "pareto_accuracy_vs_latency.png"), overwrite = TRUE)
+file.copy(out_p2, file.path(out_cons_dir, "accuracy_vs_latency_pareto.png"), overwrite = TRUE)
+file.copy(out_p3, file.path(out_cons_dir, "scale_metrology_detection_profiling.png"), overwrite = TRUE)
+file.copy(out_p4, file.path(out_cons_dir, "latency_stability_distribution.png"), overwrite = TRUE)
+file.copy(out_p5, file.path(out_cons_dir, "quantization_paradigm_comparison.png"), overwrite = TRUE)
 
 cat("All 5 MobileNetV5 scientific plots successfully generated in white background with English labels.\n")

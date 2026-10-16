@@ -1,8 +1,28 @@
-# R Script for Generating Qualcomm Snapdragon X (ARM64) Hardware Benchmark Plots
-# Data source: results/benchmark_snapdragon_v4_100_runs.csv
+# ==============================================================================
+# R Script for Generating Machine 2 (Qualcomm Snapdragon X ARM64) Benchmark Plots
+# Model: MobileNetV4
+# ==============================================================================
 
-csv_file <- if (file.exists("results/benchmark_snapdragon_v4_100_runs.csv")) "results/benchmark_snapdragon_v4_100_runs.csv" else "benchmark_snapdragon_v4_100_runs.csv"
-output_dir <- if (dir.exists("results")) "results" else "."
+if (Sys.getenv("R_HOME") == "" && dir.exists("E:/R/R/R-4.6.1")) {
+  Sys.setenv(R_HOME = "E:/R/R/R-4.6.1")
+}
+
+results_base <- Sys.getenv("LITHO_RESULTS_DIR", unset = "results")
+if (!dir.exists(results_base) && dir.exists("E:/fine tuning/rock identifier/lithotheque-edge-models/results")) {
+  results_base <- "E:/fine tuning/rock identifier/lithotheque-edge-models/results"
+}
+
+csv_file <- file.path(results_base, "MobileNetV4/machine_2/benchmark_machine_2_v4_100_runs.csv")
+if (!file.exists(csv_file)) {
+  csv_file <- file.path(results_base, "MobileNetV4/machine_2/benchmark_machine_2_v4.csv")
+}
+
+output_dir <- file.path(results_base, "MobileNetV4/machine_2")
+dir.create(output_dir, recursive = TRUE, showWarnings = FALSE)
+
+if (!file.exists(csv_file)) {
+  stop(paste("CSV file not found:", csv_file))
+}
 
 df <- read.csv(csv_file, stringsAsFactors = FALSE)
 
@@ -19,7 +39,8 @@ grid_color <- "#E0E0E0"
 # ---------------------------------------------------------------------------
 # 1. COMPARATIVE LATENCY ACROSS BACKENDS AND QUANTIZATIONS (BARPLOT)
 # ---------------------------------------------------------------------------
-png(filename = file.path(output_dir, "5_mobilenetv4_snapdragon_latency_comparison.png"), width = 1100, height = 650, res = 130)
+out_lat_png <- file.path(output_dir, "mobilenetv4_machine_2_latency_comparison.png")
+png(filename = out_lat_png, width = 1100, height = 650, res = 130)
 par(mar = c(5, 5, 4, 2), bg = "#FAFAFA")
 
 means <- c(
@@ -34,12 +55,11 @@ bar_colors <- c(color_npu, "#1D3557", color_cpu, "#F4A261")
 
 bp <- barplot(means, names.arg = labels, col = bar_colors, border = NA,
               ylim = c(0, max(means) * 1.25),
-              main = "MobileNetV4: Inference Latency by Snapdragon X Accelerator",
+              main = "MobileNetV4: Inference Latency by Machine 2 Accelerator",
               ylab = "Average Latency (ms / image - lower is better)",
               font.main = 2, col.lab = "#333333", col.axis = "#555555")
 grid(col = grid_color, lty = "dotted")
 barplot(means, names.arg = NA, col = bar_colors, border = NA, ylim = c(0, max(means) * 1.25), yaxt = "n", xaxt = "n", add = TRUE)
-
 
 fps <- round(1000 / means, 1)
 text(bp, means + 0.7, labels = paste0(round(means, 2), " ms\n(", fps, " fps)"), font = 2, cex = 0.9, col = "#222222")
@@ -53,11 +73,13 @@ legend("topleft",
        lty = c(NA, NA, 2), col = c(NA, NA, "#888888"), lwd = c(NA, NA, 1.2),
        bg = "white", box.col = "#DDDDDD")
 dev.off()
+cat("[OK] Generated:", out_lat_png, "\n")
 
 # ---------------------------------------------------------------------------
 # 2. INFERENCE STABILITY ACROSS 100 RUNS (NPU, CPU & DISPERSION)
 # ---------------------------------------------------------------------------
-png(filename = file.path(output_dir, "6_mobilenetv4_snapdragon_stability_100_runs.png"), width = 1600, height = 600, res = 130)
+out_stab_png <- file.path(output_dir, "mobilenetv4_machine_2_stability_100_runs.png")
+png(filename = out_stab_png, width = 1600, height = 600, res = 130)
 par(mfrow = c(1, 3), mar = c(5, 5, 4, 2), bg = "#FAFAFA")
 
 # A. Sequential latency trajectory across 100 NPU runs
@@ -107,11 +129,13 @@ boxplot(data_boxplot, col = c(color_npu, "#1D3557", color_cpu, "#F4A261"),
         font.main = 2, col.lab = "#333333", col.axis = "#555555")
 grid(col = grid_color, lty = "dotted")
 dev.off()
+cat("[OK] Generated:", out_stab_png, "\n")
 
 # ---------------------------------------------------------------------------
 # 3. EXECUTIVE SNAPDRAGON X BENCHMARK DASHBOARD
 # ---------------------------------------------------------------------------
-png(filename = file.path(output_dir, "7_mobilenetv4_snapdragon_executive_dashboard.png"), width = 1350, height = 750, res = 130)
+out_dash_png <- file.path(output_dir, "mobilenetv4_machine_2_executive_dashboard.png")
+png(filename = out_dash_png, width = 1350, height = 750, res = 130)
 layout(matrix(c(1, 2, 3, 3), nrow = 2, byrow = TRUE), heights = c(1.2, 0.8))
 par(bg = "#FAFAFA")
 
@@ -153,12 +177,11 @@ w4a8_top3_str <- if ("Top3_Accuracy" %in% names(df)) unique(df$Top3_Accuracy[df$
 par(mar = c(1, 2, 2, 2))
 plot.new()
 rect(0, 0, 1, 1, col = "white", border = "#DDDDDD", lwd = 1.5)
-text(0.5, 0.85, "QUALCOMM SNAPDRAGON X HARDWARE QUALIFICATION SUMMARY", font = 2, cex = 1.1, col = "#1D3557")
+text(0.5, 0.85, "MACHINE 2 (QUALCOMM SNAPDRAGON X) QUALIFICATION SUMMARY", font = 2, cex = 1.1, col = "#1D3557")
 text(0.5, 0.65, "Processor: Qualcomm Oryon CPU (10 Cores ARM64 @ 3.40 GHz) | NPU: Qualcomm Hexagon HTP v2.37.1 (45 TOPS)", cex = 0.9, col = "#444444")
 text(0.5, 0.45, paste0("• MobileNetV4 W4A8 on NPU: 2.29 ms (~436 fps) - Ultra-low latency (Accuracy: ", w4a8_top1_str, " Top-1 / ", w4a8_top3_str, " Top-3)."), cex = 0.9, col = "#2A9D8F", font = 2)
 text(0.5, 0.25, paste0("• MobileNetV4 INT8 on NPU: 2.67 ms (~374 fps) - Optimal trade-off (Accuracy: ", int8_top1_str, " Top-1 / ", int8_top3_str, " Top-3)."), cex = 0.9, col = "#1D3557", font = 2)
 text(0.5, 0.08, "• Comparison with MobileNetV5-300M: MobileNetV4 is 168x to 208x faster on NPU (ideal for mobile field survey).", cex = 0.85, col = "#666666", font = 3)
 
 dev.off()
-
-cat("Snapdragon benchmark plots successfully generated in:", output_dir, "\n")
+cat("[OK] Generated:", out_dash_png, "\n")
