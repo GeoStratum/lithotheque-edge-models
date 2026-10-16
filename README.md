@@ -695,27 +695,80 @@ Researchers can obtain the baseline FP32 architectures from the following offici
 
 ## 13. Technical Reproduction Scripts
 
-For researchers and developers, the `scripts/` directory contains the official tools used to generate the 12 models. Each script is specialized for a specific architecture, format, and precision:
+For researchers, developers, and deployment engineers, the [`scripts/`](scripts/) directory contains the complete automation pipeline utilized to build, quantize, compile, validate, and package the Lithotheque edge intelligence ecosystem.
 
-### A. Data Preparation
-- **[prepare_calibration.py](scripts/prepare_calibration.py)**: Generates `.npy` calibration tensors from raw image datasets.
+Every script is fully parameterized, self-contained, and follows strict hardware alignment rules (zero FP32 leak, signed per-tensor quantization, fused `SAME` padding, and 16 KB memory page size alignment).
 
-### B. TFLite / LiteRT Quantization (NPU Optimized)
-- **MobileNetV5 Rocks**: **[tflite_v5_rocks_int8.py](scripts/tflite_v5_rocks_int8.py)** | **[tflite_v5_rocks_int4.py](scripts/tflite_v5_rocks_int4.py)**
-- **MobileNetV4-L Rocks**: **[tflite_v4l_rocks_int8.py](scripts/tflite_v4l_rocks_int8.py)** | **[tflite_v4l_rocks_int4.py](scripts/tflite_v4l_rocks_int4.py)**
-- **MobileNetV4-S Scale**: **[tflite_v4s_scale_int8.py](scripts/tflite_v4s_scale_int8.py)** | **[tflite_v4s_scale_int4.py](scripts/tflite_v4s_scale_int4.py)**
+### A. Data Preparation & Calibration
+* **[`prepare_calibration.py`](scripts/prepare_calibration.py)**: Generates normalized, bit-accurate `[-128, 127]` INT8 `.npy` calibration tensors from raw field photography datasets, required for KL-divergence and MinMax post-training quantization.
 
-### C. ONNX Quantization (with Full Integer Stripping)
-- **MobileNetV5 Rocks**: **[onnx_v5_rocks_int8.py](scripts/onnx_v5_rocks_int8.py)** | **[onnx_v5_rocks_int4.py](scripts/onnx_v5_rocks_int4.py)**
-- **MobileNetV4-L Rocks**: **[onnx_v4l_rocks_int8.py](scripts/onnx_v4l_rocks_int8.py)** | **[onnx_v4l_rocks_int4.py](scripts/onnx_v4l_rocks_int4.py)**
-- **MobileNetV4-S Scale**: **[onnx_v4s_scale_int8.py](scripts/onnx_v4s_scale_int8.py)** | **[onnx_v4s_scale_int4.py](scripts/onnx_v4s_scale_int4.py)**
+### B. LiteRT / TFLite Quantization (Zero-Fallback NPU Engine)
+All TFLite generation scripts mathematically enforce signed per-tensor classification heads and kernel-fused `SAME` padding to ensure 100% NPU offload across Samsung Eden and MediaTek NeuroPilot:
+* **MobileNetV5 Rocks (104 Classes)**:
+  * **[`tflite_v5_rocks_int8.py`](scripts/tflite_v5_rocks_int8.py)**: Generates `best_mobilenetv5_rocks_int8.tflite` (Standard Tier — W8A8 Full Integer).
+  * **[`tflite_v5_rocks_int4.py`](scripts/tflite_v5_rocks_int4.py)**: Generates `best_mobilenetv5_rocks_w4a8.tflite` (Premium Tier — W4A8 Sub-Byte Quantization).
+* **MobileNetV4-Large Rocks (104 Classes)**:
+  * **[`tflite_v4l_rocks_int8.py`](scripts/tflite_v4l_rocks_int8.py)**: Generates `rock_model_w8a8_MobileNetV4.tflite` (Legacy Tier — W8A8 Full Integer).
+  * **[`tflite_v4l_rocks_int4.py`](scripts/tflite_v4l_rocks_int4.py)**: Generates `rock_model_w4a8_MobileNetV4.tflite` (Balanced Tier — W4A8 Sub-Byte Quantization).
+* **MobileNetV4-Small Scale Detection (Metrology)**:
+  * **[`tflite_v4s_scale_int8.py`](scripts/tflite_v4s_scale_int8.py)**: Generates `v4_small_scale_int8.tflite` (Binary Centimeter Scale Classifier — INT8).
+  * **[`tflite_v4s_scale_int4.py`](scripts/tflite_v4s_scale_int4.py)**: Generates `v4_small_scale_int4.tflite` (Binary Centimeter Scale Classifier — W4A8).
 
-### D. Reference Engine
-- **[litho_reference_engine.py](scripts/litho_reference_engine.py)**: 21-Pass Multi-Scale Tiling (21-MST) reference implementation.
+### C. ONNX Multi-Precision Export & Graph Stripping
+Generates pure QOperator ONNX artifacts, stripping floating-point dequantization artifacts to prevent NPU graph partitioning:
+* **MobileNetV5 Rocks**: **[`onnx_v5_rocks_int8.py`](scripts/onnx_v5_rocks_int8.py)** | **[`onnx_v5_rocks_int4.py`](scripts/onnx_v5_rocks_int4.py)**
+* **MobileNetV4-Large Rocks**: **[`onnx_v4l_rocks_int8.py`](scripts/onnx_v4l_rocks_int8.py)** | **[`onnx_v4l_rocks_int4.py`](scripts/onnx_v4l_rocks_int4.py)**
+* **MobileNetV4-Small Scale**: **[`onnx_v4s_scale_int8.py`](scripts/onnx_v4s_scale_int8.py)** | **[`onnx_v4s_scale_int4.py`](scripts/onnx_v4s_scale_int4.py)**
 
-### E. Benchmark & Scientific Visualization (R Engine)
-- **MobileNetV5 Multi-Backend Suite**: **[generate_benchmark_plots_v5.R](scripts/generate_benchmark_plots_v5.R)**
-- **MobileNetV4 Snapdragon Profiling**: **[generate_snapdragon_plots_v4.R](scripts/generate_snapdragon_plots_v4.R)**
+### D. Qualcomm Snapdragon Ahead-Of-Time (AOT) Pipeline (QAIRT / QNN)
+Offline Ahead-Of-Time compilation suite converting quantized ONNX models into native Hexagon context binaries (`.bin`) statically mapped to Hexagon Tightly Coupled Memory (TCM):
+* **[`compile_qairt_aot.py`](scripts/compile_qairt_aot.py)**: Core compilation engine interfacing with Qualcomm QAIRT SDK (`snpe-onnx-to-dlc`, `snpe-dlc-quant`, `snpe-dlc-graph-prepare`). Supports selective HTP targeting across all 7 generations (`v69`, `v73`, `v75`, `v79`, `v81`, `v85`, `v89`).
+* **[`build_all_qairt_models.py`](scripts/build_all_qairt_models.py)**: End-to-end batch orchestrator automating AOT conversion, DLC quantization, and context binary generation for MobileNetV5, MobileNetV4, and Scale Metrology models.
+
+### E. Play Asset Delivery (PAD) 38-Pack Generation
+* **[`build_all_38_aipacks.py`](scripts/build_all_38_aipacks.py)**: Automated packager assembling the complete matrix of **38 specialized `.aipack` archives**:
+  * 5 Universal Generic packs (LiteRT TFLite for Exynos & MediaTek JIT compilation)
+  * 6 Qualcomm Legacy packs (HTP v69 & v73 — Pure INT8 AOT binaries)
+  * 15 Qualcomm Modern packs (HTP v75 to v89 — Native W4A8 AOT binaries)
+  * 12 Google Tensor packs (Tensor G1 to G6 — Pure INT8 TPU FlatBuffers + dedicated SESR)
+
+### F. Multi-Scale Edge Inference Engine
+* **[`litho_reference_engine.py`](scripts/litho_reference_engine.py)**: Ground-truth reference implementation of the **21-Pass Multi-Scale Tiling (21-MST)** pipeline, including dynamic tile coordinate generation, border padding, overlap merging, and top-3 consensus voting.
+
+### G. Hardware Benchmarking & Validation
+* **[`benchmark_snapdragon_native_binaries.py`](scripts/benchmark_snapdragon_native_binaries.py)**: Benchmarks execution speed, memory throughput, and inference latency of native QAIRT `.bin` context binaries directly on Qualcomm Hexagon NPU hardware.
+* **[`benchmark_scale_machine_1.py`](scripts/benchmark_scale_machine_1.py)**: Automated precision and inference validator for geological scale detection models.
+
+### H. Scientific Visualization & Publication Graphics (R & Python)
+* **[`generate_scientific_graphs.py`](scripts/generate_scientific_graphs.py)**: Generates publication-ready confusion matrices, Top-1/Top-3 ROC curves, and class-by-class accuracy distribution plots.
+* **[`generate_benchmark_plots_v5.R`](scripts/generate_benchmark_plots_v5.R)**: R ggplot2 visualization suite comparing MobileNetV5 across GPU, CPU NEON, LiteRT NPU, and QAIRT backends.
+* **[`generate_snapdragon_native_plots.R`](scripts/generate_snapdragon_native_plots.R)**: Generates comparative bar charts and radar plots of Qualcomm Hexagon native AOT execution metrics.
+* **[`generate_snapdragon_plots_v4.R`](scripts/generate_snapdragon_plots_v4.R)**: Snapdragon profiling visualizer for MobileNetV4 INT8 and W4A8 architectures.
+* **[`generate_workstation_plots_scale.R`](scripts/generate_workstation_plots_scale.R)**: Metrology latency and precision profiling plots.
+* **[`generate_workstation_plots_v4.R`](scripts/generate_workstation_plots_v4.R)**: Workstation comparative profiling plots for MobileNetV4.
+
+---
+
+### Master Index of Reproduction Scripts
+
+| Script Name | Primary Task | Target Architecture / Model | Output Artifact | Execution Environment |
+| :--- | :--- | :--- | :--- | :---: |
+| **[`compile_qairt_aot.py`](scripts/compile_qairt_aot.py)** | AOT NPU Compilation | Qualcomm HTP v69 to v89 | `.bin` Context Binaries | QAIRT SDK 2.51+ |
+| **[`build_all_qairt_models.py`](scripts/build_all_qairt_models.py)** | Batch AOT Orchestration | MobileNetV4 / V5 / Scale | Full `.bin` Suite | QAIRT SDK 2.51+ |
+| **[`build_all_38_aipacks.py`](scripts/build_all_38_aipacks.py)** | Asset Pack Generation | Universal, Snapdragon, Tensor | 38 `.aipack` Archives | Python 3.10+ |
+| **[`tflite_v5_rocks_int8.py`](scripts/tflite_v5_rocks_int8.py)** | LiteRT Quantization | MobileNetV5-300M (INT8) | `.tflite` (Zero-Fallback) | TensorFlow 2.18+ / LiteRT |
+| **[`tflite_v5_rocks_int4.py`](scripts/tflite_v5_rocks_int4.py)** | LiteRT Quantization | MobileNetV5-300M (W4A8) | `.tflite` (Sub-Byte NPU) | TensorFlow 2.18+ / LiteRT |
+| **[`tflite_v4l_rocks_int8.py`](scripts/tflite_v4l_rocks_int8.py)** | LiteRT Quantization | MobileNetV4-Large (INT8) | `.tflite` (Zero-Fallback) | TensorFlow 2.18+ / LiteRT |
+| **[`tflite_v4l_rocks_int4.py`](scripts/tflite_v4l_rocks_int4.py)** | LiteRT Quantization | MobileNetV4-Large (W4A8) | `.tflite` (Sub-Byte NPU) | TensorFlow 2.18+ / LiteRT |
+| **[`tflite_v4s_scale_int8.py`](scripts/tflite_v4s_scale_int8.py)** | LiteRT Quantization | Scale MobileNetV4-Small (INT8) | `.tflite` (Zero-Fallback) | TensorFlow 2.18+ / LiteRT |
+| **[`tflite_v4s_scale_int4.py`](scripts/tflite_v4s_scale_int4.py)** | LiteRT Quantization | Scale MobileNetV4-Small (W4A8) | `.tflite` (Sub-Byte NPU) | TensorFlow 2.18+ / LiteRT |
+| **[`onnx_v5_rocks_int8.py`](scripts/onnx_v5_rocks_int8.py)** | ONNX QOperator Export | MobileNetV5-300M (INT8) | `.onnx` (Zero-FP32) | ONNX Runtime / Python |
+| **[`onnx_v5_rocks_int4.py`](scripts/onnx_v5_rocks_int4.py)** | ONNX QOperator Export | MobileNetV5-300M (W4A8) | `.onnx` (Zero-FP32) | ONNX Runtime / Python |
+| **[`prepare_calibration.py`](scripts/prepare_calibration.py)** | Dataset Sampling | Raw Geological Photography | `.npy` Calibration Arrays | NumPy / Pillow |
+| **[`litho_reference_engine.py`](scripts/litho_reference_engine.py)** | Edge Inference Reference | 21-Pass MST Engine | Multi-Tile Classification | NumPy / LiteRT |
+| **[`benchmark_snapdragon_native_binaries.py`](scripts/benchmark_snapdragon_native_binaries.py)** | Hardware Benchmarking | Qualcomm Hexagon NPU | Hardware Latency Logs | QAIRT / ARM64 Windows |
+| **[`generate_benchmark_plots_v5.R`](scripts/generate_benchmark_plots_v5.R)** | Scientific Visualization | MobileNetV5 Multi-Backend | Publication PDF / PNG | R 4.4+ (ggplot2, patchwork) |
+| **[`generate_snapdragon_native_plots.R`](scripts/generate_snapdragon_native_plots.R)** | Scientific Visualization | Qualcomm HTP Benchmarks | Publication Figures | R 4.4+ (ggplot2) |
 
 
 
