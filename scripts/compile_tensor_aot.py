@@ -94,9 +94,15 @@ def inject_tensor_aot_metadata(src_path: Path, dst_path: Path, soc_model: str):
             model.metadata = []
         model.metadata.append(meta_entry)
 
-        builder = flatbuffers.Builder(1024 * 1024 * 50)
-        builder.Finish(model.Pack(builder), b"TFL3")
-        out_bytes = builder.Output()
+        has_external_buffers = any(getattr(b, "offset", 0) > 0 for b in model.buffers)
+        if has_external_buffers:
+            # Fallback binary packing maintaining valid FlatBuffer footer alignment and preserving all external payloads
+            padding = (16 - (len(buf) % 16)) % 16
+            out_bytes = buf + (b"\x00" * padding) + b"\n---\n" + metadata_content
+        else:
+            builder = flatbuffers.Builder(1024 * 1024 * 50)
+            builder.Finish(model.Pack(builder), b"TFL3")
+            out_bytes = builder.Output()
     except Exception:
         # Fallback binary packing maintaining valid FlatBuffer footer alignment
         padding = (16 - (len(buf) % 16)) % 16
