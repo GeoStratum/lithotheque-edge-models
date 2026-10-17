@@ -20,7 +20,7 @@ Two specific formats were produced for each architecture to support the tiered d
 > [!IMPORTANT]
 > **Zero-FP32 Qualcomm Hexagon HTP Requirement**:
 > Qualcomm Hexagon HTP accelerators immediately reject or fracture graphs containing mixed floating-point tensors in the convolutional backbone. We enforce:
-> - **ONNX**: Export in `QuantFormat.QOperator` rather than `QuantFormat.QDQ`. All 282 convolutions are converted directly into `QLinearConv`, and elementwise arithmetic is mapped to `QLinearMul`/`QLinearAdd`.
+> - **ONNX**: Exporté via `onnxruntime.quantization.quantize_static` avec `QuantFormat.QDQ` (`QuantType.QInt8` / `QuantType.QUInt4`), combiné à la transformation post-traitement `force_full_integer_io`. Cette dernière élimine les nœuds d'entrée/sortie `QuantizeLinear` et `DequantizeLinear` pour exposer un graphe dont toutes les entrées/sorties et tenseurs intermédiaires sont strictement des entiers (`int8_t`). Ce format QDQ élagué est directement compilé en nœuds matériels natifs sans casting flottant.
 > - **TFLite**: Full Integer compilation where `supported_ops = [TFLITE_BUILTINS_INT8]` and all depthwise/convolutional layers are bound to integer kernels with 0 FP32 buffers (0.0% float tensors).
 
 ---
@@ -55,14 +55,15 @@ For **W4A8** models:
 
 ---
 
-## 4. ONNX Quantization Details (ONNX Runtime QOperator)
+## 4. ONNX Quantization Details (Static QDQ & Stripped Full Integer I/O)
 
 ### General Pipeline:
-`FP32 ONNX` -> `ONNX Runtime Quantization (QuantFormat.QOperator)` -> `Graph Stripping (Full Integer I/O)`.
+`FP32 ONNX` -> `ONNX Runtime Static Quantization (QuantFormat.QDQ)` -> `force_full_integer_io (Stripping FP32 Casts)`.
 
-Instead of the standard QDQ (Quantize-Dequantize) representation which leaves float32 operators bordered by wrapper pairs, the **QOperator format** maps operations directly to specialized native integer kernels:
-- `QLinearConv`: Consumes INT8 activations, INT8/INT4 weights, and INT32 biases to produce INT8 activations without intermediate float casting.
-- `QLinearMul`, `QLinearAdd`, `QLinearMatMul`: Pure integer elementwise and matrix operations ensuring zero partition breaks on Qualcomm QNN HTP backends.
+The quantization workflow uses `onnxruntime.quantization.quantize_static` with `QuantFormat.QDQ`:
+- **QuantFormat.QDQ Pipeline**: Activations and weights are quantized using `QuantizeLinear` and `DequantizeLinear` pairs configured for `QuantType.QInt8` (or `QUInt4` for 4-bit weights).
+- **Post-Processing (Full Integer I/O Stripping)**: Standard QDQ models expose FP32 inputs and outputs. To eliminate CPU-bound float conversion layers on edge devices, the custom routine `force_full_integer_io` rewrites the model graph by removing boundary quantize/dequantize nodes and updating graph signatures to native `int8_t` inputs/outputs.
+- **NPU Compatibility**: The resulting graph presents pure integer boundaries directly consumable by execution providers (such as QNN Execution Provider) with zero partition breaks.
 
 ### Calibration Data:
 - **Scale**: `calib_echelle.npy` (100 samples, NCHW [1, 3, 1024, 1024]).
