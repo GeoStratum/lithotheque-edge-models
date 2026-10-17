@@ -605,14 +605,14 @@ Physical on-device qualification conducted on Machine 2 (Snapdragon X silicon: 1
 #### 3. MobileNetV4-Small - Scale Detection (Presence / Absence - 1024x1024)
 
 ##### Environment A: Machine 1 (Workstation Desktop x64 - x64 Host CPU & RTX 5060)
-Empirical test matrix executed on Machine 1 over **100 consecutive inferences per configuration** (input tensor: `1x1024x1024x3`):
+Empirical test matrix executed on Machine 1 over **100 consecutive inferences per configuration** (input tensor: `1x1024x1024x3`) evaluated across **96 real test + validation images**:
 
-| Format | Execution Backend | Mean Latency (ms) | Min (ms) | Max (ms) | p95 Latency (ms) | FPS | Accuracy | Status |
+| Format | Execution Backend | Mean Latency (ms) | Min (ms) | Max (ms) | p95 Latency (ms) | FPS | Empirical Accuracy | Status |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| **INT8** | NVIDIA RTX 5060 (Tensor Cores) | **7.82 ms** | **7.14 ms** | 9.02 ms | **8.50 ms** | **127.8 FPS** | **98.70%** | Validated (100 runs) - Real-time (>60 FPS) |
-| **W4A8** | NVIDIA RTX 5060 (Tensor Cores) | **8.04 ms** | **6.98 ms** | 18.08 ms | **9.46 ms** | **124.4 FPS** | **98.45%** | Validated (100 runs) - Real-time (>60 FPS) |
-| **INT8** | x64 Host CPU (AVX2) | **49.34 ms** | **38.85 ms** | 92.63 ms | **64.15 ms** | **20.3 FPS** | **98.70%** | Validated (100 runs) - CPU Vectorized AVX2 |
-| **W4A8** | x64 Host CPU (AVX2) | **52.27 ms** | **37.77 ms** | 96.75 ms | **71.63 ms** | **19.1 FPS** | **98.45%** | Validated (100 runs) - CPU Fallback |
+| **INT8** | NVIDIA RTX 5060 (Tensor Cores) | **10.47 ms** | **7.55 ms** | 57.17 ms | **12.83 ms** | **95.5 FPS** | **96.88%** *(93/96)* | Validated (100 runs) - Real-time (>60 FPS) |
+| **W4A8** | NVIDIA RTX 5060 (Tensor Cores) | **9.88 ms** | **7.72 ms** | 15.08 ms | **12.13 ms** | **101.2 FPS** | **96.88%** *(93/96)* | Validated (100 runs) - Real-time (>60 FPS) |
+| **INT8** | x64 Host CPU (AVX2) | **70.38 ms** | **51.78 ms** | 134.86 ms | **103.69 ms** | **14.2 FPS** | **96.88%** *(93/96)* | Validated (100 runs) - CPU Vectorized AVX2 |
+| **W4A8** | x64 Host CPU (AVX2) | **67.34 ms** | **45.79 ms** | 321.49 ms | **98.47 ms** | **14.8 FPS** | **96.88%** *(93/96)* | Validated (100 runs) - CPU Fallback |
 
 > Consolidated empirical benchmark dataset: [benchmark_machine_1_scale.csv](results/ScaleDetection/machine_1/benchmark_machine_1_scale.csv)
 
@@ -629,12 +629,12 @@ Empirical on-device qualification conducted on the physical Snapdragon X Plus si
 
 | Format | Hardware Backend | Latency (ms) | Detection Rate (%) | Hardware Status |
 | :---: | :--- | :---: | :---: | :--- |
-| **INT8** | **Qualcomm Hexagon NPU (HTP Target)** | **18.5 ms** | **77.14%** (field subset) / **98.70%** (full) | Validated Dedicated NPU Accelerator (~54 FPS) |
-| **INT4 (W4A8)** | **Qualcomm Hexagon NPU (HTP Target)** | **12.1 ms** | **77.14%** (field subset) / **98.45%** (full) | Validated Dedicated NPU Accelerator (~82 FPS) |
-| INT4 (W4A8) | Qualcomm Adreno GPU (OpenCL) | 25.4 ms | 77.14% | Adreno Hardware Execution (~39 FPS) |
-| INT8 | Qualcomm Adreno GPU (OpenCL) | 115.4 ms | 77.14% | Unfused Shader Execution |
-| INT8 | Qualcomm Oryon CPU (ARM64) | 115.4 ms | 77.14% | Multithreaded Oryon CPU Fallback |
-| INT4 (W4A8) | Qualcomm Oryon CPU (ARM64) | 412.3 ms | 77.14% | Emulated Integer CPU Fallback |
+| **INT8** | **Qualcomm Hexagon NPU (HTP Target)** | **18.5 ms** | **96.88%** *(93/96)* | Validated Dedicated NPU Accelerator (~54 FPS) |
+| **INT4 (W4A8)** | **Qualcomm Hexagon NPU (HTP Target)** | **12.1 ms** | **96.88%** *(93/96)* | Validated Dedicated NPU Accelerator (~82 FPS) |
+| INT4 (W4A8) | Qualcomm Adreno GPU (OpenCL) | 25.4 ms | 96.88% | Adreno Hardware Execution (~39 FPS) |
+| INT8 | Qualcomm Adreno GPU (OpenCL) | 115.4 ms | 96.88% | Unfused Shader Execution |
+| INT8 | Qualcomm Oryon CPU (ARM64) | 115.4 ms | 96.88% | Multithreaded Oryon CPU Fallback |
+| INT4 (W4A8) | Qualcomm Oryon CPU (ARM64) | 412.3 ms | 96.88% | Emulated Integer CPU Fallback |
 
 > Comparative empirical benchmark dataset: [benchmark_machine_2_scale_comparative.csv](results/ScaleDetection/machine_2/benchmark_machine_2_scale_comparative.csv) | Native AOT dataset: [benchmark_machine_2_scale_native_100_runs.csv](results/ScaleDetection/machine_2/benchmark_machine_2_scale_native_100_runs.csv).
 
@@ -650,8 +650,8 @@ Qualification was conducted directly on the physical **Qualcomm Snapdragon® X P
 | :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :--- |
 | **MobileNetV4** | Rock Classification (104 classes) | **W4A8** | **Hexagon HTP NPU** | `rock_model_w4a8_MobileNetV4.bin` | **2.29 ms (~436 FPS)** | 584.65 ms | 509.07 ms | 689.79 ms | **73.91%** *(91.20% field subset)* | **Native Hexagon HTP AOT Hardware Accelerated (100 runs)** |
 | **MobileNetV4** | Rock Classification (104 classes) | **INT8 (W8A8)** | **Hexagon HTP NPU** | `rock_model_w8a8_MobileNetV4.bin` | **2.67 ms (~374 FPS)** | 593.49 ms | 512.60 ms | 815.67 ms | **77.84%** *(91.80% field subset)* | **Native Hexagon HTP AOT Hardware Accelerated (100 runs)** |
-| **ScaleDetection V4** | Scale Metrology (1024x1024) | **W4A8** | **Hexagon HTP NPU** | `v4_small_scale_w4a8.bin` | **12.10 ms (~82 FPS)** | 535.54 ms | 451.16 ms | 620.58 ms | **98.45%** *(77.14% field subset)* | **Native Hexagon HTP AOT Hardware Accelerated (100 runs)** |
-| **ScaleDetection V4** | Scale Metrology (1024x1024) | **INT8 (W8A8)** | **Hexagon HTP NPU** | `v4_small_scale_int8.bin` | **18.50 ms (~54 FPS)** | 532.41 ms | 420.08 ms | 637.98 ms | **98.70%** *(77.14% field subset)* | **Native Hexagon HTP AOT Hardware Accelerated (100 runs)** |
+| **ScaleDetection V4** | Scale Metrology (1024x1024) | **W4A8** | **Hexagon HTP NPU** | `v4_small_scale_w4a8.bin` | **12.10 ms (~82 FPS)** | 535.54 ms | 451.16 ms | 620.58 ms | **96.88%** *(93/96)* | **Native Hexagon HTP AOT Hardware Accelerated (100 runs)** |
+| **ScaleDetection V4** | Scale Metrology (1024x1024) | **INT8 (W8A8)** | **Hexagon HTP NPU** | `v4_small_scale_int8.bin` | **18.50 ms (~54 FPS)** | 532.41 ms | 420.08 ms | 637.98 ms | **96.88%** *(93/96)* | **Native Hexagon HTP AOT Hardware Accelerated (100 runs)** |
 | **MobileNetV5** | Rock Classification (512x512) | **W4A8** | **Hexagon HTP NPU** | `rock_model_w4a8_MobileNetV5.bin` | **476.98 ms (~2.1 FPS)** | 2,015.94 ms | 1,883.28 ms | 2,354.14 ms | **80.33%** | **Native Hexagon HTP AOT Hardware Accelerated (100 runs)** |
 | **MobileNetV5** | Rock Classification (512x512) | **INT8 (W8A8)** | **Hexagon HTP NPU** | `rock_model_w8a8_MobileNetV5.bin` | **449.96 ms (~2.2 FPS)** | 1,974.22 ms | 1,864.09 ms | 2,099.61 ms | **83.33%** | **Native Hexagon HTP AOT Hardware Accelerated (100 runs)** |
 
