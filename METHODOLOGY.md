@@ -234,9 +234,9 @@ To ensure bit-accurate inference on edge accelerators, all models adhere to the 
 | :--- | :--- | :--- | :--- | :--- |
 | **Scale V4-S** | TFLite | `[1, 1024, 1024, 3]` | `[1, 1]` | NHWC |
 | **Scale V4-S** | ONNX | `[1, 3, 1024, 1024]` | `[1, 1]` | NCHW |
-| **Rocks V4-L** | TFLite | `[1, 244, 244, 3]` | `[1, 104]` | NHWC |
-| **Rocks V4-L** | ONNX | `[1, 3, 244, 244]` | `[1, 104]` | NCHW |
-| **Rocks V5** | TFLite | `[1, 256, 3, 256]` | `[1, 104]` | **NHCW** |
+| **Rocks V4-L** | TFLite | `[1, 256, 256, 3]` | `[1, 104]` | NHWC |
+| **Rocks V4-L** | ONNX | `[1, 3, 256, 256]` | `[1, 104]` | NCHW |
+| **Rocks V5** | TFLite | `[1, 256, 256, 3]` | `[1, 104]` | **NHWC** |
 | **Rocks V5** | ONNX | `[1, 256, 256, 3]` | `[1, 104]` | NHWC |
 
 ### Input Normalization
@@ -296,26 +296,30 @@ For full scientific reproducibility, the following specialized automation script
 - **MobileNetV4-L Rocks**: `onnx_v4l_rocks_int8.py` / `onnx_v4l_rocks_int4.py`
 - **MobileNetV4-S Scale**: `onnx_v4s_scale_int8.py` / `onnx_v4s_scale_int4.py`
 
+### Multi-Vendor AOT Compilation & Benchmarking
+- **AOT Compilers**: `compile_qairt_aot.py`, `compile_tensor_aot.py`, `compile_mediatek_aot.py`, `compile_intel_aot.py`
+- **NPU Benchmark Harnesses**: `benchmark_npu_onnx.py`, `benchmark_npu_qairt.py`, `benchmark_snapdragon_native_binaries.py`
+
 ---
 
 ## 13. Replication Environment
 
 ### Software Stack
-- **Python**: Python 3.11 / Python 3.14 (x64)
-- **Frameworks**: `tensorflow==2.21.0`, `ai-edge-quantizer==0.5`, `ai-edge-litert==2.2.0`, `onnxruntime-quantization==1.22.0`, `torch==2.14.0`, `torchao==0.18.0`.
-- **Compiler / Runtimes**: MSVC, CUDA Toolkit 13.4, cuDNN 9.x.
+- **Python**: Python 3.11+ (x64 & ARM64)
+- **Frameworks**: `tensorflow`, `ai-edge-quantizer`, `ai-edge-litert`, `onnxruntime-quantization`, `torch`, `torchao`.
+- **Compiler / Runtimes**: MSVC, CUDA Toolkit, cuDNN, Qualcomm QAIRT SDK.
 
-### Hardware (Generation & Quantization Workstation - October 2026)
-- **GPU**: NVIDIA GeForce RTX 5060 (NVIDIA Blackwell Architecture, Compute Capability `sm_120`, 8 GB GDDR7)
-- **CPU**: 12th Gen Intel® Core™ i3-12100F (4 Cores, 8 Threads @ 3.30 GHz - Turbo 4.30 GHz)
-- **RAM**: 32 GB DDR4
-- **OS**: Windows 11 Pro (x64)
+### Hardware (Generation & Quantization Workstation)
+- **GPU**: NVIDIA Blackwell Architecture GPU (Compute Capability `sm_120`, GDDR7)
+- **CPU**: Multi-core x86_64 Host Processor (AVX2)
+- **RAM**: High-capacity System Memory (32 GB+)
+- **OS**: 64-bit Desktop Environment (Windows 11 / Linux WSL2 for AOT Compilers)
 
 ### Target Edge Benchmark Hardware (Snapdragon Edge Deployment Platform)
-- **Platform**: Microsoft Surface Laptop 7 / Surface Pro 11 (Qualcomm Snapdragon® X Plus - X1P64100 / X Elite)
-- **NPU**: Qualcomm Hexagon (45 TOPS INT8)
-- **RAM**: 16 - 32 GB LPDDR5x @ 8448 MT/s
-- **OS**: Windows 11 Pro 24H2 (ARM64, Build 26100 / 26220)
+- **Platform**: Qualcomm Snapdragon® X Series Reference Platform (ARM64)
+- **NPU**: Qualcomm® Hexagon™ HTP NPU (45 TOPS INT8)
+- **RAM**: Unified LPDDR5x High-Bandwidth Memory
+- **OS**: Windows 11 ARM64 Environment
 
 ---
 *This document certifies the technical reproducibility of the models across NVIDIA Blackwell and Qualcomm Snapdragon platforms.*

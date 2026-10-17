@@ -20,8 +20,10 @@ These models are designed for educational and preliminary field classification. 
 *Always consult laboratory analysis (e.g., XRD, XRF) for definitive geological validation.*
 
 ## Metrics & Performance
-* **Accuracy:** 96.76% (Top-1) on the Legacy V4 backend, and up to **83.33% Top-1 / 89.33% Top-3** in **INT8**, and **80.33% Top-1 / 87.67% Top-3** in **W4A8 Full Integer** on the MobileNetV5 backend (surpassing the previous 79.87% baseline).
-* **Latency:** Ranging from 18.4 ms (Dedicated NPU) to 142.8 ms (Legacy CPU).
+* **Accuracy (Standardized Multi-Source Benchmark):**
+  * **MobileNetV5-300M (Premium / Standard Tier):** Up to **88.33% Top-1 / 92.67% Top-3** in baseline FP16/BF16, **83.33% Top-1 / 89.33% Top-3** in **INT8 (W8A8)**, and **80.33% Top-1 / 87.67% Top-3** in **W4A8 Full Integer**.
+  * **MobileNetV4-Large (Balanced / Legacy Tier):** **78.78% Top-1 / 91.37% Top-3** in baseline FP16/BF16, **77.84% Top-1 / 90.42% Top-3** in **INT8**, and **73.91% Top-1 / 87.15% Top-3** in **W4A8** (reaching >91% Top-1 on in-situ daylight field subsets).
+* **Latency:** Sub-3 ms on dedicated NPU hardware for MobileNetV4-Large (~400 FPS steady-state), and 12–18 ms for 1024×1024 Scale Detection.
 * *For comprehensive hardware profiling, please refer to the main `README.md`.*
 
 ## Limitations & Bias

@@ -36,7 +36,7 @@ def find_qairt_root() -> Path:
         BASE_DIR / ".." / "QAIRT_SDK" / "qairt" / "2.51.0.260929",
         BASE_DIR / ".." / "Qualcomm" / "QAIRT_SDK" / "qairt" / "2.51.0.260929",
         Path.home() / "Qualcomm" / "QAIRT_SDK" / "qairt" / "2.51.0.260929",
-        Path(r"E:\Qualcomm\QAIRT_SDK\qairt\2.51.0.260929") # Local fallback
+        Path("/opt/qcom/qairt")
     ]
     for c in candidates:
         if c.exists():

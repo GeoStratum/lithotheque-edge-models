@@ -1,0 +1,28 @@
+# Proprietary Models & Weights (Never distribute publicly)
+*.tflite
+*.onnx
+*.bin
+*.pt
+*.pth
+*.safetensors
+*.npy
+
+# Local Evaluation & Validation Datasets (Proprietary Corpus Protection)
+temp_eval_104/
+official_val_208/
+data/
+output/
+qairt_eval_workspace/
+
+# Temporary Local Build Exports
+README_standalone.html
+pdf_style.css
+
+# Python & OS Artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+.DS_Store
+Thumbs.db

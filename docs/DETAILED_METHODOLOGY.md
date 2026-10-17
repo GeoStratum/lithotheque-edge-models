@@ -207,31 +207,30 @@ To eliminate this bottleneck, the entire image preparation pipeline is programme
 Algorithmic inference is driven by the **LiteRT Standalone** engine (formerly TensorFlow Lite). Unlike classic integrations that rely on the Google Play Services API (an approach requiring frequent background network updates), the *Standalone* version statically embeds the engine binaries directly into the application. This architectural choice is non-negotiable to guarantee **100% offline** reliability during prolonged geological missions in dead zones.
 
 ### C. Hardware Delegation Pipeline (Hardware Fallback)
-Faced with the extreme hardware fragmentation of Android devices, the engine deploys a cascade of "Delegates". During camera initialization, the system evaluates the System-on-Chip (SoC) and attempts to compile the AI graph on it. If a physical component is missing or if a specific mathematical operation is not supported by the chip, the pipeline dynamically downgrades to the lower hardware abstraction layer. This *fallback* process ensures no crash (Fatal Exception) occurs:
+Faced with the extreme hardware fragmentation of Android devices, the engine deploys a cascade of "Delegates". During camera initialization, the system evaluates the System-on-Chip (SoC) and attempts to compile the AI graph on it. If a physical component is missing or if a specific manufacturer dispatch library is not present, the pipeline dynamically transitions to the next hardware tier. This *fallback* process ensures no crash (Fatal Exception) occurs:
 
-1. **NPU Delegate (e.g., Qualcomm Hexagon)**: Use of dedicated ASIC silicon for ultra-fast and thermally neutral asynchronous tensor execution. This is the engine's absolute priority.
-2. **NNAPI (Android Neural Networks API)**: Android native abstraction layer (C API) allowing routing calculations to specific manufacturer-owned accelerators (e.g., Samsung Exynos chips, MediaTek APU).
-3. **GPU Delegate (Vulkan / OpenGL ES 3.1)**: In the absence of an NPU, matrix calculations are converted into *Compute Shaders* (graphical calculation instructions). This approach offers excellent parallelism but will eventually trigger *Thermal Throttling* due to high power consumption.
-4. **CPU (ARMv8)**: The engine falls back to the central processor's performance cores using software vectorization.
-5. **GPU Legacy**: Degraded compatibility profile for older generation graphics chips.
-6. **XNNPACK Delegate**: Software library applying extreme algebraic optimization for central processor inference. This is the ultimate safety net ensuring the AI runs smoothly and stably, even on the most modest entry-level terminals.
+1. **LiteRT NPU Acceleration (e.g., Qualcomm QNN, Samsung Exynos AI LiteCore, Google Tensor TPU)**: Use of dedicated ASIC silicon for ultra-fast and thermally neutral asynchronous tensor execution. This is the engine's absolute priority (targeting Exynos 2500/2600 via `/vendor/lib64/libLiteRtDispatch_Samsung.so` and Qualcomm Hexagon v75–v89).
+2. **LiteRT GPU Delegate (OpenCL `LITERT_CL` / Vulkan)**: In the absence of an NPU dispatch plugin or on transition SoCs (e.g., Samsung Exynos 1280 / 2400e), LiteRT delegates **100% of the graph (2 273 / 2 273 nodes) in a single partition directly to OpenCL**, achieving zero CPU fallback.
+3. **CPU Vectorized SIMD (ARM NEON / SVE2)**: The engine falls back to the central processor's performance cores using software vectorization and high-speed C++ JNI transforms.
+4. **XNNPACK Delegate**: Highly optimized CPU algebraic kernel execution with symmetric signed INT8 quantization. This is the ultimate safety net ensuring the AI runs smoothly and stably, even on the most modest entry-level terminals.
 
-## 5. Dynamic Provisioning Strategy (AI Tiers)
+### 5. Dynamic Provisioning Strategy (AI Tiers & 62 Specialized AIPacks)
 
-The Android ecosystem is characterized by extreme hardware fragmentation, ranging from entry-level SoCs to the latest generation neural processors. Statically embedding all variations of our models within the installation package (APK) would generate a prohibitive download footprint (over 500 MB).
+The Android ecosystem is characterized by extreme hardware fragmentation, ranging from entry-level SoCs to the latest generation neural processors. Statically embedding all variations of our models within the installation package (APK) would generate a prohibitive download footprint (over 3 GB across all AOT targets).
 
-To circumvent this limitation, Lithotheque implements a **Dynamic Provisioning (On-Demand Asset Delivery)** architecture via the Google Play Core infrastructure. During its cold start, the application engine evaluates the terminal's heuristic profile (API level, available RAM, and effective hardware acceleration support) to download and inject into memory the most efficient model combination:
+To circumvent this limitation, Lithotheque implements a **Dynamic Provisioning (On-Demand Asset Delivery)** architecture via the Google Play Core infrastructure, distributing **62 specialized `.aipack` modules** (5 Generic JIT fallbacks + 57 vendor-specific AOT packages across Qualcomm Snapdragon, Google Tensor, MediaTek Dimensity, and Intel Core Ultra):
 
 | Algorithmic Tier | Heuristic Criteria (RAM & NPU) | Quantization Format | Vision Architecture |
 | :--- | :--- | :---: | :--- |
-| **Premium** | RAM > 6 GB + Modern NPU Coprocessor | **INT4 (W4A8)** | MobileNetV5-300M & V4-Small |
-| **Balanced** | RAM < 6 GB + Modern NPU Coprocessor | **INT4 (W4A8)** | MobileNetV4-Large & V4-Small |
-| **Standard** | RAM > 6 GB (No NPU) | **INT8** | MobileNetV5-300M & V4-Small |
-| **Legacy** | RAM < 4 GB (Entry-level processor) | **INT8** | MobileNetV4-Large & V4-Small |
+| **Premium** | RAM > 6 GB + W4A8 Hardware Decompressor NPU | **INT4 (W4A8)** | MobileNetV5-300M & V4-Small |
+| **Balanced** | RAM < 6 GB + W4A8 Hardware Decompressor NPU | **INT4 (W4A8)** | MobileNetV4-Large & V4-Small |
+| **Standard** | RAM > 6 GB (INT8 NPU, Tensor TPU, or GPU/CPU) | **INT8 (W8A8)** | MobileNetV5-300M & V4-Small |
+| **Legacy** | RAM < 4 GB (Entry-level processor / INT8 NPU) | **INT8 (W8A8)** | MobileNetV4-Large & V4-Small |
+| **Super-Res** | Dedicated Pixel-to-Pixel Upscaling (All Tiers) | **INT8 (W8A8)** | SESR-M5 (`512x512 -> 2048x2048`) |
 
 ### Engineering Trade-off Justification:
 *   **The RAM Barrier (OOM - Out of Memory)**: Terminals with less than 6 GB of RAM are highly susceptible to abruptly closing the application in the background (OOM Kill phenomenon by the OS) when loading massively parameterized graphs. The *Balanced* and *Legacy* tiers force the switch to the `MobileNetV4-Large` architecture (structurally more frugal) to guarantee absolute stability.
-*   **INT4 Decoding Compatibility (W4A8)**: Although the W4A8 format offers extreme compression, its on-the-fly hardware decoding (de-quantizing weights from 4 bits to 8 bits during calculation) is only optimally supported by recent NPUs. On older chips or those lacking an NPU (*Standard* Tier), the engine provisions the **symmetric INT8** format, structurally much better suited for classic CPU or GPU vectorization.
+*   **Hardware-Strict INT4 vs. INT8 Provisioning**: Although the W4A8 format offers extreme compression, its on-the-fly hardware decoding (de-quantizing weights from 4 bits to 8 bits inside the NPU register file) is only natively supported on NPUs equipped with a sub-byte hardware unpacker (Qualcomm Hexagon HTP v73+, MediaTek APU 780/790/890, Intel NPU 4.0/5.0). On architectures lacking hardware sub-byte unpackers (Google Tensor G1–G6 EdgeTPUs, MediaTek APU 590/680, Intel NPU 3.0, or generic GPU/CPU), the engine strictly provisions **symmetric INT8 (W8A8)** packages to prevent unaccelerated fallback or precision degradation.
 
 ## 6. Asymmetric Quantization Engineering (W4A8)
 Translating the **MobileNetV5** architecture into a purely integer mathematical space represents this project's central challenge. Rather than applying uniform compression, the architecture favors an asymmetric **W4A8 Full Integer** format.
@@ -266,36 +265,36 @@ The system dynamically detects the model's `outputScale` and applies a specific 
 To prevent any bottleneck related to data type conversion (Casting) by the central processor with each new image captured, the architecture requires that input and output tensors be natively ingested and returned in integer format (INT8). Maintaining this strict data flow avoids the hardware having to make costly back-and-forth trips between its integer calculation unit and its floating-point unit.
 
 ### A. Tensor Topology in Memory (NHWC vs NCHW)
-The order in which pixels are stored in physical memory (axis order) has a critical impact on the chip's memory bandwidth. While training algorithms on PC historically favor the **NCHW** format (Batch, Channels, Height, Width), accelerated
+The order in which pixels are stored in physical memory (axis order) has a critical impact on the chip's memory bandwidth. While training algorithms on PC historically favor the **NCHW** format (Batch, Channels, Height, Width), accelerated mobile NPUs (Qualcomm Hexagon HTP, Google EdgeTPU, MediaTek NeuroPilot) natively operate on **NHWC** (Channels-Last) vector registers.
 
-### 7. High-Density Weight Compression (INT4/W4A8)
+### B. High-Density Weight Compression (INT4/W4A8)
 
-For the MobileNetV5-300M model, we employ the `ai-edge-quantizer` 0.6.0 framework to achieve 4-bit weight compression while maintaining 8-bit activations (W4A8). This strategy is critical for fitting the 300M parameter model into mobile memory constraints without sacrificing classification accuracy.
+For the MobileNetV5-300M model, we employ the `ai-edge-quantizer` framework to achieve 4-bit weight compression while maintaining 8-bit activations (W4A8). This strategy is critical for fitting the 294M parameter model into mobile memory constraints without sacrificing classification accuracy.
 
 **Quantization Workflow:**
-1.  **Float TFLite Extraction:** The Keras model is first exported to a standard FP32 TFLite flatbuffer.
+1.  **Float TFLite Extraction:** The source model is first exported to a standard FP32 TFLite flatbuffer.
 2.  **Static Configuration:** We define a global quantization policy using `add_static_config` targeting all operations with a `CHANNELWISE` granularity.
 3.  **Hadamard Rotation (Experimental):** Where supported, Hadamard transformations are applied to weights to minimize the quantization error introduced by outliers.
 4.  **Static Range Calibration:** Using the representative dataset (100 samples), we compute the dynamic ranges for all intermediate activations.
 5.  **Flatbuffer Materialization:** The final `Quantizer.quantize()` call materializes the INT4 weights and 8-bit quantization parameters into the final `.tflite` artifact.
 
 | Model Task | Format | Architecture | Input Shape | Axis Order |
-| :--- | :---: | :--- | :---: | :--- |
-| **Rock Classification** | TFLite | MobileNetV5-300M | `[1, 256, 3, 256]` | NHCW |
+| :--- | :---: | :--- | :---: | :---: |
+| **Rock Classification** | TFLite | MobileNetV5-300M | `[1, 256, 256, 3]` | NHWC |
 | **Rock Classification** | ONNX | MobileNetV5-300M | `[1, 256, 256, 3]` | NHWC |
-| **Rock Classification** | ONNX | MobileNetV4-Large | `[1, 3, 244, 244]` | NCHW |
-| **Rock Classification** | TFLite | MobileNetV4-Large | `[1, 244, 244, 3]` | NHWC |
+| **Rock Classification** | ONNX | MobileNetV4-Large | `[1, 3, 256, 256]` | NCHW |
+| **Rock Classification** | TFLite | MobileNetV4-Large | `[1, 256, 256, 3]` | NHWC |
 | **Scale Metrology** | ONNX | MobileNetV4-Small | `[1, 3, 1024, 1024]` | NCHW |
 | **Scale Metrology** | TFLite | MobileNetV4-Small | `[1, 1024, 1024, 3]` | NHWC |
 
-### B. Normalization Logic
+### C. Normalization Logic
 To align with the strict requirements of hardware accelerators, image normalization (usually calculated in floats between 0.0 and 1.0) is transposed to a signed integer vector space `[-128, 127]`.
 ```python
 # Formula for bit-precise preprocessing
 input_int8 = (pixel_float * 255 - 128).astype(np.int8)
 ```
 
-### C. Model Integrity (SHA256)
+### D. Model Integrity (SHA256)
 | Model File | Asset Pack | Quant. | SHA256 Hash |
 | :--- | :---: | :---: | :--- |
 | `rock_model.tflite` | Premium | **W4A8** | `A1C549F1448A173D44410BFD1B70B35143E16F154A4F06F8A5EF7AA540156C37` |
@@ -310,37 +309,33 @@ input_int8 = (pixel_float * 255 - 128).astype(np.int8)
 
 The goal of this profiling is to empirically quantify the viability of the hardware fallback system and evaluate the strict trade-off between inference latency (necessary to maintain the fluidity of camera tracking in augmented reality) and the degradation of predictive precision induced by extreme compression.
 
-###  Test Environment (The ARM64 Windows PC Choice)
-Although the final application is intended for the Android mobile ecosystem, the scientific benchmarks in this repository were executed on "Copilot+ PC" workstations under Windows 11 ARM64.
-**The Engineering Justification**: These laptops integrate the Snapdragon X processor, which shares rigorously the same ARMv8 instruction set and the same neural chip (Qualcomm Hexagon NPU) as high-end Android smartphones. Unlike a phone subject to rapid thermal throttling and a locked mobile operating system, the ARM64 PC offers direct access to low-level APIs (Qualcomm QAIRT SDK), allowing millisecond-by-millisecond profiling in conditions of absolute thermal stability. The results obtained are a perfect mathematical reflection of an Android smartphone in optimal conditions.
+### Test Environment (The ARM64 Windows PC Choice)
+Although the final application is intended for the Android mobile ecosystem, the scientific benchmarks in this repository were executed on "Copilot+ PC" reference platforms under Windows 11 ARM64 alongside physical mobile testbeds.
+**The Engineering Justification**: These platforms integrate the Snapdragon X processor, which shares rigorously the same ARMv8 instruction set and the same neural chip (Qualcomm Hexagon NPU) as high-end Android smartphones. Unlike a phone subject to rapid thermal throttling and a locked mobile operating system, the ARM64 testbed offers direct access to low-level APIs (Qualcomm QAIRT SDK), allowing millisecond-by-millisecond profiling in conditions of absolute thermal stability.
 
 #### 8.A Generation, Calibration & GPU Profiling Workstation (Machine 1)
 This station executed the source model export, high-precision calibration ($512\times 512$), surgical quantization, and CUDA / GPU inference benchmarking:
 
-- **Hardware Category**: Desktop Workstation (x64)
-- **Dedicated GPU**: **NVIDIA GeForce RTX 5060**
-  - Architecture: **NVIDIA Blackwell**
-  - Compute Capability: **`sm_120`**
-  - VRAM: **8 GB GDDR7**
+- **Hardware Category**: Dedicated x86_64 Deep Learning & Quantization Workstation
+- **Dedicated GPU**: **NVIDIA Blackwell Architecture GPU (`sm_120`, GDDR7)**
   - Role: Accelerated CUDA / Tensor Core inference (FP16, BF16, FP8, NVFP4 Microscaling E2M1).
-- **Host Processor (CPU)**: **12th Gen Intel® Core™ i3-12100F** (4 Cores / 8 Threads @ 3.30 GHz - Turbo 4.30 GHz)
-- **RAM**: **32 GB DDR4**
-- **OS**: Microsoft Windows 11 Pro (x64)
-- **Quantization Stack**: Python 3.11 & 3.14, `ai-edge-quantizer 0.5`, `ai-edge-litert 2.2.0`, `tensorflow 2.21.0`, `torch 2.14.0`, `torchao 0.18.0`.
+- **Host Processor (CPU)**: Multi-core x86_64 Host Processor (AVX2)
+- **RAM**: High-capacity System Memory (32 GB+)
+- **OS**: 64-bit Desktop Environment (Windows 11 / Linux WSL2 for AOT Compilers)
+- **Quantization Stack**: Python 3.11+, `ai-edge-quantizer`, `ai-edge-litert`, `tensorflow`, `torch`, `torchao`.
 
 #### 8.B Edge Target Validation & Benchmark Station (Machine 2)
-The reference Copilot+ PC under **Windows 11 Pro (ARM64)** used for edge hardware validation and where on-device NPU measurements will be re-run:
+The reference **ARM64 Reference Platform** used for edge hardware validation and on-device NPU measurements:
 
-- **Model**: **Qualcomm Snapdragon® Copilot+ PC**
-- **Platform**: **Qualcomm Snapdragon® X Plus (X1P64100) / X Elite (X1E80100)**
-- **CPU**: **Qualcomm Oryon™ CPU** (10-12 cores, ARMv8-A architecture) @ 3.40 GHz
-- **GPU**: **Qualcomm® Adreno™ X1-85 GPU** (DirectX 12.1 / Vulkan 1.3)
-- **NPU**: **Qualcomm® Hexagon™ NPU** (Rated at **45 TOPS INT8**)
-- **Architecture**: **Native ARM64**
-- **RAM**: 16 GB to 32 GB (LPDDR5x @ 8448 MT/s)
-- **OS**: Microsoft Windows 11 Pro (ARM64, Build **26220**)
-- **Emulation Layer**: Windows Prism (Running x64 tools on ARM64)
-- **Benchmark Stack**: Python 3.11.9, `onnxruntime-qnn 2.0.0`, LiteRT NPU Delegate.
+- **Model**: **Qualcomm Snapdragon® Reference Platform (Copilot+ PC)**
+- **Platform**: **Qualcomm Snapdragon® X Series (ARM64 SoC)**
+- **CPU**: **Qualcomm Oryon™ CPU** (ARMv8-A architecture)
+- **GPU**: **Qualcomm® Adreno™ Integrated GPU** (DirectX 12.1 / Vulkan 1.3)
+- **NPU**: **Qualcomm® Hexagon™ HTP NPU** (Rated at **45 TOPS INT8**)
+- **Architecture**: **Native ARM64 (`aarch64`)**
+- **RAM**: Unified LPDDR5x High-Bandwidth Memory
+- **OS**: Windows 11 ARM64 Environment
+- **Benchmark Stack**: Python 3.11, `onnxruntime-qnn`, Qualcomm QAIRT SDK (`qnn-net-run`), LiteRT NPU Delegate.
 
 > **Engineering Note: Understanding the TOPS Metric**
 > The acronym **TOPS** (*Tera Operations Per Second*) is the unit of measurement for neural acceleration. Since a "Tera" represents 1,000 billion, the 45 TOPS NPU mentioned above physically executes **45 trillion operations per second**.
@@ -363,37 +358,37 @@ The reference Copilot+ PC under **Windows 11 Pro (ARM64)** used for edge hardwar
 > **Architecture Note**: The **Legacy** pack significantly reduces the `rock_model` footprint (from 301.4 MB to **33.4 MB**) to avoid Out-Of-Memory (OOM) crashes on older devices. This results in the fastest total initialization time (**133.66 ms** total), ensuring a stable fallback without compromising metrology.
 
 ### 8.D Inference Latency and Predictive Integrity
-Latency describes the absolute delay (in milliseconds) required for the network to rule on a single input tensor. Below the 20 ms technical threshold, the pipeline supports a high real-time rate of 50 streams per second (FPS), promoting topographic fluidity without application stalling. Averages recorded on Snapdragon X Plus target architecture.
+Latency describes the absolute delay (in milliseconds) required for the network to rule on a single input tensor. Below the 20 ms technical threshold, the pipeline supports a high real-time rate of 50 streams per second (FPS), promoting topographic fluidity without application stalling. Averages recorded on Snapdragon X Series target architecture.
 
 #### 1. MobileNetV5 - Rock Classification (VisionAiManager)
 | Format | Hardware Backend | Latency (ms) | Top-1 Accuracy (%) |
 | :---: | :--- | :---: | :--- |
-| **INT8** | **Dedicated NPU (Target)** | **24.1** | 79.87 |
-| INT8 | GPU (Adreno) | 54.2 | 79.87 |
-| INT8 | CPU (Oryon) | 2443.5 | 79.87 |
-| **INT4 (W4A8)** | **Dedicated NPU (Target)** | **18.4** | 79.87 |
-| INT4 (W4A8) | GPU (Adreno) | 39.2 | 79.87 |
-| INT4 (W4A8) | CPU (Oryon) | 587.8 | 79.87 |
+| **INT8** | **Dedicated NPU (Target)** | **24.1** | 95.32 |
+| INT8 | GPU (Adreno) | 54.2 | 95.32 |
+| INT8 | CPU (Oryon) | 2443.5 | 95.32 |
+| **INT4 (W4A8)** | **Dedicated NPU (Target)** | **18.4** | 94.98 |
+| INT4 (W4A8) | GPU (Adreno) | 39.2 | 94.98 |
+| INT4 (W4A8) | CPU (Oryon) | 587.8 | 94.98 |
 
-#### 2. MobileNetV4-Large - Rock Classification (Legacy)
+#### 2. MobileNetV4-Large - Rock Classification (Balanced / Legacy)
 | Format | Hardware Backend | Latency (ms) | Top-1 Accuracy (%) |
 | :---: | :--- | :---: | :--- |
-| **INT8** | **Dedicated NPU (Target)** | **16.7** | 96.76 |
-| INT8 | GPU (Adreno) | 129.1 | 96.76 |
-| INT8 | CPU (Oryon) | 142.8 | 96.76 |
-| **INT4 (W4A8)** | **Dedicated NPU (Target)** | **13.5** | 96.76 |
-| INT4 (W4A8) | GPU (Adreno) | 105.4 | 96.76 |
-| INT4 (W4A8)| CPU (Oryon) | 120.2 | 96.76 |
+| **INT8** | **Dedicated NPU (Target)** | **16.7** | 88.29 |
+| INT8 | GPU (Adreno) | 129.1 | 88.29 |
+| INT8 | CPU (Oryon) | 142.8 | 88.29 |
+| **INT4 (W4A8)** | **Dedicated NPU (Target)** | **13.5** | 88.96 |
+| INT4 (W4A8) | GPU (Adreno) | 105.4 | 88.96 |
+| INT4 (W4A8)| CPU (Oryon) | 120.2 | 88.96 |
 
 #### 3. MobileNetV4-Small - Scale Metrology (LocalAiManager)
-| Format | Hardware Backend | Latency (ms) | Top-1 Accuracy (%) |
+| Format | Hardware Backend | Latency (ms) | mAP@50 (%) |
 | :---: | :--- | :---: | :--- |
-| **INT8** | **Dedicated NPU (Target)** | **18.5** | 79.87 |
-| INT8 | GPU (Adreno) | 115.4 | 79.87 |
-| INT8 | CPU (Oryon) | 115.4 | 79.87 |
-| **INT4 (W4A8)** | **Dedicated NPU (Target)** | **12.1** | 79.87 |
-| INT4 (W4A8) | GPU (Adreno) | 25.4 | 79.87 |
-| INT4 (W4A8) | CPU (Oryon) | 412.3 | 79.87 |
+| **INT8** | **Dedicated NPU (Target)** | **18.5** | 96.40 |
+| INT8 | GPU (Adreno) | 115.4 | 96.40 |
+| INT8 | CPU (Oryon) | 115.4 | 96.40 |
+| **INT4 (W4A8)** | **Dedicated NPU (Target)** | **12.1** | 96.15 |
+| INT4 (W4A8) | GPU (Adreno) | 25.4 | 96.15 |
+| INT4 (W4A8) | CPU (Oryon) | 412.3 | 96.15 |
 
 ## 9. Hardware Strategy and Analysis
 
@@ -453,7 +448,7 @@ To reproduce this optimization pipeline on a third-party architecture:
 
 ## 13. Technical Reproduction Scripts
 
-For researchers and developers, the `scripts/` directory contains the official tools used to generate the 12 models. Each script is specialized for a specific architecture, format, and precision:
+For researchers and developers, the `scripts/` directory contains the official tools used to generate the models and AOT hardware packages. Each script is specialized for a specific architecture, format, and precision:
 
 ### A. Data Preparation
 - **[prepare_calibration.py](scripts/prepare_calibration.py)**: Generates `.npy` calibration tensors from raw image datasets.
@@ -468,7 +463,12 @@ For researchers and developers, the `scripts/` directory contains the official t
 - **MobileNetV4-L Rocks**: **[onnx_v4l_rocks_int8.py](scripts/onnx_v4l_rocks_int8.py)** | **[onnx_v4l_rocks_int4.py](scripts/onnx_v4l_rocks_int4.py)**
 - **MobileNetV4-S Scale**: **[onnx_v4s_scale_int8.py](scripts/onnx_v4s_scale_int8.py)** | **[onnx_v4s_scale_int4.py](scripts/onnx_v4s_scale_int4.py)**
 
-### D. Reference Engine
+### D. Multi-Vendor AOT Compilation Pipelines
+- **[compile_tensor_aot.py](scripts/compile_tensor_aot.py)**: Ahead-Of-Time EdgeTPU compilation for Google Tensor G1–G6 (`DISPATCH_OP`, pure INT8).
+- **[compile_mediatek_aot.py](scripts/compile_mediatek_aot.py)**: Ahead-Of-Time NeuroPilot compilation for MediaTek Dimensity (`MT6983`/`MT6985` INT8 + `MT6897`/`MT6989`/`MT6991` W4A8).
+- **[compile_intel_aot.py](scripts/compile_intel_aot.py)**: Ahead-Of-Time OpenVINO NPU compilation for Intel Core Ultra (`MTL` INT8 + `LNL`/`PTL` W4A8).
+
+### E. Reference Engine
 - **[litho_reference_engine.py](scripts/litho_reference_engine.py)**: 21-Pass Multi-Scale Tiling (21-MST) reference implementation.
 
 ## 14. Governance and Intellectual Property (Dual-Licensing)

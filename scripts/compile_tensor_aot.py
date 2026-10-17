@@ -73,20 +73,20 @@ def inject_tensor_aot_metadata(src_path: Path, dst_path: Path, soc_model: str):
         f"PRECOMPILED_METADATA_VERSION=1.0\n"
     ).encode("utf-8")
 
-    # Attempt FlatBuffers injection via tensorflow.lite if available, else append formal metadata block
+    # Injection formelle dans le FlatBuffer via Google LiteRT schema
     try:
-        from tensorflow.lite.python import schema_py_generated as schema_fb
+        from ai_edge_litert import schema_py_generated as schema_fb
         import flatbuffers
 
         model = schema_fb.ModelT.InitFromObj(schema_fb.Model.GetRootAsModel(buf, 0))
 
-        # Create new buffer for metadata
+        # Création du buffer pour les métadonnées de ciblage matériel LiteRT AOT
         meta_buffer = schema_fb.BufferT()
         meta_buffer.data = list(metadata_content)
         model.buffers.append(meta_buffer)
         meta_buffer_idx = len(model.buffers) - 1
 
-        # Append metadata entry
+        # Enregistrement de l'entrée formelle dans la table de métadonnées du modèle
         meta_entry = schema_fb.MetadataT()
         meta_entry.name = f"google_tensor_aot_{soc_model.lower()}"
         meta_entry.buffer = meta_buffer_idx
@@ -94,19 +94,12 @@ def inject_tensor_aot_metadata(src_path: Path, dst_path: Path, soc_model: str):
             model.metadata = []
         model.metadata.append(meta_entry)
 
-        has_external_buffers = any(getattr(b, "offset", 0) > 0 for b in model.buffers)
-        if has_external_buffers:
-            # Fallback binary packing maintaining valid FlatBuffer footer alignment and preserving all external payloads
-            padding = (16 - (len(buf) % 16)) % 16
-            out_bytes = buf + (b"\x00" * padding) + b"\n---\n" + metadata_content
-        else:
-            builder = flatbuffers.Builder(1024 * 1024 * 50)
-            builder.Finish(model.Pack(builder), b"TFL3")
-            out_bytes = builder.Output()
-    except Exception:
-        # Fallback binary packing maintaining valid FlatBuffer footer alignment
-        padding = (16 - (len(buf) % 16)) % 16
-        out_bytes = buf + (b"\x00" * padding) + b"\n---\n" + metadata_content
+        builder = flatbuffers.Builder(1024 * 1024 * 20)
+        builder.Finish(model.Pack(builder), b"TFL3")
+        out_bytes = builder.Output()
+    except Exception as e:
+        print(f"[-] Erreur injection FlatBuffer: {e}")
+        return False
 
     with open(dst_path, "wb") as f:
         f.write(out_bytes)

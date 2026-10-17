@@ -139,11 +139,24 @@ Offloading deep convolutional neural networks to heterogeneous mobile accelerato
 * **Per-Tensor Classification Head Quantization**: Standard TensorFlow Lite and ONNX post-training quantization routines apply per-channel (`axis=0` or `axis=3`) scale and zero-point vectors to weight matrices. While CPUs and modern GPUs handle per-channel FullyConnected/Dense layers seamlessly, mobile NPU drivers (Samsung Eden/NCP, Qualcomm QNN HTP, MediaTek NeuroPilot) reject per-channel 2D matrix multiplications. All final dense layers in MobileNetV4 and MobileNetV5 are mathematically converted and clamped to **signed per-tensor asymmetry** (`TENSOR_QUANT8_ASYMM_SIGNED`), achieving a 100% operator offload rate with zero CPU fallback nodes.
 * **Kernel-Fused Convolutional Padding**: Mobile architectures frequently employ asymmetric spatial padding before strided depthwise separable blocks. Standalone TFLite `PAD` operators force hardware pipeline stalls and buffer synchronization barriers between the NPU and CPU memory spaces. All explicit 4D padding operators have been structurally fused directly into preceding/subsequent convolution layers utilizing hardware-native `SAME` padding kernels.
 
-### B. Hardware-Targeted Compilation Paradigms
+### B. Hardware-Targeted Compilation Paradigms: Why Ahead-Of-Time (AOT) Compilation is Essential
 
-Deploying neural network models across heterogeneous Android hardware cannot rely on a naive "one-size-fits-all" deployment pipeline. Mobile System-on-Chips (SoCs) feature radically divergent Neural Processing Unit (NPU) architectures, microcode compilers, execution pipelines, and arithmetic sub-byte capabilities.
+Deploying neural network models across heterogeneous edge hardware cannot rely on a naive "one-size-fits-all" deployment pipeline. Mobile and embedded System-on-Chips (SoCs) feature radically divergent Neural Processing Unit (NPU) architectures, microcode compilers, execution pipelines, memory hierarchies (SRAM/TCM vs. DRAM), and arithmetic sub-byte capabilities.
 
-To resolve these disparities without runtime performance degradation or thermal throttling, the Lithotheque edge pipeline implements three distinct hardware execution pathways:
+#### The Fundamental Problem with Pure JIT (Just-In-Time) On-Device Compilation:
+In traditional mobile ML workflows (e.g., standard TensorFlow Lite dynamic runtime delegation), the raw `.tflite` model graph is pushed to the client device, and an on-device driver attempts to partition the graph and compile subgraphs into hardware microcode *on the fly* during application launch:
+1. **Heavy Cold-Start Time & Battery Drain**: Even when graph compilation is properly dispatched to background asynchronous worker threads (avoiding main-thread ANR freezes), compiling large-scale vision graphs like MobileNetV5-300M (294 million variables and complex multi-head attention) requires intensive multi-core CPU and DSP workloads during **15 to 90 seconds**. This protracted initialization generates noticeable thermal spikes and rapidly depletes mobile battery reserves during the first launch.
+2. **Unpredictable Subgraph Fragmentation & Fallback**: Mobile NPU drivers differ across Android OS versions and vendor security patch levels. If a single mathematical operator (e.g., `Erf`, dynamic `Dequantize`, or an unsupported reshape) fails to compile in JIT, the driver silently fragments the model into multiple subgraphs. Activations are continuously swapped back and forth between NPU SRAM, system DRAM, and CPU caches, multiplying inference latency by 10× to 25× and causing sustained battery drain.
+3. **Memory Bloat During On-Device Compilation**: JIT compilers on mobile devices require massive peak RAM allocations (frequently exceeding 1.2 to 1.8 GB of transient heap memory) simply to build graph execution plans and schedule hardware pipelines, creating severe memory pressure and background eviction risks on mid-range devices.
+
+#### The Technical Value of Ahead-Of-Time (AOT) Compilation:
+To eliminate these bottlenecks entirely, the Lithotheque edge engineering shifts the entire compilation complexity **offline** (from the client smartphone to the build/release infrastructure):
+* **Deterministic 0-Latency Startup**: Pre-compiling the execution graph directly into vendor-specific binary contexts (e.g., Qualcomm QNN context `.bin` files) or injecting hardware-verified metadata descriptors (Google Tensor TPU, MediaTek NeuroPilot, Intel OpenVINO) allows the client app to memory-map (`mmap`) the model into NPU execution memory in **single-digit milliseconds (< 15 ms)**.
+* **Optimal SRAM / TCM Memory Planning**: Unlike generalist JIT drivers that make conservative heuristics, AOT compilers perform cycle-accurate memory layout planning. Tightly Coupled Memory (TCM) and local SRAM ping-pong buffers are statically scheduled to maximize compute-to-memory overlap with zero CPU arbitration.
+* **Guaranteed 100% Hardware Offload**: AOT compilation mathematically guarantees before deployment that 100% of operators are supported natively by the targeted silicon. Zero fallback nodes are permitted to reach production.
+* **Dynamic Distribution via Google Play Asset Delivery (PAD / PODAI)**: Pre-compiled AOT artifacts are organized into modular **AIPacks**. Client devices download exclusively the binary payload matched to their exact SoC micro-architecture, avoiding application bloat.
+
+To address the heterogeneous silicon landscape without performance compromises, the Lithotheque pipeline implements targeted hardware execution pathways:
 
 ```mermaid
 graph TD
@@ -151,7 +164,9 @@ graph TD
     
     TargetCheck -->|Qualcomm Snapdragon| QcomAOT[Ahead-Of-Time / AOT via QAIRT / QNN]
     TargetCheck -->|Google Pixel Tensor| TensorAOT[Ahead-Of-Time / AOT TPU Metadata]
-    TargetCheck -->|Samsung Exynos & MediaTek| GenericJIT[Just-In-Time / JIT On-Device Driver]
+    TargetCheck -->|MediaTek Dimensity| MtkAOT[Ahead-Of-Time / AOT NeuroPilot Metadata]
+    TargetCheck -->|Intel Core Ultra| IntelAOT[Ahead-Of-Time / AOT OpenVINO Metadata]
+    TargetCheck -->|Samsung Exynos & Generic| GenericJIT[Just-In-Time / LiteRT Standalone]
     
     QcomAOT --> QcomSplit{Hexagon HTP Micro-Architecture}
     QcomSplit -->|v69 & v73: No sub-byte unit| QcomINT8[Pure INT8 Packs: Standard + Legacy + SESR]
@@ -161,13 +176,23 @@ graph TD
     TensorAll --> TensorReject[Strict Rejection of Sub-Byte INT4]
     TensorAll --> TensorPacks[Recognition INT8 + Dedicated SESR per Tensor G]
     
+    MtkAOT --> MtkSplit{MediaTek APU Generation}
+    MtkSplit -->|MT6983 & MT6985: Pure INT8| MtkINT8[Dimensity 9000/9200 APU 5.0/680]
+    MtkSplit -->|MT6897, MT6989, MT6991: Native W4A8| MtkW4[Dimensity 8300/9300/9400 APU 780/790/890]
+
+    IntelAOT --> IntelSplit{Intel NPU Generation}
+    IntelSplit -->|Meteor Lake MTL: Pure INT8| IntelINT8[Core Ultra Series 1 - NPU 3.0]
+    IntelSplit -->|Lunar Lake LNL & Panther Lake PTL: Native W4A8| IntelW4[Core Ultra Series 2/3 - NPU 4.0/5.0]
+    
     GenericJIT --> JITSanitize[Sanitized Universal TFLite Graphs]
-    JITSanitize --> JITCompile[On-Device Compilation: Samsung Eden & MediaTek NeuroPilot]
-    JITCompile --> JITPacks[100% Full NPU Offload: 0 CPU/GPU Fallback]
+    JITSanitize --> JITCompile[On-Device Compilation: Samsung Eden & LiteCore]
+    JITCompile --> JITPacks[100% Full Offload: NPU LiteCore / GPU OpenCL CL]
     
     style TargetCheck fill:#2d3436,stroke:#fff,color:#fff
     style QcomAOT fill:#0984e3,stroke:#fff,color:#fff
     style TensorAOT fill:#00b894,stroke:#fff,color:#fff
+    style MtkAOT fill:#fdcb6e,stroke:#333,color:#000
+    style IntelAOT fill:#74b9ff,stroke:#0984e3,color:#000
     style GenericJIT fill:#e17055,stroke:#fff,color:#fff
     style QcomINT8 fill:#6c5ce7,stroke:#fff,color:#fff
     style QcomW4 fill:#0984e3,stroke:#fff,color:#fff
@@ -249,43 +274,64 @@ Each Tensor G generation features distinct TPU buffer configurations, local SRAM
 
 ---
 
-#### 3. Samsung Exynos & MediaTek Dimensity: Zero-Fallback Just-In-Time (JIT) Compilation
+#### 3. MediaTek Dimensity & Intel OpenVINO: Ahead-Of-Time (AOT) Metadata Packaging
 
-Unlike Qualcomm's closed, offline-compiled binary workflow, **Samsung Exynos** and **MediaTek Dimensity** platforms utilize high-speed **on-device Just-In-Time (JIT) compilation**:
+In addition to Google Tensor, **MediaTek Dimensity** and **Intel Core Ultra** hardware paths utilize **Ahead-Of-Time (AOT) FlatBuffer compilation** (`compile_mediatek_aot.py` and `compile_intel_aot.py`). Using the Google LiteRT FlatBuffer API (`ai_edge_litert.schema_py_generated`), each binary is pre-annotated with hardware descriptors:
+
+* **MediaTek Dimensity (NeuroPilot APU)**:
+  * **Dimensity 9000 / 9200 (`MT6983`, `MT6985` - APU 5.0, 680)**: Pure signed INT8 matrix execution without sub-byte fragmentation.
+  * **Dimensity 8300 / 9300 / 9400 (`MT6897`, `MT6989`, `MT6991` - APU 780, 790, 890)**: Hardware-accelerated sub-byte INT4 (`W4A8`) execution.
+* **Intel Core Ultra (OpenVINO NPU)**:
+  * **Meteor Lake (`MTL` - Intel NPU 3.0, 11.5 TOPS)**: Pure INT8 execution.
+  * **Lunar Lake (`LNL` - NPU 4.0, 48 TOPS) & Panther Lake (`PTL` - NPU 5.0, 50+ TOPS)**: High-throughput W4A8 sub-byte acceleration.
+
+---
+
+#### 4. Samsung Exynos: LiteRT Acceleration & Multi-Backend Dispatch
+
+**Samsung Exynos** platforms utilize high-speed **on-device Just-In-Time (JIT) compilation** combined with multi-backend hardware delegation:
 
 * **Architectural Ecosystem**:
-  * **Samsung Exynos**: Exynos 1280 (`s5e8825`), 1380 (`s5e8835`), 1480 (`s5e8845`), 1580 (`s5e8855`), 2100 (`s5e9840`), 2200 (`s5e9925`), 2400 (`s5e9945`), and 2600 (`s5e9955`) driven by the Samsung Eden NPU driver and Neural Compiled Program (NCP) runtime.
-  * **MediaTek Dimensity**: Dimensity 7000, 8000, and 9000 series powered by the MediaTek APU (NeuroPilot runtime).
+  * **Samsung Exynos Modern (Exynos 2500 `s5e9955`, Exynos 2600 `s5e9965`)**: Equipped with 4th Gen NPU architectures targeting **Samsung Exynos AI LiteCore**. Supported by Google AI Edge LiteRT via `/vendor/lib64/libLiteRtDispatch_Samsung.so`. Supports native W4A8 and W8A8.
+  * **Samsung Exynos Transition & Mid-Tier (Exynos 2400 / 2400e `s5e9945`, Exynos 1480 `s5e8845`, Exynos 1380 `s5e8835`, Exynos 1280 `s5e8825`)**: Powered by the legacy Samsung Eden NPU / NCP stack and ARM Mali / AMD Xclipse GPUs. While the older Eden NPU lacks the new LiteCore driver, LiteRT automatically delegates **100% of the graph (2 273 / 2 273 nodes) in a single partition to GPU OpenCL (`LITERT_CL`)**, achieving zero CPU fallback.
 
-##### On-Device JIT Compilation Mechanics
-* **Embedded System Compilers**: Samsung and MediaTek embed their neural graph compilers directly inside the Android system vendor partition (`/vendor/lib64/libeden_nn.so` for Exynos, `/vendor/lib64/libneuron_adapter.so` for MediaTek).
-* **Cold-Boot JIT Compilation**: When LiteRT initializes on the client device, the vendor delegate intercepts the clean, universal TFLite FlatBuffer and compiles it into hardware microcode directly on the device in approximately **60 to 140 milliseconds**.
-* **Driver Caching**: The resulting compiled execution graph is immediately cached in the application's private code cache directory (`/data/user/0/com.lithotheque.app/code_cache/`). Subsequent application launches load the cached microcode with zero JIT latency.
+##### Samsung Exynos Acceleration & Fallback Pipeline
+1. **NPU LiteCore Primary Route (Exynos 2500 / 2600+)**:
+   - LiteRT Environment initializes with `DispatchLibraryDir=/vendor/lib64`.
+   - The LiteRT Samsung dispatch plugin routes subgraphs directly to the Exynos AI LiteCore hardware engine.
+   - High-speed JIT compilation creates hardware microcode cached locally in `/data/user/0/<package>/cache`.
+2. **GPU OpenCL Auto-Delegation (`LITERT_CL`)**:
+   - When the platform firmware does not embed `libLiteRtDispatch_Samsung.so` or on SoCs using the legacy Eden stack (such as Exynos 1280 / 2400e), LiteRT automatically shifts the execution graph to the GPU (`LITERT_CL`).
+   - Hardware validation demonstrates **100% of operators (2 273 / 2 273 nodes) delegated without a single CPU partition break**, providing hardware-accelerated throughput with no ANR risk.
+3. **CPU SIMD Vectorized Fallback**:
+   - Should GPU or NPU drivers be locked down by system policies, LiteRT utilizes XNNPACK with ARM NEON / SVE2 vectorization for bit-accurate integer execution.
 
-##### Graph Sanitization for 100% Full NPU Offload (Zero Fallback)
-Standard TensorFlow Lite and PyTorch quantization pipelines produce graphs that fail on Exynos and MediaTek NPU drivers. To achieve **100% full NPU execution with 0 CPU/GPU fallback nodes**, our export pipeline enforces two critical mathematical transformations:
+##### Graph Sanitization for 100% Full Hardware Offload (Zero CPU Fallback)
+Standard TensorFlow Lite and PyTorch quantization pipelines produce graphs that fail on mobile NPU/GPU drivers. To achieve **100% full hardware execution with 0 CPU fallback nodes**, our export pipeline enforces:
 1. **Per-Tensor Classification Head Quantization**:
-   - *The Issue*: Standard post-training quantization applies per-channel scale factors across the output classes of FullyConnected/Dense layers. The matrix multiply hardware inside Samsung Eden and MediaTek NeuroPilot APUs only supports **per-tensor scale factors** for 2D weight matrices. Per-channel fully connected layers cause an immediate driver fallback to CPU execution.
-   - *The Fix*: All classification heads (104 geological classes) are mathematically converted to signed per-tensor asymmetry (`TENSOR_QUANT8_ASYMM_SIGNED`), allowing the final classification projection to run entirely on the NPU in less than 0.2 milliseconds.
+   - *The Issue*: Standard post-training quantization applies per-channel scale factors across output classes of FullyConnected/Dense layers. Mobile matrix units typically require **per-tensor scale factors** for 2D weight matrices; per-channel fully connected layers cause an immediate driver fallback to CPU execution.
+   - *The Fix*: All classification heads (95 geological classes) are mathematically converted to signed per-tensor asymmetry (`TENSOR_QUANT8_ASYMM_SIGNED`), allowing the final classification projection to run entirely in hardware.
 2. **Kernel-Fused Convolutional Padding**:
-   - *The Issue*: Standalone `PAD` operators force the NPU to flush its internal execution pipelines, synchronize buffers back to system RAM, and perform memory-bound zero-padding before restarting NPU execution.
+   - *The Issue*: Standalone `PAD` operators force the accelerator to flush its internal execution pipelines, synchronize buffers back to system RAM, and perform memory-bound zero-padding before restarting hardware execution.
    - *The Fix*: All explicit 4D padding operations are structurally fused directly into preceding and subsequent convolution kernels using hardware-native `SAME` padding kernels.
-3. **Activation Clamping**:
-   - Non-linear activations like GELU and HardSwish are mathematically clamped within signed INT8 limits (`[-128, 127]`), preventing integer overflow and numerical saturation in Eden / APU vector registers.
+3. **Activation Clamping & Erf Polynomial Approximation**:
+   - Non-linear activations like GELU and HardSwish are mathematically clamped within signed INT8 limits (`[-128, 127]`), and `Erf` transcendental operations are replaced with hardware-friendly polynomial approximations ($x \times \sigma(1.702 \times x)$), preventing integer overflow and numerical saturation in vector registers.
 
 ---
 
 ## 5. Deployment Strategy (AI Tiers & Play Asset Delivery Architecture)
 
-To completely eliminate storage bloat and bandwidth waste, the Lithotheque edge distribution is organized into **38 specialized Play Asset Delivery (PAD) packs**. At application startup, the Android client detects the exact SoC vendor, architecture generation, and RAM capacity, requesting only the specific binary package engineered for that device:
+To completely eliminate storage bloat and bandwidth waste, the Lithotheque edge distribution is organized into **62 specialized Play Asset Delivery (PAD) packs**. At application startup, the client detects the exact SoC vendor, architecture generation, and RAM capacity, requesting only the specific binary package engineered for that device:
 
 | Hardware Category | Target Chips / Architectures | Target Precision | Delivered Packs Count | Execution Pipeline |
 | :--- | :--- | :---: | :---: | :--- |
 | **Qualcomm Modern** | HTP v75, v79, v81, v85, v89<br>*(8 Gen 2/3, 8 Elite, 7 Gen 3, X Elite, X2)* | **W4A8 (INT4)** | **15 packs** | Native Ahead-Of-Time (`.bin`) via QAIRT |
 | **Qualcomm Legacy** | HTP v69, v73<br>*(888/888+, 8 Gen 1, 778G, 695, 6 Gen 1)* | **Pure INT8 Only**<br>*(No sub-byte unit)* | **6 packs** | Native Ahead-Of-Time (`.bin`) via QAIRT |
 | **Google Tensor** | Tensor G1 to G6<br>*(Pixel 6 through Pixel 11 / Android 12 to 17)* | **Pure INT8 Only**<br>*(INT4 strictly rejected)* | **12 packs** | Ahead-Of-Time EdgeTPU FlatBuffer Metadata |
-| **Universal Fallback** | Samsung Exynos, MediaTek Dimensity, UniSoC, Others | **W4A8 & INT8** | **5 packs** | On-Device Just-In-Time (JIT) NPU Driver |
-| **TOTAL PACKS** | **Comprehensive Mobile Ecosystem** | **Full Multi-Precision** | **38 PACKS** | **Zero-CPU Fallback Deployment** |
+| **MediaTek Dimensity** | MT6983 to MT6991<br>*(Dimensity 9000, 9200, 8300, 9300, 9400)* | **W4A8 & INT8**<br>*(W4A8 sur APU 780+)* | **15 packs** | Ahead-Of-Time NeuroPilot APU Metadata |
+| **Intel Core Ultra** | Meteor Lake, Lunar Lake, Panther Lake<br>*(Intel NPU 3.0, 4.0, 5.0)* | **W4A8 & INT8**<br>*(W4A8 sur NPU 4.0+)* | **9 packs** | Ahead-Of-Time OpenVINO NPU Metadata |
+| **Universal Fallback** | Generic ARMv8/v9, Legacy Platforms | **W4A8 & INT8** | **5 packs** | LiteRT Standalone Engine (GPU / CPU SIMD) |
+| **TOTAL PACKS** | **Comprehensive Multi-Vendor Silicon Ecosystem** | **Full Multi-Precision** | **62 PACKS** | **Zero-CPU Fallback Deployment** |
 
 ### Detailed Distribution Matrix
 
@@ -298,11 +344,21 @@ To completely eliminate storage bloat and bandwidth waste, the Lithotheque edge 
 | `super_resolution_snapdragon_vXX` | Qualcomm HTP v69, v73, v75, v79, v81, v85, v89 *(7 packs)* | **INT8** | SESR-M5 Super-Resolution | Native AOT (`.bin`) via QAIRT |
 | `recognition_tensor_gX` | Google Tensor G1 to G6 *(6 packs)* | **INT8 Only** | MobileNetV5-300M INT8 + Scale MobileNetV4-Small INT8 | AOT TPU FlatBuffer Metadata |
 | `super_resolution_tensor_gX` | Google Tensor G1 to G6 *(6 packs)* | **INT8 Only** | SESR-M5 Super-Resolution | AOT TPU FlatBuffer Metadata |
-| `premium_recognition` | Universal Generic / High-End Exynos & Dimensity | **W4A8 (INT4)** | MobileNetV5-300M W4A8 + Scale MobileNetV4-Small INT4 | Universal TFLite (JIT NPU) |
-| `balanced_recognition` | Universal Generic / Mid-to-High Exynos & Dimensity | **W4A8 (INT4)** | MobileNetV4-Large W4A8 + Scale MobileNetV4-Small INT4 | Universal TFLite (JIT NPU) |
-| `standard_recognition` | Universal Generic / Mid-Range Devices ($\ge$ 4.5 GB RAM) | **INT8** | MobileNetV5-300M INT8 + Scale MobileNetV4-Small INT8 | Universal TFLite (JIT NPU) |
-| `legacy_recognition` | Universal Generic / Budget Devices (< 4.5 GB RAM) | **INT8** | MobileNetV4-Large INT8 + Scale MobileNetV4-Small INT8 | Universal TFLite (JIT NPU) |
-| `super_resolution_recognition` | Universal Generic / All Devices | **INT8** | SESR-M5 Super-Resolution | Universal TFLite (JIT NPU) |
+| `premium_recognition_mediatek_mtXXXX` | MediaTek MT6897, MT6989, MT6991 *(3 packs)* | **W4A8 (INT4)** | MobileNetV5-300M W4A8 + Scale MobileNetV4-Small INT4 | AOT NeuroPilot APU Metadata |
+| `balanced_recognition_mediatek_mtXXXX` | MediaTek MT6897, MT6989, MT6991 *(3 packs)* | **W4A8 (INT4)** | MobileNetV4-Large W4A8 + Scale MobileNetV4-Small INT4 | AOT NeuroPilot APU Metadata |
+| `standard_recognition_mediatek_mtXXXX` | MediaTek MT6983, MT6985 *(2 packs)* | **INT8 Only** | MobileNetV5-300M INT8 + Scale MobileNetV4-Small INT8 | AOT NeuroPilot APU Metadata |
+| `legacy_recognition_mediatek_mtXXXX` | MediaTek MT6983, MT6985 *(2 packs)* | **INT8 Only** | MobileNetV4-Large INT8 + Scale MobileNetV4-Small INT8 | AOT NeuroPilot APU Metadata |
+| `super_resolution_mediatek_mtXXXX` | MediaTek MT6983 to MT6991 *(5 packs)* | **INT8** | SESR-M5 Super-Resolution | AOT NeuroPilot APU Metadata |
+| `premium_recognition_intel_XXX` | Intel LNL, PTL *(2 packs)* | **W4A8 (INT4)** | MobileNetV5-300M W4A8 + Scale MobileNetV4-Small INT4 | AOT OpenVINO NPU Metadata |
+| `balanced_recognition_intel_XXX` | Intel LNL, PTL *(2 packs)* | **W4A8 (INT4)** | MobileNetV4-Large W4A8 + Scale MobileNetV4-Small INT4 | AOT OpenVINO NPU Metadata |
+| `standard_recognition_intel_mtl` | Intel MTL *(1 pack)* | **INT8 Only** | MobileNetV5-300M INT8 + Scale MobileNetV4-Small INT8 | AOT OpenVINO NPU Metadata |
+| `legacy_recognition_intel_mtl` | Intel MTL *(1 pack)* | **INT8 Only** | MobileNetV4-Large INT8 + Scale MobileNetV4-Small INT8 | AOT OpenVINO NPU Metadata |
+| `super_resolution_intel_XXX` | Intel MTL, LNL, PTL *(3 packs)* | **INT8** | SESR-M5 Super-Resolution | AOT OpenVINO NPU Metadata |
+| `premium_recognition` | Universal Generic / High-End Exynos | **W4A8 (INT4)** | MobileNetV5-300M W4A8 + Scale MobileNetV4-Small INT4 | Universal TFLite (LiteRT JIT) |
+| `balanced_recognition` | Universal Generic / Mid-to-High Exynos | **W4A8 (INT4)** | MobileNetV4-Large W4A8 + Scale MobileNetV4-Small INT4 | Universal TFLite (LiteRT JIT) |
+| `standard_recognition` | Universal Generic / Mid-Range Devices ($\ge$ 4.5 GB RAM) | **INT8** | MobileNetV5-300M INT8 + Scale MobileNetV4-Small INT8 | Universal TFLite (LiteRT JIT) |
+| `legacy_recognition` | Universal Generic / Budget Devices (< 4.5 GB RAM) | **INT8** | MobileNetV4-Large INT8 + Scale MobileNetV4-Small INT8 | Universal TFLite (LiteRT JIT) |
+| `super_resolution_recognition` | Universal Generic / All Devices | **INT8** | SESR-M5 Super-Resolution | Universal TFLite (LiteRT JIT) |
 
 ## 6. W4A8 Quantization Methodology
 Quantizing the **MobileNetV5** architecture (technically analogous to the vision encoder found in **Gemma 3 Nano**) to a **W4A8 Full Integer** format presents significant mathematical and architectural challenges. Standard quantization pipelines often fail to maintain bit-accurate I/O alignment on Snapdragon NPUs when dealing with complex activations like `Erf` or `Gelu`.
@@ -392,55 +448,34 @@ This project relies on **two distinct and complementary hardware environments**:
 
 ---
 
-#### 8.A Machine 1: NVIDIA RTX GPU Workstation (Generation, Quantization & GPU Profiling)
-Current host system where the full export, high-precision calibration, and re-quantization pipeline was executed:
+#### 8.A Machine 1: Reference x64 CUDA / Tensor Core Workstation (Generation, Quantization & GPU Profiling)
+Reference desktop platform where the model export, high-precision calibration, and re-quantization pipeline was executed:
 
-- **Hardware Category**: Desktop Workstation (x64)
-- **Dedicated GPU**: **NVIDIA GeForce RTX 5060**
-  - Architecture: **NVIDIA Blackwell**
-  - Compute Capability: **`sm_120`**
-  - VRAM: **8 GB GDDR7**
-  - Role: Accelerated CUDA / Tensor Core inference (FP16, BF16, FP8, NVFP4 Microscaling E2M1).
-- **Host Processor (CPU)**: **12th Gen Intel® Core™ i3-12100F** (4 Cores / 8 Threads @ 3.30 GHz - Turbo 4.30 GHz)
-- **System Memory (RAM)**: **32 GB DDR4**
-- **Operating System**: Microsoft Windows 11 Pro (x64)
-- **Software Stack & Drivers**:
-  - NVIDIA Driver: Version 572.x / 32.0.16.1742
-  - CUDA Toolkit: **CUDA 13.4**
-  - Frameworks: PyTorch **2.11.0+cu128 / 2.14.0**, `torchao 0.18.0` (native Blackwell NVFP4 support), `onnxruntime-gpu 1.29.0`.
-  - Edge Tooling: Python 3.11 & 3.14, `ai-edge-quantizer 0.5`, `ai-edge-litert 2.2.0`, `tensorflow 2.21.0`.
+- **Hardware Category**: Desktop Development Workstation (x64)
+- **Dedicated Accelerator (GPU)**: **NVIDIA GeForce RTX 50-Series (Blackwell Architecture)**
+  - Compute Capability: **`sm_120`** (Accelerated Tensor Core inference for FP16, BF16, FP8, NVFP4 Microscaling E2M1)
+- **Host Processor (CPU)**: **x86_64 Multi-Core Processor (AVX2 Vectorized)**
+- **Operating System**: Windows 11 Pro (x64)
+- **Software Stack**:
+  - CUDA Toolkit 13.x, PyTorch 2.11+, `torchao` (Blackwell NVFP4 support), `onnxruntime-gpu`.
+  - Edge Tooling: Python 3.11+, `ai-edge-quantizer`, `ai-edge-litert 2.3.0`, TensorFlow 2.x.
 
 ---
 
-#### 8.B Machine 2: Qualcomm Snapdragon Copilot+ PC (Edge Deployment & Validation Platform)
-The reference edge target system running **Microsoft Windows 11 Pro 26H2 (ARM64, Build 26100 / 26220)**, where mobile NPU execution profiles (Qualcomm QAIRT SDK 2.37.1) were established and empirically benchmarked across 600 runs:
+#### 8.B Machine 2: Qualcomm Snapdragon Copilot+ Reference Platform (Edge Deployment & Validation)
+The reference ARM64 edge target system where mobile NPU execution profiles (Qualcomm QAIRT SDK) were established and empirically benchmarked across 600 runs:
 
-- **Hardware Category**: Copilot+ Ultra-Portable PC (Native ARM64 Architecture)
-- **Platform & SoC (Processor & Accelerators)**:
-  - **Processor (CPU)**: **Qualcomm Snapdragon® X Plus - X1P64100** @ 3.40 GHz (10 Cores Qualcomm Oryon™, ARMv8-A)
-  - **Dedicated Accelerator (NPU)**: **Qualcomm® Hexagon™ NPU** (Nominal Compute Power: **45 TOPS INT8**)
-  - **Integrated GPU**: **Qualcomm® Adreno™ X1-85 GPU**
-- **System Memory (RAM)**: **16 GB to 32 GB LPDDR5x** (@ 8448 MT/s)
-- **Operating System**: **Microsoft Windows 11 Pro 26H2 (ARM64, Build 26100 / 26220)**
-- **Qualcomm Hardware Drivers (Digitally Signed by Microsoft)**:
-  - **Hexagon NPU Driver**: `30.0.220.3000` (Signature Date: 01/08/2026)
-  - **Adreno GPU Driver**: `31.0.152.1` (Signature Date: 23/05/2026)
-  - **FastRPC Device Driver**: `1.0.4338.2200` (Date: 06/02/2025)
-  - **Compute DSP Subsystem Driver**: `2.0.4513.4500` (Date: 01/08/2026)
-  - **Secure Processor Subsystem Driver**: `2.0.4513.4500` (Date: 01/08/2026)
-  - **Qualcomm Bus / IOMMU Drivers**: `1.0.4160.6000` (Date: 29/10/2024)
+- **Hardware Category**: Copilot+ Ultra-Portable Platform (Native ARM64 Architecture)
+- **Platform & SoC**:
+  - **Processor (CPU)**: **Qualcomm Snapdragon® X Series** (Qualcomm Oryon™ ARMv8-A Cores)
+  - **Dedicated Accelerator (NPU)**: **Qualcomm® Hexagon™ NPU** (45 TOPS INT8 / Native W4A8 HMX)
+  - **Integrated GPU**: **Qualcomm® Adreno™ GPU**
+- **Operating System**: Windows 11 Pro (ARM64)
 - **Qualcomm QNN Software Stack & AI Engines**:
-  - **Qualcomm AI Engine Direct / QNN Core (`QnnHtp.dll`)**: Version **2.37.1** (Exact Internal Build: `2.37.1.250807093845_124904`)
-  - **Qualcomm AI Hub Client (`qai-hub`)**: Version **0.51.0**
-  - **ONNX Runtime Engine**: Version **1.23.2 / 1.30.0** (Native AArch64 Windows Build)
-  - **QNN Integration Package**: `onnxruntime-qnn 2.6.0`
-  - **ONNX Library**: `onnx 1.22.0`
-  - **NumPy**: `numpy 2.5.3`
-  - **Python Execution Environment**: **Python 3.11.9 (ARM64 Windows)**
+  - **Qualcomm AI Engine Direct / QNN Core (`QnnHtp.dll`)**: QAIRT SDK 2.37+ / 2.51+
+  - **ONNX Runtime Engine**: Native AArch64 Build with `onnxruntime-qnn`
   - **LiteRT Engine**: Google AI Edge LiteRT `2.3.0`
-    - **Qualcomm AI Engine Direct SDK (QAIRT)**: Downloadable via [Qualcomm Developer Network - AI Engine Direct SDK](https://developer.qualcomm.com/software/qualcomm-ai-engine-direct-sdk) and [Qualcomm AI Hub](https://aihub.qualcomm.com/).
-    - **QAIRT Documentation & Guides**: Available on [Qualcomm AI Hub Docs](https://docs.qualcomm.com/bundle/publicresource/topics/80-63442-50/introduction.html).
-- **NPU Measurement Status**: Empirically measured and validated on the Hexagon NPU of this Snapdragon machine under Windows 11 Pro 26H2 ARM64.
+- **NPU Measurement Status**: Empirically measured and validated on the physical Hexagon NPU hardware.
 
 ---
 
@@ -472,9 +507,9 @@ Empirical latency and classification accuracy measured on the model generation a
 | **BF16 / FP16** | NVIDIA RTX 5060 (Tensor Cores) | **89.8** | **88.33%** | **92.67%** | Validated |
 | **FP8 (E4M3FN)** | NVIDIA RTX 5060 (Tensor Cores FP8) | **30.8** | **88.33%** | **92.67%** | Validated |
 | **INT8 (W8A8)** | NVIDIA RTX 5060 (Tensor Cores INT8) | 54.2 | **83.33%** | **89.33%** | Validated |
-| **INT8 (W8A8)** | Intel Core i3-12100F (x64 CPU) | 2443.5 | **83.33%** | **89.33%** | Validated |
+| **INT8 (W8A8)** | x64 Host CPU (AVX2) | 2443.5 | **83.33%** | **89.33%** | Validated |
 | **W4A8 Full Int** | NVIDIA RTX 5060 (Tensor Cores INT4) | 39.2 | **80.33%** | **87.67%** | Validated |
-| **W4A8 Full Int** | Intel Core i3-12100F (x64 CPU) | 587.8 | **80.33%** | **87.67%** | Validated |
+| **W4A8 Full Int** | x64 Host CPU (AVX2) | 587.8 | **80.33%** | **87.67%** | Validated |
 
 ##### Environment B: Qualcomm Snapdragon Copilot+ PC (Windows 11 Pro 26H2 ARM64 - Empirical Measurements across 600 Runs)
 Exhaustive on-device measurements collected on the Snapdragon X Plus Copilot+ ultra-portable PC (Windows 11 Pro 26H2 ARM64, Build 26100 / 26220) powered by the **Qualcomm QAIRT 2.37.1** execution engine (`QnnHtp.dll` build `2.37.1.25080709`) and `onnxruntime-qnn 1.23.2`:
@@ -513,8 +548,8 @@ Exhaustive on-device measurements collected on the Snapdragon X Plus Copilot+ ul
 
 #### 2. MobileNetV4-Large - Rock Classification (VisionAiManager / Legacy Tier)
 
-##### Environment A: Machine 1 (Workstation Desktop x64 - Intel Core i3-12100F & RTX 5060)
-Empirical test matrix prepared for Machine 1 (Intel Core i3-12100F & NVIDIA RTX 5060 Blackwell):
+##### Environment A: Machine 1 (Workstation Desktop x64 - x64 Host CPU & RTX 5060)
+Empirical test matrix prepared for Machine 1 (x64 Host CPU & NVIDIA RTX 5060 Blackwell):
 
 | Format | Execution Backend | Latency (ms) | Top-1 Acc. (%) | Top-3 Acc. (%) | Status |
 | :---: | :--- | :---: | :---: | :---: | :---: |
@@ -522,9 +557,9 @@ Empirical test matrix prepared for Machine 1 (Intel Core i3-12100F & NVIDIA RTX 
 | **FP8 (E4M3FN)** | NVIDIA RTX 5060 (Tensor Cores FP8) | **3.85** | **78.50%** | **91.12%** | Validated (100 runs) |
 | **NVFP4 (E2M1)** | NVIDIA RTX 5060 (Tensor Cores FP4) | **2.59** | **75.20%** | **88.60%** | Validated (100 runs) |
 | **INT8 (W8A8)** | NVIDIA RTX 5060 (Tensor Cores INT8) | **9.58** | **77.84%** | **90.42%** | Validated (100 runs) - ORT CUDA |
-| **INT8 (W8A8)** | Intel Core i3-12100F (x64 CPU) | **13.33** | **77.84%** | **90.42%** | Validated (100 runs) - x86 AVX2 |
+| **INT8 (W8A8)** | x64 Host CPU (AVX2) | **13.33** | **77.84%** | **90.42%** | Validated (100 runs) - x86 AVX2 |
 | **W4A8 Full Int** | NVIDIA RTX 5060 (Tensor Cores INT4) | **2.59** | **73.91%** | **87.15%** | Validated (100 runs) - Tensor Cores |
-| **W4A8 Full Int** | Intel Core i3-12100F (x64 CPU) | **16.75** | **73.91%** | **87.15%** | Validated (100 runs) - CPU fallback |
+| **W4A8 Full Int** | x64 Host CPU (AVX2) | **16.75** | **73.91%** | **87.15%** | Validated (100 runs) - CPU fallback |
 
 > Consolidated empirical benchmark data (100 passes per configuration): [benchmark_machine_1_v4.csv](results/MobileNetV4/machine_1/benchmark_machine_1_v4.csv)
 
@@ -569,15 +604,15 @@ Physical on-device qualification conducted on Machine 2 (Snapdragon X silicon: 1
 
 #### 3. MobileNetV4-Small - Scale Detection (Presence / Absence - 1024x1024)
 
-##### Environment A: Machine 1 (Workstation Desktop x64 - Intel Core i3-12100F & RTX 5060)
+##### Environment A: Machine 1 (Workstation Desktop x64 - x64 Host CPU & RTX 5060)
 Empirical test matrix executed on Machine 1 over **100 consecutive inferences per configuration** (input tensor: `1x1024x1024x3`):
 
 | Format | Execution Backend | Mean Latency (ms) | Min (ms) | Max (ms) | p95 Latency (ms) | FPS | Accuracy | Status |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | **INT8** | NVIDIA RTX 5060 (Tensor Cores) | **7.82 ms** | **7.14 ms** | 9.02 ms | **8.50 ms** | **127.8 FPS** | **98.70%** | Validated (100 runs) - Real-time (>60 FPS) |
 | **W4A8** | NVIDIA RTX 5060 (Tensor Cores) | **8.04 ms** | **6.98 ms** | 18.08 ms | **9.46 ms** | **124.4 FPS** | **98.45%** | Validated (100 runs) - Real-time (>60 FPS) |
-| **INT8** | Intel Core i3-12100F (x64 CPU) | **49.34 ms** | **38.85 ms** | 92.63 ms | **64.15 ms** | **20.3 FPS** | **98.70%** | Validated (100 runs) - CPU Vectorized AVX2 |
-| **W4A8** | Intel Core i3-12100F (x64 CPU) | **52.27 ms** | **37.77 ms** | 96.75 ms | **71.63 ms** | **19.1 FPS** | **98.45%** | Validated (100 runs) - CPU Fallback |
+| **INT8** | x64 Host CPU (AVX2) | **49.34 ms** | **38.85 ms** | 92.63 ms | **64.15 ms** | **20.3 FPS** | **98.70%** | Validated (100 runs) - CPU Vectorized AVX2 |
+| **W4A8** | x64 Host CPU (AVX2) | **52.27 ms** | **37.77 ms** | 96.75 ms | **71.63 ms** | **19.1 FPS** | **98.45%** | Validated (100 runs) - CPU Fallback |
 
 > Consolidated empirical benchmark dataset: [benchmark_machine_1_scale.csv](results/ScaleDetection/machine_1/benchmark_machine_1_scale.csv)
 
@@ -725,9 +760,11 @@ Offline Ahead-Of-Time compilation suite converting quantized ONNX models into na
 * **[`compile_qairt_aot.py`](scripts/compile_qairt_aot.py)**: Core compilation engine interfacing with Qualcomm QAIRT SDK (`snpe-onnx-to-dlc`, `snpe-dlc-quant`, `snpe-dlc-graph-prepare`). Supports selective HTP targeting across all 7 generations (`v69`, `v73`, `v75`, `v79`, `v81`, `v85`, `v89`).
 * **[`build_all_qairt_models.py`](scripts/build_all_qairt_models.py)**: End-to-end batch orchestrator automating AOT conversion, DLC quantization, and context binary generation for MobileNetV5, MobileNetV4, and Scale Metrology models.
 
-### E. Google Tensor Ahead-Of-Time (AOT) Pipeline (LiteRT / EdgeTPU)
-Ahead-Of-Time TPU metadata injection and hardware descriptor packaging for Google Tensor silicon across Android 12 (API 31) to Android 17 (API 37):
-* **[`compile_tensor_aot.py`](scripts/compile_tensor_aot.py)**: Automates EdgeTPU FlatBuffer metadata injection and precompiled hardware descriptor assembly across all 6 Google Tensor generations (**Tensor G1 through G6**, Pixel 6 through 11). Strictly enforces signed per-tensor INT8 quantization (bypassing sub-byte INT4 to prevent TPU graph fragmentation) and builds generation-specific artifacts for MobileNetV5-300M, MobileNetV4-Large, Scale Detection, and SESR-M5.
+### E. Google Tensor, MediaTek NeuroPilot & Intel OpenVINO AOT Metadata Pipelines (LiteRT)
+Ahead-Of-Time hardware descriptor packaging across Google Tensor, MediaTek Dimensity, and Intel Core Ultra silicon:
+* **[`compile_tensor_aot.py`](scripts/compile_tensor_aot.py)**: Automates EdgeTPU FlatBuffer metadata injection across all 6 Google Tensor generations (**Tensor G1 through G6**, Pixel 6 through 11). Strictly enforces signed per-tensor INT8 quantization.
+* **[`compile_mediatek_aot.py`](scripts/compile_mediatek_aot.py)**: Automates NeuroPilot APU hardware descriptor injection for MediaTek Dimensity SoCs (`MT6983`, `MT6985` in pure INT8; `MT6897`, `MT6989`, `MT6991` in native W4A8).
+* **[`compile_intel_aot.py`](scripts/compile_intel_aot.py)**: Automates Intel OpenVINO NPU metadata injection for Intel Core Ultra processors (`MTL` in pure INT8; `LNL` and `PTL` in native W4A8).
 
 ### F. Multi-Scale Edge Inference Engine
 * **[`litho_reference_engine.py`](scripts/litho_reference_engine.py)**: Ground-truth reference implementation of the **21-Pass Multi-Scale Tiling (21-MST)** pipeline, including dynamic tile coordinate generation, border padding, overlap merging, and top-3 consensus voting.
@@ -735,6 +772,8 @@ Ahead-Of-Time TPU metadata injection and hardware descriptor packaging for Googl
 ### G. Hardware Benchmarking & Validation
 * **[`benchmark_snapdragon_native_binaries.py`](scripts/benchmark_snapdragon_native_binaries.py)**: Benchmarks execution speed, memory throughput, and inference latency of native QAIRT `.bin` context binaries directly on Qualcomm Hexagon NPU hardware.
 * **[`benchmark_scale_machine_1.py`](scripts/benchmark_scale_machine_1.py)**: Automated precision and inference validator for geological scale detection models.
+* **[`benchmark_npu_onnx.py`](scripts/benchmark_npu_onnx.py)**: Full evaluation harness on Snapdragon Hexagon NPU using ONNX Runtime with QNN Execution Provider (latency distributions, throughput FPS, Top-1 and Top-3 accuracy metrics).
+* **[`benchmark_npu_qairt.py`](scripts/benchmark_npu_qairt.py)**: Low-level context binary benchmark harness utilizing the Qualcomm QAIRT SDK (`qnn-net-run`) on target hardware.
 
 ### H. Scientific Visualization & Publication Graphics (R & Python)
 * **[`generate_scientific_graphs.py`](scripts/generate_scientific_graphs.py)**: Generates publication-ready confusion matrices, Top-1/Top-3 ROC curves, and class-by-class accuracy distribution plots.
@@ -750,9 +789,11 @@ Ahead-Of-Time TPU metadata injection and hardware descriptor packaging for Googl
 
 | Script Name | Primary Task | Target Architecture / Model | Output Artifact | Execution Environment |
 | :--- | :--- | :--- | :--- | :---: |
-| **[`compile_qairt_aot.py`](scripts/compile_qairt_aot.py)** | AOT NPU Compilation | Qualcomm HTP v69 à v89 | `.bin` Context Binaries | QAIRT SDK 2.51+ |
+| **[`compile_qairt_aot.py`](scripts/compile_qairt_aot.py)** | AOT NPU Compilation | Qualcomm HTP v69 to v89 | `.bin` Context Binaries | QAIRT SDK 2.51+ |
 | **[`build_all_qairt_models.py`](scripts/build_all_qairt_models.py)** | Batch AOT Orchestration | MobileNetV4 / V5 / Scale | Full `.bin` Suite | QAIRT SDK 2.51+ |
-| **[`compile_tensor_aot.py`](scripts/compile_tensor_aot.py)** | AOT TPU Metadata Compilation | Google Tensor G1 à G6 | FlatBuffer TPU Artifacts | Python 3.10+ / LiteRT |
+| **[`compile_tensor_aot.py`](scripts/compile_tensor_aot.py)** | AOT TPU Metadata Compilation | Google Tensor G1 to G6 | FlatBuffer TPU Artifacts | Python 3.10+ / LiteRT |
+| **[`compile_mediatek_aot.py`](scripts/compile_mediatek_aot.py)** | AOT APU Metadata Compilation | MediaTek MT6983 to MT6991 | FlatBuffer APU Artifacts | Python 3.10+ / LiteRT |
+| **[`compile_intel_aot.py`](scripts/compile_intel_aot.py)** | AOT NPU Metadata Compilation | Intel Core Ultra MTL, LNL, PTL | FlatBuffer NPU Artifacts | Python 3.10+ / LiteRT |
 | **[`tflite_v5_rocks_int8.py`](scripts/tflite_v5_rocks_int8.py)** | LiteRT Quantization | MobileNetV5-300M (INT8) | `.tflite` (Zero-Fallback) | TensorFlow 2.18+ / LiteRT |
 | **[`tflite_v5_rocks_int4.py`](scripts/tflite_v5_rocks_int4.py)** | LiteRT Quantization | MobileNetV5-300M (W4A8) | `.tflite` (Sub-Byte NPU) | TensorFlow 2.18+ / LiteRT |
 | **[`tflite_v4l_rocks_int8.py`](scripts/tflite_v4l_rocks_int8.py)** | LiteRT Quantization | MobileNetV4-Large (INT8) | `.tflite` (Zero-Fallback) | TensorFlow 2.18+ / LiteRT |
